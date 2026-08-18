@@ -928,183 +928,348 @@
       "questions": [
         {
           "type": "choice",
-          "prompt": "部首｜第1題：「河」字的部首是甚麼？",
+          "prompt": "部首｜第1題：點擊正確部件，把它們組合成「河」字。",
           "options": [
-            "三點水",
-            "木字旁",
-            "草字頭",
-            "足字旁"
+            "河",
+            "海",
+            "語",
+            "湖"
           ],
           "answerIndex": 0,
-          "explanation": "「河」與水有關，用三點水。"
+          "explanation": "「河」由三點水「氵」和「可」組成。",
+          "visualType": "radical-build",
+          "targetCharacter": "河",
+          "components": [
+            "氵",
+            "可",
+            "言"
+          ],
+          "correctParts": [
+            0,
+            1
+          ]
         },
         {
           "type": "choice",
-          "prompt": "部首｜第2題：「樹」字的部首是甚麼？",
+          "prompt": "部首｜第2題：點擊正確部件，把它們組合成「林」字。",
           "options": [
-            "三點水",
-            "草字頭",
-            "足字旁",
-            "木字旁"
+            "明",
+            "朋",
+            "森",
+            "林"
           ],
           "answerIndex": 3,
-          "explanation": "「樹」與木類植物有關。"
+          "explanation": "「林」由兩個「木」並列組成。",
+          "visualType": "radical-build",
+          "targetCharacter": "林",
+          "components": [
+            "木",
+            "木",
+            "月"
+          ],
+          "correctParts": [
+            0,
+            1
+          ]
         },
         {
           "type": "choice",
-          "prompt": "部首｜第3題：「花」字的部首是甚麼？",
+          "prompt": "部首｜第3題：點擊正確部件，把它們組合成「花」字。",
           "options": [
-            "木字旁",
-            "足字旁",
-            "草字頭",
-            "三點水"
+            "話",
+            "苗",
+            "花",
+            "草"
           ],
           "answerIndex": 2,
-          "explanation": "「花」與草木有關。"
+          "explanation": "「花」由草字頭「艹」和「化」組成。",
+          "visualType": "radical-build",
+          "targetCharacter": "花",
+          "components": [
+            "艹",
+            "化",
+            "口"
+          ],
+          "correctParts": [
+            0,
+            1
+          ]
         },
         {
           "type": "choice",
-          "prompt": "部首｜第4題：「跑」字的部首是甚麼？",
+          "prompt": "部首｜第4題：點擊正確部件，把它們組合成「跑」字。",
           "options": [
-            "草字頭",
-            "足字旁",
-            "三點水",
-            "木字旁"
+            "路",
+            "跑",
+            "跳",
+            "說"
           ],
           "answerIndex": 1,
-          "explanation": "「跑」與腳的動作有關。"
+          "explanation": "「跑」由足字旁「足」和「包」組成。",
+          "visualType": "radical-build",
+          "targetCharacter": "跑",
+          "components": [
+            "足",
+            "包",
+            "言"
+          ],
+          "correctParts": [
+            0,
+            1
+          ]
         },
         {
           "type": "choice",
-          "prompt": "部首｜第5題：「說」字的部首是甚麼？",
+          "prompt": "部首｜第5題：點擊正確部件，把它們組合成「媽」字。",
           "options": [
-            "言字旁",
-            "三點水",
-            "木字旁",
-            "草字頭"
+            "媽",
+            "姐",
+            "嗎",
+            "好"
           ],
           "answerIndex": 0,
-          "explanation": "「說」與說話有關。"
+          "explanation": "「媽」由女字旁「女」和「馬」組成。",
+          "visualType": "radical-build",
+          "targetCharacter": "媽",
+          "components": [
+            "女",
+            "馬",
+            "木"
+          ],
+          "correctParts": [
+            0,
+            1
+          ]
         },
         {
           "type": "choice",
-          "prompt": "部首｜第6題：「媽」字的部首是甚麼？",
+          "prompt": "部首｜第6題：點擊正確部件，把它們組合成「狗」字。",
           "options": [
-            "三點水",
-            "木字旁",
-            "草字頭",
-            "女字旁"
+            "貓",
+            "問",
+            "狼",
+            "狗"
           ],
           "answerIndex": 3,
-          "explanation": "「媽」與女性稱謂有關。"
+          "explanation": "「狗」由反犬旁「犭」和「句」組成。",
+          "visualType": "radical-build",
+          "targetCharacter": "狗",
+          "components": [
+            "犭",
+            "句",
+            "口"
+          ],
+          "correctParts": [
+            0,
+            1
+          ]
         },
         {
           "type": "choice",
-          "prompt": "部首｜第7題：「狗」字的部首是甚麼？",
+          "prompt": "部首｜第7題：點擊正確部件，把它們組合成「唱」字。",
           "options": [
-            "木字旁",
-            "草字頭",
-            "反犬旁",
-            "三點水"
+            "問",
+            "明",
+            "唱",
+            "晶"
           ],
           "answerIndex": 2,
-          "explanation": "「狗」是動物，常用反犬旁。"
+          "explanation": "「唱」由口字旁「口」和「昌」組成。",
+          "visualType": "radical-build",
+          "targetCharacter": "唱",
+          "components": [
+            "口",
+            "昌",
+            "日"
+          ],
+          "correctParts": [
+            0,
+            1
+          ]
         },
         {
           "type": "choice",
-          "prompt": "部首｜第8題：「唱」字的部首是甚麼？",
+          "prompt": "部首｜第8題：點擊正確部件，把它們組合成「語」字。",
           "options": [
-            "草字頭",
-            "口字旁",
-            "三點水",
-            "木字旁"
+            "讀",
+            "語",
+            "話",
+            "誤"
           ],
           "answerIndex": 1,
-          "explanation": "「唱」與口部動作有關。"
+          "explanation": "「語」由言字旁「言」和「吾」組成。",
+          "visualType": "radical-build",
+          "targetCharacter": "語",
+          "components": [
+            "言",
+            "吾",
+            "五"
+          ],
+          "correctParts": [
+            0,
+            1
+          ]
         },
         {
           "type": "choice",
-          "prompt": "部首｜第9題：「休」字的部首是甚麼？",
+          "prompt": "部首｜第9題：點擊正確部件，把它們組合成「海」字。",
           "options": [
-            "人字旁",
-            "三點水",
-            "木字旁",
-            "草字頭"
+            "海",
+            "河",
+            "梅",
+            "湖"
           ],
           "answerIndex": 0,
-          "explanation": "「休」左邊是人字旁。"
+          "explanation": "「海」由三點水「氵」和「每」組成。",
+          "visualType": "radical-build",
+          "targetCharacter": "海",
+          "components": [
+            "氵",
+            "每",
+            "母"
+          ],
+          "correctParts": [
+            0,
+            1
+          ]
         },
         {
           "type": "choice",
-          "prompt": "部首｜第10題：「明」字的部首可查哪一部分？",
+          "prompt": "部首｜第10題：點擊正確部件，把它們組合成「休」字。",
           "options": [
-            "三點水",
-            "木字旁",
-            "草字頭",
-            "日字旁"
+            "林",
+            "信",
+            "本",
+            "休"
           ],
           "answerIndex": 3,
-          "explanation": "可按左邊的日字旁查字。"
+          "explanation": "「休」由人字旁「亻」和「木」組成。",
+          "visualType": "radical-build",
+          "targetCharacter": "休",
+          "components": [
+            "亻",
+            "木",
+            "人"
+          ],
+          "correctParts": [
+            0,
+            1
+          ]
         },
         {
           "type": "choice",
-          "prompt": "部首｜第11題：「語」字的部首是甚麼？",
+          "prompt": "部首｜第11題：點擊正確部件，把它們組合成「明」字。",
           "options": [
-            "木字旁",
-            "草字頭",
-            "言字旁",
-            "三點水"
+            "眼",
+            "早",
+            "明",
+            "朋"
           ],
           "answerIndex": 2,
-          "explanation": "語言相關字常用言字旁。"
+          "explanation": "「明」由「日」和「月」組成。",
+          "visualType": "radical-build",
+          "targetCharacter": "明",
+          "components": [
+            "日",
+            "月",
+            "目"
+          ],
+          "correctParts": [
+            0,
+            1
+          ]
         },
         {
           "type": "choice",
-          "prompt": "部首｜第12題：「海」字的部首是甚麼？",
+          "prompt": "部首｜第12題：點擊正確部件，把它們組合成「信」字。",
           "options": [
-            "足字旁",
-            "三點水",
-            "木字旁",
-            "草字頭"
+            "念",
+            "信",
+            "語",
+            "休"
           ],
           "answerIndex": 1,
-          "explanation": "「海」是水域，用三點水。"
+          "explanation": "「信」由人字旁「亻」和「言」組成。",
+          "visualType": "radical-build",
+          "targetCharacter": "信",
+          "components": [
+            "亻",
+            "言",
+            "心"
+          ],
+          "correctParts": [
+            0,
+            1
+          ]
         },
         {
           "type": "choice",
-          "prompt": "部首｜第13題：「課」字的部首是甚麼？",
+          "prompt": "部首｜第13題：點擊正確部件，把它們組合成「問」字。",
           "options": [
-            "言字旁",
-            "三點水",
-            "木字旁",
-            "草字頭"
+            "問",
+            "間",
+            "唱",
+            "明"
           ],
           "answerIndex": 0,
-          "explanation": "「課」與言語、學習內容相關。"
+          "explanation": "「問」由門字框「門」和「口」組成。",
+          "visualType": "radical-build",
+          "targetCharacter": "問",
+          "components": [
+            "門",
+            "口",
+            "日"
+          ],
+          "correctParts": [
+            0,
+            1
+          ]
         },
         {
           "type": "choice",
-          "prompt": "部首｜第14題：「跑」字用足字旁，提示它與甚麼有關？",
+          "prompt": "部首｜第14題：點擊正確部件，把它們組合成「園」字。",
           "options": [
-            "三點水",
-            "木字旁",
-            "草字頭",
-            "腳部動作"
+            "圓",
+            "園地",
+            "國",
+            "園"
           ],
           "answerIndex": 3,
-          "explanation": "部首可提示字義範圍。"
+          "explanation": "「園」由外框「囗」和「元」組成。",
+          "visualType": "radical-build",
+          "targetCharacter": "園",
+          "components": [
+            "囗",
+            "元",
+            "口"
+          ],
+          "correctParts": [
+            0,
+            1
+          ]
         },
         {
           "type": "choice",
-          "prompt": "部首｜第15題：查字典時不知道讀音，可先用甚麼查找？",
+          "prompt": "部首｜第15題：點擊正確部件，把它們組合成「近」字。",
           "options": [
-            "木字旁",
-            "草字頭",
-            "部首",
-            "三點水"
+            "新",
+            "進",
+            "近",
+            "遠"
           ],
           "answerIndex": 2,
-          "explanation": "可先找部首再找筆畫。"
+          "explanation": "「近」由走之旁「辶」和「斤」組成。",
+          "visualType": "radical-build",
+          "targetCharacter": "近",
+          "components": [
+            "辶",
+            "斤",
+            "木"
+          ],
+          "correctParts": [
+            0,
+            1
+          ]
         }
       ]
     },
@@ -1734,183 +1899,243 @@
       "questions": [
         {
           "type": "choice",
-          "prompt": "複句｜第1題：＿＿下雨，＿＿我們仍然出發。",
+          "prompt": "複句｜第1題：選擇最合適的一組關聯詞，填入兩個空格。",
           "options": [
-            "雖然……但是……",
-            "只要……就……",
             "如果……就……",
-            "因為……所以……"
+            "雖然……但是……",
+            "因為……所以……",
+            "只要……就……"
           ],
           "answerIndex": 0,
-          "explanation": "這組關聯詞表示轉折。"
+          "explanation": "這是提出假設及結果的情況，應用「如果……就……」。",
+          "studyLabel": "生活情境",
+          "studyText": "明天原定在操場練習接力。老師說如果下雨，就把練習改到禮堂。",
+          "visualType": "connector-fill",
+          "fillSentence": "＿＿明天下雨，＿＿我們改在禮堂練習接力。"
         },
         {
           "type": "choice",
-          "prompt": "複句｜第2題：＿＿完成作業，＿＿可以看電視。",
+          "prompt": "複句｜第2題：選擇最合適的一組關聯詞，填入兩個空格。",
           "options": [
             "雖然……但是……",
-            "如果……就……",
             "因為……所以……",
+            "如果……就……",
             "只要……就……"
           ],
           "answerIndex": 3,
-          "explanation": "這組關聯詞表示條件。"
+          "explanation": "完成作業是可以看影片的條件，應用「只要……就……」。",
+          "studyLabel": "生活情境",
+          "studyText": "小朗每天完成作業後，才可以看喜歡的科學影片。",
+          "visualType": "connector-fill",
+          "fillSentence": "＿＿小朗完成作業，＿＿可以看科學影片。"
         },
         {
           "type": "choice",
-          "prompt": "複句｜第3題：＿＿明天放假，＿＿我們去郊遊。",
+          "prompt": "複句｜第3題：選擇最合適的一組關聯詞，填入兩個空格。",
           "options": [
+            "如果……就……",
             "只要……就……",
-            "因為……所以……",
-            "如果……就……",
-            "雖然……但是……"
-          ],
-          "answerIndex": 2,
-          "explanation": "這組關聯詞表示假設。"
-        },
-        {
-          "type": "choice",
-          "prompt": "複句｜第4題：＿＿小明努力溫習，＿＿考試取得好成績。",
-          "options": [
-            "如果……就……",
-            "因為……所以……",
             "雖然……但是……",
-            "只要……就……"
-          ],
-          "answerIndex": 1,
-          "explanation": "這組關聯詞表示因果。"
-        },
-        {
-          "type": "choice",
-          "prompt": "複句｜第5題：＿＿媽媽很忙，＿＿她仍會陪我閱讀。",
-          "options": [
-            "雖然……但是……",
-            "只要……就……",
-            "如果……就……",
             "因為……所以……"
           ],
-          "answerIndex": 0,
-          "explanation": "前後意思相反時用轉折。"
+          "answerIndex": 2,
+          "explanation": "前句有困難，後句仍然做到，應用轉折關係「雖然……但是……」。",
+          "studyLabel": "生活情境",
+          "studyText": "今天風很大，雨也不停地下；可是值日生仍準時到校幫忙收拾圖書角。",
+          "visualType": "connector-fill",
+          "fillSentence": "＿＿今天風雨很大，＿＿值日生仍準時到校。"
         },
         {
           "type": "choice",
-          "prompt": "複句｜第6題：＿＿你有問題，＿＿可以問老師。",
+          "prompt": "複句｜第4題：選擇最合適的一組關聯詞，填入兩個空格。",
           "options": [
-            "雖然……但是……",
             "只要……就……",
             "因為……所以……",
+            "雖然……但是……",
             "如果……就……"
           ],
-          "answerIndex": 3,
-          "explanation": "假設情況後說結果。"
+          "answerIndex": 1,
+          "explanation": "前句是原因，後句是結果，應用「因為……所以……」。",
+          "studyLabel": "生活情境",
+          "studyText": "小澄看見地上有膠樽，便把它放進回收箱，所以走廊保持整潔。",
+          "visualType": "connector-fill",
+          "fillSentence": "＿＿小澄把膠樽放進回收箱，＿＿走廊保持整潔。"
         },
         {
           "type": "choice",
-          "prompt": "複句｜第7題：＿＿大家齊心合作，＿＿能完成任務。",
-          "options": [
-            "如果……就……",
-            "因為……所以……",
-            "只要……就……",
-            "雖然……但是……"
-          ],
-          "answerIndex": 2,
-          "explanation": "條件做到便有結果。"
-        },
-        {
-          "type": "choice",
-          "prompt": "複句｜第8題：＿＿天氣寒冷，＿＿我穿上外套。",
+          "prompt": "複句｜第5題：選擇最合適的一組關聯詞，填入兩個空格。",
           "options": [
             "如果……就……",
             "因為……所以……",
             "雖然……但是……",
             "只要……就……"
           ],
-          "answerIndex": 1,
-          "explanation": "原因在前，結果在後。"
-        },
-        {
-          "type": "choice",
-          "prompt": "複句｜第9題：＿＿路程很遠，＿＿爸爸仍然步行回家。",
-          "options": [
-            "雖然……但是……",
-            "只要……就……",
-            "如果……就……",
-            "因為……所以……"
-          ],
           "answerIndex": 0,
-          "explanation": "轉折複句突出後句。"
+          "explanation": "是否提早結束是假設條件，應用「如果……就……」。",
+          "studyLabel": "生活情境",
+          "studyText": "若家長日提早結束，小儀便會和媽媽到圖書館還書。",
+          "visualType": "connector-fill",
+          "fillSentence": "＿＿家長日提早結束，＿＿小儀會到圖書館還書。"
         },
         {
           "type": "choice",
-          "prompt": "複句｜第10題：＿＿你早點睡覺，＿＿精神會更好。",
+          "prompt": "複句｜第6題：選擇最合適的一組關聯詞，填入兩個空格。",
           "options": [
-            "雖然……但是……",
-            "只要……就……",
             "因為……所以……",
-            "如果……就……"
+            "雖然……但是……",
+            "如果……就……",
+            "只要……就……"
           ],
           "answerIndex": 3,
-          "explanation": "提出假設和可能結果。"
+          "explanation": "每天閱讀是可達成結果的條件，應用「只要……就……」。",
+          "studyLabel": "生活情境",
+          "studyText": "老師提醒大家每天讀一小段課文，詞語量自然會增加。",
+          "visualType": "connector-fill",
+          "fillSentence": "＿＿每天讀一小段課文，＿＿詞語量會增加。"
         },
         {
           "type": "choice",
-          "prompt": "複句｜第11題：＿＿認真練習，＿＿能進步。",
+          "prompt": "複句｜第7題：選擇最合適的一組關聯詞，填入兩個空格。",
           "options": [
             "如果……就……",
-            "因為……所以……",
             "只要……就……",
-            "雖然……但是……"
+            "雖然……但是……",
+            "因為……所以……"
           ],
           "answerIndex": 2,
-          "explanation": "必要條件和結果的關係。"
+          "explanation": "路長是困難，仍到達山頂是轉折結果，應用「雖然……但是……」。",
+          "studyLabel": "生活情境",
+          "studyText": "遠足的路很長，但小組成員互相鼓勵，最後全部到達山頂。",
+          "visualType": "connector-fill",
+          "fillSentence": "＿＿遠足的路很長，＿＿大家全部到達山頂。"
         },
         {
           "type": "choice",
-          "prompt": "複句｜第12題：＿＿小鳥受傷，＿＿同學送牠到獸醫處。",
+          "prompt": "複句｜第8題：選擇最合適的一組關聯詞，填入兩個空格。",
+          "options": [
+            "只要……就……",
+            "因為……所以……",
+            "雖然……但是……",
+            "如果……就……"
+          ],
+          "answerIndex": 1,
+          "explanation": "仔細閱讀題目是答得準確的原因，應用「因為……所以……」。",
+          "studyLabel": "生活情境",
+          "studyText": "同學先仔細閱讀題目，便知道要找哪一個資料，答題也較準確。",
+          "visualType": "connector-fill",
+          "fillSentence": "＿＿同學仔細閱讀題目，＿＿答題較準確。"
+        },
+        {
+          "type": "choice",
+          "prompt": "複句｜第9題：選擇最合適的一組關聯詞，填入兩個空格。",
           "options": [
             "如果……就……",
             "因為……所以……",
             "雖然……但是……",
             "只要……就……"
           ],
-          "answerIndex": 1,
-          "explanation": "說明原因和結果。"
-        },
-        {
-          "type": "choice",
-          "prompt": "複句｜第13題：＿＿這本書很厚，＿＿我每天讀一章。",
-          "options": [
-            "雖然……但是……",
-            "只要……就……",
-            "如果……就……",
-            "因為……所以……"
-          ],
           "answerIndex": 0,
-          "explanation": "表達困難但仍努力。"
+          "explanation": "忘記帶剪刀是可能出現的情況，應用「如果……就……」。",
+          "studyLabel": "生活情境",
+          "studyText": "班主任說：萬一有人忘記帶剪刀，小組就可以向老師借用。",
+          "visualType": "connector-fill",
+          "fillSentence": "＿＿有人忘記帶剪刀，＿＿可以向老師借用。"
         },
         {
           "type": "choice",
-          "prompt": "複句｜第14題：＿＿明天有空，＿＿我們一起做專題。",
+          "prompt": "複句｜第10題：選擇最合適的一組關聯詞，填入兩個空格。",
           "options": [
-            "雖然……但是……",
-            "只要……就……",
             "因為……所以……",
-            "如果……就……"
+            "雖然……但是……",
+            "如果……就……",
+            "只要……就……"
           ],
           "answerIndex": 3,
-          "explanation": "「如果」後面是假設。"
+          "explanation": "每天練習是進步的條件，應用「只要……就……」。",
+          "studyLabel": "生活情境",
+          "studyText": "小婷願意每天練習朗讀，聲音便越來越清楚。",
+          "visualType": "connector-fill",
+          "fillSentence": "＿＿小婷每天練習朗讀，＿＿聲音會越來越清楚。"
         },
         {
           "type": "choice",
-          "prompt": "複句｜第15題：＿＿每人做好本分，＿＿班房會更整潔。",
+          "prompt": "複句｜第11題：選擇最合適的一組關聯詞，填入兩個空格。",
+          "options": [
+            "如果……就……",
+            "只要……就……",
+            "雖然……但是……",
+            "因為……所以……"
+          ],
+          "answerIndex": 2,
+          "explanation": "受傷與仍然幫忙形成轉折，應用「雖然……但是……」。",
+          "studyLabel": "生活情境",
+          "studyText": "阿文腳扭傷了，仍坐在場邊為同學記錄比賽成績。",
+          "visualType": "connector-fill",
+          "fillSentence": "＿＿阿文腳扭傷了，＿＿他仍為同學記錄成績。"
+        },
+        {
+          "type": "choice",
+          "prompt": "複句｜第12題：選擇最合適的一組關聯詞，填入兩個空格。",
+          "options": [
+            "只要……就……",
+            "因為……所以……",
+            "雖然……但是……",
+            "如果……就……"
+          ],
+          "answerIndex": 1,
+          "explanation": "洗好水果是很快能吃點心的原因，應用「因為……所以……」。",
+          "studyLabel": "生活情境",
+          "studyText": "媽媽先洗好水果，再切成小塊，所以全家很快便能吃點心。",
+          "visualType": "connector-fill",
+          "fillSentence": "＿＿媽媽先洗好水果，＿＿全家很快便能吃點心。"
+        },
+        {
+          "type": "choice",
+          "prompt": "複句｜第13題：選擇最合適的一組關聯詞，填入兩個空格。",
           "options": [
             "如果……就……",
             "因為……所以……",
+            "雖然……但是……",
+            "只要……就……"
+          ],
+          "answerIndex": 0,
+          "explanation": "圖書館開放是假設條件，應用「如果……就……」。",
+          "studyLabel": "生活情境",
+          "studyText": "若明天的圖書館有開放，小組就去找有關海洋的參考書。",
+          "visualType": "connector-fill",
+          "fillSentence": "＿＿圖書館明天開放，＿＿小組去找海洋參考書。"
+        },
+        {
+          "type": "choice",
+          "prompt": "複句｜第14題：選擇最合適的一組關聯詞，填入兩個空格。",
+          "options": [
+            "因為……所以……",
+            "雖然……但是……",
+            "如果……就……",
+            "只要……就……"
+          ],
+          "answerIndex": 3,
+          "explanation": "每人完成部分是專題準時交出的條件，應用「只要……就……」。",
+          "studyLabel": "生活情境",
+          "studyText": "老師說只要每人完成自己的部分，專題便能準時交出。",
+          "visualType": "connector-fill",
+          "fillSentence": "＿＿每人完成自己的部分，＿＿專題能準時交出。"
+        },
+        {
+          "type": "choice",
+          "prompt": "複句｜第15題：選擇最合適的一組關聯詞，填入兩個空格。",
+          "options": [
+            "如果……就……",
             "只要……就……",
-            "雖然……但是……"
+            "雖然……但是……",
+            "因為……所以……"
           ],
           "answerIndex": 2,
-          "explanation": "說明達成結果的條件。"
+          "explanation": "天氣炎熱但仍參加活動，應用「雖然……但是……」。",
+          "studyLabel": "生活情境",
+          "studyText": "今天很熱，同學仍戴上帽子和水樽參加清潔海灘活動。",
+          "visualType": "connector-fill",
+          "fillSentence": "＿＿天氣很熱，＿＿同學仍參加清潔海灘活動。"
         }
       ]
     },
@@ -3928,183 +4153,628 @@
       "questions": [
         {
           "type": "choice",
-          "prompt": "文言實詞及虛詞｜第1題：「學而時習之」中「習」的意思是甚麼？",
+          "prompt": "文言實詞及虛詞｜第1題：點擊原文中意思是「溫習」的詞語，再按「確認標記」。",
           "options": [
-            "溫習",
-            "舊知識",
-            "生氣",
-            "學習"
+            "習",
+            "學",
+            "時",
+            "之"
           ],
           "answerIndex": 0,
-          "explanation": "「習」在這裡指溫習。"
+          "explanation": "「習」在句中指溫習、複習。",
+          "visualType": "classical-mark",
+          "classicalText": "學而時習之",
+          "markers": [
+            {
+              "id": "學",
+              "text": "學",
+              "gloss": "學習"
+            },
+            {
+              "id": "而",
+              "text": "而",
+              "gloss": "然後、承接"
+            },
+            {
+              "id": "時",
+              "text": "時",
+              "gloss": "按時"
+            },
+            {
+              "id": "習",
+              "text": "習",
+              "gloss": "溫習"
+            },
+            {
+              "id": "之",
+              "text": "之",
+              "gloss": "所學的內容"
+            }
+          ],
+          "targetId": "習"
         },
         {
           "type": "choice",
-          "prompt": "文言實詞及虛詞｜第2題：「溫故而知新」中「故」的意思是甚麼？",
+          "prompt": "文言實詞及虛詞｜第2題：點擊原文中指「舊知識」的詞語，再按「確認標記」。",
           "options": [
-            "溫習",
-            "生氣",
-            "學習",
-            "舊知識"
+            "溫",
+            "知",
+            "新",
+            "故"
           ],
           "answerIndex": 3,
-          "explanation": "「故」指已學過的舊知識。"
+          "explanation": "「故」在這裡指已學過的舊知識。",
+          "visualType": "classical-mark",
+          "classicalText": "溫故而知新",
+          "markers": [
+            {
+              "id": "溫",
+              "text": "溫",
+              "gloss": "溫習"
+            },
+            {
+              "id": "故",
+              "text": "故",
+              "gloss": "舊知識"
+            },
+            {
+              "id": "而",
+              "text": "而",
+              "gloss": "然後、承接"
+            },
+            {
+              "id": "知",
+              "text": "知",
+              "gloss": "知道"
+            },
+            {
+              "id": "新",
+              "text": "新",
+              "gloss": "新的理解"
+            }
+          ],
+          "targetId": "故"
         },
         {
           "type": "choice",
-          "prompt": "文言實詞及虛詞｜第3題：「人不知而不慍」中「慍」的意思是甚麼？",
+          "prompt": "文言實詞及虛詞｜第3題：點擊原文中意思是「不生氣」的詞語，再按「確認標記」。",
           "options": [
-            "舊知識",
-            "學習",
-            "生氣",
-            "溫習"
+            "不知",
+            "而",
+            "不慍",
+            "人"
           ],
           "answerIndex": 2,
-          "explanation": "「慍」指惱怒、生氣。"
+          "explanation": "「不慍」表示不惱怒、不生氣。",
+          "visualType": "classical-mark",
+          "classicalText": "人不知而不慍",
+          "markers": [
+            {
+              "id": "人",
+              "text": "人",
+              "gloss": "別人"
+            },
+            {
+              "id": "不知",
+              "text": "不知",
+              "gloss": "不了解"
+            },
+            {
+              "id": "而",
+              "text": "而",
+              "gloss": "卻、轉折"
+            },
+            {
+              "id": "不慍",
+              "text": "不慍",
+              "gloss": "不生氣"
+            }
+          ],
+          "targetId": "不慍"
         },
         {
           "type": "choice",
-          "prompt": "文言實詞及虛詞｜第4題：「擇其善者而從之」中「從」的意思是甚麼？",
+          "prompt": "文言實詞及虛詞｜第4題：點擊原文中意思是「跟隨學習」的詞語，再按「確認標記」。",
           "options": [
-            "生氣",
-            "學習",
-            "溫習",
-            "舊知識"
+            "之",
+            "從",
+            "擇",
+            "善者"
           ],
           "answerIndex": 1,
-          "explanation": "「從」在這裡指跟隨學習。"
+          "explanation": "「從」在這裡是跟隨、學習的意思。",
+          "visualType": "classical-mark",
+          "classicalText": "擇其善者而從之",
+          "markers": [
+            {
+              "id": "擇",
+              "text": "擇",
+              "gloss": "選擇"
+            },
+            {
+              "id": "善者",
+              "text": "善者",
+              "gloss": "有優點的人"
+            },
+            {
+              "id": "而",
+              "text": "而",
+              "gloss": "然後、承接"
+            },
+            {
+              "id": "從",
+              "text": "從",
+              "gloss": "跟隨學習"
+            },
+            {
+              "id": "之",
+              "text": "之",
+              "gloss": "他"
+            }
+          ],
+          "targetId": "從"
         },
         {
           "type": "choice",
-          "prompt": "文言實詞及虛詞｜第5題：「吾日三省吾身」中「省」的意思是甚麼？",
+          "prompt": "文言實詞及虛詞｜第5題：點擊原文中意思是「反省」的詞語，再按「確認標記」。",
           "options": [
-            "反省",
-            "溫習",
-            "舊知識",
-            "生氣"
+            "省",
+            "吾",
+            "日",
+            "身"
           ],
           "answerIndex": 0,
-          "explanation": "「省」在這裡指反省自己。"
+          "explanation": "「省」在這裡指反省自己。",
+          "visualType": "classical-mark",
+          "classicalText": "吾日三省吾身",
+          "markers": [
+            {
+              "id": "吾",
+              "text": "吾",
+              "gloss": "我"
+            },
+            {
+              "id": "日",
+              "text": "日",
+              "gloss": "每天"
+            },
+            {
+              "id": "三",
+              "text": "三",
+              "gloss": "多次"
+            },
+            {
+              "id": "省",
+              "text": "省",
+              "gloss": "反省"
+            },
+            {
+              "id": "身",
+              "text": "身",
+              "gloss": "自己"
+            }
+          ],
+          "targetId": "省"
         },
         {
           "type": "choice",
-          "prompt": "文言實詞及虛詞｜第6題：「三人行，必有我師焉」中「師」的意思是甚麼？",
+          "prompt": "文言實詞及虛詞｜第6題：點擊原文中指「可以學習的人」的詞語，再按「確認標記」。",
           "options": [
-            "溫習",
-            "舊知識",
-            "生氣",
-            "可以學習的人"
+            "三人",
+            "行",
+            "焉",
+            "師"
           ],
           "answerIndex": 3,
-          "explanation": "「師」指值得學習的人。"
+          "explanation": "「師」在句中指值得我們學習的人。",
+          "visualType": "classical-mark",
+          "classicalText": "三人行，必有我師焉",
+          "markers": [
+            {
+              "id": "三人",
+              "text": "三人",
+              "gloss": "多人"
+            },
+            {
+              "id": "行",
+              "text": "行",
+              "gloss": "同行"
+            },
+            {
+              "id": "必",
+              "text": "必",
+              "gloss": "一定"
+            },
+            {
+              "id": "師",
+              "text": "師",
+              "gloss": "可以學習的人"
+            },
+            {
+              "id": "焉",
+              "text": "焉",
+              "gloss": "於此、在其中"
+            }
+          ],
+          "targetId": "師"
         },
         {
           "type": "choice",
-          "prompt": "文言實詞及虛詞｜第7題：「見賢思齊焉」中「賢」的意思是甚麼？",
+          "prompt": "文言實詞及虛詞｜第7題：點擊原文中指「有德行的人」的詞語，再按「確認標記」。",
           "options": [
-            "舊知識",
-            "生氣",
-            "有德行的人",
-            "溫習"
+            "思",
+            "齊",
+            "賢",
+            "見"
           ],
           "answerIndex": 2,
-          "explanation": "「賢」指品德或才能好的人。"
+          "explanation": "「賢」指品德好、值得學習的人。",
+          "visualType": "classical-mark",
+          "classicalText": "見賢思齊焉",
+          "markers": [
+            {
+              "id": "見",
+              "text": "見",
+              "gloss": "看見"
+            },
+            {
+              "id": "賢",
+              "text": "賢",
+              "gloss": "有德行的人"
+            },
+            {
+              "id": "思",
+              "text": "思",
+              "gloss": "希望、想"
+            },
+            {
+              "id": "齊",
+              "text": "齊",
+              "gloss": "看齊"
+            },
+            {
+              "id": "焉",
+              "text": "焉",
+              "gloss": "於他"
+            }
+          ],
+          "targetId": "賢"
         },
         {
           "type": "choice",
-          "prompt": "文言實詞及虛詞｜第8題：「學而不思則罔」中「罔」的意思是甚麼？",
+          "prompt": "文言實詞及虛詞｜第8題：點擊原文中意思是「迷惘無所得」的詞語，再按「確認標記」。",
           "options": [
-            "生氣",
-            "迷惑無所得",
-            "溫習",
-            "舊知識"
+            "則",
+            "罔",
+            "學",
+            "不思"
           ],
           "answerIndex": 1,
-          "explanation": "「罔」指迷惘而無所得。"
+          "explanation": "「罔」指迷惘而沒有收穫。",
+          "visualType": "classical-mark",
+          "classicalText": "學而不思則罔",
+          "markers": [
+            {
+              "id": "學",
+              "text": "學",
+              "gloss": "學習"
+            },
+            {
+              "id": "而",
+              "text": "而",
+              "gloss": "但是、轉折"
+            },
+            {
+              "id": "不思",
+              "text": "不思",
+              "gloss": "不思考"
+            },
+            {
+              "id": "則",
+              "text": "則",
+              "gloss": "就"
+            },
+            {
+              "id": "罔",
+              "text": "罔",
+              "gloss": "迷惘無所得"
+            }
+          ],
+          "targetId": "罔"
         },
         {
           "type": "choice",
-          "prompt": "文言實詞及虛詞｜第9題：「吾十有五而志於學」中「志」的意思是甚麼？",
+          "prompt": "文言實詞及虛詞｜第9題：點擊原文中意思是「立志」的詞語，再按「確認標記」。",
           "options": [
-            "立志",
-            "溫習",
-            "舊知識",
-            "生氣"
+            "志",
+            "吾",
+            "十有五",
+            "於學"
           ],
           "answerIndex": 0,
-          "explanation": "「志」作動詞，指立定志向。"
+          "explanation": "「志」作動詞，指立定志向。",
+          "visualType": "classical-mark",
+          "classicalText": "吾十有五而志於學",
+          "markers": [
+            {
+              "id": "吾",
+              "text": "吾",
+              "gloss": "我"
+            },
+            {
+              "id": "十有五",
+              "text": "十有五",
+              "gloss": "十五歲"
+            },
+            {
+              "id": "而",
+              "text": "而",
+              "gloss": "就、承接"
+            },
+            {
+              "id": "志",
+              "text": "志",
+              "gloss": "立志"
+            },
+            {
+              "id": "於學",
+              "text": "於學",
+              "gloss": "在學習方面"
+            }
+          ],
+          "targetId": "志"
         },
         {
           "type": "choice",
-          "prompt": "文言實詞及虛詞｜第10題：「知之為知之」中第一個「之」主要指甚麼？",
+          "prompt": "文言實詞及虛詞｜第10題：點擊第一個「之」所代表的內容，再按「確認標記」。",
           "options": [
-            "溫習",
-            "舊知識",
-            "生氣",
-            "所知道的事"
+            "知一",
+            "為",
+            "知二",
+            "之"
           ],
           "answerIndex": 3,
-          "explanation": "「之」代指前面的事物。"
+          "explanation": "第一個「之」代指所知道的事情。",
+          "visualType": "classical-mark",
+          "classicalText": "知之為知之",
+          "markers": [
+            {
+              "id": "知一",
+              "text": "知",
+              "gloss": "知道"
+            },
+            {
+              "id": "之一",
+              "text": "之",
+              "gloss": "所知道的事"
+            },
+            {
+              "id": "為",
+              "text": "為",
+              "gloss": "是"
+            },
+            {
+              "id": "知二",
+              "text": "知",
+              "gloss": "知道"
+            },
+            {
+              "id": "之二",
+              "text": "之",
+              "gloss": "它"
+            }
+          ],
+          "targetId": "之一"
         },
         {
           "type": "choice",
-          "prompt": "文言實詞及虛詞｜第11題：「學而時習之」中「而」表示甚麼關係？",
+          "prompt": "文言實詞及虛詞｜第11題：點擊原文中連接「學」與「習」、表示承接的虛詞，再按「確認標記」。",
           "options": [
-            "舊知識",
-            "生氣",
-            "承接",
-            "溫習"
+            "時",
+            "之",
+            "而",
+            "學"
           ],
           "answerIndex": 2,
-          "explanation": "「而」連接「學」和「習」，表示承接。"
+          "explanation": "「而」連接前後動作，表示承接關係。",
+          "visualType": "classical-mark",
+          "classicalText": "學而時習之",
+          "markers": [
+            {
+              "id": "學",
+              "text": "學",
+              "gloss": "學習"
+            },
+            {
+              "id": "而",
+              "text": "而",
+              "gloss": "然後、承接"
+            },
+            {
+              "id": "時",
+              "text": "時",
+              "gloss": "按時"
+            },
+            {
+              "id": "習",
+              "text": "習",
+              "gloss": "溫習"
+            },
+            {
+              "id": "之",
+              "text": "之",
+              "gloss": "所學內容"
+            }
+          ],
+          "targetId": "而"
         },
         {
           "type": "choice",
-          "prompt": "文言實詞及虛詞｜第12題：「可以為師矣」中「以」的意思是甚麼？",
+          "prompt": "文言實詞及虛詞｜第12題：點擊原文中表示「憑藉」的虛詞，再按「確認標記」。",
           "options": [
-            "生氣",
-            "憑藉",
-            "溫習",
-            "舊知識"
+            "矣",
+            "以",
+            "可",
+            "為"
           ],
           "answerIndex": 1,
-          "explanation": "「以」表示憑藉。"
+          "explanation": "「以」在句中表示憑藉。",
+          "visualType": "classical-mark",
+          "classicalText": "可以為師矣",
+          "markers": [
+            {
+              "id": "可",
+              "text": "可",
+              "gloss": "可以"
+            },
+            {
+              "id": "以",
+              "text": "以",
+              "gloss": "憑藉"
+            },
+            {
+              "id": "為",
+              "text": "為",
+              "gloss": "成為"
+            },
+            {
+              "id": "師",
+              "text": "師",
+              "gloss": "老師"
+            },
+            {
+              "id": "矣",
+              "text": "矣",
+              "gloss": "了"
+            }
+          ],
+          "targetId": "以"
         },
         {
           "type": "choice",
-          "prompt": "文言實詞及虛詞｜第13題：「不亦說乎」中「乎」的作用是甚麼？",
+          "prompt": "文言實詞及虛詞｜第13題：點擊原文中用在句末、表示語氣的虛詞，再按「確認標記」。",
           "options": [
-            "語氣詞",
-            "溫習",
-            "舊知識",
-            "生氣"
+            "乎",
+            "不",
+            "亦",
+            "說"
           ],
           "answerIndex": 0,
-          "explanation": "「乎」用在句末表示語氣。"
+          "explanation": "「乎」用在句末，表示疑問或感嘆的語氣。",
+          "visualType": "classical-mark",
+          "classicalText": "不亦說乎",
+          "markers": [
+            {
+              "id": "不",
+              "text": "不",
+              "gloss": "不"
+            },
+            {
+              "id": "亦",
+              "text": "亦",
+              "gloss": "也"
+            },
+            {
+              "id": "說",
+              "text": "說",
+              "gloss": "喜悅"
+            },
+            {
+              "id": "乎",
+              "text": "乎",
+              "gloss": "句末語氣詞"
+            }
+          ],
+          "targetId": "乎"
         },
         {
           "type": "choice",
-          "prompt": "文言實詞及虛詞｜第14題：「吾」在文言文中通常指誰？",
+          "prompt": "文言實詞及虛詞｜第14題：點擊原文中作第一人稱、意思是「我」的詞語，再按「確認標記」。",
           "options": [
-            "溫習",
-            "舊知識",
-            "生氣",
-            "我"
+            "日",
+            "省",
+            "身",
+            "吾"
           ],
           "answerIndex": 3,
-          "explanation": "「吾」是第一人稱代詞。"
+          "explanation": "「吾」是第一人稱代詞，意思是我。",
+          "visualType": "classical-mark",
+          "classicalText": "吾日三省吾身",
+          "markers": [
+            {
+              "id": "吾一",
+              "text": "吾",
+              "gloss": "我"
+            },
+            {
+              "id": "日",
+              "text": "日",
+              "gloss": "每天"
+            },
+            {
+              "id": "三",
+              "text": "三",
+              "gloss": "多次"
+            },
+            {
+              "id": "省",
+              "text": "省",
+              "gloss": "反省"
+            },
+            {
+              "id": "吾二",
+              "text": "吾",
+              "gloss": "我"
+            },
+            {
+              "id": "身",
+              "text": "身",
+              "gloss": "自己"
+            }
+          ],
+          "targetId": "吾一"
         },
         {
           "type": "choice",
-          "prompt": "文言實詞及虛詞｜第15題：文言實詞通常有甚麼特點？",
+          "prompt": "文言實詞及虛詞｜第15題：點擊原文中代指「所學內容」的虛詞，再按「確認標記」。",
           "options": [
-            "舊知識",
-            "生氣",
-            "有具體意思",
-            "溫習"
+            "時",
+            "習",
+            "之",
+            "學"
           ],
           "answerIndex": 2,
-          "explanation": "實詞能表達較具體的意義。"
+          "explanation": "「之」在這裡代指前面所學的內容。",
+          "visualType": "classical-mark",
+          "classicalText": "學而時習之",
+          "markers": [
+            {
+              "id": "學",
+              "text": "學",
+              "gloss": "學習"
+            },
+            {
+              "id": "而",
+              "text": "而",
+              "gloss": "然後、承接"
+            },
+            {
+              "id": "時",
+              "text": "時",
+              "gloss": "按時"
+            },
+            {
+              "id": "習",
+              "text": "習",
+              "gloss": "溫習"
+            },
+            {
+              "id": "之",
+              "text": "之",
+              "gloss": "所學的內容"
+            }
+          ],
+          "targetId": "之"
         }
       ]
     },

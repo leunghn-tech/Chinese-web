@@ -100,6 +100,90 @@ const replaceTopicEntries = (grade, title, entries, distractors) => {
   topic[1] = entries;
   topic[2] = distractors;
 };
+const radicalQuestion = ({ target, components, correctParts, prompt, explanation, distractors }) => ({
+  prompt,
+  answer: target,
+  explanation,
+  distractors,
+  visualType: 'radical-build',
+  targetCharacter: target,
+  components,
+  correctParts,
+});
+const connectorQuestion = ({ studyText, fillSentence, answer, explanation, distractors }) => ({
+  studyLabel: '生活情境',
+  studyText,
+  prompt: '選擇最合適的一組關聯詞，填入兩個空格。',
+  answer,
+  explanation,
+  distractors,
+  visualType: 'connector-fill',
+  fillSentence,
+});
+const classicalMarkQuestion = ({ text, markers, targetId, prompt, explanation, distractors }) => ({
+  prompt,
+  answer: markers.find((marker) => marker.id === targetId)?.text || '',
+  explanation,
+  distractors,
+  visualType: 'classical-mark',
+  classicalText: text,
+  markers,
+  targetId,
+});
+
+replaceTopicEntries('P2', '部首', [
+  radicalQuestion({ target:'河', components:['氵','可','言'], correctParts:[0,1], distractors:['海','語','湖'], prompt:'點擊正確部件，把它們組合成「河」字。', explanation:'「河」由三點水「氵」和「可」組成。' }),
+  radicalQuestion({ target:'林', components:['木','木','月'], correctParts:[0,1], distractors:['明','朋','森'], prompt:'點擊正確部件，把它們組合成「林」字。', explanation:'「林」由兩個「木」並列組成。' }),
+  radicalQuestion({ target:'花', components:['艹','化','口'], correctParts:[0,1], distractors:['草','話','苗'], prompt:'點擊正確部件，把它們組合成「花」字。', explanation:'「花」由草字頭「艹」和「化」組成。' }),
+  radicalQuestion({ target:'跑', components:['足','包','言'], correctParts:[0,1], distractors:['跳','說','路'], prompt:'點擊正確部件，把它們組合成「跑」字。', explanation:'「跑」由足字旁「足」和「包」組成。' }),
+  radicalQuestion({ target:'媽', components:['女','馬','木'], correctParts:[0,1], distractors:['姐','嗎','好'], prompt:'點擊正確部件，把它們組合成「媽」字。', explanation:'「媽」由女字旁「女」和「馬」組成。' }),
+  radicalQuestion({ target:'狗', components:['犭','句','口'], correctParts:[0,1], distractors:['貓','問','狼'], prompt:'點擊正確部件，把它們組合成「狗」字。', explanation:'「狗」由反犬旁「犭」和「句」組成。' }),
+  radicalQuestion({ target:'唱', components:['口','昌','日'], correctParts:[0,1], distractors:['晶','問','明'], prompt:'點擊正確部件，把它們組合成「唱」字。', explanation:'「唱」由口字旁「口」和「昌」組成。' }),
+  radicalQuestion({ target:'語', components:['言','吾','五'], correctParts:[0,1], distractors:['話','誤','讀'], prompt:'點擊正確部件，把它們組合成「語」字。', explanation:'「語」由言字旁「言」和「吾」組成。' }),
+  radicalQuestion({ target:'海', components:['氵','每','母'], correctParts:[0,1], distractors:['河','梅','湖'], prompt:'點擊正確部件，把它們組合成「海」字。', explanation:'「海」由三點水「氵」和「每」組成。' }),
+  radicalQuestion({ target:'休', components:['亻','木','人'], correctParts:[0,1], distractors:['林','信','本'], prompt:'點擊正確部件，把它們組合成「休」字。', explanation:'「休」由人字旁「亻」和「木」組成。' }),
+  radicalQuestion({ target:'明', components:['日','月','目'], correctParts:[0,1], distractors:['朋','眼','早'], prompt:'點擊正確部件，把它們組合成「明」字。', explanation:'「明」由「日」和「月」組成。' }),
+  radicalQuestion({ target:'信', components:['亻','言','心'], correctParts:[0,1], distractors:['語','休','念'], prompt:'點擊正確部件，把它們組合成「信」字。', explanation:'「信」由人字旁「亻」和「言」組成。' }),
+  radicalQuestion({ target:'問', components:['門','口','日'], correctParts:[0,1], distractors:['間','唱','明'], prompt:'點擊正確部件，把它們組合成「問」字。', explanation:'「問」由門字框「門」和「口」組成。' }),
+  radicalQuestion({ target:'園', components:['囗','元','口'], correctParts:[0,1], distractors:['圓','園地','國'], prompt:'點擊正確部件，把它們組合成「園」字。', explanation:'「園」由外框「囗」和「元」組成。' }),
+  radicalQuestion({ target:'近', components:['辶','斤','木'], correctParts:[0,1], distractors:['遠','新','進'], prompt:'點擊正確部件，把它們組合成「近」字。', explanation:'「近」由走之旁「辶」和「斤」組成。' }),
+], ['河','林','花','跑','媽','狗','唱','語','海','休','明','信','問','園','近']);
+
+replaceTopicEntries('P3', '複句', [
+  connectorQuestion({ studyText:'明天原定在操場練習接力。老師說如果下雨，就把練習改到禮堂。', fillSentence:'＿＿明天下雨，＿＿我們改在禮堂練習接力。', answer:'如果……就……', explanation:'這是提出假設及結果的情況，應用「如果……就……」。', distractors:['雖然……但是……','因為……所以……','只要……就……'] }),
+  connectorQuestion({ studyText:'小朗每天完成作業後，才可以看喜歡的科學影片。', fillSentence:'＿＿小朗完成作業，＿＿可以看科學影片。', answer:'只要……就……', explanation:'完成作業是可以看影片的條件，應用「只要……就……」。', distractors:['雖然……但是……','因為……所以……','如果……就……'] }),
+  connectorQuestion({ studyText:'今天風很大，雨也不停地下；可是值日生仍準時到校幫忙收拾圖書角。', fillSentence:'＿＿今天風雨很大，＿＿值日生仍準時到校。', answer:'雖然……但是……', explanation:'前句有困難，後句仍然做到，應用轉折關係「雖然……但是……」。', distractors:['因為……所以……','如果……就……','只要……就……'] }),
+  connectorQuestion({ studyText:'小澄看見地上有膠樽，便把它放進回收箱，所以走廊保持整潔。', fillSentence:'＿＿小澄把膠樽放進回收箱，＿＿走廊保持整潔。', answer:'因為……所以……', explanation:'前句是原因，後句是結果，應用「因為……所以……」。', distractors:['雖然……但是……','如果……就……','只要……就……'] }),
+  connectorQuestion({ studyText:'若家長日提早結束，小儀便會和媽媽到圖書館還書。', fillSentence:'＿＿家長日提早結束，＿＿小儀會到圖書館還書。', answer:'如果……就……', explanation:'是否提早結束是假設條件，應用「如果……就……」。', distractors:['因為……所以……','雖然……但是……','只要……就……'] }),
+  connectorQuestion({ studyText:'老師提醒大家每天讀一小段課文，詞語量自然會增加。', fillSentence:'＿＿每天讀一小段課文，＿＿詞語量會增加。', answer:'只要……就……', explanation:'每天閱讀是可達成結果的條件，應用「只要……就……」。', distractors:['因為……所以……','雖然……但是……','如果……就……'] }),
+  connectorQuestion({ studyText:'遠足的路很長，但小組成員互相鼓勵，最後全部到達山頂。', fillSentence:'＿＿遠足的路很長，＿＿大家全部到達山頂。', answer:'雖然……但是……', explanation:'路長是困難，仍到達山頂是轉折結果，應用「雖然……但是……」。', distractors:['因為……所以……','如果……就……','只要……就……'] }),
+  connectorQuestion({ studyText:'同學先仔細閱讀題目，便知道要找哪一個資料，答題也較準確。', fillSentence:'＿＿同學仔細閱讀題目，＿＿答題較準確。', answer:'因為……所以……', explanation:'仔細閱讀題目是答得準確的原因，應用「因為……所以……」。', distractors:['雖然……但是……','如果……就……','只要……就……'] }),
+  connectorQuestion({ studyText:'班主任說：萬一有人忘記帶剪刀，小組就可以向老師借用。', fillSentence:'＿＿有人忘記帶剪刀，＿＿可以向老師借用。', answer:'如果……就……', explanation:'忘記帶剪刀是可能出現的情況，應用「如果……就……」。', distractors:['因為……所以……','雖然……但是……','只要……就……'] }),
+  connectorQuestion({ studyText:'小婷願意每天練習朗讀，聲音便越來越清楚。', fillSentence:'＿＿小婷每天練習朗讀，＿＿聲音會越來越清楚。', answer:'只要……就……', explanation:'每天練習是進步的條件，應用「只要……就……」。', distractors:['因為……所以……','雖然……但是……','如果……就……'] }),
+  connectorQuestion({ studyText:'阿文腳扭傷了，仍坐在場邊為同學記錄比賽成績。', fillSentence:'＿＿阿文腳扭傷了，＿＿他仍為同學記錄成績。', answer:'雖然……但是……', explanation:'受傷與仍然幫忙形成轉折，應用「雖然……但是……」。', distractors:['因為……所以……','如果……就……','只要……就……'] }),
+  connectorQuestion({ studyText:'媽媽先洗好水果，再切成小塊，所以全家很快便能吃點心。', fillSentence:'＿＿媽媽先洗好水果，＿＿全家很快便能吃點心。', answer:'因為……所以……', explanation:'洗好水果是很快能吃點心的原因，應用「因為……所以……」。', distractors:['雖然……但是……','如果……就……','只要……就……'] }),
+  connectorQuestion({ studyText:'若明天的圖書館有開放，小組就去找有關海洋的參考書。', fillSentence:'＿＿圖書館明天開放，＿＿小組去找海洋參考書。', answer:'如果……就……', explanation:'圖書館開放是假設條件，應用「如果……就……」。', distractors:['因為……所以……','雖然……但是……','只要……就……'] }),
+  connectorQuestion({ studyText:'老師說只要每人完成自己的部分，專題便能準時交出。', fillSentence:'＿＿每人完成自己的部分，＿＿專題能準時交出。', answer:'只要……就……', explanation:'每人完成部分是專題準時交出的條件，應用「只要……就……」。', distractors:['因為……所以……','雖然……但是……','如果……就……'] }),
+  connectorQuestion({ studyText:'今天很熱，同學仍戴上帽子和水樽參加清潔海灘活動。', fillSentence:'＿＿天氣很熱，＿＿同學仍參加清潔海灘活動。', answer:'雖然……但是……', explanation:'天氣炎熱但仍參加活動，應用「雖然……但是……」。', distractors:['因為……所以……','如果……就……','只要……就……'] }),
+], ['雖然……但是……','只要……就……','如果……就……','因為……所以……']);
+
+replaceTopicEntries('P6', '文言實詞及虛詞', [
+  classicalMarkQuestion({ text:'學而時習之', markers:[{id:'學',text:'學',gloss:'學習'},{id:'而',text:'而',gloss:'然後、承接'},{id:'時',text:'時',gloss:'按時'},{id:'習',text:'習',gloss:'溫習'},{id:'之',text:'之',gloss:'所學的內容'}], targetId:'習', prompt:'點擊原文中意思是「溫習」的詞語，再按「確認標記」。', explanation:'「習」在句中指溫習、複習。', distractors:['學','時','之'] }),
+  classicalMarkQuestion({ text:'溫故而知新', markers:[{id:'溫',text:'溫',gloss:'溫習'},{id:'故',text:'故',gloss:'舊知識'},{id:'而',text:'而',gloss:'然後、承接'},{id:'知',text:'知',gloss:'知道'},{id:'新',text:'新',gloss:'新的理解'}], targetId:'故', prompt:'點擊原文中指「舊知識」的詞語，再按「確認標記」。', explanation:'「故」在這裡指已學過的舊知識。', distractors:['溫','知','新'] }),
+  classicalMarkQuestion({ text:'人不知而不慍', markers:[{id:'人',text:'人',gloss:'別人'},{id:'不知',text:'不知',gloss:'不了解'},{id:'而',text:'而',gloss:'卻、轉折'},{id:'不慍',text:'不慍',gloss:'不生氣'}], targetId:'不慍', prompt:'點擊原文中意思是「不生氣」的詞語，再按「確認標記」。', explanation:'「不慍」表示不惱怒、不生氣。', distractors:['人','不知','而'] }),
+  classicalMarkQuestion({ text:'擇其善者而從之', markers:[{id:'擇',text:'擇',gloss:'選擇'},{id:'善者',text:'善者',gloss:'有優點的人'},{id:'而',text:'而',gloss:'然後、承接'},{id:'從',text:'從',gloss:'跟隨學習'},{id:'之',text:'之',gloss:'他'}], targetId:'從', prompt:'點擊原文中意思是「跟隨學習」的詞語，再按「確認標記」。', explanation:'「從」在這裡是跟隨、學習的意思。', distractors:['擇','善者','之'] }),
+  classicalMarkQuestion({ text:'吾日三省吾身', markers:[{id:'吾',text:'吾',gloss:'我'},{id:'日',text:'日',gloss:'每天'},{id:'三',text:'三',gloss:'多次'},{id:'省',text:'省',gloss:'反省'},{id:'身',text:'身',gloss:'自己'}], targetId:'省', prompt:'點擊原文中意思是「反省」的詞語，再按「確認標記」。', explanation:'「省」在這裡指反省自己。', distractors:['吾','日','身'] }),
+  classicalMarkQuestion({ text:'三人行，必有我師焉', markers:[{id:'三人',text:'三人',gloss:'多人'},{id:'行',text:'行',gloss:'同行'},{id:'必',text:'必',gloss:'一定'},{id:'師',text:'師',gloss:'可以學習的人'},{id:'焉',text:'焉',gloss:'於此、在其中'}], targetId:'師', prompt:'點擊原文中指「可以學習的人」的詞語，再按「確認標記」。', explanation:'「師」在句中指值得我們學習的人。', distractors:['三人','行','焉'] }),
+  classicalMarkQuestion({ text:'見賢思齊焉', markers:[{id:'見',text:'見',gloss:'看見'},{id:'賢',text:'賢',gloss:'有德行的人'},{id:'思',text:'思',gloss:'希望、想'},{id:'齊',text:'齊',gloss:'看齊'},{id:'焉',text:'焉',gloss:'於他'}], targetId:'賢', prompt:'點擊原文中指「有德行的人」的詞語，再按「確認標記」。', explanation:'「賢」指品德好、值得學習的人。', distractors:['見','思','齊'] }),
+  classicalMarkQuestion({ text:'學而不思則罔', markers:[{id:'學',text:'學',gloss:'學習'},{id:'而',text:'而',gloss:'但是、轉折'},{id:'不思',text:'不思',gloss:'不思考'},{id:'則',text:'則',gloss:'就'},{id:'罔',text:'罔',gloss:'迷惘無所得'}], targetId:'罔', prompt:'點擊原文中意思是「迷惘無所得」的詞語，再按「確認標記」。', explanation:'「罔」指迷惘而沒有收穫。', distractors:['學','不思','則'] }),
+  classicalMarkQuestion({ text:'吾十有五而志於學', markers:[{id:'吾',text:'吾',gloss:'我'},{id:'十有五',text:'十有五',gloss:'十五歲'},{id:'而',text:'而',gloss:'就、承接'},{id:'志',text:'志',gloss:'立志'},{id:'於學',text:'於學',gloss:'在學習方面'}], targetId:'志', prompt:'點擊原文中意思是「立志」的詞語，再按「確認標記」。', explanation:'「志」作動詞，指立定志向。', distractors:['吾','十有五','於學'] }),
+  classicalMarkQuestion({ text:'知之為知之', markers:[{id:'知一',text:'知',gloss:'知道'},{id:'之一',text:'之',gloss:'所知道的事'},{id:'為',text:'為',gloss:'是'},{id:'知二',text:'知',gloss:'知道'},{id:'之二',text:'之',gloss:'它'}], targetId:'之一', prompt:'點擊第一個「之」所代表的內容，再按「確認標記」。', explanation:'第一個「之」代指所知道的事情。', distractors:['知一','為','知二'] }),
+  classicalMarkQuestion({ text:'學而時習之', markers:[{id:'學',text:'學',gloss:'學習'},{id:'而',text:'而',gloss:'然後、承接'},{id:'時',text:'時',gloss:'按時'},{id:'習',text:'習',gloss:'溫習'},{id:'之',text:'之',gloss:'所學內容'}], targetId:'而', prompt:'點擊原文中連接「學」與「習」、表示承接的虛詞，再按「確認標記」。', explanation:'「而」連接前後動作，表示承接關係。', distractors:['學','時','之'] }),
+  classicalMarkQuestion({ text:'可以為師矣', markers:[{id:'可',text:'可',gloss:'可以'},{id:'以',text:'以',gloss:'憑藉'},{id:'為',text:'為',gloss:'成為'},{id:'師',text:'師',gloss:'老師'},{id:'矣',text:'矣',gloss:'了'}], targetId:'以', prompt:'點擊原文中表示「憑藉」的虛詞，再按「確認標記」。', explanation:'「以」在句中表示憑藉。', distractors:['可','為','矣'] }),
+  classicalMarkQuestion({ text:'不亦說乎', markers:[{id:'不',text:'不',gloss:'不'},{id:'亦',text:'亦',gloss:'也'},{id:'說',text:'說',gloss:'喜悅'},{id:'乎',text:'乎',gloss:'句末語氣詞'}], targetId:'乎', prompt:'點擊原文中用在句末、表示語氣的虛詞，再按「確認標記」。', explanation:'「乎」用在句末，表示疑問或感嘆的語氣。', distractors:['不','亦','說'] }),
+  classicalMarkQuestion({ text:'吾日三省吾身', markers:[{id:'吾一',text:'吾',gloss:'我'},{id:'日',text:'日',gloss:'每天'},{id:'三',text:'三',gloss:'多次'},{id:'省',text:'省',gloss:'反省'},{id:'吾二',text:'吾',gloss:'我'},{id:'身',text:'身',gloss:'自己'}], targetId:'吾一', prompt:'點擊原文中作第一人稱、意思是「我」的詞語，再按「確認標記」。', explanation:'「吾」是第一人稱代詞，意思是我。', distractors:['日','省','身'] }),
+  classicalMarkQuestion({ text:'學而時習之', markers:[{id:'學',text:'學',gloss:'學習'},{id:'而',text:'而',gloss:'然後、承接'},{id:'時',text:'時',gloss:'按時'},{id:'習',text:'習',gloss:'溫習'},{id:'之',text:'之',gloss:'所學的內容'}], targetId:'之', prompt:'點擊原文中代指「所學內容」的虛詞，再按「確認標記」。', explanation:'「之」在這裡代指前面所學的內容。', distractors:['學','時','習'] }),
+], ['學','故','不慍','從','省','師','賢','罔','志','之','而','以','乎','吾']);
 
 replaceTopicEntries('P3', '成語運用及理解', [
   scenarioQuestion('校園情境', '考試前，浩然每天先溫習二十分鐘，再完成練習；即使題目較難，他也不放棄。', '選哪個成語最能概括浩然的學習態度？', '勤學苦練', '浩然每天認真溫習又不怕困難，正是「勤學苦練」。'),
