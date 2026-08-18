@@ -26,7 +26,7 @@ const makeChoiceTopic = (grade, index, title, entries, distractors, area) => ({
   title,
   description: `${grade} 中文・${area}`,
   curriculumArea: area,
-  engine: 'race',
+  engine: title === '寓言故事' ? 'puzzle' : 'race',
   icon: 'Gauge',
   difficulty: '基礎',
   slot: index,
@@ -130,6 +130,18 @@ const classicalMarkQuestion = ({ text, markers, targetId, prompt, explanation, d
   markers,
   targetId,
 });
+const fableSortQuestion = ({ title, steps, initialOrder, moral, explanation }) => ({
+  prompt: `把《${title}》的三個情節拖曳到正確的故事次序。`,
+  answer: title,
+  explanation,
+  distractors: ['守株待兔','狐假虎威','龜兔賽跑','亡羊補牢'],
+  visualType: 'fable-sort',
+  fableTitle: title,
+  moral,
+  steps,
+  initialOrder,
+  correctOrder: steps.map((step) => step.id),
+});
 
 replaceTopicEntries('P2', '部首', [
   radicalQuestion({ target:'河', components:['氵','可','言'], correctParts:[0,1], distractors:['海','語','湖'], prompt:'點擊正確部件，把它們組合成「河」字。', explanation:'「河」由三點水「氵」和「可」組成。' }),
@@ -148,6 +160,24 @@ replaceTopicEntries('P2', '部首', [
   radicalQuestion({ target:'園', components:['囗','元','口'], correctParts:[0,1], distractors:['圓','園地','國'], prompt:'點擊正確部件，把它們組合成「園」字。', explanation:'「園」由外框「囗」和「元」組成。' }),
   radicalQuestion({ target:'近', components:['辶','斤','木'], correctParts:[0,1], distractors:['遠','新','進'], prompt:'點擊正確部件，把它們組合成「近」字。', explanation:'「近」由走之旁「辶」和「斤」組成。' }),
 ], ['河','林','花','跑','媽','狗','唱','語','海','休','明','信','問','園','近']);
+
+replaceTopicEntries('P4', '寓言故事', [
+  fableSortQuestion({ title:'守株待兔', steps:[{id:'a',text:'農夫原本每天勤力在田裏耕作。'},{id:'b',text:'一隻兔子撞到樹樁，意外死去。'},{id:'c',text:'農夫放下耕作，天天等兔子，最後一無所獲。'}], initialOrder:['c','a','b'], moral:'不能只靠碰運氣而放棄努力。', explanation:'先有農夫耕作，再有兔子撞樁，最後才是農夫守株等待。' }),
+  fableSortQuestion({ title:'龜兔賽跑', steps:[{id:'a',text:'兔子取笑烏龜跑得慢，兩者決定比賽。'},{id:'b',text:'兔子領先後睡覺，烏龜不停向前。'},{id:'c',text:'烏龜先到終點，贏得比賽。'}], initialOrder:['b','c','a'], moral:'只要堅持到底，便有機會成功。', explanation:'比賽先開始，中段兔睡龜走，最後烏龜勝出。' }),
+  fableSortQuestion({ title:'狐假虎威', steps:[{id:'a',text:'老虎捉到狐狸，想把牠吃掉。'},{id:'b',text:'狐狸說動物都怕自己，請老虎跟在後面查看。'},{id:'c',text:'動物見到老虎便逃走，老虎誤以為牠們怕狐狸。'}], initialOrder:['c','a','b'], moral:'不要借別人的威勢嚇人。', explanation:'先被老虎捉到，狐狸才想出計策，動物逃走其實是怕老虎。' }),
+  fableSortQuestion({ title:'井底之蛙', steps:[{id:'a',text:'青蛙住在井底，只看見小小的一片天空。'},{id:'b',text:'海龜向牠描述大海的廣闊。'},{id:'c',text:'青蛙才明白自己的見識很狹窄。'}], initialOrder:['b','c','a'], moral:'不能因為見得少便以為世界只有眼前一點。', explanation:'先住井底，再聽海龜說大海，最後才明白自己眼界狹窄。' }),
+  fableSortQuestion({ title:'亡羊補牢', steps:[{id:'a',text:'羊圈破了一個洞，狼叼走了一隻羊。'},{id:'b',text:'鄰居勸主人趕快修補羊圈。'},{id:'c',text:'主人修好羊圈，之後不再丟失羊。'}], initialOrder:['c','a','b'], moral:'發現錯誤後及時補救，仍然不算太遲。', explanation:'羊先丟失，鄰居再勸修補，修好後才避免再失羊。' }),
+  fableSortQuestion({ title:'刻舟求劍', steps:[{id:'a',text:'一個人的劍掉進河裏。'},{id:'b',text:'他在船邊刻下記號，以為可憑記號找劍。'},{id:'c',text:'船已前進，刻記號的位置不能找到河底的劍。'}], initialOrder:['b','c','a'], moral:'情況改變時，不能用死方法解決問題。', explanation:'劍先掉下，才刻記號；船移動後，記號已失去作用。' }),
+  fableSortQuestion({ title:'掩耳盜鈴', steps:[{id:'a',text:'有人想偷走大鐘，卻怕鐘聲被別人聽見。'},{id:'b',text:'他掩住自己的耳朵，便動手偷鐘。'},{id:'c',text:'別人仍聽到鐘聲，他終被捉住。'}], initialOrder:['c','a','b'], moral:'自欺欺人不能掩蓋事實。', explanation:'先怕鐘聲，再掩耳偷鐘，最後仍被別人發現。' }),
+  fableSortQuestion({ title:'畫蛇添足', steps:[{id:'a',text:'幾個人比賽畫蛇，先畫完的人可得到酒。'},{id:'b',text:'一人先畫好蛇，卻再替蛇畫上腳。'},{id:'c',text:'另一人先交出沒有腳的蛇，得到酒。'}], initialOrder:['b','c','a'], moral:'事情完成後亂加多餘東西，反而會壞事。', explanation:'先比賽畫蛇，先完成者添足，另一人便趁機獲勝。' }),
+  fableSortQuestion({ title:'愚公移山', steps:[{id:'a',text:'愚公覺得兩座山阻擋出入，非常不便。'},{id:'b',text:'他帶領家人每天搬走一些泥土和石頭。'},{id:'c',text:'他的堅持感動眾人，最終山被移走。'}], initialOrder:['c','a','b'], moral:'面對巨大困難也要持之以恆。', explanation:'先遇到山阻路，再開始搬山，最後才得到成果。' }),
+  fableSortQuestion({ title:'杯弓蛇影', steps:[{id:'a',text:'一人看見杯中有弓的倒影，誤以為是蛇。'},{id:'b',text:'他因害怕而生病，卻找不到真正的蛇。'},{id:'c',text:'朋友指出那只是弓影，他才安心。'}], initialOrder:['b','c','a'], moral:'不要因誤會而自己嚇自己。', explanation:'先見弓影當蛇，再害怕生病，最後了解真相。' }),
+  fableSortQuestion({ title:'東施效顰', steps:[{id:'a',text:'西施因身體不適而皺眉，樣子仍然好看。'},{id:'b',text:'東施不明原因，故意模仿西施皺眉。'},{id:'c',text:'鄰里覺得她樣子奇怪，紛紛避開。'}], initialOrder:['c','a','b'], moral:'不了解原因便盲目模仿，往往會弄巧成拙。', explanation:'先有西施皺眉，東施才模仿，最後鄰里避開她。' }),
+  fableSortQuestion({ title:'自相矛盾', steps:[{id:'a',text:'商人說自己的盾十分堅固，甚麼也刺不破。'},{id:'b',text:'他又說自己的矛十分鋒利，甚麼也能刺穿。'},{id:'c',text:'別人問矛刺盾會怎樣，商人答不出來。'}], initialOrder:['b','c','a'], moral:'說話或做事前後不能互相矛盾。', explanation:'先誇盾，再誇矛，最後面對問題無法回答。' }),
+  fableSortQuestion({ title:'鄭人買履', steps:[{id:'a',text:'鄭人先量好自己的腳，記下尺碼。'},{id:'b',text:'他到市集才發現忘了帶尺碼，回家去取。'},{id:'c',text:'回來時市集已關門，他沒有買到鞋。'}], initialOrder:['c','a','b'], moral:'做事不能太拘泥規則而不看實際情況。', explanation:'先量腳，後忘帶尺碼回家拿，最後市集關門。' }),
+  fableSortQuestion({ title:'濫竽充數', steps:[{id:'a',text:'國君喜歡很多人一起吹竽，一人混進樂隊。'},{id:'b',text:'他沒有真本領，卻一直假裝會吹竽。'},{id:'c',text:'新國君要求獨奏，他害怕而逃走。'}], initialOrder:['b','c','a'], moral:'沒有真才實學，終會被看穿。', explanation:'先混入樂隊，便能假裝；改為獨奏後才無法再混下去。' }),
+  fableSortQuestion({ title:'揠苗助長', steps:[{id:'a',text:'農夫看見禾苗長得慢，心裏十分著急。'},{id:'b',text:'他把禾苗一棵棵向上拔高。'},{id:'c',text:'禾苗失去根部養分，最後全都枯死。'}], initialOrder:['c','a','b'], moral:'學習和成長不能急於求成。', explanation:'先著急，再拔苗，最後禾苗枯死。' }),
+], ['守株待兔','狐假虎威','龜兔賽跑','亡羊補牢']);
 
 replaceTopicEntries('P3', '複句', [
   connectorQuestion({ studyText:'明天原定在操場練習接力。老師說如果下雨，就把練習改到禮堂。', fillSentence:'＿＿明天下雨，＿＿我們改在禮堂練習接力。', answer:'如果……就……', explanation:'這是提出假設及結果的情況，應用「如果……就……」。', distractors:['雖然……但是……','因為……所以……','只要……就……'] }),
