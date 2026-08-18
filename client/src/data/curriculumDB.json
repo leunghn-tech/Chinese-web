@@ -1,0 +1,7623 @@
+{
+  "meta": {
+    "title": "EduQuest 邊學邊玩",
+    "topicCount": 180,
+    "subjects": [
+      "中文",
+      "英文",
+      "數學"
+    ],
+    "grades": [
+      "P1",
+      "P2",
+      "P3",
+      "P4",
+      "P5",
+      "P6",
+      "S1",
+      "S2",
+      "S3",
+      "S4",
+      "S5",
+      "S6"
+    ]
+  },
+  "topics": [
+    {
+      "id": "P1-中文-classifier",
+      "grade": "P1",
+      "subject": "中文",
+      "title": "量詞衝刺",
+      "description": "P1 中文・量詞衝刺挑戰",
+      "engine": "race",
+      "icon": "Layers",
+      "difficulty": "新手",
+      "skill": "classifier",
+      "questions": [
+        {
+          "type": "choice",
+          "prompt": "「一＿＿雨傘」最合適的量詞是？",
+          "options": [
+            "把",
+            "張",
+            "枝",
+            "頂"
+          ],
+          "answerIndex": 3,
+          "explanation": "「頂」用於雨傘、帽子等有頂部覆蓋的物品。"
+        },
+        {
+          "type": "choice",
+          "prompt": "「一＿＿書」最合適的量詞是？",
+          "options": [
+            "本",
+            "條",
+            "匹",
+            "座"
+          ],
+          "answerIndex": 0,
+          "explanation": "「本」用於書籍、簿冊。"
+        },
+        {
+          "type": "choice",
+          "prompt": "「一＿＿魚」最合適的量詞是？",
+          "options": [
+            "條",
+            "件",
+            "艘",
+            "棵"
+          ],
+          "answerIndex": 0,
+          "explanation": "「條」可用於魚、褲、河流等細長事物。"
+        }
+      ]
+    },
+    {
+      "id": "P1-中文-idiom",
+      "grade": "P1",
+      "subject": "中文",
+      "title": "成語快答",
+      "description": "P1 中文・成語快答挑戰",
+      "engine": "race",
+      "icon": "Sparkles",
+      "difficulty": "新手",
+      "skill": "idiom",
+      "questions": [
+        {
+          "type": "choice",
+          "prompt": "「專心＿＿」形容精神集中，應填哪一項？",
+          "options": [
+            "一致",
+            "一意",
+            "一心",
+            "一眼"
+          ],
+          "answerIndex": 2,
+          "explanation": "「專心一意」指集中精神，專一不分心。"
+        },
+        {
+          "type": "choice",
+          "prompt": "「守株待兔」比喻甚麼？",
+          "options": [
+            "努力耕作",
+            "死守狹隘經驗",
+            "樂於助人",
+            "勇敢冒險"
+          ],
+          "answerIndex": 1,
+          "explanation": "守株待兔諷刺不主動努力，只希望僥倖成功。"
+        },
+        {
+          "type": "choice",
+          "prompt": "「畫蛇添足」最貼近哪個意思？",
+          "options": [
+            "多做無益的事",
+            "仔細觀察",
+            "以少勝多",
+            "互相合作"
+          ],
+          "answerIndex": 0,
+          "explanation": "畫蛇添足指做了多餘的事，反而弄巧成拙。"
+        }
+      ]
+    },
+    {
+      "id": "P1-中文-reorder",
+      "grade": "P1",
+      "subject": "中文",
+      "title": "句式拼圖",
+      "description": "P1 中文・句式拼圖挑戰",
+      "engine": "puzzle",
+      "icon": "Puzzle",
+      "difficulty": "新手",
+      "skill": "reorder",
+      "questions": [
+        {
+          "type": "puzzle",
+          "prompt": "把詞語排成正確句子。",
+          "tokens": [
+            "今天",
+            "圖書館",
+            "我",
+            "去"
+          ],
+          "correctOrder": [
+            "我",
+            "今天",
+            "去",
+            "圖書館"
+          ],
+          "explanation": "主語「我」在前，時間「今天」後接動詞「去」和地點「圖書館」。"
+        },
+        {
+          "type": "puzzle",
+          "prompt": "把詞語排成正確句子。",
+          "tokens": [
+            "很",
+            "同學們",
+            "認真",
+            "溫習"
+          ],
+          "correctOrder": [
+            "同學們",
+            "很",
+            "認真",
+            "溫習"
+          ],
+          "explanation": "先寫主語「同學們」，再以副詞和形容詞修飾動作。"
+        }
+      ]
+    },
+    {
+      "id": "P1-中文-classical",
+      "grade": "P1",
+      "subject": "中文",
+      "title": "文言勇者",
+      "description": "P1 中文・文言勇者挑戰",
+      "engine": "rpg",
+      "icon": "ScrollText",
+      "difficulty": "新手",
+      "skill": "classical",
+      "questions": [
+        {
+          "type": "choice",
+          "prompt": "「學而時習之」中「習」的意思是？",
+          "options": [
+            "睡覺",
+            "溫習、練習",
+            "旅行",
+            "習慣"
+          ],
+          "answerIndex": 1,
+          "explanation": "「習」在這裡指溫習和練習。"
+        },
+        {
+          "type": "choice",
+          "prompt": "「己所不欲，勿施於人」的意思最接近哪一項？",
+          "options": [
+            "只顧自己",
+            "不要把自己不喜歡的事強加於別人",
+            "做事要快",
+            "一定要聽從別人"
+          ],
+          "answerIndex": 1,
+          "explanation": "這句強調推己及人和尊重別人。"
+        },
+        {
+          "type": "choice",
+          "prompt": "「溫故而知新」的「故」指甚麼？",
+          "options": [
+            "故事",
+            "舊有知識",
+            "已故的人",
+            "故鄉"
+          ],
+          "answerIndex": 1,
+          "explanation": "「故」指已學過的、舊有的知識。"
+        }
+      ]
+    },
+    {
+      "id": "P1-中文-languageVault",
+      "grade": "P1",
+      "subject": "中文",
+      "title": "語文密碼鎖",
+      "description": "P1 中文・語文密碼鎖挑戰",
+      "engine": "chest",
+      "icon": "KeyRound",
+      "difficulty": "新手",
+      "skill": "languageVault",
+      "questions": [
+        {
+          "type": "text",
+          "prompt": "輸入「亡羊補牢」的下一句常用意思：比喻事情出了差錯以後，＿＿還不算晚。",
+          "answer": "設法補救",
+          "hint": "提示：四個字，從「設」開始。",
+          "explanation": "「亡羊補牢」比喻事情出了差錯以後，設法補救還不算晚。"
+        },
+        {
+          "type": "text",
+          "prompt": "輸入「學而不思則罔，思而不學則＿＿。」的最後一字。",
+          "answer": "殆",
+          "hint": "提示：讀音是 dai。",
+          "explanation": "這句說明學習與思考要互相配合。"
+        }
+      ]
+    },
+    {
+      "id": "P1-英文-wordDash",
+      "grade": "P1",
+      "subject": "英文",
+      "title": "Word Dash",
+      "description": "P1 英文・Word Dash挑戰",
+      "engine": "race",
+      "icon": "Languages",
+      "difficulty": "新手",
+      "skill": "wordDash",
+      "questions": [
+        {
+          "type": "choice",
+          "prompt": "Which word means 「快樂」?",
+          "options": [
+            "happy",
+            "hungry",
+            "heavy",
+            "honest"
+          ],
+          "answerIndex": 0,
+          "explanation": "happy means 快樂。"
+        },
+        {
+          "type": "choice",
+          "prompt": "Choose the opposite of \"big\".",
+          "options": [
+            "tall",
+            "small",
+            "wide",
+            "long"
+          ],
+          "answerIndex": 1,
+          "explanation": "small 是 big 的相反詞。"
+        },
+        {
+          "type": "choice",
+          "prompt": "Which word is a colour?",
+          "options": [
+            "blue",
+            "book",
+            "bird",
+            "ball"
+          ],
+          "answerIndex": 0,
+          "explanation": "blue 是顏色。"
+        }
+      ]
+    },
+    {
+      "id": "P1-英文-spelling",
+      "grade": "P1",
+      "subject": "英文",
+      "title": "Spelling Scramble",
+      "description": "P1 英文・Spelling Scramble挑戰",
+      "engine": "puzzle",
+      "icon": "SpellCheck",
+      "difficulty": "新手",
+      "skill": "spelling",
+      "questions": [
+        {
+          "type": "puzzle",
+          "prompt": "Arrange the letters to spell a fruit.",
+          "tokens": [
+            "p",
+            "a",
+            "l",
+            "p",
+            "e"
+          ],
+          "correctOrder": [
+            "a",
+            "p",
+            "p",
+            "l",
+            "e"
+          ],
+          "explanation": "apple 是「蘋果」。"
+        },
+        {
+          "type": "puzzle",
+          "prompt": "Arrange the letters to spell an animal.",
+          "tokens": [
+            "c",
+            "t",
+            "a"
+          ],
+          "correctOrder": [
+            "c",
+            "a",
+            "t"
+          ],
+          "explanation": "cat 是「貓」。"
+        }
+      ]
+    },
+    {
+      "id": "P1-英文-sentence",
+      "grade": "P1",
+      "subject": "英文",
+      "title": "Sentence Builder",
+      "description": "P1 英文・Sentence Builder挑戰",
+      "engine": "puzzle",
+      "icon": "TextCursorInput",
+      "difficulty": "新手",
+      "skill": "sentence",
+      "questions": [
+        {
+          "type": "puzzle",
+          "prompt": "Build a correct English sentence.",
+          "tokens": [
+            "to",
+            "school",
+            "walk",
+            "I"
+          ],
+          "correctOrder": [
+            "I",
+            "walk",
+            "to",
+            "school"
+          ],
+          "explanation": "英文基本語序是主語 + 動詞 + 其他成分。"
+        },
+        {
+          "type": "puzzle",
+          "prompt": "Build a correct English sentence.",
+          "tokens": [
+            "is",
+            "She",
+            "kind"
+          ],
+          "correctOrder": [
+            "She",
+            "is",
+            "kind"
+          ],
+          "explanation": "be 動詞要放在主語 She 後面。"
+        }
+      ]
+    },
+    {
+      "id": "P1-英文-tense",
+      "grade": "P1",
+      "subject": "英文",
+      "title": "Tense Master",
+      "description": "P1 英文・Tense Master挑戰",
+      "engine": "rpg",
+      "icon": "Swords",
+      "difficulty": "新手",
+      "skill": "tense",
+      "questions": [
+        {
+          "type": "choice",
+          "prompt": "She ______ to school every day.",
+          "options": [
+            "walk",
+            "walks",
+            "walking",
+            "walked"
+          ],
+          "answerIndex": 1,
+          "explanation": "She 是第三人稱單數，現在式動詞加 s。"
+        },
+        {
+          "type": "choice",
+          "prompt": "They ______ football yesterday.",
+          "options": [
+            "play",
+            "plays",
+            "played",
+            "playing"
+          ],
+          "answerIndex": 2,
+          "explanation": "yesterday 提示用過去式 played。"
+        },
+        {
+          "type": "choice",
+          "prompt": "I ______ a student.",
+          "options": [
+            "am",
+            "is",
+            "are",
+            "be"
+          ],
+          "answerIndex": 0,
+          "explanation": "I 配 am。"
+        }
+      ]
+    },
+    {
+      "id": "P1-英文-grammarVault",
+      "grade": "P1",
+      "subject": "英文",
+      "title": "Grammar Vault",
+      "description": "P1 英文・Grammar Vault挑戰",
+      "engine": "chest",
+      "icon": "LockKeyhole",
+      "difficulty": "新手",
+      "skill": "grammarVault",
+      "questions": [
+        {
+          "type": "text",
+          "prompt": "Complete: \"I ___ a student.\"",
+          "answer": "am",
+          "hint": "提示：I 的 be 動詞。",
+          "explanation": "主語 I 要配 am。"
+        },
+        {
+          "type": "text",
+          "prompt": "Complete: \"She ___ my friend.\"",
+          "answer": "is",
+          "hint": "提示：She 的 be 動詞。",
+          "explanation": "第三人稱單數 She 要配 is。"
+        }
+      ]
+    },
+    {
+      "id": "P1-數學-calc",
+      "grade": "P1",
+      "subject": "數學",
+      "title": "Calculation Dash",
+      "description": "P1 數學・Calculation Dash挑戰",
+      "engine": "race",
+      "icon": "Gauge",
+      "difficulty": "新手",
+      "skill": "calc",
+      "questions": [
+        {
+          "type": "choice",
+          "prompt": "3 + 5 = ?",
+          "options": [
+            "7",
+            "8",
+            "9",
+            "10"
+          ],
+          "answerIndex": 1,
+          "explanation": "3 加 5 等於 8。"
+        },
+        {
+          "type": "choice",
+          "prompt": "6 − 5 = ?",
+          "options": [
+            "-2",
+            "3",
+            "1",
+            "11"
+          ],
+          "answerIndex": 2,
+          "explanation": "6 減 5 等於 1。"
+        },
+        {
+          "type": "choice",
+          "prompt": "3 × 2 = ?",
+          "options": [
+            "6",
+            "5",
+            "9",
+            "1"
+          ],
+          "answerIndex": 0,
+          "explanation": "3 乘 2 等於 6。"
+        }
+      ]
+    },
+    {
+      "id": "P1-數學-numberOrder",
+      "grade": "P1",
+      "subject": "數學",
+      "title": "Number Puzzle",
+      "description": "P1 數學・Number Puzzle挑戰",
+      "engine": "puzzle",
+      "icon": "ArrowDownUp",
+      "difficulty": "新手",
+      "skill": "numberOrder",
+      "questions": [
+        {
+          "type": "puzzle",
+          "prompt": "由小至大排列數字。",
+          "tokens": [
+            "12",
+            "7",
+            "9"
+          ],
+          "correctOrder": [
+            "7",
+            "9",
+            "12"
+          ],
+          "explanation": "先比較十位數；7 和 9 都小於 12。"
+        },
+        {
+          "type": "puzzle",
+          "prompt": "由大至小排列數字。",
+          "tokens": [
+            "15",
+            "20",
+            "18"
+          ],
+          "correctOrder": [
+            "20",
+            "18",
+            "15"
+          ],
+          "explanation": "比較十位數可知 20 最大，15 最小。"
+        }
+      ]
+    },
+    {
+      "id": "P1-數學-fractionBoss",
+      "grade": "P1",
+      "subject": "數學",
+      "title": "Fraction Boss",
+      "description": "P1 數學・Fraction Boss挑戰",
+      "engine": "rpg",
+      "icon": "Shield",
+      "difficulty": "新手",
+      "skill": "fractionBoss",
+      "questions": [
+        {
+          "type": "choice",
+          "prompt": "1/2 + 1/4 = ?",
+          "options": [
+            "2/6",
+            "3/4",
+            "1/6",
+            "2/4"
+          ],
+          "answerIndex": 1,
+          "explanation": "把 1/2 化成 2/4，2/4 + 1/4 = 3/4。"
+        },
+        {
+          "type": "choice",
+          "prompt": "哪個分數等於 1/2？",
+          "options": [
+            "2/3",
+            "2/4",
+            "3/4",
+            "1/3"
+          ],
+          "answerIndex": 1,
+          "explanation": "2/4 同時除以 2 得 1/2。"
+        },
+        {
+          "type": "choice",
+          "prompt": "3/5 的分子是？",
+          "options": [
+            "3",
+            "5",
+            "8",
+            "15"
+          ],
+          "answerIndex": 0,
+          "explanation": "分子是分數線上面的數字。"
+        }
+      ]
+    },
+    {
+      "id": "P1-數學-equationVault",
+      "grade": "P1",
+      "subject": "數學",
+      "title": "Equation Vault",
+      "description": "P1 數學・Equation Vault挑戰",
+      "engine": "chest",
+      "icon": "Vault",
+      "difficulty": "新手",
+      "skill": "equationVault",
+      "questions": [
+        {
+          "type": "text",
+          "prompt": "解密：x + 4 = 11，輸入 x。",
+          "answer": "7",
+          "hint": "提示：用 11 減 4。",
+          "explanation": "x = 11 − 4 = 7。"
+        },
+        {
+          "type": "text",
+          "prompt": "解密：2x = 14，輸入 x。",
+          "answer": "7",
+          "hint": "提示：兩邊同除以 2。",
+          "explanation": "x = 14 ÷ 2 = 7。"
+        }
+      ]
+    },
+    {
+      "id": "P1-數學-geometryLock",
+      "grade": "P1",
+      "subject": "數學",
+      "title": "Geometry Lock",
+      "description": "P1 數學・Geometry Lock挑戰",
+      "engine": "chest",
+      "icon": "Triangle",
+      "difficulty": "新手",
+      "skill": "geometryLock",
+      "questions": [
+        {
+          "type": "text",
+          "prompt": "三角形三個內角和是多少度？",
+          "answer": "180",
+          "hint": "提示：輸入數字。",
+          "explanation": "任何三角形的內角和都是 180 度。"
+        },
+        {
+          "type": "text",
+          "prompt": "正方形有多少條相等的邊？",
+          "answer": "4",
+          "hint": "提示：輸入數字。",
+          "explanation": "正方形有四條相等的邊。"
+        }
+      ]
+    },
+    {
+      "id": "P2-中文-classifier",
+      "grade": "P2",
+      "subject": "中文",
+      "title": "量詞衝刺",
+      "description": "P2 中文・量詞衝刺挑戰",
+      "engine": "race",
+      "icon": "Layers",
+      "difficulty": "新手",
+      "skill": "classifier",
+      "questions": [
+        {
+          "type": "choice",
+          "prompt": "「一＿＿雨傘」最合適的量詞是？",
+          "options": [
+            "把",
+            "張",
+            "枝",
+            "頂"
+          ],
+          "answerIndex": 3,
+          "explanation": "「頂」用於雨傘、帽子等有頂部覆蓋的物品。"
+        },
+        {
+          "type": "choice",
+          "prompt": "「一＿＿書」最合適的量詞是？",
+          "options": [
+            "本",
+            "條",
+            "匹",
+            "座"
+          ],
+          "answerIndex": 0,
+          "explanation": "「本」用於書籍、簿冊。"
+        },
+        {
+          "type": "choice",
+          "prompt": "「一＿＿魚」最合適的量詞是？",
+          "options": [
+            "條",
+            "件",
+            "艘",
+            "棵"
+          ],
+          "answerIndex": 0,
+          "explanation": "「條」可用於魚、褲、河流等細長事物。"
+        }
+      ]
+    },
+    {
+      "id": "P2-中文-idiom",
+      "grade": "P2",
+      "subject": "中文",
+      "title": "成語快答",
+      "description": "P2 中文・成語快答挑戰",
+      "engine": "race",
+      "icon": "Sparkles",
+      "difficulty": "新手",
+      "skill": "idiom",
+      "questions": [
+        {
+          "type": "choice",
+          "prompt": "「專心＿＿」形容精神集中，應填哪一項？",
+          "options": [
+            "一致",
+            "一意",
+            "一心",
+            "一眼"
+          ],
+          "answerIndex": 2,
+          "explanation": "「專心一意」指集中精神，專一不分心。"
+        },
+        {
+          "type": "choice",
+          "prompt": "「守株待兔」比喻甚麼？",
+          "options": [
+            "努力耕作",
+            "死守狹隘經驗",
+            "樂於助人",
+            "勇敢冒險"
+          ],
+          "answerIndex": 1,
+          "explanation": "守株待兔諷刺不主動努力，只希望僥倖成功。"
+        },
+        {
+          "type": "choice",
+          "prompt": "「畫蛇添足」最貼近哪個意思？",
+          "options": [
+            "多做無益的事",
+            "仔細觀察",
+            "以少勝多",
+            "互相合作"
+          ],
+          "answerIndex": 0,
+          "explanation": "畫蛇添足指做了多餘的事，反而弄巧成拙。"
+        }
+      ]
+    },
+    {
+      "id": "P2-中文-reorder",
+      "grade": "P2",
+      "subject": "中文",
+      "title": "句式拼圖",
+      "description": "P2 中文・句式拼圖挑戰",
+      "engine": "puzzle",
+      "icon": "Puzzle",
+      "difficulty": "新手",
+      "skill": "reorder",
+      "questions": [
+        {
+          "type": "puzzle",
+          "prompt": "把詞語排成正確句子。",
+          "tokens": [
+            "今天",
+            "圖書館",
+            "我",
+            "去"
+          ],
+          "correctOrder": [
+            "我",
+            "今天",
+            "去",
+            "圖書館"
+          ],
+          "explanation": "主語「我」在前，時間「今天」後接動詞「去」和地點「圖書館」。"
+        },
+        {
+          "type": "puzzle",
+          "prompt": "把詞語排成正確句子。",
+          "tokens": [
+            "很",
+            "同學們",
+            "認真",
+            "溫習"
+          ],
+          "correctOrder": [
+            "同學們",
+            "很",
+            "認真",
+            "溫習"
+          ],
+          "explanation": "先寫主語「同學們」，再以副詞和形容詞修飾動作。"
+        }
+      ]
+    },
+    {
+      "id": "P2-中文-classical",
+      "grade": "P2",
+      "subject": "中文",
+      "title": "文言勇者",
+      "description": "P2 中文・文言勇者挑戰",
+      "engine": "rpg",
+      "icon": "ScrollText",
+      "difficulty": "新手",
+      "skill": "classical",
+      "questions": [
+        {
+          "type": "choice",
+          "prompt": "「學而時習之」中「習」的意思是？",
+          "options": [
+            "睡覺",
+            "溫習、練習",
+            "旅行",
+            "習慣"
+          ],
+          "answerIndex": 1,
+          "explanation": "「習」在這裡指溫習和練習。"
+        },
+        {
+          "type": "choice",
+          "prompt": "「己所不欲，勿施於人」的意思最接近哪一項？",
+          "options": [
+            "只顧自己",
+            "不要把自己不喜歡的事強加於別人",
+            "做事要快",
+            "一定要聽從別人"
+          ],
+          "answerIndex": 1,
+          "explanation": "這句強調推己及人和尊重別人。"
+        },
+        {
+          "type": "choice",
+          "prompt": "「溫故而知新」的「故」指甚麼？",
+          "options": [
+            "故事",
+            "舊有知識",
+            "已故的人",
+            "故鄉"
+          ],
+          "answerIndex": 1,
+          "explanation": "「故」指已學過的、舊有的知識。"
+        }
+      ]
+    },
+    {
+      "id": "P2-中文-languageVault",
+      "grade": "P2",
+      "subject": "中文",
+      "title": "語文密碼鎖",
+      "description": "P2 中文・語文密碼鎖挑戰",
+      "engine": "chest",
+      "icon": "KeyRound",
+      "difficulty": "新手",
+      "skill": "languageVault",
+      "questions": [
+        {
+          "type": "text",
+          "prompt": "輸入「亡羊補牢」的下一句常用意思：比喻事情出了差錯以後，＿＿還不算晚。",
+          "answer": "設法補救",
+          "hint": "提示：四個字，從「設」開始。",
+          "explanation": "「亡羊補牢」比喻事情出了差錯以後，設法補救還不算晚。"
+        },
+        {
+          "type": "text",
+          "prompt": "輸入「學而不思則罔，思而不學則＿＿。」的最後一字。",
+          "answer": "殆",
+          "hint": "提示：讀音是 dai。",
+          "explanation": "這句說明學習與思考要互相配合。"
+        }
+      ]
+    },
+    {
+      "id": "P2-英文-wordDash",
+      "grade": "P2",
+      "subject": "英文",
+      "title": "Word Dash",
+      "description": "P2 英文・Word Dash挑戰",
+      "engine": "race",
+      "icon": "Languages",
+      "difficulty": "新手",
+      "skill": "wordDash",
+      "questions": [
+        {
+          "type": "choice",
+          "prompt": "Which word means 「快樂」?",
+          "options": [
+            "happy",
+            "hungry",
+            "heavy",
+            "honest"
+          ],
+          "answerIndex": 0,
+          "explanation": "happy means 快樂。"
+        },
+        {
+          "type": "choice",
+          "prompt": "Choose the opposite of \"big\".",
+          "options": [
+            "tall",
+            "small",
+            "wide",
+            "long"
+          ],
+          "answerIndex": 1,
+          "explanation": "small 是 big 的相反詞。"
+        },
+        {
+          "type": "choice",
+          "prompt": "Which word is a colour?",
+          "options": [
+            "blue",
+            "book",
+            "bird",
+            "ball"
+          ],
+          "answerIndex": 0,
+          "explanation": "blue 是顏色。"
+        }
+      ]
+    },
+    {
+      "id": "P2-英文-spelling",
+      "grade": "P2",
+      "subject": "英文",
+      "title": "Spelling Scramble",
+      "description": "P2 英文・Spelling Scramble挑戰",
+      "engine": "puzzle",
+      "icon": "SpellCheck",
+      "difficulty": "新手",
+      "skill": "spelling",
+      "questions": [
+        {
+          "type": "puzzle",
+          "prompt": "Arrange the letters to spell a fruit.",
+          "tokens": [
+            "p",
+            "a",
+            "l",
+            "p",
+            "e"
+          ],
+          "correctOrder": [
+            "a",
+            "p",
+            "p",
+            "l",
+            "e"
+          ],
+          "explanation": "apple 是「蘋果」。"
+        },
+        {
+          "type": "puzzle",
+          "prompt": "Arrange the letters to spell an animal.",
+          "tokens": [
+            "c",
+            "t",
+            "a"
+          ],
+          "correctOrder": [
+            "c",
+            "a",
+            "t"
+          ],
+          "explanation": "cat 是「貓」。"
+        }
+      ]
+    },
+    {
+      "id": "P2-英文-sentence",
+      "grade": "P2",
+      "subject": "英文",
+      "title": "Sentence Builder",
+      "description": "P2 英文・Sentence Builder挑戰",
+      "engine": "puzzle",
+      "icon": "TextCursorInput",
+      "difficulty": "新手",
+      "skill": "sentence",
+      "questions": [
+        {
+          "type": "puzzle",
+          "prompt": "Build a correct English sentence.",
+          "tokens": [
+            "to",
+            "school",
+            "walk",
+            "I"
+          ],
+          "correctOrder": [
+            "I",
+            "walk",
+            "to",
+            "school"
+          ],
+          "explanation": "英文基本語序是主語 + 動詞 + 其他成分。"
+        },
+        {
+          "type": "puzzle",
+          "prompt": "Build a correct English sentence.",
+          "tokens": [
+            "is",
+            "She",
+            "kind"
+          ],
+          "correctOrder": [
+            "She",
+            "is",
+            "kind"
+          ],
+          "explanation": "be 動詞要放在主語 She 後面。"
+        }
+      ]
+    },
+    {
+      "id": "P2-英文-tense",
+      "grade": "P2",
+      "subject": "英文",
+      "title": "Tense Master",
+      "description": "P2 英文・Tense Master挑戰",
+      "engine": "rpg",
+      "icon": "Swords",
+      "difficulty": "新手",
+      "skill": "tense",
+      "questions": [
+        {
+          "type": "choice",
+          "prompt": "She ______ to school every day.",
+          "options": [
+            "walk",
+            "walks",
+            "walking",
+            "walked"
+          ],
+          "answerIndex": 1,
+          "explanation": "She 是第三人稱單數，現在式動詞加 s。"
+        },
+        {
+          "type": "choice",
+          "prompt": "They ______ football yesterday.",
+          "options": [
+            "play",
+            "plays",
+            "played",
+            "playing"
+          ],
+          "answerIndex": 2,
+          "explanation": "yesterday 提示用過去式 played。"
+        },
+        {
+          "type": "choice",
+          "prompt": "I ______ a student.",
+          "options": [
+            "am",
+            "is",
+            "are",
+            "be"
+          ],
+          "answerIndex": 0,
+          "explanation": "I 配 am。"
+        }
+      ]
+    },
+    {
+      "id": "P2-英文-grammarVault",
+      "grade": "P2",
+      "subject": "英文",
+      "title": "Grammar Vault",
+      "description": "P2 英文・Grammar Vault挑戰",
+      "engine": "chest",
+      "icon": "LockKeyhole",
+      "difficulty": "新手",
+      "skill": "grammarVault",
+      "questions": [
+        {
+          "type": "text",
+          "prompt": "Complete: \"I ___ a student.\"",
+          "answer": "am",
+          "hint": "提示：I 的 be 動詞。",
+          "explanation": "主語 I 要配 am。"
+        },
+        {
+          "type": "text",
+          "prompt": "Complete: \"She ___ my friend.\"",
+          "answer": "is",
+          "hint": "提示：She 的 be 動詞。",
+          "explanation": "第三人稱單數 She 要配 is。"
+        }
+      ]
+    },
+    {
+      "id": "P2-數學-calc",
+      "grade": "P2",
+      "subject": "數學",
+      "title": "Calculation Dash",
+      "description": "P2 數學・Calculation Dash挑戰",
+      "engine": "race",
+      "icon": "Gauge",
+      "difficulty": "新手",
+      "skill": "calc",
+      "questions": [
+        {
+          "type": "choice",
+          "prompt": "4 + 6 = ?",
+          "options": [
+            "9",
+            "10",
+            "11",
+            "12"
+          ],
+          "answerIndex": 1,
+          "explanation": "4 加 6 等於 10。"
+        },
+        {
+          "type": "choice",
+          "prompt": "8 − 6 = ?",
+          "options": [
+            "-2",
+            "4",
+            "2",
+            "14"
+          ],
+          "answerIndex": 2,
+          "explanation": "8 減 6 等於 2。"
+        },
+        {
+          "type": "choice",
+          "prompt": "4 × 2 = ?",
+          "options": [
+            "8",
+            "6",
+            "12",
+            "2"
+          ],
+          "answerIndex": 0,
+          "explanation": "4 乘 2 等於 8。"
+        }
+      ]
+    },
+    {
+      "id": "P2-數學-numberOrder",
+      "grade": "P2",
+      "subject": "數學",
+      "title": "Number Puzzle",
+      "description": "P2 數學・Number Puzzle挑戰",
+      "engine": "puzzle",
+      "icon": "ArrowDownUp",
+      "difficulty": "新手",
+      "skill": "numberOrder",
+      "questions": [
+        {
+          "type": "puzzle",
+          "prompt": "由小至大排列數字。",
+          "tokens": [
+            "12",
+            "7",
+            "9"
+          ],
+          "correctOrder": [
+            "7",
+            "9",
+            "12"
+          ],
+          "explanation": "先比較十位數；7 和 9 都小於 12。"
+        },
+        {
+          "type": "puzzle",
+          "prompt": "由大至小排列數字。",
+          "tokens": [
+            "15",
+            "20",
+            "18"
+          ],
+          "correctOrder": [
+            "20",
+            "18",
+            "15"
+          ],
+          "explanation": "比較十位數可知 20 最大，15 最小。"
+        }
+      ]
+    },
+    {
+      "id": "P2-數學-fractionBoss",
+      "grade": "P2",
+      "subject": "數學",
+      "title": "Fraction Boss",
+      "description": "P2 數學・Fraction Boss挑戰",
+      "engine": "rpg",
+      "icon": "Shield",
+      "difficulty": "新手",
+      "skill": "fractionBoss",
+      "questions": [
+        {
+          "type": "choice",
+          "prompt": "1/2 + 1/4 = ?",
+          "options": [
+            "2/6",
+            "3/4",
+            "1/6",
+            "2/4"
+          ],
+          "answerIndex": 1,
+          "explanation": "把 1/2 化成 2/4，2/4 + 1/4 = 3/4。"
+        },
+        {
+          "type": "choice",
+          "prompt": "哪個分數等於 1/2？",
+          "options": [
+            "2/3",
+            "2/4",
+            "3/4",
+            "1/3"
+          ],
+          "answerIndex": 1,
+          "explanation": "2/4 同時除以 2 得 1/2。"
+        },
+        {
+          "type": "choice",
+          "prompt": "3/5 的分子是？",
+          "options": [
+            "3",
+            "5",
+            "8",
+            "15"
+          ],
+          "answerIndex": 0,
+          "explanation": "分子是分數線上面的數字。"
+        }
+      ]
+    },
+    {
+      "id": "P2-數學-equationVault",
+      "grade": "P2",
+      "subject": "數學",
+      "title": "Equation Vault",
+      "description": "P2 數學・Equation Vault挑戰",
+      "engine": "chest",
+      "icon": "Vault",
+      "difficulty": "新手",
+      "skill": "equationVault",
+      "questions": [
+        {
+          "type": "text",
+          "prompt": "解密：x + 5 = 13，輸入 x。",
+          "answer": "8",
+          "hint": "提示：用 13 減 5。",
+          "explanation": "x = 13 − 5 = 8。"
+        },
+        {
+          "type": "text",
+          "prompt": "解密：2x = 16，輸入 x。",
+          "answer": "8",
+          "hint": "提示：兩邊同除以 2。",
+          "explanation": "x = 16 ÷ 2 = 8。"
+        }
+      ]
+    },
+    {
+      "id": "P2-數學-geometryLock",
+      "grade": "P2",
+      "subject": "數學",
+      "title": "Geometry Lock",
+      "description": "P2 數學・Geometry Lock挑戰",
+      "engine": "chest",
+      "icon": "Triangle",
+      "difficulty": "新手",
+      "skill": "geometryLock",
+      "questions": [
+        {
+          "type": "text",
+          "prompt": "三角形三個內角和是多少度？",
+          "answer": "180",
+          "hint": "提示：輸入數字。",
+          "explanation": "任何三角形的內角和都是 180 度。"
+        },
+        {
+          "type": "text",
+          "prompt": "正方形有多少條相等的邊？",
+          "answer": "4",
+          "hint": "提示：輸入數字。",
+          "explanation": "正方形有四條相等的邊。"
+        }
+      ]
+    },
+    {
+      "id": "P3-中文-classifier",
+      "grade": "P3",
+      "subject": "中文",
+      "title": "量詞衝刺",
+      "description": "P3 中文・量詞衝刺挑戰",
+      "engine": "race",
+      "icon": "Layers",
+      "difficulty": "新手",
+      "skill": "classifier",
+      "questions": [
+        {
+          "type": "choice",
+          "prompt": "「一＿＿雨傘」最合適的量詞是？",
+          "options": [
+            "把",
+            "張",
+            "枝",
+            "頂"
+          ],
+          "answerIndex": 3,
+          "explanation": "「頂」用於雨傘、帽子等有頂部覆蓋的物品。"
+        },
+        {
+          "type": "choice",
+          "prompt": "「一＿＿書」最合適的量詞是？",
+          "options": [
+            "本",
+            "條",
+            "匹",
+            "座"
+          ],
+          "answerIndex": 0,
+          "explanation": "「本」用於書籍、簿冊。"
+        },
+        {
+          "type": "choice",
+          "prompt": "「一＿＿魚」最合適的量詞是？",
+          "options": [
+            "條",
+            "件",
+            "艘",
+            "棵"
+          ],
+          "answerIndex": 0,
+          "explanation": "「條」可用於魚、褲、河流等細長事物。"
+        }
+      ]
+    },
+    {
+      "id": "P3-中文-idiom",
+      "grade": "P3",
+      "subject": "中文",
+      "title": "成語快答",
+      "description": "P3 中文・成語快答挑戰",
+      "engine": "race",
+      "icon": "Sparkles",
+      "difficulty": "新手",
+      "skill": "idiom",
+      "questions": [
+        {
+          "type": "choice",
+          "prompt": "「專心＿＿」形容精神集中，應填哪一項？",
+          "options": [
+            "一致",
+            "一意",
+            "一心",
+            "一眼"
+          ],
+          "answerIndex": 2,
+          "explanation": "「專心一意」指集中精神，專一不分心。"
+        },
+        {
+          "type": "choice",
+          "prompt": "「守株待兔」比喻甚麼？",
+          "options": [
+            "努力耕作",
+            "死守狹隘經驗",
+            "樂於助人",
+            "勇敢冒險"
+          ],
+          "answerIndex": 1,
+          "explanation": "守株待兔諷刺不主動努力，只希望僥倖成功。"
+        },
+        {
+          "type": "choice",
+          "prompt": "「畫蛇添足」最貼近哪個意思？",
+          "options": [
+            "多做無益的事",
+            "仔細觀察",
+            "以少勝多",
+            "互相合作"
+          ],
+          "answerIndex": 0,
+          "explanation": "畫蛇添足指做了多餘的事，反而弄巧成拙。"
+        }
+      ]
+    },
+    {
+      "id": "P3-中文-reorder",
+      "grade": "P3",
+      "subject": "中文",
+      "title": "句式拼圖",
+      "description": "P3 中文・句式拼圖挑戰",
+      "engine": "puzzle",
+      "icon": "Puzzle",
+      "difficulty": "新手",
+      "skill": "reorder",
+      "questions": [
+        {
+          "type": "puzzle",
+          "prompt": "把詞語排成正確句子。",
+          "tokens": [
+            "今天",
+            "圖書館",
+            "我",
+            "去"
+          ],
+          "correctOrder": [
+            "我",
+            "今天",
+            "去",
+            "圖書館"
+          ],
+          "explanation": "主語「我」在前，時間「今天」後接動詞「去」和地點「圖書館」。"
+        },
+        {
+          "type": "puzzle",
+          "prompt": "把詞語排成正確句子。",
+          "tokens": [
+            "很",
+            "同學們",
+            "認真",
+            "溫習"
+          ],
+          "correctOrder": [
+            "同學們",
+            "很",
+            "認真",
+            "溫習"
+          ],
+          "explanation": "先寫主語「同學們」，再以副詞和形容詞修飾動作。"
+        }
+      ]
+    },
+    {
+      "id": "P3-中文-classical",
+      "grade": "P3",
+      "subject": "中文",
+      "title": "文言勇者",
+      "description": "P3 中文・文言勇者挑戰",
+      "engine": "rpg",
+      "icon": "ScrollText",
+      "difficulty": "新手",
+      "skill": "classical",
+      "questions": [
+        {
+          "type": "choice",
+          "prompt": "「學而時習之」中「習」的意思是？",
+          "options": [
+            "睡覺",
+            "溫習、練習",
+            "旅行",
+            "習慣"
+          ],
+          "answerIndex": 1,
+          "explanation": "「習」在這裡指溫習和練習。"
+        },
+        {
+          "type": "choice",
+          "prompt": "「己所不欲，勿施於人」的意思最接近哪一項？",
+          "options": [
+            "只顧自己",
+            "不要把自己不喜歡的事強加於別人",
+            "做事要快",
+            "一定要聽從別人"
+          ],
+          "answerIndex": 1,
+          "explanation": "這句強調推己及人和尊重別人。"
+        },
+        {
+          "type": "choice",
+          "prompt": "「溫故而知新」的「故」指甚麼？",
+          "options": [
+            "故事",
+            "舊有知識",
+            "已故的人",
+            "故鄉"
+          ],
+          "answerIndex": 1,
+          "explanation": "「故」指已學過的、舊有的知識。"
+        }
+      ]
+    },
+    {
+      "id": "P3-中文-languageVault",
+      "grade": "P3",
+      "subject": "中文",
+      "title": "語文密碼鎖",
+      "description": "P3 中文・語文密碼鎖挑戰",
+      "engine": "chest",
+      "icon": "KeyRound",
+      "difficulty": "新手",
+      "skill": "languageVault",
+      "questions": [
+        {
+          "type": "text",
+          "prompt": "輸入「亡羊補牢」的下一句常用意思：比喻事情出了差錯以後，＿＿還不算晚。",
+          "answer": "設法補救",
+          "hint": "提示：四個字，從「設」開始。",
+          "explanation": "「亡羊補牢」比喻事情出了差錯以後，設法補救還不算晚。"
+        },
+        {
+          "type": "text",
+          "prompt": "輸入「學而不思則罔，思而不學則＿＿。」的最後一字。",
+          "answer": "殆",
+          "hint": "提示：讀音是 dai。",
+          "explanation": "這句說明學習與思考要互相配合。"
+        }
+      ]
+    },
+    {
+      "id": "P3-英文-wordDash",
+      "grade": "P3",
+      "subject": "英文",
+      "title": "Word Dash",
+      "description": "P3 英文・Word Dash挑戰",
+      "engine": "race",
+      "icon": "Languages",
+      "difficulty": "新手",
+      "skill": "wordDash",
+      "questions": [
+        {
+          "type": "choice",
+          "prompt": "Which word means 「快樂」?",
+          "options": [
+            "happy",
+            "hungry",
+            "heavy",
+            "honest"
+          ],
+          "answerIndex": 0,
+          "explanation": "happy means 快樂。"
+        },
+        {
+          "type": "choice",
+          "prompt": "Choose the opposite of \"big\".",
+          "options": [
+            "tall",
+            "small",
+            "wide",
+            "long"
+          ],
+          "answerIndex": 1,
+          "explanation": "small 是 big 的相反詞。"
+        },
+        {
+          "type": "choice",
+          "prompt": "Which word is a colour?",
+          "options": [
+            "blue",
+            "book",
+            "bird",
+            "ball"
+          ],
+          "answerIndex": 0,
+          "explanation": "blue 是顏色。"
+        }
+      ]
+    },
+    {
+      "id": "P3-英文-spelling",
+      "grade": "P3",
+      "subject": "英文",
+      "title": "Spelling Scramble",
+      "description": "P3 英文・Spelling Scramble挑戰",
+      "engine": "puzzle",
+      "icon": "SpellCheck",
+      "difficulty": "新手",
+      "skill": "spelling",
+      "questions": [
+        {
+          "type": "puzzle",
+          "prompt": "Arrange the letters to spell a fruit.",
+          "tokens": [
+            "p",
+            "a",
+            "l",
+            "p",
+            "e"
+          ],
+          "correctOrder": [
+            "a",
+            "p",
+            "p",
+            "l",
+            "e"
+          ],
+          "explanation": "apple 是「蘋果」。"
+        },
+        {
+          "type": "puzzle",
+          "prompt": "Arrange the letters to spell an animal.",
+          "tokens": [
+            "c",
+            "t",
+            "a"
+          ],
+          "correctOrder": [
+            "c",
+            "a",
+            "t"
+          ],
+          "explanation": "cat 是「貓」。"
+        }
+      ]
+    },
+    {
+      "id": "P3-英文-sentence",
+      "grade": "P3",
+      "subject": "英文",
+      "title": "Sentence Builder",
+      "description": "P3 英文・Sentence Builder挑戰",
+      "engine": "puzzle",
+      "icon": "TextCursorInput",
+      "difficulty": "新手",
+      "skill": "sentence",
+      "questions": [
+        {
+          "type": "puzzle",
+          "prompt": "Build a correct English sentence.",
+          "tokens": [
+            "to",
+            "school",
+            "walk",
+            "I"
+          ],
+          "correctOrder": [
+            "I",
+            "walk",
+            "to",
+            "school"
+          ],
+          "explanation": "英文基本語序是主語 + 動詞 + 其他成分。"
+        },
+        {
+          "type": "puzzle",
+          "prompt": "Build a correct English sentence.",
+          "tokens": [
+            "is",
+            "She",
+            "kind"
+          ],
+          "correctOrder": [
+            "She",
+            "is",
+            "kind"
+          ],
+          "explanation": "be 動詞要放在主語 She 後面。"
+        }
+      ]
+    },
+    {
+      "id": "P3-英文-tense",
+      "grade": "P3",
+      "subject": "英文",
+      "title": "Tense Master",
+      "description": "P3 英文・Tense Master挑戰",
+      "engine": "rpg",
+      "icon": "Swords",
+      "difficulty": "新手",
+      "skill": "tense",
+      "questions": [
+        {
+          "type": "choice",
+          "prompt": "She ______ to school every day.",
+          "options": [
+            "walk",
+            "walks",
+            "walking",
+            "walked"
+          ],
+          "answerIndex": 1,
+          "explanation": "She 是第三人稱單數，現在式動詞加 s。"
+        },
+        {
+          "type": "choice",
+          "prompt": "They ______ football yesterday.",
+          "options": [
+            "play",
+            "plays",
+            "played",
+            "playing"
+          ],
+          "answerIndex": 2,
+          "explanation": "yesterday 提示用過去式 played。"
+        },
+        {
+          "type": "choice",
+          "prompt": "I ______ a student.",
+          "options": [
+            "am",
+            "is",
+            "are",
+            "be"
+          ],
+          "answerIndex": 0,
+          "explanation": "I 配 am。"
+        }
+      ]
+    },
+    {
+      "id": "P3-英文-grammarVault",
+      "grade": "P3",
+      "subject": "英文",
+      "title": "Grammar Vault",
+      "description": "P3 英文・Grammar Vault挑戰",
+      "engine": "chest",
+      "icon": "LockKeyhole",
+      "difficulty": "新手",
+      "skill": "grammarVault",
+      "questions": [
+        {
+          "type": "text",
+          "prompt": "Complete: \"I ___ a student.\"",
+          "answer": "am",
+          "hint": "提示：I 的 be 動詞。",
+          "explanation": "主語 I 要配 am。"
+        },
+        {
+          "type": "text",
+          "prompt": "Complete: \"She ___ my friend.\"",
+          "answer": "is",
+          "hint": "提示：She 的 be 動詞。",
+          "explanation": "第三人稱單數 She 要配 is。"
+        }
+      ]
+    },
+    {
+      "id": "P3-數學-calc",
+      "grade": "P3",
+      "subject": "數學",
+      "title": "Calculation Dash",
+      "description": "P3 數學・Calculation Dash挑戰",
+      "engine": "race",
+      "icon": "Gauge",
+      "difficulty": "新手",
+      "skill": "calc",
+      "questions": [
+        {
+          "type": "choice",
+          "prompt": "5 + 7 = ?",
+          "options": [
+            "11",
+            "12",
+            "13",
+            "14"
+          ],
+          "answerIndex": 1,
+          "explanation": "5 加 7 等於 12。"
+        },
+        {
+          "type": "choice",
+          "prompt": "10 − 7 = ?",
+          "options": [
+            "-2",
+            "5",
+            "3",
+            "17"
+          ],
+          "answerIndex": 2,
+          "explanation": "10 減 7 等於 3。"
+        },
+        {
+          "type": "choice",
+          "prompt": "5 × 2 = ?",
+          "options": [
+            "10",
+            "7",
+            "15",
+            "3"
+          ],
+          "answerIndex": 0,
+          "explanation": "5 乘 2 等於 10。"
+        }
+      ]
+    },
+    {
+      "id": "P3-數學-numberOrder",
+      "grade": "P3",
+      "subject": "數學",
+      "title": "Number Puzzle",
+      "description": "P3 數學・Number Puzzle挑戰",
+      "engine": "puzzle",
+      "icon": "ArrowDownUp",
+      "difficulty": "新手",
+      "skill": "numberOrder",
+      "questions": [
+        {
+          "type": "puzzle",
+          "prompt": "由小至大排列數字。",
+          "tokens": [
+            "12",
+            "7",
+            "9"
+          ],
+          "correctOrder": [
+            "7",
+            "9",
+            "12"
+          ],
+          "explanation": "先比較十位數；7 和 9 都小於 12。"
+        },
+        {
+          "type": "puzzle",
+          "prompt": "由大至小排列數字。",
+          "tokens": [
+            "15",
+            "20",
+            "18"
+          ],
+          "correctOrder": [
+            "20",
+            "18",
+            "15"
+          ],
+          "explanation": "比較十位數可知 20 最大，15 最小。"
+        }
+      ]
+    },
+    {
+      "id": "P3-數學-fractionBoss",
+      "grade": "P3",
+      "subject": "數學",
+      "title": "Fraction Boss",
+      "description": "P3 數學・Fraction Boss挑戰",
+      "engine": "rpg",
+      "icon": "Shield",
+      "difficulty": "新手",
+      "skill": "fractionBoss",
+      "questions": [
+        {
+          "type": "choice",
+          "prompt": "1/2 + 1/4 = ?",
+          "options": [
+            "2/6",
+            "3/4",
+            "1/6",
+            "2/4"
+          ],
+          "answerIndex": 1,
+          "explanation": "把 1/2 化成 2/4，2/4 + 1/4 = 3/4。"
+        },
+        {
+          "type": "choice",
+          "prompt": "哪個分數等於 1/2？",
+          "options": [
+            "2/3",
+            "2/4",
+            "3/4",
+            "1/3"
+          ],
+          "answerIndex": 1,
+          "explanation": "2/4 同時除以 2 得 1/2。"
+        },
+        {
+          "type": "choice",
+          "prompt": "3/5 的分子是？",
+          "options": [
+            "3",
+            "5",
+            "8",
+            "15"
+          ],
+          "answerIndex": 0,
+          "explanation": "分子是分數線上面的數字。"
+        }
+      ]
+    },
+    {
+      "id": "P3-數學-equationVault",
+      "grade": "P3",
+      "subject": "數學",
+      "title": "Equation Vault",
+      "description": "P3 數學・Equation Vault挑戰",
+      "engine": "chest",
+      "icon": "Vault",
+      "difficulty": "新手",
+      "skill": "equationVault",
+      "questions": [
+        {
+          "type": "text",
+          "prompt": "解密：x + 6 = 15，輸入 x。",
+          "answer": "9",
+          "hint": "提示：用 15 減 6。",
+          "explanation": "x = 15 − 6 = 9。"
+        },
+        {
+          "type": "text",
+          "prompt": "解密：2x = 18，輸入 x。",
+          "answer": "9",
+          "hint": "提示：兩邊同除以 2。",
+          "explanation": "x = 18 ÷ 2 = 9。"
+        }
+      ]
+    },
+    {
+      "id": "P3-數學-geometryLock",
+      "grade": "P3",
+      "subject": "數學",
+      "title": "Geometry Lock",
+      "description": "P3 數學・Geometry Lock挑戰",
+      "engine": "chest",
+      "icon": "Triangle",
+      "difficulty": "新手",
+      "skill": "geometryLock",
+      "questions": [
+        {
+          "type": "text",
+          "prompt": "三角形三個內角和是多少度？",
+          "answer": "180",
+          "hint": "提示：輸入數字。",
+          "explanation": "任何三角形的內角和都是 180 度。"
+        },
+        {
+          "type": "text",
+          "prompt": "正方形有多少條相等的邊？",
+          "answer": "4",
+          "hint": "提示：輸入數字。",
+          "explanation": "正方形有四條相等的邊。"
+        }
+      ]
+    },
+    {
+      "id": "P4-中文-classifier",
+      "grade": "P4",
+      "subject": "中文",
+      "title": "量詞衝刺",
+      "description": "P4 中文・量詞衝刺挑戰",
+      "engine": "race",
+      "icon": "Layers",
+      "difficulty": "新手",
+      "skill": "classifier",
+      "questions": [
+        {
+          "type": "choice",
+          "prompt": "「一＿＿雨傘」最合適的量詞是？",
+          "options": [
+            "把",
+            "張",
+            "枝",
+            "頂"
+          ],
+          "answerIndex": 3,
+          "explanation": "「頂」用於雨傘、帽子等有頂部覆蓋的物品。"
+        },
+        {
+          "type": "choice",
+          "prompt": "「一＿＿書」最合適的量詞是？",
+          "options": [
+            "本",
+            "條",
+            "匹",
+            "座"
+          ],
+          "answerIndex": 0,
+          "explanation": "「本」用於書籍、簿冊。"
+        },
+        {
+          "type": "choice",
+          "prompt": "「一＿＿魚」最合適的量詞是？",
+          "options": [
+            "條",
+            "件",
+            "艘",
+            "棵"
+          ],
+          "answerIndex": 0,
+          "explanation": "「條」可用於魚、褲、河流等細長事物。"
+        }
+      ]
+    },
+    {
+      "id": "P4-中文-idiom",
+      "grade": "P4",
+      "subject": "中文",
+      "title": "成語快答",
+      "description": "P4 中文・成語快答挑戰",
+      "engine": "race",
+      "icon": "Sparkles",
+      "difficulty": "新手",
+      "skill": "idiom",
+      "questions": [
+        {
+          "type": "choice",
+          "prompt": "「專心＿＿」形容精神集中，應填哪一項？",
+          "options": [
+            "一致",
+            "一意",
+            "一心",
+            "一眼"
+          ],
+          "answerIndex": 2,
+          "explanation": "「專心一意」指集中精神，專一不分心。"
+        },
+        {
+          "type": "choice",
+          "prompt": "「守株待兔」比喻甚麼？",
+          "options": [
+            "努力耕作",
+            "死守狹隘經驗",
+            "樂於助人",
+            "勇敢冒險"
+          ],
+          "answerIndex": 1,
+          "explanation": "守株待兔諷刺不主動努力，只希望僥倖成功。"
+        },
+        {
+          "type": "choice",
+          "prompt": "「畫蛇添足」最貼近哪個意思？",
+          "options": [
+            "多做無益的事",
+            "仔細觀察",
+            "以少勝多",
+            "互相合作"
+          ],
+          "answerIndex": 0,
+          "explanation": "畫蛇添足指做了多餘的事，反而弄巧成拙。"
+        }
+      ]
+    },
+    {
+      "id": "P4-中文-reorder",
+      "grade": "P4",
+      "subject": "中文",
+      "title": "句式拼圖",
+      "description": "P4 中文・句式拼圖挑戰",
+      "engine": "puzzle",
+      "icon": "Puzzle",
+      "difficulty": "新手",
+      "skill": "reorder",
+      "questions": [
+        {
+          "type": "puzzle",
+          "prompt": "把詞語排成正確句子。",
+          "tokens": [
+            "今天",
+            "圖書館",
+            "我",
+            "去"
+          ],
+          "correctOrder": [
+            "我",
+            "今天",
+            "去",
+            "圖書館"
+          ],
+          "explanation": "主語「我」在前，時間「今天」後接動詞「去」和地點「圖書館」。"
+        },
+        {
+          "type": "puzzle",
+          "prompt": "把詞語排成正確句子。",
+          "tokens": [
+            "很",
+            "同學們",
+            "認真",
+            "溫習"
+          ],
+          "correctOrder": [
+            "同學們",
+            "很",
+            "認真",
+            "溫習"
+          ],
+          "explanation": "先寫主語「同學們」，再以副詞和形容詞修飾動作。"
+        }
+      ]
+    },
+    {
+      "id": "P4-中文-classical",
+      "grade": "P4",
+      "subject": "中文",
+      "title": "文言勇者",
+      "description": "P4 中文・文言勇者挑戰",
+      "engine": "rpg",
+      "icon": "ScrollText",
+      "difficulty": "新手",
+      "skill": "classical",
+      "questions": [
+        {
+          "type": "choice",
+          "prompt": "「學而時習之」中「習」的意思是？",
+          "options": [
+            "睡覺",
+            "溫習、練習",
+            "旅行",
+            "習慣"
+          ],
+          "answerIndex": 1,
+          "explanation": "「習」在這裡指溫習和練習。"
+        },
+        {
+          "type": "choice",
+          "prompt": "「己所不欲，勿施於人」的意思最接近哪一項？",
+          "options": [
+            "只顧自己",
+            "不要把自己不喜歡的事強加於別人",
+            "做事要快",
+            "一定要聽從別人"
+          ],
+          "answerIndex": 1,
+          "explanation": "這句強調推己及人和尊重別人。"
+        },
+        {
+          "type": "choice",
+          "prompt": "「溫故而知新」的「故」指甚麼？",
+          "options": [
+            "故事",
+            "舊有知識",
+            "已故的人",
+            "故鄉"
+          ],
+          "answerIndex": 1,
+          "explanation": "「故」指已學過的、舊有的知識。"
+        }
+      ]
+    },
+    {
+      "id": "P4-中文-languageVault",
+      "grade": "P4",
+      "subject": "中文",
+      "title": "語文密碼鎖",
+      "description": "P4 中文・語文密碼鎖挑戰",
+      "engine": "chest",
+      "icon": "KeyRound",
+      "difficulty": "新手",
+      "skill": "languageVault",
+      "questions": [
+        {
+          "type": "text",
+          "prompt": "輸入「亡羊補牢」的下一句常用意思：比喻事情出了差錯以後，＿＿還不算晚。",
+          "answer": "設法補救",
+          "hint": "提示：四個字，從「設」開始。",
+          "explanation": "「亡羊補牢」比喻事情出了差錯以後，設法補救還不算晚。"
+        },
+        {
+          "type": "text",
+          "prompt": "輸入「學而不思則罔，思而不學則＿＿。」的最後一字。",
+          "answer": "殆",
+          "hint": "提示：讀音是 dai。",
+          "explanation": "這句說明學習與思考要互相配合。"
+        }
+      ]
+    },
+    {
+      "id": "P4-英文-wordDash",
+      "grade": "P4",
+      "subject": "英文",
+      "title": "Word Dash",
+      "description": "P4 英文・Word Dash挑戰",
+      "engine": "race",
+      "icon": "Languages",
+      "difficulty": "新手",
+      "skill": "wordDash",
+      "questions": [
+        {
+          "type": "choice",
+          "prompt": "Which word means 「快樂」?",
+          "options": [
+            "happy",
+            "hungry",
+            "heavy",
+            "honest"
+          ],
+          "answerIndex": 0,
+          "explanation": "happy means 快樂。"
+        },
+        {
+          "type": "choice",
+          "prompt": "Choose the opposite of \"big\".",
+          "options": [
+            "tall",
+            "small",
+            "wide",
+            "long"
+          ],
+          "answerIndex": 1,
+          "explanation": "small 是 big 的相反詞。"
+        },
+        {
+          "type": "choice",
+          "prompt": "Which word is a colour?",
+          "options": [
+            "blue",
+            "book",
+            "bird",
+            "ball"
+          ],
+          "answerIndex": 0,
+          "explanation": "blue 是顏色。"
+        }
+      ]
+    },
+    {
+      "id": "P4-英文-spelling",
+      "grade": "P4",
+      "subject": "英文",
+      "title": "Spelling Scramble",
+      "description": "P4 英文・Spelling Scramble挑戰",
+      "engine": "puzzle",
+      "icon": "SpellCheck",
+      "difficulty": "新手",
+      "skill": "spelling",
+      "questions": [
+        {
+          "type": "puzzle",
+          "prompt": "Arrange the letters to spell a fruit.",
+          "tokens": [
+            "p",
+            "a",
+            "l",
+            "p",
+            "e"
+          ],
+          "correctOrder": [
+            "a",
+            "p",
+            "p",
+            "l",
+            "e"
+          ],
+          "explanation": "apple 是「蘋果」。"
+        },
+        {
+          "type": "puzzle",
+          "prompt": "Arrange the letters to spell an animal.",
+          "tokens": [
+            "c",
+            "t",
+            "a"
+          ],
+          "correctOrder": [
+            "c",
+            "a",
+            "t"
+          ],
+          "explanation": "cat 是「貓」。"
+        }
+      ]
+    },
+    {
+      "id": "P4-英文-sentence",
+      "grade": "P4",
+      "subject": "英文",
+      "title": "Sentence Builder",
+      "description": "P4 英文・Sentence Builder挑戰",
+      "engine": "puzzle",
+      "icon": "TextCursorInput",
+      "difficulty": "新手",
+      "skill": "sentence",
+      "questions": [
+        {
+          "type": "puzzle",
+          "prompt": "Build a correct English sentence.",
+          "tokens": [
+            "to",
+            "school",
+            "walk",
+            "I"
+          ],
+          "correctOrder": [
+            "I",
+            "walk",
+            "to",
+            "school"
+          ],
+          "explanation": "英文基本語序是主語 + 動詞 + 其他成分。"
+        },
+        {
+          "type": "puzzle",
+          "prompt": "Build a correct English sentence.",
+          "tokens": [
+            "is",
+            "She",
+            "kind"
+          ],
+          "correctOrder": [
+            "She",
+            "is",
+            "kind"
+          ],
+          "explanation": "be 動詞要放在主語 She 後面。"
+        }
+      ]
+    },
+    {
+      "id": "P4-英文-tense",
+      "grade": "P4",
+      "subject": "英文",
+      "title": "Tense Master",
+      "description": "P4 英文・Tense Master挑戰",
+      "engine": "rpg",
+      "icon": "Swords",
+      "difficulty": "新手",
+      "skill": "tense",
+      "questions": [
+        {
+          "type": "choice",
+          "prompt": "She ______ to school every day.",
+          "options": [
+            "walk",
+            "walks",
+            "walking",
+            "walked"
+          ],
+          "answerIndex": 1,
+          "explanation": "She 是第三人稱單數，現在式動詞加 s。"
+        },
+        {
+          "type": "choice",
+          "prompt": "They ______ football yesterday.",
+          "options": [
+            "play",
+            "plays",
+            "played",
+            "playing"
+          ],
+          "answerIndex": 2,
+          "explanation": "yesterday 提示用過去式 played。"
+        },
+        {
+          "type": "choice",
+          "prompt": "I ______ a student.",
+          "options": [
+            "am",
+            "is",
+            "are",
+            "be"
+          ],
+          "answerIndex": 0,
+          "explanation": "I 配 am。"
+        }
+      ]
+    },
+    {
+      "id": "P4-英文-grammarVault",
+      "grade": "P4",
+      "subject": "英文",
+      "title": "Grammar Vault",
+      "description": "P4 英文・Grammar Vault挑戰",
+      "engine": "chest",
+      "icon": "LockKeyhole",
+      "difficulty": "新手",
+      "skill": "grammarVault",
+      "questions": [
+        {
+          "type": "text",
+          "prompt": "Complete: \"I ___ a student.\"",
+          "answer": "am",
+          "hint": "提示：I 的 be 動詞。",
+          "explanation": "主語 I 要配 am。"
+        },
+        {
+          "type": "text",
+          "prompt": "Complete: \"She ___ my friend.\"",
+          "answer": "is",
+          "hint": "提示：She 的 be 動詞。",
+          "explanation": "第三人稱單數 She 要配 is。"
+        }
+      ]
+    },
+    {
+      "id": "P4-數學-calc",
+      "grade": "P4",
+      "subject": "數學",
+      "title": "Calculation Dash",
+      "description": "P4 數學・Calculation Dash挑戰",
+      "engine": "race",
+      "icon": "Gauge",
+      "difficulty": "新手",
+      "skill": "calc",
+      "questions": [
+        {
+          "type": "choice",
+          "prompt": "6 + 8 = ?",
+          "options": [
+            "13",
+            "14",
+            "15",
+            "16"
+          ],
+          "answerIndex": 1,
+          "explanation": "6 加 8 等於 14。"
+        },
+        {
+          "type": "choice",
+          "prompt": "12 − 8 = ?",
+          "options": [
+            "-2",
+            "6",
+            "4",
+            "20"
+          ],
+          "answerIndex": 2,
+          "explanation": "12 減 8 等於 4。"
+        },
+        {
+          "type": "choice",
+          "prompt": "6 × 2 = ?",
+          "options": [
+            "12",
+            "8",
+            "18",
+            "4"
+          ],
+          "answerIndex": 0,
+          "explanation": "6 乘 2 等於 12。"
+        }
+      ]
+    },
+    {
+      "id": "P4-數學-numberOrder",
+      "grade": "P4",
+      "subject": "數學",
+      "title": "Number Puzzle",
+      "description": "P4 數學・Number Puzzle挑戰",
+      "engine": "puzzle",
+      "icon": "ArrowDownUp",
+      "difficulty": "新手",
+      "skill": "numberOrder",
+      "questions": [
+        {
+          "type": "puzzle",
+          "prompt": "由小至大排列數字。",
+          "tokens": [
+            "12",
+            "7",
+            "9"
+          ],
+          "correctOrder": [
+            "7",
+            "9",
+            "12"
+          ],
+          "explanation": "先比較十位數；7 和 9 都小於 12。"
+        },
+        {
+          "type": "puzzle",
+          "prompt": "由大至小排列數字。",
+          "tokens": [
+            "15",
+            "20",
+            "18"
+          ],
+          "correctOrder": [
+            "20",
+            "18",
+            "15"
+          ],
+          "explanation": "比較十位數可知 20 最大，15 最小。"
+        }
+      ]
+    },
+    {
+      "id": "P4-數學-fractionBoss",
+      "grade": "P4",
+      "subject": "數學",
+      "title": "Fraction Boss",
+      "description": "P4 數學・Fraction Boss挑戰",
+      "engine": "rpg",
+      "icon": "Shield",
+      "difficulty": "新手",
+      "skill": "fractionBoss",
+      "questions": [
+        {
+          "type": "choice",
+          "prompt": "1/2 + 1/4 = ?",
+          "options": [
+            "2/6",
+            "3/4",
+            "1/6",
+            "2/4"
+          ],
+          "answerIndex": 1,
+          "explanation": "把 1/2 化成 2/4，2/4 + 1/4 = 3/4。"
+        },
+        {
+          "type": "choice",
+          "prompt": "哪個分數等於 1/2？",
+          "options": [
+            "2/3",
+            "2/4",
+            "3/4",
+            "1/3"
+          ],
+          "answerIndex": 1,
+          "explanation": "2/4 同時除以 2 得 1/2。"
+        },
+        {
+          "type": "choice",
+          "prompt": "3/5 的分子是？",
+          "options": [
+            "3",
+            "5",
+            "8",
+            "15"
+          ],
+          "answerIndex": 0,
+          "explanation": "分子是分數線上面的數字。"
+        }
+      ]
+    },
+    {
+      "id": "P4-數學-equationVault",
+      "grade": "P4",
+      "subject": "數學",
+      "title": "Equation Vault",
+      "description": "P4 數學・Equation Vault挑戰",
+      "engine": "chest",
+      "icon": "Vault",
+      "difficulty": "新手",
+      "skill": "equationVault",
+      "questions": [
+        {
+          "type": "text",
+          "prompt": "解密：x + 7 = 17，輸入 x。",
+          "answer": "10",
+          "hint": "提示：用 17 減 7。",
+          "explanation": "x = 17 − 7 = 10。"
+        },
+        {
+          "type": "text",
+          "prompt": "解密：2x = 20，輸入 x。",
+          "answer": "10",
+          "hint": "提示：兩邊同除以 2。",
+          "explanation": "x = 20 ÷ 2 = 10。"
+        }
+      ]
+    },
+    {
+      "id": "P4-數學-geometryLock",
+      "grade": "P4",
+      "subject": "數學",
+      "title": "Geometry Lock",
+      "description": "P4 數學・Geometry Lock挑戰",
+      "engine": "chest",
+      "icon": "Triangle",
+      "difficulty": "新手",
+      "skill": "geometryLock",
+      "questions": [
+        {
+          "type": "text",
+          "prompt": "三角形三個內角和是多少度？",
+          "answer": "180",
+          "hint": "提示：輸入數字。",
+          "explanation": "任何三角形的內角和都是 180 度。"
+        },
+        {
+          "type": "text",
+          "prompt": "正方形有多少條相等的邊？",
+          "answer": "4",
+          "hint": "提示：輸入數字。",
+          "explanation": "正方形有四條相等的邊。"
+        }
+      ]
+    },
+    {
+      "id": "P5-中文-classifier",
+      "grade": "P5",
+      "subject": "中文",
+      "title": "量詞衝刺",
+      "description": "P5 中文・量詞衝刺挑戰",
+      "engine": "race",
+      "icon": "Layers",
+      "difficulty": "進階",
+      "skill": "classifier",
+      "questions": [
+        {
+          "type": "choice",
+          "prompt": "「一＿＿雨傘」最合適的量詞是？",
+          "options": [
+            "把",
+            "張",
+            "枝",
+            "頂"
+          ],
+          "answerIndex": 3,
+          "explanation": "「頂」用於雨傘、帽子等有頂部覆蓋的物品。"
+        },
+        {
+          "type": "choice",
+          "prompt": "「一＿＿書」最合適的量詞是？",
+          "options": [
+            "本",
+            "條",
+            "匹",
+            "座"
+          ],
+          "answerIndex": 0,
+          "explanation": "「本」用於書籍、簿冊。"
+        },
+        {
+          "type": "choice",
+          "prompt": "「一＿＿魚」最合適的量詞是？",
+          "options": [
+            "條",
+            "件",
+            "艘",
+            "棵"
+          ],
+          "answerIndex": 0,
+          "explanation": "「條」可用於魚、褲、河流等細長事物。"
+        }
+      ]
+    },
+    {
+      "id": "P5-中文-idiom",
+      "grade": "P5",
+      "subject": "中文",
+      "title": "成語快答",
+      "description": "P5 中文・成語快答挑戰",
+      "engine": "race",
+      "icon": "Sparkles",
+      "difficulty": "進階",
+      "skill": "idiom",
+      "questions": [
+        {
+          "type": "choice",
+          "prompt": "「專心＿＿」形容精神集中，應填哪一項？",
+          "options": [
+            "一致",
+            "一意",
+            "一心",
+            "一眼"
+          ],
+          "answerIndex": 2,
+          "explanation": "「專心一意」指集中精神，專一不分心。"
+        },
+        {
+          "type": "choice",
+          "prompt": "「守株待兔」比喻甚麼？",
+          "options": [
+            "努力耕作",
+            "死守狹隘經驗",
+            "樂於助人",
+            "勇敢冒險"
+          ],
+          "answerIndex": 1,
+          "explanation": "守株待兔諷刺不主動努力，只希望僥倖成功。"
+        },
+        {
+          "type": "choice",
+          "prompt": "「畫蛇添足」最貼近哪個意思？",
+          "options": [
+            "多做無益的事",
+            "仔細觀察",
+            "以少勝多",
+            "互相合作"
+          ],
+          "answerIndex": 0,
+          "explanation": "畫蛇添足指做了多餘的事，反而弄巧成拙。"
+        }
+      ]
+    },
+    {
+      "id": "P5-中文-reorder",
+      "grade": "P5",
+      "subject": "中文",
+      "title": "句式拼圖",
+      "description": "P5 中文・句式拼圖挑戰",
+      "engine": "puzzle",
+      "icon": "Puzzle",
+      "difficulty": "進階",
+      "skill": "reorder",
+      "questions": [
+        {
+          "type": "puzzle",
+          "prompt": "把詞語排成正確句子。",
+          "tokens": [
+            "今天",
+            "圖書館",
+            "我",
+            "去"
+          ],
+          "correctOrder": [
+            "我",
+            "今天",
+            "去",
+            "圖書館"
+          ],
+          "explanation": "主語「我」在前，時間「今天」後接動詞「去」和地點「圖書館」。"
+        },
+        {
+          "type": "puzzle",
+          "prompt": "把詞語排成正確句子。",
+          "tokens": [
+            "很",
+            "同學們",
+            "認真",
+            "溫習"
+          ],
+          "correctOrder": [
+            "同學們",
+            "很",
+            "認真",
+            "溫習"
+          ],
+          "explanation": "先寫主語「同學們」，再以副詞和形容詞修飾動作。"
+        }
+      ]
+    },
+    {
+      "id": "P5-中文-classical",
+      "grade": "P5",
+      "subject": "中文",
+      "title": "文言勇者",
+      "description": "P5 中文・文言勇者挑戰",
+      "engine": "rpg",
+      "icon": "ScrollText",
+      "difficulty": "進階",
+      "skill": "classical",
+      "questions": [
+        {
+          "type": "choice",
+          "prompt": "「學而時習之」中「習」的意思是？",
+          "options": [
+            "睡覺",
+            "溫習、練習",
+            "旅行",
+            "習慣"
+          ],
+          "answerIndex": 1,
+          "explanation": "「習」在這裡指溫習和練習。"
+        },
+        {
+          "type": "choice",
+          "prompt": "「己所不欲，勿施於人」的意思最接近哪一項？",
+          "options": [
+            "只顧自己",
+            "不要把自己不喜歡的事強加於別人",
+            "做事要快",
+            "一定要聽從別人"
+          ],
+          "answerIndex": 1,
+          "explanation": "這句強調推己及人和尊重別人。"
+        },
+        {
+          "type": "choice",
+          "prompt": "「溫故而知新」的「故」指甚麼？",
+          "options": [
+            "故事",
+            "舊有知識",
+            "已故的人",
+            "故鄉"
+          ],
+          "answerIndex": 1,
+          "explanation": "「故」指已學過的、舊有的知識。"
+        }
+      ]
+    },
+    {
+      "id": "P5-中文-languageVault",
+      "grade": "P5",
+      "subject": "中文",
+      "title": "語文密碼鎖",
+      "description": "P5 中文・語文密碼鎖挑戰",
+      "engine": "chest",
+      "icon": "KeyRound",
+      "difficulty": "進階",
+      "skill": "languageVault",
+      "questions": [
+        {
+          "type": "text",
+          "prompt": "輸入「亡羊補牢」的下一句常用意思：比喻事情出了差錯以後，＿＿還不算晚。",
+          "answer": "設法補救",
+          "hint": "提示：四個字，從「設」開始。",
+          "explanation": "「亡羊補牢」比喻事情出了差錯以後，設法補救還不算晚。"
+        },
+        {
+          "type": "text",
+          "prompt": "輸入「學而不思則罔，思而不學則＿＿。」的最後一字。",
+          "answer": "殆",
+          "hint": "提示：讀音是 dai。",
+          "explanation": "這句說明學習與思考要互相配合。"
+        }
+      ]
+    },
+    {
+      "id": "P5-英文-wordDash",
+      "grade": "P5",
+      "subject": "英文",
+      "title": "Word Dash",
+      "description": "P5 英文・Word Dash挑戰",
+      "engine": "race",
+      "icon": "Languages",
+      "difficulty": "進階",
+      "skill": "wordDash",
+      "questions": [
+        {
+          "type": "choice",
+          "prompt": "Which word means 「快樂」?",
+          "options": [
+            "happy",
+            "hungry",
+            "heavy",
+            "honest"
+          ],
+          "answerIndex": 0,
+          "explanation": "happy means 快樂。"
+        },
+        {
+          "type": "choice",
+          "prompt": "Choose the opposite of \"big\".",
+          "options": [
+            "tall",
+            "small",
+            "wide",
+            "long"
+          ],
+          "answerIndex": 1,
+          "explanation": "small 是 big 的相反詞。"
+        },
+        {
+          "type": "choice",
+          "prompt": "Which word is a colour?",
+          "options": [
+            "blue",
+            "book",
+            "bird",
+            "ball"
+          ],
+          "answerIndex": 0,
+          "explanation": "blue 是顏色。"
+        }
+      ]
+    },
+    {
+      "id": "P5-英文-spelling",
+      "grade": "P5",
+      "subject": "英文",
+      "title": "Spelling Scramble",
+      "description": "P5 英文・Spelling Scramble挑戰",
+      "engine": "puzzle",
+      "icon": "SpellCheck",
+      "difficulty": "進階",
+      "skill": "spelling",
+      "questions": [
+        {
+          "type": "puzzle",
+          "prompt": "Arrange the letters to spell a fruit.",
+          "tokens": [
+            "p",
+            "a",
+            "l",
+            "p",
+            "e"
+          ],
+          "correctOrder": [
+            "a",
+            "p",
+            "p",
+            "l",
+            "e"
+          ],
+          "explanation": "apple 是「蘋果」。"
+        },
+        {
+          "type": "puzzle",
+          "prompt": "Arrange the letters to spell an animal.",
+          "tokens": [
+            "c",
+            "t",
+            "a"
+          ],
+          "correctOrder": [
+            "c",
+            "a",
+            "t"
+          ],
+          "explanation": "cat 是「貓」。"
+        }
+      ]
+    },
+    {
+      "id": "P5-英文-sentence",
+      "grade": "P5",
+      "subject": "英文",
+      "title": "Sentence Builder",
+      "description": "P5 英文・Sentence Builder挑戰",
+      "engine": "puzzle",
+      "icon": "TextCursorInput",
+      "difficulty": "進階",
+      "skill": "sentence",
+      "questions": [
+        {
+          "type": "puzzle",
+          "prompt": "Build a correct English sentence.",
+          "tokens": [
+            "to",
+            "school",
+            "walk",
+            "I"
+          ],
+          "correctOrder": [
+            "I",
+            "walk",
+            "to",
+            "school"
+          ],
+          "explanation": "英文基本語序是主語 + 動詞 + 其他成分。"
+        },
+        {
+          "type": "puzzle",
+          "prompt": "Build a correct English sentence.",
+          "tokens": [
+            "is",
+            "She",
+            "kind"
+          ],
+          "correctOrder": [
+            "She",
+            "is",
+            "kind"
+          ],
+          "explanation": "be 動詞要放在主語 She 後面。"
+        }
+      ]
+    },
+    {
+      "id": "P5-英文-tense",
+      "grade": "P5",
+      "subject": "英文",
+      "title": "Tense Master",
+      "description": "P5 英文・Tense Master挑戰",
+      "engine": "rpg",
+      "icon": "Swords",
+      "difficulty": "進階",
+      "skill": "tense",
+      "questions": [
+        {
+          "type": "choice",
+          "prompt": "She ______ to school every day.",
+          "options": [
+            "walk",
+            "walks",
+            "walking",
+            "walked"
+          ],
+          "answerIndex": 1,
+          "explanation": "She 是第三人稱單數，現在式動詞加 s。"
+        },
+        {
+          "type": "choice",
+          "prompt": "They ______ football yesterday.",
+          "options": [
+            "play",
+            "plays",
+            "played",
+            "playing"
+          ],
+          "answerIndex": 2,
+          "explanation": "yesterday 提示用過去式 played。"
+        },
+        {
+          "type": "choice",
+          "prompt": "I ______ a student.",
+          "options": [
+            "am",
+            "is",
+            "are",
+            "be"
+          ],
+          "answerIndex": 0,
+          "explanation": "I 配 am。"
+        }
+      ]
+    },
+    {
+      "id": "P5-英文-grammarVault",
+      "grade": "P5",
+      "subject": "英文",
+      "title": "Grammar Vault",
+      "description": "P5 英文・Grammar Vault挑戰",
+      "engine": "chest",
+      "icon": "LockKeyhole",
+      "difficulty": "進階",
+      "skill": "grammarVault",
+      "questions": [
+        {
+          "type": "text",
+          "prompt": "Complete: \"I ___ a student.\"",
+          "answer": "am",
+          "hint": "提示：I 的 be 動詞。",
+          "explanation": "主語 I 要配 am。"
+        },
+        {
+          "type": "text",
+          "prompt": "Complete: \"She ___ my friend.\"",
+          "answer": "is",
+          "hint": "提示：She 的 be 動詞。",
+          "explanation": "第三人稱單數 She 要配 is。"
+        }
+      ]
+    },
+    {
+      "id": "P5-數學-calc",
+      "grade": "P5",
+      "subject": "數學",
+      "title": "Calculation Dash",
+      "description": "P5 數學・Calculation Dash挑戰",
+      "engine": "race",
+      "icon": "Gauge",
+      "difficulty": "進階",
+      "skill": "calc",
+      "questions": [
+        {
+          "type": "choice",
+          "prompt": "7 + 9 = ?",
+          "options": [
+            "15",
+            "16",
+            "17",
+            "18"
+          ],
+          "answerIndex": 1,
+          "explanation": "7 加 9 等於 16。"
+        },
+        {
+          "type": "choice",
+          "prompt": "14 − 9 = ?",
+          "options": [
+            "-2",
+            "7",
+            "5",
+            "23"
+          ],
+          "answerIndex": 2,
+          "explanation": "14 減 9 等於 5。"
+        },
+        {
+          "type": "choice",
+          "prompt": "7 × 2 = ?",
+          "options": [
+            "14",
+            "9",
+            "21",
+            "5"
+          ],
+          "answerIndex": 0,
+          "explanation": "7 乘 2 等於 14。"
+        }
+      ]
+    },
+    {
+      "id": "P5-數學-numberOrder",
+      "grade": "P5",
+      "subject": "數學",
+      "title": "Number Puzzle",
+      "description": "P5 數學・Number Puzzle挑戰",
+      "engine": "puzzle",
+      "icon": "ArrowDownUp",
+      "difficulty": "進階",
+      "skill": "numberOrder",
+      "questions": [
+        {
+          "type": "puzzle",
+          "prompt": "由小至大排列數字。",
+          "tokens": [
+            "12",
+            "7",
+            "9"
+          ],
+          "correctOrder": [
+            "7",
+            "9",
+            "12"
+          ],
+          "explanation": "先比較十位數；7 和 9 都小於 12。"
+        },
+        {
+          "type": "puzzle",
+          "prompt": "由大至小排列數字。",
+          "tokens": [
+            "15",
+            "20",
+            "18"
+          ],
+          "correctOrder": [
+            "20",
+            "18",
+            "15"
+          ],
+          "explanation": "比較十位數可知 20 最大，15 最小。"
+        }
+      ]
+    },
+    {
+      "id": "P5-數學-fractionBoss",
+      "grade": "P5",
+      "subject": "數學",
+      "title": "Fraction Boss",
+      "description": "P5 數學・Fraction Boss挑戰",
+      "engine": "rpg",
+      "icon": "Shield",
+      "difficulty": "進階",
+      "skill": "fractionBoss",
+      "questions": [
+        {
+          "type": "choice",
+          "prompt": "1/2 + 1/4 = ?",
+          "options": [
+            "2/6",
+            "3/4",
+            "1/6",
+            "2/4"
+          ],
+          "answerIndex": 1,
+          "explanation": "把 1/2 化成 2/4，2/4 + 1/4 = 3/4。"
+        },
+        {
+          "type": "choice",
+          "prompt": "哪個分數等於 1/2？",
+          "options": [
+            "2/3",
+            "2/4",
+            "3/4",
+            "1/3"
+          ],
+          "answerIndex": 1,
+          "explanation": "2/4 同時除以 2 得 1/2。"
+        },
+        {
+          "type": "choice",
+          "prompt": "3/5 的分子是？",
+          "options": [
+            "3",
+            "5",
+            "8",
+            "15"
+          ],
+          "answerIndex": 0,
+          "explanation": "分子是分數線上面的數字。"
+        }
+      ]
+    },
+    {
+      "id": "P5-數學-equationVault",
+      "grade": "P5",
+      "subject": "數學",
+      "title": "Equation Vault",
+      "description": "P5 數學・Equation Vault挑戰",
+      "engine": "chest",
+      "icon": "Vault",
+      "difficulty": "進階",
+      "skill": "equationVault",
+      "questions": [
+        {
+          "type": "text",
+          "prompt": "解密：x + 8 = 19，輸入 x。",
+          "answer": "11",
+          "hint": "提示：用 19 減 8。",
+          "explanation": "x = 19 − 8 = 11。"
+        },
+        {
+          "type": "text",
+          "prompt": "解密：2x = 22，輸入 x。",
+          "answer": "11",
+          "hint": "提示：兩邊同除以 2。",
+          "explanation": "x = 22 ÷ 2 = 11。"
+        }
+      ]
+    },
+    {
+      "id": "P5-數學-geometryLock",
+      "grade": "P5",
+      "subject": "數學",
+      "title": "Geometry Lock",
+      "description": "P5 數學・Geometry Lock挑戰",
+      "engine": "chest",
+      "icon": "Triangle",
+      "difficulty": "進階",
+      "skill": "geometryLock",
+      "questions": [
+        {
+          "type": "text",
+          "prompt": "三角形三個內角和是多少度？",
+          "answer": "180",
+          "hint": "提示：輸入數字。",
+          "explanation": "任何三角形的內角和都是 180 度。"
+        },
+        {
+          "type": "text",
+          "prompt": "正方形有多少條相等的邊？",
+          "answer": "4",
+          "hint": "提示：輸入數字。",
+          "explanation": "正方形有四條相等的邊。"
+        }
+      ]
+    },
+    {
+      "id": "P6-中文-classifier",
+      "grade": "P6",
+      "subject": "中文",
+      "title": "量詞衝刺",
+      "description": "P6 中文・量詞衝刺挑戰",
+      "engine": "race",
+      "icon": "Layers",
+      "difficulty": "進階",
+      "skill": "classifier",
+      "questions": [
+        {
+          "type": "choice",
+          "prompt": "「一＿＿雨傘」最合適的量詞是？",
+          "options": [
+            "把",
+            "張",
+            "枝",
+            "頂"
+          ],
+          "answerIndex": 3,
+          "explanation": "「頂」用於雨傘、帽子等有頂部覆蓋的物品。"
+        },
+        {
+          "type": "choice",
+          "prompt": "「一＿＿書」最合適的量詞是？",
+          "options": [
+            "本",
+            "條",
+            "匹",
+            "座"
+          ],
+          "answerIndex": 0,
+          "explanation": "「本」用於書籍、簿冊。"
+        },
+        {
+          "type": "choice",
+          "prompt": "「一＿＿魚」最合適的量詞是？",
+          "options": [
+            "條",
+            "件",
+            "艘",
+            "棵"
+          ],
+          "answerIndex": 0,
+          "explanation": "「條」可用於魚、褲、河流等細長事物。"
+        }
+      ]
+    },
+    {
+      "id": "P6-中文-idiom",
+      "grade": "P6",
+      "subject": "中文",
+      "title": "成語快答",
+      "description": "P6 中文・成語快答挑戰",
+      "engine": "race",
+      "icon": "Sparkles",
+      "difficulty": "進階",
+      "skill": "idiom",
+      "questions": [
+        {
+          "type": "choice",
+          "prompt": "「專心＿＿」形容精神集中，應填哪一項？",
+          "options": [
+            "一致",
+            "一意",
+            "一心",
+            "一眼"
+          ],
+          "answerIndex": 2,
+          "explanation": "「專心一意」指集中精神，專一不分心。"
+        },
+        {
+          "type": "choice",
+          "prompt": "「守株待兔」比喻甚麼？",
+          "options": [
+            "努力耕作",
+            "死守狹隘經驗",
+            "樂於助人",
+            "勇敢冒險"
+          ],
+          "answerIndex": 1,
+          "explanation": "守株待兔諷刺不主動努力，只希望僥倖成功。"
+        },
+        {
+          "type": "choice",
+          "prompt": "「畫蛇添足」最貼近哪個意思？",
+          "options": [
+            "多做無益的事",
+            "仔細觀察",
+            "以少勝多",
+            "互相合作"
+          ],
+          "answerIndex": 0,
+          "explanation": "畫蛇添足指做了多餘的事，反而弄巧成拙。"
+        }
+      ]
+    },
+    {
+      "id": "P6-中文-reorder",
+      "grade": "P6",
+      "subject": "中文",
+      "title": "句式拼圖",
+      "description": "P6 中文・句式拼圖挑戰",
+      "engine": "puzzle",
+      "icon": "Puzzle",
+      "difficulty": "進階",
+      "skill": "reorder",
+      "questions": [
+        {
+          "type": "puzzle",
+          "prompt": "把詞語排成正確句子。",
+          "tokens": [
+            "今天",
+            "圖書館",
+            "我",
+            "去"
+          ],
+          "correctOrder": [
+            "我",
+            "今天",
+            "去",
+            "圖書館"
+          ],
+          "explanation": "主語「我」在前，時間「今天」後接動詞「去」和地點「圖書館」。"
+        },
+        {
+          "type": "puzzle",
+          "prompt": "把詞語排成正確句子。",
+          "tokens": [
+            "很",
+            "同學們",
+            "認真",
+            "溫習"
+          ],
+          "correctOrder": [
+            "同學們",
+            "很",
+            "認真",
+            "溫習"
+          ],
+          "explanation": "先寫主語「同學們」，再以副詞和形容詞修飾動作。"
+        }
+      ]
+    },
+    {
+      "id": "P6-中文-classical",
+      "grade": "P6",
+      "subject": "中文",
+      "title": "文言勇者",
+      "description": "P6 中文・文言勇者挑戰",
+      "engine": "rpg",
+      "icon": "ScrollText",
+      "difficulty": "進階",
+      "skill": "classical",
+      "questions": [
+        {
+          "type": "choice",
+          "prompt": "「學而時習之」中「習」的意思是？",
+          "options": [
+            "睡覺",
+            "溫習、練習",
+            "旅行",
+            "習慣"
+          ],
+          "answerIndex": 1,
+          "explanation": "「習」在這裡指溫習和練習。"
+        },
+        {
+          "type": "choice",
+          "prompt": "「己所不欲，勿施於人」的意思最接近哪一項？",
+          "options": [
+            "只顧自己",
+            "不要把自己不喜歡的事強加於別人",
+            "做事要快",
+            "一定要聽從別人"
+          ],
+          "answerIndex": 1,
+          "explanation": "這句強調推己及人和尊重別人。"
+        },
+        {
+          "type": "choice",
+          "prompt": "「溫故而知新」的「故」指甚麼？",
+          "options": [
+            "故事",
+            "舊有知識",
+            "已故的人",
+            "故鄉"
+          ],
+          "answerIndex": 1,
+          "explanation": "「故」指已學過的、舊有的知識。"
+        }
+      ]
+    },
+    {
+      "id": "P6-中文-languageVault",
+      "grade": "P6",
+      "subject": "中文",
+      "title": "語文密碼鎖",
+      "description": "P6 中文・語文密碼鎖挑戰",
+      "engine": "chest",
+      "icon": "KeyRound",
+      "difficulty": "進階",
+      "skill": "languageVault",
+      "questions": [
+        {
+          "type": "text",
+          "prompt": "輸入「亡羊補牢」的下一句常用意思：比喻事情出了差錯以後，＿＿還不算晚。",
+          "answer": "設法補救",
+          "hint": "提示：四個字，從「設」開始。",
+          "explanation": "「亡羊補牢」比喻事情出了差錯以後，設法補救還不算晚。"
+        },
+        {
+          "type": "text",
+          "prompt": "輸入「學而不思則罔，思而不學則＿＿。」的最後一字。",
+          "answer": "殆",
+          "hint": "提示：讀音是 dai。",
+          "explanation": "這句說明學習與思考要互相配合。"
+        }
+      ]
+    },
+    {
+      "id": "P6-英文-wordDash",
+      "grade": "P6",
+      "subject": "英文",
+      "title": "Word Dash",
+      "description": "P6 英文・Word Dash挑戰",
+      "engine": "race",
+      "icon": "Languages",
+      "difficulty": "進階",
+      "skill": "wordDash",
+      "questions": [
+        {
+          "type": "choice",
+          "prompt": "Which word means 「快樂」?",
+          "options": [
+            "happy",
+            "hungry",
+            "heavy",
+            "honest"
+          ],
+          "answerIndex": 0,
+          "explanation": "happy means 快樂。"
+        },
+        {
+          "type": "choice",
+          "prompt": "Choose the opposite of \"big\".",
+          "options": [
+            "tall",
+            "small",
+            "wide",
+            "long"
+          ],
+          "answerIndex": 1,
+          "explanation": "small 是 big 的相反詞。"
+        },
+        {
+          "type": "choice",
+          "prompt": "Which word is a colour?",
+          "options": [
+            "blue",
+            "book",
+            "bird",
+            "ball"
+          ],
+          "answerIndex": 0,
+          "explanation": "blue 是顏色。"
+        }
+      ]
+    },
+    {
+      "id": "P6-英文-spelling",
+      "grade": "P6",
+      "subject": "英文",
+      "title": "Spelling Scramble",
+      "description": "P6 英文・Spelling Scramble挑戰",
+      "engine": "puzzle",
+      "icon": "SpellCheck",
+      "difficulty": "進階",
+      "skill": "spelling",
+      "questions": [
+        {
+          "type": "puzzle",
+          "prompt": "Arrange the letters to spell a fruit.",
+          "tokens": [
+            "p",
+            "a",
+            "l",
+            "p",
+            "e"
+          ],
+          "correctOrder": [
+            "a",
+            "p",
+            "p",
+            "l",
+            "e"
+          ],
+          "explanation": "apple 是「蘋果」。"
+        },
+        {
+          "type": "puzzle",
+          "prompt": "Arrange the letters to spell an animal.",
+          "tokens": [
+            "c",
+            "t",
+            "a"
+          ],
+          "correctOrder": [
+            "c",
+            "a",
+            "t"
+          ],
+          "explanation": "cat 是「貓」。"
+        }
+      ]
+    },
+    {
+      "id": "P6-英文-sentence",
+      "grade": "P6",
+      "subject": "英文",
+      "title": "Sentence Builder",
+      "description": "P6 英文・Sentence Builder挑戰",
+      "engine": "puzzle",
+      "icon": "TextCursorInput",
+      "difficulty": "進階",
+      "skill": "sentence",
+      "questions": [
+        {
+          "type": "puzzle",
+          "prompt": "Build a correct English sentence.",
+          "tokens": [
+            "to",
+            "school",
+            "walk",
+            "I"
+          ],
+          "correctOrder": [
+            "I",
+            "walk",
+            "to",
+            "school"
+          ],
+          "explanation": "英文基本語序是主語 + 動詞 + 其他成分。"
+        },
+        {
+          "type": "puzzle",
+          "prompt": "Build a correct English sentence.",
+          "tokens": [
+            "is",
+            "She",
+            "kind"
+          ],
+          "correctOrder": [
+            "She",
+            "is",
+            "kind"
+          ],
+          "explanation": "be 動詞要放在主語 She 後面。"
+        }
+      ]
+    },
+    {
+      "id": "P6-英文-tense",
+      "grade": "P6",
+      "subject": "英文",
+      "title": "Tense Master",
+      "description": "P6 英文・Tense Master挑戰",
+      "engine": "rpg",
+      "icon": "Swords",
+      "difficulty": "進階",
+      "skill": "tense",
+      "questions": [
+        {
+          "type": "choice",
+          "prompt": "She ______ to school every day.",
+          "options": [
+            "walk",
+            "walks",
+            "walking",
+            "walked"
+          ],
+          "answerIndex": 1,
+          "explanation": "She 是第三人稱單數，現在式動詞加 s。"
+        },
+        {
+          "type": "choice",
+          "prompt": "They ______ football yesterday.",
+          "options": [
+            "play",
+            "plays",
+            "played",
+            "playing"
+          ],
+          "answerIndex": 2,
+          "explanation": "yesterday 提示用過去式 played。"
+        },
+        {
+          "type": "choice",
+          "prompt": "I ______ a student.",
+          "options": [
+            "am",
+            "is",
+            "are",
+            "be"
+          ],
+          "answerIndex": 0,
+          "explanation": "I 配 am。"
+        }
+      ]
+    },
+    {
+      "id": "P6-英文-grammarVault",
+      "grade": "P6",
+      "subject": "英文",
+      "title": "Grammar Vault",
+      "description": "P6 英文・Grammar Vault挑戰",
+      "engine": "chest",
+      "icon": "LockKeyhole",
+      "difficulty": "進階",
+      "skill": "grammarVault",
+      "questions": [
+        {
+          "type": "text",
+          "prompt": "Complete: \"I ___ a student.\"",
+          "answer": "am",
+          "hint": "提示：I 的 be 動詞。",
+          "explanation": "主語 I 要配 am。"
+        },
+        {
+          "type": "text",
+          "prompt": "Complete: \"She ___ my friend.\"",
+          "answer": "is",
+          "hint": "提示：She 的 be 動詞。",
+          "explanation": "第三人稱單數 She 要配 is。"
+        }
+      ]
+    },
+    {
+      "id": "P6-數學-calc",
+      "grade": "P6",
+      "subject": "數學",
+      "title": "Calculation Dash",
+      "description": "P6 數學・Calculation Dash挑戰",
+      "engine": "race",
+      "icon": "Gauge",
+      "difficulty": "進階",
+      "skill": "calc",
+      "questions": [
+        {
+          "type": "choice",
+          "prompt": "8 + 10 = ?",
+          "options": [
+            "17",
+            "18",
+            "19",
+            "20"
+          ],
+          "answerIndex": 1,
+          "explanation": "8 加 10 等於 18。"
+        },
+        {
+          "type": "choice",
+          "prompt": "16 − 10 = ?",
+          "options": [
+            "-2",
+            "8",
+            "6",
+            "26"
+          ],
+          "answerIndex": 2,
+          "explanation": "16 減 10 等於 6。"
+        },
+        {
+          "type": "choice",
+          "prompt": "8 × 2 = ?",
+          "options": [
+            "16",
+            "10",
+            "24",
+            "6"
+          ],
+          "answerIndex": 0,
+          "explanation": "8 乘 2 等於 16。"
+        }
+      ]
+    },
+    {
+      "id": "P6-數學-numberOrder",
+      "grade": "P6",
+      "subject": "數學",
+      "title": "Number Puzzle",
+      "description": "P6 數學・Number Puzzle挑戰",
+      "engine": "puzzle",
+      "icon": "ArrowDownUp",
+      "difficulty": "進階",
+      "skill": "numberOrder",
+      "questions": [
+        {
+          "type": "puzzle",
+          "prompt": "由小至大排列數字。",
+          "tokens": [
+            "12",
+            "7",
+            "9"
+          ],
+          "correctOrder": [
+            "7",
+            "9",
+            "12"
+          ],
+          "explanation": "先比較十位數；7 和 9 都小於 12。"
+        },
+        {
+          "type": "puzzle",
+          "prompt": "由大至小排列數字。",
+          "tokens": [
+            "15",
+            "20",
+            "18"
+          ],
+          "correctOrder": [
+            "20",
+            "18",
+            "15"
+          ],
+          "explanation": "比較十位數可知 20 最大，15 最小。"
+        }
+      ]
+    },
+    {
+      "id": "P6-數學-fractionBoss",
+      "grade": "P6",
+      "subject": "數學",
+      "title": "Fraction Boss",
+      "description": "P6 數學・Fraction Boss挑戰",
+      "engine": "rpg",
+      "icon": "Shield",
+      "difficulty": "進階",
+      "skill": "fractionBoss",
+      "questions": [
+        {
+          "type": "choice",
+          "prompt": "1/2 + 1/4 = ?",
+          "options": [
+            "2/6",
+            "3/4",
+            "1/6",
+            "2/4"
+          ],
+          "answerIndex": 1,
+          "explanation": "把 1/2 化成 2/4，2/4 + 1/4 = 3/4。"
+        },
+        {
+          "type": "choice",
+          "prompt": "哪個分數等於 1/2？",
+          "options": [
+            "2/3",
+            "2/4",
+            "3/4",
+            "1/3"
+          ],
+          "answerIndex": 1,
+          "explanation": "2/4 同時除以 2 得 1/2。"
+        },
+        {
+          "type": "choice",
+          "prompt": "3/5 的分子是？",
+          "options": [
+            "3",
+            "5",
+            "8",
+            "15"
+          ],
+          "answerIndex": 0,
+          "explanation": "分子是分數線上面的數字。"
+        }
+      ]
+    },
+    {
+      "id": "P6-數學-equationVault",
+      "grade": "P6",
+      "subject": "數學",
+      "title": "Equation Vault",
+      "description": "P6 數學・Equation Vault挑戰",
+      "engine": "chest",
+      "icon": "Vault",
+      "difficulty": "進階",
+      "skill": "equationVault",
+      "questions": [
+        {
+          "type": "text",
+          "prompt": "解密：x + 9 = 21，輸入 x。",
+          "answer": "12",
+          "hint": "提示：用 21 減 9。",
+          "explanation": "x = 21 − 9 = 12。"
+        },
+        {
+          "type": "text",
+          "prompt": "解密：2x = 24，輸入 x。",
+          "answer": "12",
+          "hint": "提示：兩邊同除以 2。",
+          "explanation": "x = 24 ÷ 2 = 12。"
+        }
+      ]
+    },
+    {
+      "id": "P6-數學-geometryLock",
+      "grade": "P6",
+      "subject": "數學",
+      "title": "Geometry Lock",
+      "description": "P6 數學・Geometry Lock挑戰",
+      "engine": "chest",
+      "icon": "Triangle",
+      "difficulty": "進階",
+      "skill": "geometryLock",
+      "questions": [
+        {
+          "type": "text",
+          "prompt": "三角形三個內角和是多少度？",
+          "answer": "180",
+          "hint": "提示：輸入數字。",
+          "explanation": "任何三角形的內角和都是 180 度。"
+        },
+        {
+          "type": "text",
+          "prompt": "正方形有多少條相等的邊？",
+          "answer": "4",
+          "hint": "提示：輸入數字。",
+          "explanation": "正方形有四條相等的邊。"
+        }
+      ]
+    },
+    {
+      "id": "S1-中文-classifier",
+      "grade": "S1",
+      "subject": "中文",
+      "title": "量詞衝刺",
+      "description": "S1 中文・量詞衝刺挑戰",
+      "engine": "race",
+      "icon": "Layers",
+      "difficulty": "進階",
+      "skill": "classifier",
+      "questions": [
+        {
+          "type": "choice",
+          "prompt": "「一＿＿雨傘」最合適的量詞是？",
+          "options": [
+            "把",
+            "張",
+            "枝",
+            "頂"
+          ],
+          "answerIndex": 3,
+          "explanation": "「頂」用於雨傘、帽子等有頂部覆蓋的物品。"
+        },
+        {
+          "type": "choice",
+          "prompt": "「一＿＿書」最合適的量詞是？",
+          "options": [
+            "本",
+            "條",
+            "匹",
+            "座"
+          ],
+          "answerIndex": 0,
+          "explanation": "「本」用於書籍、簿冊。"
+        },
+        {
+          "type": "choice",
+          "prompt": "「一＿＿魚」最合適的量詞是？",
+          "options": [
+            "條",
+            "件",
+            "艘",
+            "棵"
+          ],
+          "answerIndex": 0,
+          "explanation": "「條」可用於魚、褲、河流等細長事物。"
+        }
+      ]
+    },
+    {
+      "id": "S1-中文-idiom",
+      "grade": "S1",
+      "subject": "中文",
+      "title": "成語快答",
+      "description": "S1 中文・成語快答挑戰",
+      "engine": "race",
+      "icon": "Sparkles",
+      "difficulty": "進階",
+      "skill": "idiom",
+      "questions": [
+        {
+          "type": "choice",
+          "prompt": "「專心＿＿」形容精神集中，應填哪一項？",
+          "options": [
+            "一致",
+            "一意",
+            "一心",
+            "一眼"
+          ],
+          "answerIndex": 2,
+          "explanation": "「專心一意」指集中精神，專一不分心。"
+        },
+        {
+          "type": "choice",
+          "prompt": "「守株待兔」比喻甚麼？",
+          "options": [
+            "努力耕作",
+            "死守狹隘經驗",
+            "樂於助人",
+            "勇敢冒險"
+          ],
+          "answerIndex": 1,
+          "explanation": "守株待兔諷刺不主動努力，只希望僥倖成功。"
+        },
+        {
+          "type": "choice",
+          "prompt": "「畫蛇添足」最貼近哪個意思？",
+          "options": [
+            "多做無益的事",
+            "仔細觀察",
+            "以少勝多",
+            "互相合作"
+          ],
+          "answerIndex": 0,
+          "explanation": "畫蛇添足指做了多餘的事，反而弄巧成拙。"
+        }
+      ]
+    },
+    {
+      "id": "S1-中文-reorder",
+      "grade": "S1",
+      "subject": "中文",
+      "title": "句式拼圖",
+      "description": "S1 中文・句式拼圖挑戰",
+      "engine": "puzzle",
+      "icon": "Puzzle",
+      "difficulty": "進階",
+      "skill": "reorder",
+      "questions": [
+        {
+          "type": "puzzle",
+          "prompt": "把詞語排成正確句子。",
+          "tokens": [
+            "今天",
+            "圖書館",
+            "我",
+            "去"
+          ],
+          "correctOrder": [
+            "我",
+            "今天",
+            "去",
+            "圖書館"
+          ],
+          "explanation": "主語「我」在前，時間「今天」後接動詞「去」和地點「圖書館」。"
+        },
+        {
+          "type": "puzzle",
+          "prompt": "把詞語排成正確句子。",
+          "tokens": [
+            "很",
+            "同學們",
+            "認真",
+            "溫習"
+          ],
+          "correctOrder": [
+            "同學們",
+            "很",
+            "認真",
+            "溫習"
+          ],
+          "explanation": "先寫主語「同學們」，再以副詞和形容詞修飾動作。"
+        }
+      ]
+    },
+    {
+      "id": "S1-中文-classical",
+      "grade": "S1",
+      "subject": "中文",
+      "title": "文言勇者",
+      "description": "S1 中文・文言勇者挑戰",
+      "engine": "rpg",
+      "icon": "ScrollText",
+      "difficulty": "進階",
+      "skill": "classical",
+      "questions": [
+        {
+          "type": "choice",
+          "prompt": "「學而時習之」中「習」的意思是？",
+          "options": [
+            "睡覺",
+            "溫習、練習",
+            "旅行",
+            "習慣"
+          ],
+          "answerIndex": 1,
+          "explanation": "「習」在這裡指溫習和練習。"
+        },
+        {
+          "type": "choice",
+          "prompt": "「己所不欲，勿施於人」的意思最接近哪一項？",
+          "options": [
+            "只顧自己",
+            "不要把自己不喜歡的事強加於別人",
+            "做事要快",
+            "一定要聽從別人"
+          ],
+          "answerIndex": 1,
+          "explanation": "這句強調推己及人和尊重別人。"
+        },
+        {
+          "type": "choice",
+          "prompt": "「溫故而知新」的「故」指甚麼？",
+          "options": [
+            "故事",
+            "舊有知識",
+            "已故的人",
+            "故鄉"
+          ],
+          "answerIndex": 1,
+          "explanation": "「故」指已學過的、舊有的知識。"
+        }
+      ]
+    },
+    {
+      "id": "S1-中文-languageVault",
+      "grade": "S1",
+      "subject": "中文",
+      "title": "語文密碼鎖",
+      "description": "S1 中文・語文密碼鎖挑戰",
+      "engine": "chest",
+      "icon": "KeyRound",
+      "difficulty": "進階",
+      "skill": "languageVault",
+      "questions": [
+        {
+          "type": "text",
+          "prompt": "輸入「亡羊補牢」的下一句常用意思：比喻事情出了差錯以後，＿＿還不算晚。",
+          "answer": "設法補救",
+          "hint": "提示：四個字，從「設」開始。",
+          "explanation": "「亡羊補牢」比喻事情出了差錯以後，設法補救還不算晚。"
+        },
+        {
+          "type": "text",
+          "prompt": "輸入「學而不思則罔，思而不學則＿＿。」的最後一字。",
+          "answer": "殆",
+          "hint": "提示：讀音是 dai。",
+          "explanation": "這句說明學習與思考要互相配合。"
+        }
+      ]
+    },
+    {
+      "id": "S1-英文-wordDash",
+      "grade": "S1",
+      "subject": "英文",
+      "title": "Word Dash",
+      "description": "S1 英文・Word Dash挑戰",
+      "engine": "race",
+      "icon": "Languages",
+      "difficulty": "進階",
+      "skill": "wordDash",
+      "questions": [
+        {
+          "type": "choice",
+          "prompt": "Which word means 「快樂」?",
+          "options": [
+            "happy",
+            "hungry",
+            "heavy",
+            "honest"
+          ],
+          "answerIndex": 0,
+          "explanation": "happy means 快樂。"
+        },
+        {
+          "type": "choice",
+          "prompt": "Choose the opposite of \"big\".",
+          "options": [
+            "tall",
+            "small",
+            "wide",
+            "long"
+          ],
+          "answerIndex": 1,
+          "explanation": "small 是 big 的相反詞。"
+        },
+        {
+          "type": "choice",
+          "prompt": "Which word is a colour?",
+          "options": [
+            "blue",
+            "book",
+            "bird",
+            "ball"
+          ],
+          "answerIndex": 0,
+          "explanation": "blue 是顏色。"
+        }
+      ]
+    },
+    {
+      "id": "S1-英文-spelling",
+      "grade": "S1",
+      "subject": "英文",
+      "title": "Spelling Scramble",
+      "description": "S1 英文・Spelling Scramble挑戰",
+      "engine": "puzzle",
+      "icon": "SpellCheck",
+      "difficulty": "進階",
+      "skill": "spelling",
+      "questions": [
+        {
+          "type": "puzzle",
+          "prompt": "Arrange the letters to spell a fruit.",
+          "tokens": [
+            "p",
+            "a",
+            "l",
+            "p",
+            "e"
+          ],
+          "correctOrder": [
+            "a",
+            "p",
+            "p",
+            "l",
+            "e"
+          ],
+          "explanation": "apple 是「蘋果」。"
+        },
+        {
+          "type": "puzzle",
+          "prompt": "Arrange the letters to spell an animal.",
+          "tokens": [
+            "c",
+            "t",
+            "a"
+          ],
+          "correctOrder": [
+            "c",
+            "a",
+            "t"
+          ],
+          "explanation": "cat 是「貓」。"
+        }
+      ]
+    },
+    {
+      "id": "S1-英文-sentence",
+      "grade": "S1",
+      "subject": "英文",
+      "title": "Sentence Builder",
+      "description": "S1 英文・Sentence Builder挑戰",
+      "engine": "puzzle",
+      "icon": "TextCursorInput",
+      "difficulty": "進階",
+      "skill": "sentence",
+      "questions": [
+        {
+          "type": "puzzle",
+          "prompt": "Build a correct English sentence.",
+          "tokens": [
+            "to",
+            "school",
+            "walk",
+            "I"
+          ],
+          "correctOrder": [
+            "I",
+            "walk",
+            "to",
+            "school"
+          ],
+          "explanation": "英文基本語序是主語 + 動詞 + 其他成分。"
+        },
+        {
+          "type": "puzzle",
+          "prompt": "Build a correct English sentence.",
+          "tokens": [
+            "is",
+            "She",
+            "kind"
+          ],
+          "correctOrder": [
+            "She",
+            "is",
+            "kind"
+          ],
+          "explanation": "be 動詞要放在主語 She 後面。"
+        }
+      ]
+    },
+    {
+      "id": "S1-英文-tense",
+      "grade": "S1",
+      "subject": "英文",
+      "title": "Tense Master",
+      "description": "S1 英文・Tense Master挑戰",
+      "engine": "rpg",
+      "icon": "Swords",
+      "difficulty": "進階",
+      "skill": "tense",
+      "questions": [
+        {
+          "type": "choice",
+          "prompt": "She ______ to school every day.",
+          "options": [
+            "walk",
+            "walks",
+            "walking",
+            "walked"
+          ],
+          "answerIndex": 1,
+          "explanation": "She 是第三人稱單數，現在式動詞加 s。"
+        },
+        {
+          "type": "choice",
+          "prompt": "They ______ football yesterday.",
+          "options": [
+            "play",
+            "plays",
+            "played",
+            "playing"
+          ],
+          "answerIndex": 2,
+          "explanation": "yesterday 提示用過去式 played。"
+        },
+        {
+          "type": "choice",
+          "prompt": "I ______ a student.",
+          "options": [
+            "am",
+            "is",
+            "are",
+            "be"
+          ],
+          "answerIndex": 0,
+          "explanation": "I 配 am。"
+        }
+      ]
+    },
+    {
+      "id": "S1-英文-grammarVault",
+      "grade": "S1",
+      "subject": "英文",
+      "title": "Grammar Vault",
+      "description": "S1 英文・Grammar Vault挑戰",
+      "engine": "chest",
+      "icon": "LockKeyhole",
+      "difficulty": "進階",
+      "skill": "grammarVault",
+      "questions": [
+        {
+          "type": "text",
+          "prompt": "Complete: \"I ___ a student.\"",
+          "answer": "am",
+          "hint": "提示：I 的 be 動詞。",
+          "explanation": "主語 I 要配 am。"
+        },
+        {
+          "type": "text",
+          "prompt": "Complete: \"She ___ my friend.\"",
+          "answer": "is",
+          "hint": "提示：She 的 be 動詞。",
+          "explanation": "第三人稱單數 She 要配 is。"
+        }
+      ]
+    },
+    {
+      "id": "S1-數學-calc",
+      "grade": "S1",
+      "subject": "數學",
+      "title": "Calculation Dash",
+      "description": "S1 數學・Calculation Dash挑戰",
+      "engine": "race",
+      "icon": "Gauge",
+      "difficulty": "進階",
+      "skill": "calc",
+      "questions": [
+        {
+          "type": "choice",
+          "prompt": "9 + 11 = ?",
+          "options": [
+            "19",
+            "20",
+            "21",
+            "22"
+          ],
+          "answerIndex": 1,
+          "explanation": "9 加 11 等於 20。"
+        },
+        {
+          "type": "choice",
+          "prompt": "18 − 11 = ?",
+          "options": [
+            "-2",
+            "9",
+            "7",
+            "29"
+          ],
+          "answerIndex": 2,
+          "explanation": "18 減 11 等於 7。"
+        },
+        {
+          "type": "choice",
+          "prompt": "9 × 2 = ?",
+          "options": [
+            "18",
+            "11",
+            "27",
+            "7"
+          ],
+          "answerIndex": 0,
+          "explanation": "9 乘 2 等於 18。"
+        }
+      ]
+    },
+    {
+      "id": "S1-數學-numberOrder",
+      "grade": "S1",
+      "subject": "數學",
+      "title": "Number Puzzle",
+      "description": "S1 數學・Number Puzzle挑戰",
+      "engine": "puzzle",
+      "icon": "ArrowDownUp",
+      "difficulty": "進階",
+      "skill": "numberOrder",
+      "questions": [
+        {
+          "type": "puzzle",
+          "prompt": "由小至大排列數字。",
+          "tokens": [
+            "12",
+            "7",
+            "9"
+          ],
+          "correctOrder": [
+            "7",
+            "9",
+            "12"
+          ],
+          "explanation": "先比較十位數；7 和 9 都小於 12。"
+        },
+        {
+          "type": "puzzle",
+          "prompt": "由大至小排列數字。",
+          "tokens": [
+            "15",
+            "20",
+            "18"
+          ],
+          "correctOrder": [
+            "20",
+            "18",
+            "15"
+          ],
+          "explanation": "比較十位數可知 20 最大，15 最小。"
+        }
+      ]
+    },
+    {
+      "id": "S1-數學-fractionBoss",
+      "grade": "S1",
+      "subject": "數學",
+      "title": "Fraction Boss",
+      "description": "S1 數學・Fraction Boss挑戰",
+      "engine": "rpg",
+      "icon": "Shield",
+      "difficulty": "進階",
+      "skill": "fractionBoss",
+      "questions": [
+        {
+          "type": "choice",
+          "prompt": "1/2 + 1/4 = ?",
+          "options": [
+            "2/6",
+            "3/4",
+            "1/6",
+            "2/4"
+          ],
+          "answerIndex": 1,
+          "explanation": "把 1/2 化成 2/4，2/4 + 1/4 = 3/4。"
+        },
+        {
+          "type": "choice",
+          "prompt": "哪個分數等於 1/2？",
+          "options": [
+            "2/3",
+            "2/4",
+            "3/4",
+            "1/3"
+          ],
+          "answerIndex": 1,
+          "explanation": "2/4 同時除以 2 得 1/2。"
+        },
+        {
+          "type": "choice",
+          "prompt": "3/5 的分子是？",
+          "options": [
+            "3",
+            "5",
+            "8",
+            "15"
+          ],
+          "answerIndex": 0,
+          "explanation": "分子是分數線上面的數字。"
+        }
+      ]
+    },
+    {
+      "id": "S1-數學-equationVault",
+      "grade": "S1",
+      "subject": "數學",
+      "title": "Equation Vault",
+      "description": "S1 數學・Equation Vault挑戰",
+      "engine": "chest",
+      "icon": "Vault",
+      "difficulty": "進階",
+      "skill": "equationVault",
+      "questions": [
+        {
+          "type": "text",
+          "prompt": "解密：x + 10 = 23，輸入 x。",
+          "answer": "13",
+          "hint": "提示：用 23 減 10。",
+          "explanation": "x = 23 − 10 = 13。"
+        },
+        {
+          "type": "text",
+          "prompt": "解密：2x = 26，輸入 x。",
+          "answer": "13",
+          "hint": "提示：兩邊同除以 2。",
+          "explanation": "x = 26 ÷ 2 = 13。"
+        }
+      ]
+    },
+    {
+      "id": "S1-數學-geometryLock",
+      "grade": "S1",
+      "subject": "數學",
+      "title": "Geometry Lock",
+      "description": "S1 數學・Geometry Lock挑戰",
+      "engine": "chest",
+      "icon": "Triangle",
+      "difficulty": "進階",
+      "skill": "geometryLock",
+      "questions": [
+        {
+          "type": "text",
+          "prompt": "三角形三個內角和是多少度？",
+          "answer": "180",
+          "hint": "提示：輸入數字。",
+          "explanation": "任何三角形的內角和都是 180 度。"
+        },
+        {
+          "type": "text",
+          "prompt": "正方形有多少條相等的邊？",
+          "answer": "4",
+          "hint": "提示：輸入數字。",
+          "explanation": "正方形有四條相等的邊。"
+        }
+      ]
+    },
+    {
+      "id": "S2-中文-classifier",
+      "grade": "S2",
+      "subject": "中文",
+      "title": "量詞衝刺",
+      "description": "S2 中文・量詞衝刺挑戰",
+      "engine": "race",
+      "icon": "Layers",
+      "difficulty": "進階",
+      "skill": "classifier",
+      "questions": [
+        {
+          "type": "choice",
+          "prompt": "「一＿＿雨傘」最合適的量詞是？",
+          "options": [
+            "把",
+            "張",
+            "枝",
+            "頂"
+          ],
+          "answerIndex": 3,
+          "explanation": "「頂」用於雨傘、帽子等有頂部覆蓋的物品。"
+        },
+        {
+          "type": "choice",
+          "prompt": "「一＿＿書」最合適的量詞是？",
+          "options": [
+            "本",
+            "條",
+            "匹",
+            "座"
+          ],
+          "answerIndex": 0,
+          "explanation": "「本」用於書籍、簿冊。"
+        },
+        {
+          "type": "choice",
+          "prompt": "「一＿＿魚」最合適的量詞是？",
+          "options": [
+            "條",
+            "件",
+            "艘",
+            "棵"
+          ],
+          "answerIndex": 0,
+          "explanation": "「條」可用於魚、褲、河流等細長事物。"
+        }
+      ]
+    },
+    {
+      "id": "S2-中文-idiom",
+      "grade": "S2",
+      "subject": "中文",
+      "title": "成語快答",
+      "description": "S2 中文・成語快答挑戰",
+      "engine": "race",
+      "icon": "Sparkles",
+      "difficulty": "進階",
+      "skill": "idiom",
+      "questions": [
+        {
+          "type": "choice",
+          "prompt": "「專心＿＿」形容精神集中，應填哪一項？",
+          "options": [
+            "一致",
+            "一意",
+            "一心",
+            "一眼"
+          ],
+          "answerIndex": 2,
+          "explanation": "「專心一意」指集中精神，專一不分心。"
+        },
+        {
+          "type": "choice",
+          "prompt": "「守株待兔」比喻甚麼？",
+          "options": [
+            "努力耕作",
+            "死守狹隘經驗",
+            "樂於助人",
+            "勇敢冒險"
+          ],
+          "answerIndex": 1,
+          "explanation": "守株待兔諷刺不主動努力，只希望僥倖成功。"
+        },
+        {
+          "type": "choice",
+          "prompt": "「畫蛇添足」最貼近哪個意思？",
+          "options": [
+            "多做無益的事",
+            "仔細觀察",
+            "以少勝多",
+            "互相合作"
+          ],
+          "answerIndex": 0,
+          "explanation": "畫蛇添足指做了多餘的事，反而弄巧成拙。"
+        }
+      ]
+    },
+    {
+      "id": "S2-中文-reorder",
+      "grade": "S2",
+      "subject": "中文",
+      "title": "句式拼圖",
+      "description": "S2 中文・句式拼圖挑戰",
+      "engine": "puzzle",
+      "icon": "Puzzle",
+      "difficulty": "進階",
+      "skill": "reorder",
+      "questions": [
+        {
+          "type": "puzzle",
+          "prompt": "把詞語排成正確句子。",
+          "tokens": [
+            "今天",
+            "圖書館",
+            "我",
+            "去"
+          ],
+          "correctOrder": [
+            "我",
+            "今天",
+            "去",
+            "圖書館"
+          ],
+          "explanation": "主語「我」在前，時間「今天」後接動詞「去」和地點「圖書館」。"
+        },
+        {
+          "type": "puzzle",
+          "prompt": "把詞語排成正確句子。",
+          "tokens": [
+            "很",
+            "同學們",
+            "認真",
+            "溫習"
+          ],
+          "correctOrder": [
+            "同學們",
+            "很",
+            "認真",
+            "溫習"
+          ],
+          "explanation": "先寫主語「同學們」，再以副詞和形容詞修飾動作。"
+        }
+      ]
+    },
+    {
+      "id": "S2-中文-classical",
+      "grade": "S2",
+      "subject": "中文",
+      "title": "文言勇者",
+      "description": "S2 中文・文言勇者挑戰",
+      "engine": "rpg",
+      "icon": "ScrollText",
+      "difficulty": "進階",
+      "skill": "classical",
+      "questions": [
+        {
+          "type": "choice",
+          "prompt": "「學而時習之」中「習」的意思是？",
+          "options": [
+            "睡覺",
+            "溫習、練習",
+            "旅行",
+            "習慣"
+          ],
+          "answerIndex": 1,
+          "explanation": "「習」在這裡指溫習和練習。"
+        },
+        {
+          "type": "choice",
+          "prompt": "「己所不欲，勿施於人」的意思最接近哪一項？",
+          "options": [
+            "只顧自己",
+            "不要把自己不喜歡的事強加於別人",
+            "做事要快",
+            "一定要聽從別人"
+          ],
+          "answerIndex": 1,
+          "explanation": "這句強調推己及人和尊重別人。"
+        },
+        {
+          "type": "choice",
+          "prompt": "「溫故而知新」的「故」指甚麼？",
+          "options": [
+            "故事",
+            "舊有知識",
+            "已故的人",
+            "故鄉"
+          ],
+          "answerIndex": 1,
+          "explanation": "「故」指已學過的、舊有的知識。"
+        }
+      ]
+    },
+    {
+      "id": "S2-中文-languageVault",
+      "grade": "S2",
+      "subject": "中文",
+      "title": "語文密碼鎖",
+      "description": "S2 中文・語文密碼鎖挑戰",
+      "engine": "chest",
+      "icon": "KeyRound",
+      "difficulty": "進階",
+      "skill": "languageVault",
+      "questions": [
+        {
+          "type": "text",
+          "prompt": "輸入「亡羊補牢」的下一句常用意思：比喻事情出了差錯以後，＿＿還不算晚。",
+          "answer": "設法補救",
+          "hint": "提示：四個字，從「設」開始。",
+          "explanation": "「亡羊補牢」比喻事情出了差錯以後，設法補救還不算晚。"
+        },
+        {
+          "type": "text",
+          "prompt": "輸入「學而不思則罔，思而不學則＿＿。」的最後一字。",
+          "answer": "殆",
+          "hint": "提示：讀音是 dai。",
+          "explanation": "這句說明學習與思考要互相配合。"
+        }
+      ]
+    },
+    {
+      "id": "S2-英文-wordDash",
+      "grade": "S2",
+      "subject": "英文",
+      "title": "Word Dash",
+      "description": "S2 英文・Word Dash挑戰",
+      "engine": "race",
+      "icon": "Languages",
+      "difficulty": "進階",
+      "skill": "wordDash",
+      "questions": [
+        {
+          "type": "choice",
+          "prompt": "Which word means 「快樂」?",
+          "options": [
+            "happy",
+            "hungry",
+            "heavy",
+            "honest"
+          ],
+          "answerIndex": 0,
+          "explanation": "happy means 快樂。"
+        },
+        {
+          "type": "choice",
+          "prompt": "Choose the opposite of \"big\".",
+          "options": [
+            "tall",
+            "small",
+            "wide",
+            "long"
+          ],
+          "answerIndex": 1,
+          "explanation": "small 是 big 的相反詞。"
+        },
+        {
+          "type": "choice",
+          "prompt": "Which word is a colour?",
+          "options": [
+            "blue",
+            "book",
+            "bird",
+            "ball"
+          ],
+          "answerIndex": 0,
+          "explanation": "blue 是顏色。"
+        }
+      ]
+    },
+    {
+      "id": "S2-英文-spelling",
+      "grade": "S2",
+      "subject": "英文",
+      "title": "Spelling Scramble",
+      "description": "S2 英文・Spelling Scramble挑戰",
+      "engine": "puzzle",
+      "icon": "SpellCheck",
+      "difficulty": "進階",
+      "skill": "spelling",
+      "questions": [
+        {
+          "type": "puzzle",
+          "prompt": "Arrange the letters to spell a fruit.",
+          "tokens": [
+            "p",
+            "a",
+            "l",
+            "p",
+            "e"
+          ],
+          "correctOrder": [
+            "a",
+            "p",
+            "p",
+            "l",
+            "e"
+          ],
+          "explanation": "apple 是「蘋果」。"
+        },
+        {
+          "type": "puzzle",
+          "prompt": "Arrange the letters to spell an animal.",
+          "tokens": [
+            "c",
+            "t",
+            "a"
+          ],
+          "correctOrder": [
+            "c",
+            "a",
+            "t"
+          ],
+          "explanation": "cat 是「貓」。"
+        }
+      ]
+    },
+    {
+      "id": "S2-英文-sentence",
+      "grade": "S2",
+      "subject": "英文",
+      "title": "Sentence Builder",
+      "description": "S2 英文・Sentence Builder挑戰",
+      "engine": "puzzle",
+      "icon": "TextCursorInput",
+      "difficulty": "進階",
+      "skill": "sentence",
+      "questions": [
+        {
+          "type": "puzzle",
+          "prompt": "Build a correct English sentence.",
+          "tokens": [
+            "to",
+            "school",
+            "walk",
+            "I"
+          ],
+          "correctOrder": [
+            "I",
+            "walk",
+            "to",
+            "school"
+          ],
+          "explanation": "英文基本語序是主語 + 動詞 + 其他成分。"
+        },
+        {
+          "type": "puzzle",
+          "prompt": "Build a correct English sentence.",
+          "tokens": [
+            "is",
+            "She",
+            "kind"
+          ],
+          "correctOrder": [
+            "She",
+            "is",
+            "kind"
+          ],
+          "explanation": "be 動詞要放在主語 She 後面。"
+        }
+      ]
+    },
+    {
+      "id": "S2-英文-tense",
+      "grade": "S2",
+      "subject": "英文",
+      "title": "Tense Master",
+      "description": "S2 英文・Tense Master挑戰",
+      "engine": "rpg",
+      "icon": "Swords",
+      "difficulty": "進階",
+      "skill": "tense",
+      "questions": [
+        {
+          "type": "choice",
+          "prompt": "She ______ to school every day.",
+          "options": [
+            "walk",
+            "walks",
+            "walking",
+            "walked"
+          ],
+          "answerIndex": 1,
+          "explanation": "She 是第三人稱單數，現在式動詞加 s。"
+        },
+        {
+          "type": "choice",
+          "prompt": "They ______ football yesterday.",
+          "options": [
+            "play",
+            "plays",
+            "played",
+            "playing"
+          ],
+          "answerIndex": 2,
+          "explanation": "yesterday 提示用過去式 played。"
+        },
+        {
+          "type": "choice",
+          "prompt": "I ______ a student.",
+          "options": [
+            "am",
+            "is",
+            "are",
+            "be"
+          ],
+          "answerIndex": 0,
+          "explanation": "I 配 am。"
+        }
+      ]
+    },
+    {
+      "id": "S2-英文-grammarVault",
+      "grade": "S2",
+      "subject": "英文",
+      "title": "Grammar Vault",
+      "description": "S2 英文・Grammar Vault挑戰",
+      "engine": "chest",
+      "icon": "LockKeyhole",
+      "difficulty": "進階",
+      "skill": "grammarVault",
+      "questions": [
+        {
+          "type": "text",
+          "prompt": "Complete: \"I ___ a student.\"",
+          "answer": "am",
+          "hint": "提示：I 的 be 動詞。",
+          "explanation": "主語 I 要配 am。"
+        },
+        {
+          "type": "text",
+          "prompt": "Complete: \"She ___ my friend.\"",
+          "answer": "is",
+          "hint": "提示：She 的 be 動詞。",
+          "explanation": "第三人稱單數 She 要配 is。"
+        }
+      ]
+    },
+    {
+      "id": "S2-數學-calc",
+      "grade": "S2",
+      "subject": "數學",
+      "title": "Calculation Dash",
+      "description": "S2 數學・Calculation Dash挑戰",
+      "engine": "race",
+      "icon": "Gauge",
+      "difficulty": "進階",
+      "skill": "calc",
+      "questions": [
+        {
+          "type": "choice",
+          "prompt": "10 + 12 = ?",
+          "options": [
+            "21",
+            "22",
+            "23",
+            "24"
+          ],
+          "answerIndex": 1,
+          "explanation": "10 加 12 等於 22。"
+        },
+        {
+          "type": "choice",
+          "prompt": "20 − 12 = ?",
+          "options": [
+            "-2",
+            "10",
+            "8",
+            "32"
+          ],
+          "answerIndex": 2,
+          "explanation": "20 減 12 等於 8。"
+        },
+        {
+          "type": "choice",
+          "prompt": "10 × 2 = ?",
+          "options": [
+            "20",
+            "12",
+            "30",
+            "8"
+          ],
+          "answerIndex": 0,
+          "explanation": "10 乘 2 等於 20。"
+        }
+      ]
+    },
+    {
+      "id": "S2-數學-numberOrder",
+      "grade": "S2",
+      "subject": "數學",
+      "title": "Number Puzzle",
+      "description": "S2 數學・Number Puzzle挑戰",
+      "engine": "puzzle",
+      "icon": "ArrowDownUp",
+      "difficulty": "進階",
+      "skill": "numberOrder",
+      "questions": [
+        {
+          "type": "puzzle",
+          "prompt": "由小至大排列數字。",
+          "tokens": [
+            "12",
+            "7",
+            "9"
+          ],
+          "correctOrder": [
+            "7",
+            "9",
+            "12"
+          ],
+          "explanation": "先比較十位數；7 和 9 都小於 12。"
+        },
+        {
+          "type": "puzzle",
+          "prompt": "由大至小排列數字。",
+          "tokens": [
+            "15",
+            "20",
+            "18"
+          ],
+          "correctOrder": [
+            "20",
+            "18",
+            "15"
+          ],
+          "explanation": "比較十位數可知 20 最大，15 最小。"
+        }
+      ]
+    },
+    {
+      "id": "S2-數學-fractionBoss",
+      "grade": "S2",
+      "subject": "數學",
+      "title": "Fraction Boss",
+      "description": "S2 數學・Fraction Boss挑戰",
+      "engine": "rpg",
+      "icon": "Shield",
+      "difficulty": "進階",
+      "skill": "fractionBoss",
+      "questions": [
+        {
+          "type": "choice",
+          "prompt": "1/2 + 1/4 = ?",
+          "options": [
+            "2/6",
+            "3/4",
+            "1/6",
+            "2/4"
+          ],
+          "answerIndex": 1,
+          "explanation": "把 1/2 化成 2/4，2/4 + 1/4 = 3/4。"
+        },
+        {
+          "type": "choice",
+          "prompt": "哪個分數等於 1/2？",
+          "options": [
+            "2/3",
+            "2/4",
+            "3/4",
+            "1/3"
+          ],
+          "answerIndex": 1,
+          "explanation": "2/4 同時除以 2 得 1/2。"
+        },
+        {
+          "type": "choice",
+          "prompt": "3/5 的分子是？",
+          "options": [
+            "3",
+            "5",
+            "8",
+            "15"
+          ],
+          "answerIndex": 0,
+          "explanation": "分子是分數線上面的數字。"
+        }
+      ]
+    },
+    {
+      "id": "S2-數學-equationVault",
+      "grade": "S2",
+      "subject": "數學",
+      "title": "Equation Vault",
+      "description": "S2 數學・Equation Vault挑戰",
+      "engine": "chest",
+      "icon": "Vault",
+      "difficulty": "進階",
+      "skill": "equationVault",
+      "questions": [
+        {
+          "type": "text",
+          "prompt": "解密：x + 11 = 25，輸入 x。",
+          "answer": "14",
+          "hint": "提示：用 25 減 11。",
+          "explanation": "x = 25 − 11 = 14。"
+        },
+        {
+          "type": "text",
+          "prompt": "解密：2x = 28，輸入 x。",
+          "answer": "14",
+          "hint": "提示：兩邊同除以 2。",
+          "explanation": "x = 28 ÷ 2 = 14。"
+        }
+      ]
+    },
+    {
+      "id": "S2-數學-geometryLock",
+      "grade": "S2",
+      "subject": "數學",
+      "title": "Geometry Lock",
+      "description": "S2 數學・Geometry Lock挑戰",
+      "engine": "chest",
+      "icon": "Triangle",
+      "difficulty": "進階",
+      "skill": "geometryLock",
+      "questions": [
+        {
+          "type": "text",
+          "prompt": "三角形三個內角和是多少度？",
+          "answer": "180",
+          "hint": "提示：輸入數字。",
+          "explanation": "任何三角形的內角和都是 180 度。"
+        },
+        {
+          "type": "text",
+          "prompt": "正方形有多少條相等的邊？",
+          "answer": "4",
+          "hint": "提示：輸入數字。",
+          "explanation": "正方形有四條相等的邊。"
+        }
+      ]
+    },
+    {
+      "id": "S3-中文-classifier",
+      "grade": "S3",
+      "subject": "中文",
+      "title": "量詞衝刺",
+      "description": "S3 中文・量詞衝刺挑戰",
+      "engine": "race",
+      "icon": "Layers",
+      "difficulty": "高手",
+      "skill": "classifier",
+      "questions": [
+        {
+          "type": "choice",
+          "prompt": "「一＿＿雨傘」最合適的量詞是？",
+          "options": [
+            "把",
+            "張",
+            "枝",
+            "頂"
+          ],
+          "answerIndex": 3,
+          "explanation": "「頂」用於雨傘、帽子等有頂部覆蓋的物品。"
+        },
+        {
+          "type": "choice",
+          "prompt": "「一＿＿書」最合適的量詞是？",
+          "options": [
+            "本",
+            "條",
+            "匹",
+            "座"
+          ],
+          "answerIndex": 0,
+          "explanation": "「本」用於書籍、簿冊。"
+        },
+        {
+          "type": "choice",
+          "prompt": "「一＿＿魚」最合適的量詞是？",
+          "options": [
+            "條",
+            "件",
+            "艘",
+            "棵"
+          ],
+          "answerIndex": 0,
+          "explanation": "「條」可用於魚、褲、河流等細長事物。"
+        }
+      ]
+    },
+    {
+      "id": "S3-中文-idiom",
+      "grade": "S3",
+      "subject": "中文",
+      "title": "成語快答",
+      "description": "S3 中文・成語快答挑戰",
+      "engine": "race",
+      "icon": "Sparkles",
+      "difficulty": "高手",
+      "skill": "idiom",
+      "questions": [
+        {
+          "type": "choice",
+          "prompt": "「專心＿＿」形容精神集中，應填哪一項？",
+          "options": [
+            "一致",
+            "一意",
+            "一心",
+            "一眼"
+          ],
+          "answerIndex": 2,
+          "explanation": "「專心一意」指集中精神，專一不分心。"
+        },
+        {
+          "type": "choice",
+          "prompt": "「守株待兔」比喻甚麼？",
+          "options": [
+            "努力耕作",
+            "死守狹隘經驗",
+            "樂於助人",
+            "勇敢冒險"
+          ],
+          "answerIndex": 1,
+          "explanation": "守株待兔諷刺不主動努力，只希望僥倖成功。"
+        },
+        {
+          "type": "choice",
+          "prompt": "「畫蛇添足」最貼近哪個意思？",
+          "options": [
+            "多做無益的事",
+            "仔細觀察",
+            "以少勝多",
+            "互相合作"
+          ],
+          "answerIndex": 0,
+          "explanation": "畫蛇添足指做了多餘的事，反而弄巧成拙。"
+        }
+      ]
+    },
+    {
+      "id": "S3-中文-reorder",
+      "grade": "S3",
+      "subject": "中文",
+      "title": "句式拼圖",
+      "description": "S3 中文・句式拼圖挑戰",
+      "engine": "puzzle",
+      "icon": "Puzzle",
+      "difficulty": "高手",
+      "skill": "reorder",
+      "questions": [
+        {
+          "type": "puzzle",
+          "prompt": "把詞語排成正確句子。",
+          "tokens": [
+            "今天",
+            "圖書館",
+            "我",
+            "去"
+          ],
+          "correctOrder": [
+            "我",
+            "今天",
+            "去",
+            "圖書館"
+          ],
+          "explanation": "主語「我」在前，時間「今天」後接動詞「去」和地點「圖書館」。"
+        },
+        {
+          "type": "puzzle",
+          "prompt": "把詞語排成正確句子。",
+          "tokens": [
+            "很",
+            "同學們",
+            "認真",
+            "溫習"
+          ],
+          "correctOrder": [
+            "同學們",
+            "很",
+            "認真",
+            "溫習"
+          ],
+          "explanation": "先寫主語「同學們」，再以副詞和形容詞修飾動作。"
+        }
+      ]
+    },
+    {
+      "id": "S3-中文-classical",
+      "grade": "S3",
+      "subject": "中文",
+      "title": "文言勇者",
+      "description": "S3 中文・文言勇者挑戰",
+      "engine": "rpg",
+      "icon": "ScrollText",
+      "difficulty": "高手",
+      "skill": "classical",
+      "questions": [
+        {
+          "type": "choice",
+          "prompt": "「學而時習之」中「習」的意思是？",
+          "options": [
+            "睡覺",
+            "溫習、練習",
+            "旅行",
+            "習慣"
+          ],
+          "answerIndex": 1,
+          "explanation": "「習」在這裡指溫習和練習。"
+        },
+        {
+          "type": "choice",
+          "prompt": "「己所不欲，勿施於人」的意思最接近哪一項？",
+          "options": [
+            "只顧自己",
+            "不要把自己不喜歡的事強加於別人",
+            "做事要快",
+            "一定要聽從別人"
+          ],
+          "answerIndex": 1,
+          "explanation": "這句強調推己及人和尊重別人。"
+        },
+        {
+          "type": "choice",
+          "prompt": "「溫故而知新」的「故」指甚麼？",
+          "options": [
+            "故事",
+            "舊有知識",
+            "已故的人",
+            "故鄉"
+          ],
+          "answerIndex": 1,
+          "explanation": "「故」指已學過的、舊有的知識。"
+        }
+      ]
+    },
+    {
+      "id": "S3-中文-languageVault",
+      "grade": "S3",
+      "subject": "中文",
+      "title": "語文密碼鎖",
+      "description": "S3 中文・語文密碼鎖挑戰",
+      "engine": "chest",
+      "icon": "KeyRound",
+      "difficulty": "高手",
+      "skill": "languageVault",
+      "questions": [
+        {
+          "type": "text",
+          "prompt": "輸入「亡羊補牢」的下一句常用意思：比喻事情出了差錯以後，＿＿還不算晚。",
+          "answer": "設法補救",
+          "hint": "提示：四個字，從「設」開始。",
+          "explanation": "「亡羊補牢」比喻事情出了差錯以後，設法補救還不算晚。"
+        },
+        {
+          "type": "text",
+          "prompt": "輸入「學而不思則罔，思而不學則＿＿。」的最後一字。",
+          "answer": "殆",
+          "hint": "提示：讀音是 dai。",
+          "explanation": "這句說明學習與思考要互相配合。"
+        }
+      ]
+    },
+    {
+      "id": "S3-英文-wordDash",
+      "grade": "S3",
+      "subject": "英文",
+      "title": "Word Dash",
+      "description": "S3 英文・Word Dash挑戰",
+      "engine": "race",
+      "icon": "Languages",
+      "difficulty": "高手",
+      "skill": "wordDash",
+      "questions": [
+        {
+          "type": "choice",
+          "prompt": "Which word means 「快樂」?",
+          "options": [
+            "happy",
+            "hungry",
+            "heavy",
+            "honest"
+          ],
+          "answerIndex": 0,
+          "explanation": "happy means 快樂。"
+        },
+        {
+          "type": "choice",
+          "prompt": "Choose the opposite of \"big\".",
+          "options": [
+            "tall",
+            "small",
+            "wide",
+            "long"
+          ],
+          "answerIndex": 1,
+          "explanation": "small 是 big 的相反詞。"
+        },
+        {
+          "type": "choice",
+          "prompt": "Which word is a colour?",
+          "options": [
+            "blue",
+            "book",
+            "bird",
+            "ball"
+          ],
+          "answerIndex": 0,
+          "explanation": "blue 是顏色。"
+        }
+      ]
+    },
+    {
+      "id": "S3-英文-spelling",
+      "grade": "S3",
+      "subject": "英文",
+      "title": "Spelling Scramble",
+      "description": "S3 英文・Spelling Scramble挑戰",
+      "engine": "puzzle",
+      "icon": "SpellCheck",
+      "difficulty": "高手",
+      "skill": "spelling",
+      "questions": [
+        {
+          "type": "puzzle",
+          "prompt": "Arrange the letters to spell a fruit.",
+          "tokens": [
+            "p",
+            "a",
+            "l",
+            "p",
+            "e"
+          ],
+          "correctOrder": [
+            "a",
+            "p",
+            "p",
+            "l",
+            "e"
+          ],
+          "explanation": "apple 是「蘋果」。"
+        },
+        {
+          "type": "puzzle",
+          "prompt": "Arrange the letters to spell an animal.",
+          "tokens": [
+            "c",
+            "t",
+            "a"
+          ],
+          "correctOrder": [
+            "c",
+            "a",
+            "t"
+          ],
+          "explanation": "cat 是「貓」。"
+        }
+      ]
+    },
+    {
+      "id": "S3-英文-sentence",
+      "grade": "S3",
+      "subject": "英文",
+      "title": "Sentence Builder",
+      "description": "S3 英文・Sentence Builder挑戰",
+      "engine": "puzzle",
+      "icon": "TextCursorInput",
+      "difficulty": "高手",
+      "skill": "sentence",
+      "questions": [
+        {
+          "type": "puzzle",
+          "prompt": "Build a correct English sentence.",
+          "tokens": [
+            "to",
+            "school",
+            "walk",
+            "I"
+          ],
+          "correctOrder": [
+            "I",
+            "walk",
+            "to",
+            "school"
+          ],
+          "explanation": "英文基本語序是主語 + 動詞 + 其他成分。"
+        },
+        {
+          "type": "puzzle",
+          "prompt": "Build a correct English sentence.",
+          "tokens": [
+            "is",
+            "She",
+            "kind"
+          ],
+          "correctOrder": [
+            "She",
+            "is",
+            "kind"
+          ],
+          "explanation": "be 動詞要放在主語 She 後面。"
+        }
+      ]
+    },
+    {
+      "id": "S3-英文-tense",
+      "grade": "S3",
+      "subject": "英文",
+      "title": "Tense Master",
+      "description": "S3 英文・Tense Master挑戰",
+      "engine": "rpg",
+      "icon": "Swords",
+      "difficulty": "高手",
+      "skill": "tense",
+      "questions": [
+        {
+          "type": "choice",
+          "prompt": "She ______ to school every day.",
+          "options": [
+            "walk",
+            "walks",
+            "walking",
+            "walked"
+          ],
+          "answerIndex": 1,
+          "explanation": "She 是第三人稱單數，現在式動詞加 s。"
+        },
+        {
+          "type": "choice",
+          "prompt": "They ______ football yesterday.",
+          "options": [
+            "play",
+            "plays",
+            "played",
+            "playing"
+          ],
+          "answerIndex": 2,
+          "explanation": "yesterday 提示用過去式 played。"
+        },
+        {
+          "type": "choice",
+          "prompt": "I ______ a student.",
+          "options": [
+            "am",
+            "is",
+            "are",
+            "be"
+          ],
+          "answerIndex": 0,
+          "explanation": "I 配 am。"
+        }
+      ]
+    },
+    {
+      "id": "S3-英文-grammarVault",
+      "grade": "S3",
+      "subject": "英文",
+      "title": "Grammar Vault",
+      "description": "S3 英文・Grammar Vault挑戰",
+      "engine": "chest",
+      "icon": "LockKeyhole",
+      "difficulty": "高手",
+      "skill": "grammarVault",
+      "questions": [
+        {
+          "type": "text",
+          "prompt": "Complete: \"I ___ a student.\"",
+          "answer": "am",
+          "hint": "提示：I 的 be 動詞。",
+          "explanation": "主語 I 要配 am。"
+        },
+        {
+          "type": "text",
+          "prompt": "Complete: \"She ___ my friend.\"",
+          "answer": "is",
+          "hint": "提示：She 的 be 動詞。",
+          "explanation": "第三人稱單數 She 要配 is。"
+        }
+      ]
+    },
+    {
+      "id": "S3-數學-calc",
+      "grade": "S3",
+      "subject": "數學",
+      "title": "Calculation Dash",
+      "description": "S3 數學・Calculation Dash挑戰",
+      "engine": "race",
+      "icon": "Gauge",
+      "difficulty": "高手",
+      "skill": "calc",
+      "questions": [
+        {
+          "type": "choice",
+          "prompt": "11 + 13 = ?",
+          "options": [
+            "23",
+            "24",
+            "25",
+            "26"
+          ],
+          "answerIndex": 1,
+          "explanation": "11 加 13 等於 24。"
+        },
+        {
+          "type": "choice",
+          "prompt": "22 − 13 = ?",
+          "options": [
+            "-2",
+            "11",
+            "9",
+            "35"
+          ],
+          "answerIndex": 2,
+          "explanation": "22 減 13 等於 9。"
+        },
+        {
+          "type": "choice",
+          "prompt": "11 × 2 = ?",
+          "options": [
+            "22",
+            "13",
+            "33",
+            "9"
+          ],
+          "answerIndex": 0,
+          "explanation": "11 乘 2 等於 22。"
+        }
+      ]
+    },
+    {
+      "id": "S3-數學-numberOrder",
+      "grade": "S3",
+      "subject": "數學",
+      "title": "Number Puzzle",
+      "description": "S3 數學・Number Puzzle挑戰",
+      "engine": "puzzle",
+      "icon": "ArrowDownUp",
+      "difficulty": "高手",
+      "skill": "numberOrder",
+      "questions": [
+        {
+          "type": "puzzle",
+          "prompt": "由小至大排列數字。",
+          "tokens": [
+            "12",
+            "7",
+            "9"
+          ],
+          "correctOrder": [
+            "7",
+            "9",
+            "12"
+          ],
+          "explanation": "先比較十位數；7 和 9 都小於 12。"
+        },
+        {
+          "type": "puzzle",
+          "prompt": "由大至小排列數字。",
+          "tokens": [
+            "15",
+            "20",
+            "18"
+          ],
+          "correctOrder": [
+            "20",
+            "18",
+            "15"
+          ],
+          "explanation": "比較十位數可知 20 最大，15 最小。"
+        }
+      ]
+    },
+    {
+      "id": "S3-數學-fractionBoss",
+      "grade": "S3",
+      "subject": "數學",
+      "title": "Fraction Boss",
+      "description": "S3 數學・Fraction Boss挑戰",
+      "engine": "rpg",
+      "icon": "Shield",
+      "difficulty": "高手",
+      "skill": "fractionBoss",
+      "questions": [
+        {
+          "type": "choice",
+          "prompt": "1/2 + 1/4 = ?",
+          "options": [
+            "2/6",
+            "3/4",
+            "1/6",
+            "2/4"
+          ],
+          "answerIndex": 1,
+          "explanation": "把 1/2 化成 2/4，2/4 + 1/4 = 3/4。"
+        },
+        {
+          "type": "choice",
+          "prompt": "哪個分數等於 1/2？",
+          "options": [
+            "2/3",
+            "2/4",
+            "3/4",
+            "1/3"
+          ],
+          "answerIndex": 1,
+          "explanation": "2/4 同時除以 2 得 1/2。"
+        },
+        {
+          "type": "choice",
+          "prompt": "3/5 的分子是？",
+          "options": [
+            "3",
+            "5",
+            "8",
+            "15"
+          ],
+          "answerIndex": 0,
+          "explanation": "分子是分數線上面的數字。"
+        }
+      ]
+    },
+    {
+      "id": "S3-數學-equationVault",
+      "grade": "S3",
+      "subject": "數學",
+      "title": "Equation Vault",
+      "description": "S3 數學・Equation Vault挑戰",
+      "engine": "chest",
+      "icon": "Vault",
+      "difficulty": "高手",
+      "skill": "equationVault",
+      "questions": [
+        {
+          "type": "text",
+          "prompt": "解密：x + 12 = 27，輸入 x。",
+          "answer": "15",
+          "hint": "提示：用 27 減 12。",
+          "explanation": "x = 27 − 12 = 15。"
+        },
+        {
+          "type": "text",
+          "prompt": "解密：2x = 30，輸入 x。",
+          "answer": "15",
+          "hint": "提示：兩邊同除以 2。",
+          "explanation": "x = 30 ÷ 2 = 15。"
+        }
+      ]
+    },
+    {
+      "id": "S3-數學-geometryLock",
+      "grade": "S3",
+      "subject": "數學",
+      "title": "Geometry Lock",
+      "description": "S3 數學・Geometry Lock挑戰",
+      "engine": "chest",
+      "icon": "Triangle",
+      "difficulty": "高手",
+      "skill": "geometryLock",
+      "questions": [
+        {
+          "type": "text",
+          "prompt": "三角形三個內角和是多少度？",
+          "answer": "180",
+          "hint": "提示：輸入數字。",
+          "explanation": "任何三角形的內角和都是 180 度。"
+        },
+        {
+          "type": "text",
+          "prompt": "正方形有多少條相等的邊？",
+          "answer": "4",
+          "hint": "提示：輸入數字。",
+          "explanation": "正方形有四條相等的邊。"
+        }
+      ]
+    },
+    {
+      "id": "S4-中文-classifier",
+      "grade": "S4",
+      "subject": "中文",
+      "title": "量詞衝刺",
+      "description": "S4 中文・量詞衝刺挑戰",
+      "engine": "race",
+      "icon": "Layers",
+      "difficulty": "高手",
+      "skill": "classifier",
+      "questions": [
+        {
+          "type": "choice",
+          "prompt": "「一＿＿雨傘」最合適的量詞是？",
+          "options": [
+            "把",
+            "張",
+            "枝",
+            "頂"
+          ],
+          "answerIndex": 3,
+          "explanation": "「頂」用於雨傘、帽子等有頂部覆蓋的物品。"
+        },
+        {
+          "type": "choice",
+          "prompt": "「一＿＿書」最合適的量詞是？",
+          "options": [
+            "本",
+            "條",
+            "匹",
+            "座"
+          ],
+          "answerIndex": 0,
+          "explanation": "「本」用於書籍、簿冊。"
+        },
+        {
+          "type": "choice",
+          "prompt": "「一＿＿魚」最合適的量詞是？",
+          "options": [
+            "條",
+            "件",
+            "艘",
+            "棵"
+          ],
+          "answerIndex": 0,
+          "explanation": "「條」可用於魚、褲、河流等細長事物。"
+        }
+      ]
+    },
+    {
+      "id": "S4-中文-idiom",
+      "grade": "S4",
+      "subject": "中文",
+      "title": "成語快答",
+      "description": "S4 中文・成語快答挑戰",
+      "engine": "race",
+      "icon": "Sparkles",
+      "difficulty": "高手",
+      "skill": "idiom",
+      "questions": [
+        {
+          "type": "choice",
+          "prompt": "「專心＿＿」形容精神集中，應填哪一項？",
+          "options": [
+            "一致",
+            "一意",
+            "一心",
+            "一眼"
+          ],
+          "answerIndex": 2,
+          "explanation": "「專心一意」指集中精神，專一不分心。"
+        },
+        {
+          "type": "choice",
+          "prompt": "「守株待兔」比喻甚麼？",
+          "options": [
+            "努力耕作",
+            "死守狹隘經驗",
+            "樂於助人",
+            "勇敢冒險"
+          ],
+          "answerIndex": 1,
+          "explanation": "守株待兔諷刺不主動努力，只希望僥倖成功。"
+        },
+        {
+          "type": "choice",
+          "prompt": "「畫蛇添足」最貼近哪個意思？",
+          "options": [
+            "多做無益的事",
+            "仔細觀察",
+            "以少勝多",
+            "互相合作"
+          ],
+          "answerIndex": 0,
+          "explanation": "畫蛇添足指做了多餘的事，反而弄巧成拙。"
+        }
+      ]
+    },
+    {
+      "id": "S4-中文-reorder",
+      "grade": "S4",
+      "subject": "中文",
+      "title": "句式拼圖",
+      "description": "S4 中文・句式拼圖挑戰",
+      "engine": "puzzle",
+      "icon": "Puzzle",
+      "difficulty": "高手",
+      "skill": "reorder",
+      "questions": [
+        {
+          "type": "puzzle",
+          "prompt": "把詞語排成正確句子。",
+          "tokens": [
+            "今天",
+            "圖書館",
+            "我",
+            "去"
+          ],
+          "correctOrder": [
+            "我",
+            "今天",
+            "去",
+            "圖書館"
+          ],
+          "explanation": "主語「我」在前，時間「今天」後接動詞「去」和地點「圖書館」。"
+        },
+        {
+          "type": "puzzle",
+          "prompt": "把詞語排成正確句子。",
+          "tokens": [
+            "很",
+            "同學們",
+            "認真",
+            "溫習"
+          ],
+          "correctOrder": [
+            "同學們",
+            "很",
+            "認真",
+            "溫習"
+          ],
+          "explanation": "先寫主語「同學們」，再以副詞和形容詞修飾動作。"
+        }
+      ]
+    },
+    {
+      "id": "S4-中文-classical",
+      "grade": "S4",
+      "subject": "中文",
+      "title": "文言勇者",
+      "description": "S4 中文・文言勇者挑戰",
+      "engine": "rpg",
+      "icon": "ScrollText",
+      "difficulty": "高手",
+      "skill": "classical",
+      "questions": [
+        {
+          "type": "choice",
+          "prompt": "「學而時習之」中「習」的意思是？",
+          "options": [
+            "睡覺",
+            "溫習、練習",
+            "旅行",
+            "習慣"
+          ],
+          "answerIndex": 1,
+          "explanation": "「習」在這裡指溫習和練習。"
+        },
+        {
+          "type": "choice",
+          "prompt": "「己所不欲，勿施於人」的意思最接近哪一項？",
+          "options": [
+            "只顧自己",
+            "不要把自己不喜歡的事強加於別人",
+            "做事要快",
+            "一定要聽從別人"
+          ],
+          "answerIndex": 1,
+          "explanation": "這句強調推己及人和尊重別人。"
+        },
+        {
+          "type": "choice",
+          "prompt": "「溫故而知新」的「故」指甚麼？",
+          "options": [
+            "故事",
+            "舊有知識",
+            "已故的人",
+            "故鄉"
+          ],
+          "answerIndex": 1,
+          "explanation": "「故」指已學過的、舊有的知識。"
+        }
+      ]
+    },
+    {
+      "id": "S4-中文-languageVault",
+      "grade": "S4",
+      "subject": "中文",
+      "title": "語文密碼鎖",
+      "description": "S4 中文・語文密碼鎖挑戰",
+      "engine": "chest",
+      "icon": "KeyRound",
+      "difficulty": "高手",
+      "skill": "languageVault",
+      "questions": [
+        {
+          "type": "text",
+          "prompt": "輸入「亡羊補牢」的下一句常用意思：比喻事情出了差錯以後，＿＿還不算晚。",
+          "answer": "設法補救",
+          "hint": "提示：四個字，從「設」開始。",
+          "explanation": "「亡羊補牢」比喻事情出了差錯以後，設法補救還不算晚。"
+        },
+        {
+          "type": "text",
+          "prompt": "輸入「學而不思則罔，思而不學則＿＿。」的最後一字。",
+          "answer": "殆",
+          "hint": "提示：讀音是 dai。",
+          "explanation": "這句說明學習與思考要互相配合。"
+        }
+      ]
+    },
+    {
+      "id": "S4-英文-wordDash",
+      "grade": "S4",
+      "subject": "英文",
+      "title": "Word Dash",
+      "description": "S4 英文・Word Dash挑戰",
+      "engine": "race",
+      "icon": "Languages",
+      "difficulty": "高手",
+      "skill": "wordDash",
+      "questions": [
+        {
+          "type": "choice",
+          "prompt": "Which word means 「快樂」?",
+          "options": [
+            "happy",
+            "hungry",
+            "heavy",
+            "honest"
+          ],
+          "answerIndex": 0,
+          "explanation": "happy means 快樂。"
+        },
+        {
+          "type": "choice",
+          "prompt": "Choose the opposite of \"big\".",
+          "options": [
+            "tall",
+            "small",
+            "wide",
+            "long"
+          ],
+          "answerIndex": 1,
+          "explanation": "small 是 big 的相反詞。"
+        },
+        {
+          "type": "choice",
+          "prompt": "Which word is a colour?",
+          "options": [
+            "blue",
+            "book",
+            "bird",
+            "ball"
+          ],
+          "answerIndex": 0,
+          "explanation": "blue 是顏色。"
+        }
+      ]
+    },
+    {
+      "id": "S4-英文-spelling",
+      "grade": "S4",
+      "subject": "英文",
+      "title": "Spelling Scramble",
+      "description": "S4 英文・Spelling Scramble挑戰",
+      "engine": "puzzle",
+      "icon": "SpellCheck",
+      "difficulty": "高手",
+      "skill": "spelling",
+      "questions": [
+        {
+          "type": "puzzle",
+          "prompt": "Arrange the letters to spell a fruit.",
+          "tokens": [
+            "p",
+            "a",
+            "l",
+            "p",
+            "e"
+          ],
+          "correctOrder": [
+            "a",
+            "p",
+            "p",
+            "l",
+            "e"
+          ],
+          "explanation": "apple 是「蘋果」。"
+        },
+        {
+          "type": "puzzle",
+          "prompt": "Arrange the letters to spell an animal.",
+          "tokens": [
+            "c",
+            "t",
+            "a"
+          ],
+          "correctOrder": [
+            "c",
+            "a",
+            "t"
+          ],
+          "explanation": "cat 是「貓」。"
+        }
+      ]
+    },
+    {
+      "id": "S4-英文-sentence",
+      "grade": "S4",
+      "subject": "英文",
+      "title": "Sentence Builder",
+      "description": "S4 英文・Sentence Builder挑戰",
+      "engine": "puzzle",
+      "icon": "TextCursorInput",
+      "difficulty": "高手",
+      "skill": "sentence",
+      "questions": [
+        {
+          "type": "puzzle",
+          "prompt": "Build a correct English sentence.",
+          "tokens": [
+            "to",
+            "school",
+            "walk",
+            "I"
+          ],
+          "correctOrder": [
+            "I",
+            "walk",
+            "to",
+            "school"
+          ],
+          "explanation": "英文基本語序是主語 + 動詞 + 其他成分。"
+        },
+        {
+          "type": "puzzle",
+          "prompt": "Build a correct English sentence.",
+          "tokens": [
+            "is",
+            "She",
+            "kind"
+          ],
+          "correctOrder": [
+            "She",
+            "is",
+            "kind"
+          ],
+          "explanation": "be 動詞要放在主語 She 後面。"
+        }
+      ]
+    },
+    {
+      "id": "S4-英文-tense",
+      "grade": "S4",
+      "subject": "英文",
+      "title": "Tense Master",
+      "description": "S4 英文・Tense Master挑戰",
+      "engine": "rpg",
+      "icon": "Swords",
+      "difficulty": "高手",
+      "skill": "tense",
+      "questions": [
+        {
+          "type": "choice",
+          "prompt": "She ______ to school every day.",
+          "options": [
+            "walk",
+            "walks",
+            "walking",
+            "walked"
+          ],
+          "answerIndex": 1,
+          "explanation": "She 是第三人稱單數，現在式動詞加 s。"
+        },
+        {
+          "type": "choice",
+          "prompt": "They ______ football yesterday.",
+          "options": [
+            "play",
+            "plays",
+            "played",
+            "playing"
+          ],
+          "answerIndex": 2,
+          "explanation": "yesterday 提示用過去式 played。"
+        },
+        {
+          "type": "choice",
+          "prompt": "I ______ a student.",
+          "options": [
+            "am",
+            "is",
+            "are",
+            "be"
+          ],
+          "answerIndex": 0,
+          "explanation": "I 配 am。"
+        }
+      ]
+    },
+    {
+      "id": "S4-英文-grammarVault",
+      "grade": "S4",
+      "subject": "英文",
+      "title": "Grammar Vault",
+      "description": "S4 英文・Grammar Vault挑戰",
+      "engine": "chest",
+      "icon": "LockKeyhole",
+      "difficulty": "高手",
+      "skill": "grammarVault",
+      "questions": [
+        {
+          "type": "text",
+          "prompt": "Complete: \"I ___ a student.\"",
+          "answer": "am",
+          "hint": "提示：I 的 be 動詞。",
+          "explanation": "主語 I 要配 am。"
+        },
+        {
+          "type": "text",
+          "prompt": "Complete: \"She ___ my friend.\"",
+          "answer": "is",
+          "hint": "提示：She 的 be 動詞。",
+          "explanation": "第三人稱單數 She 要配 is。"
+        }
+      ]
+    },
+    {
+      "id": "S4-數學-calc",
+      "grade": "S4",
+      "subject": "數學",
+      "title": "Calculation Dash",
+      "description": "S4 數學・Calculation Dash挑戰",
+      "engine": "race",
+      "icon": "Gauge",
+      "difficulty": "高手",
+      "skill": "calc",
+      "questions": [
+        {
+          "type": "choice",
+          "prompt": "12 + 14 = ?",
+          "options": [
+            "25",
+            "26",
+            "27",
+            "28"
+          ],
+          "answerIndex": 1,
+          "explanation": "12 加 14 等於 26。"
+        },
+        {
+          "type": "choice",
+          "prompt": "24 − 14 = ?",
+          "options": [
+            "-2",
+            "12",
+            "10",
+            "38"
+          ],
+          "answerIndex": 2,
+          "explanation": "24 減 14 等於 10。"
+        },
+        {
+          "type": "choice",
+          "prompt": "12 × 2 = ?",
+          "options": [
+            "24",
+            "14",
+            "36",
+            "10"
+          ],
+          "answerIndex": 0,
+          "explanation": "12 乘 2 等於 24。"
+        }
+      ]
+    },
+    {
+      "id": "S4-數學-numberOrder",
+      "grade": "S4",
+      "subject": "數學",
+      "title": "Number Puzzle",
+      "description": "S4 數學・Number Puzzle挑戰",
+      "engine": "puzzle",
+      "icon": "ArrowDownUp",
+      "difficulty": "高手",
+      "skill": "numberOrder",
+      "questions": [
+        {
+          "type": "puzzle",
+          "prompt": "由小至大排列數字。",
+          "tokens": [
+            "12",
+            "7",
+            "9"
+          ],
+          "correctOrder": [
+            "7",
+            "9",
+            "12"
+          ],
+          "explanation": "先比較十位數；7 和 9 都小於 12。"
+        },
+        {
+          "type": "puzzle",
+          "prompt": "由大至小排列數字。",
+          "tokens": [
+            "15",
+            "20",
+            "18"
+          ],
+          "correctOrder": [
+            "20",
+            "18",
+            "15"
+          ],
+          "explanation": "比較十位數可知 20 最大，15 最小。"
+        }
+      ]
+    },
+    {
+      "id": "S4-數學-fractionBoss",
+      "grade": "S4",
+      "subject": "數學",
+      "title": "Fraction Boss",
+      "description": "S4 數學・Fraction Boss挑戰",
+      "engine": "rpg",
+      "icon": "Shield",
+      "difficulty": "高手",
+      "skill": "fractionBoss",
+      "questions": [
+        {
+          "type": "choice",
+          "prompt": "1/2 + 1/4 = ?",
+          "options": [
+            "2/6",
+            "3/4",
+            "1/6",
+            "2/4"
+          ],
+          "answerIndex": 1,
+          "explanation": "把 1/2 化成 2/4，2/4 + 1/4 = 3/4。"
+        },
+        {
+          "type": "choice",
+          "prompt": "哪個分數等於 1/2？",
+          "options": [
+            "2/3",
+            "2/4",
+            "3/4",
+            "1/3"
+          ],
+          "answerIndex": 1,
+          "explanation": "2/4 同時除以 2 得 1/2。"
+        },
+        {
+          "type": "choice",
+          "prompt": "3/5 的分子是？",
+          "options": [
+            "3",
+            "5",
+            "8",
+            "15"
+          ],
+          "answerIndex": 0,
+          "explanation": "分子是分數線上面的數字。"
+        }
+      ]
+    },
+    {
+      "id": "S4-數學-equationVault",
+      "grade": "S4",
+      "subject": "數學",
+      "title": "Equation Vault",
+      "description": "S4 數學・Equation Vault挑戰",
+      "engine": "chest",
+      "icon": "Vault",
+      "difficulty": "高手",
+      "skill": "equationVault",
+      "questions": [
+        {
+          "type": "text",
+          "prompt": "解密：x + 13 = 29，輸入 x。",
+          "answer": "16",
+          "hint": "提示：用 29 減 13。",
+          "explanation": "x = 29 − 13 = 16。"
+        },
+        {
+          "type": "text",
+          "prompt": "解密：2x = 32，輸入 x。",
+          "answer": "16",
+          "hint": "提示：兩邊同除以 2。",
+          "explanation": "x = 32 ÷ 2 = 16。"
+        }
+      ]
+    },
+    {
+      "id": "S4-數學-geometryLock",
+      "grade": "S4",
+      "subject": "數學",
+      "title": "Geometry Lock",
+      "description": "S4 數學・Geometry Lock挑戰",
+      "engine": "chest",
+      "icon": "Triangle",
+      "difficulty": "高手",
+      "skill": "geometryLock",
+      "questions": [
+        {
+          "type": "text",
+          "prompt": "三角形三個內角和是多少度？",
+          "answer": "180",
+          "hint": "提示：輸入數字。",
+          "explanation": "任何三角形的內角和都是 180 度。"
+        },
+        {
+          "type": "text",
+          "prompt": "正方形有多少條相等的邊？",
+          "answer": "4",
+          "hint": "提示：輸入數字。",
+          "explanation": "正方形有四條相等的邊。"
+        }
+      ]
+    },
+    {
+      "id": "S5-中文-classifier",
+      "grade": "S5",
+      "subject": "中文",
+      "title": "量詞衝刺",
+      "description": "S5 中文・量詞衝刺挑戰",
+      "engine": "race",
+      "icon": "Layers",
+      "difficulty": "高手",
+      "skill": "classifier",
+      "questions": [
+        {
+          "type": "choice",
+          "prompt": "「一＿＿雨傘」最合適的量詞是？",
+          "options": [
+            "把",
+            "張",
+            "枝",
+            "頂"
+          ],
+          "answerIndex": 3,
+          "explanation": "「頂」用於雨傘、帽子等有頂部覆蓋的物品。"
+        },
+        {
+          "type": "choice",
+          "prompt": "「一＿＿書」最合適的量詞是？",
+          "options": [
+            "本",
+            "條",
+            "匹",
+            "座"
+          ],
+          "answerIndex": 0,
+          "explanation": "「本」用於書籍、簿冊。"
+        },
+        {
+          "type": "choice",
+          "prompt": "「一＿＿魚」最合適的量詞是？",
+          "options": [
+            "條",
+            "件",
+            "艘",
+            "棵"
+          ],
+          "answerIndex": 0,
+          "explanation": "「條」可用於魚、褲、河流等細長事物。"
+        }
+      ]
+    },
+    {
+      "id": "S5-中文-idiom",
+      "grade": "S5",
+      "subject": "中文",
+      "title": "成語快答",
+      "description": "S5 中文・成語快答挑戰",
+      "engine": "race",
+      "icon": "Sparkles",
+      "difficulty": "高手",
+      "skill": "idiom",
+      "questions": [
+        {
+          "type": "choice",
+          "prompt": "「專心＿＿」形容精神集中，應填哪一項？",
+          "options": [
+            "一致",
+            "一意",
+            "一心",
+            "一眼"
+          ],
+          "answerIndex": 2,
+          "explanation": "「專心一意」指集中精神，專一不分心。"
+        },
+        {
+          "type": "choice",
+          "prompt": "「守株待兔」比喻甚麼？",
+          "options": [
+            "努力耕作",
+            "死守狹隘經驗",
+            "樂於助人",
+            "勇敢冒險"
+          ],
+          "answerIndex": 1,
+          "explanation": "守株待兔諷刺不主動努力，只希望僥倖成功。"
+        },
+        {
+          "type": "choice",
+          "prompt": "「畫蛇添足」最貼近哪個意思？",
+          "options": [
+            "多做無益的事",
+            "仔細觀察",
+            "以少勝多",
+            "互相合作"
+          ],
+          "answerIndex": 0,
+          "explanation": "畫蛇添足指做了多餘的事，反而弄巧成拙。"
+        }
+      ]
+    },
+    {
+      "id": "S5-中文-reorder",
+      "grade": "S5",
+      "subject": "中文",
+      "title": "句式拼圖",
+      "description": "S5 中文・句式拼圖挑戰",
+      "engine": "puzzle",
+      "icon": "Puzzle",
+      "difficulty": "高手",
+      "skill": "reorder",
+      "questions": [
+        {
+          "type": "puzzle",
+          "prompt": "把詞語排成正確句子。",
+          "tokens": [
+            "今天",
+            "圖書館",
+            "我",
+            "去"
+          ],
+          "correctOrder": [
+            "我",
+            "今天",
+            "去",
+            "圖書館"
+          ],
+          "explanation": "主語「我」在前，時間「今天」後接動詞「去」和地點「圖書館」。"
+        },
+        {
+          "type": "puzzle",
+          "prompt": "把詞語排成正確句子。",
+          "tokens": [
+            "很",
+            "同學們",
+            "認真",
+            "溫習"
+          ],
+          "correctOrder": [
+            "同學們",
+            "很",
+            "認真",
+            "溫習"
+          ],
+          "explanation": "先寫主語「同學們」，再以副詞和形容詞修飾動作。"
+        }
+      ]
+    },
+    {
+      "id": "S5-中文-classical",
+      "grade": "S5",
+      "subject": "中文",
+      "title": "文言勇者",
+      "description": "S5 中文・文言勇者挑戰",
+      "engine": "rpg",
+      "icon": "ScrollText",
+      "difficulty": "高手",
+      "skill": "classical",
+      "questions": [
+        {
+          "type": "choice",
+          "prompt": "「學而時習之」中「習」的意思是？",
+          "options": [
+            "睡覺",
+            "溫習、練習",
+            "旅行",
+            "習慣"
+          ],
+          "answerIndex": 1,
+          "explanation": "「習」在這裡指溫習和練習。"
+        },
+        {
+          "type": "choice",
+          "prompt": "「己所不欲，勿施於人」的意思最接近哪一項？",
+          "options": [
+            "只顧自己",
+            "不要把自己不喜歡的事強加於別人",
+            "做事要快",
+            "一定要聽從別人"
+          ],
+          "answerIndex": 1,
+          "explanation": "這句強調推己及人和尊重別人。"
+        },
+        {
+          "type": "choice",
+          "prompt": "「溫故而知新」的「故」指甚麼？",
+          "options": [
+            "故事",
+            "舊有知識",
+            "已故的人",
+            "故鄉"
+          ],
+          "answerIndex": 1,
+          "explanation": "「故」指已學過的、舊有的知識。"
+        }
+      ]
+    },
+    {
+      "id": "S5-中文-languageVault",
+      "grade": "S5",
+      "subject": "中文",
+      "title": "語文密碼鎖",
+      "description": "S5 中文・語文密碼鎖挑戰",
+      "engine": "chest",
+      "icon": "KeyRound",
+      "difficulty": "高手",
+      "skill": "languageVault",
+      "questions": [
+        {
+          "type": "text",
+          "prompt": "輸入「亡羊補牢」的下一句常用意思：比喻事情出了差錯以後，＿＿還不算晚。",
+          "answer": "設法補救",
+          "hint": "提示：四個字，從「設」開始。",
+          "explanation": "「亡羊補牢」比喻事情出了差錯以後，設法補救還不算晚。"
+        },
+        {
+          "type": "text",
+          "prompt": "輸入「學而不思則罔，思而不學則＿＿。」的最後一字。",
+          "answer": "殆",
+          "hint": "提示：讀音是 dai。",
+          "explanation": "這句說明學習與思考要互相配合。"
+        }
+      ]
+    },
+    {
+      "id": "S5-英文-wordDash",
+      "grade": "S5",
+      "subject": "英文",
+      "title": "Word Dash",
+      "description": "S5 英文・Word Dash挑戰",
+      "engine": "race",
+      "icon": "Languages",
+      "difficulty": "高手",
+      "skill": "wordDash",
+      "questions": [
+        {
+          "type": "choice",
+          "prompt": "Which word means 「快樂」?",
+          "options": [
+            "happy",
+            "hungry",
+            "heavy",
+            "honest"
+          ],
+          "answerIndex": 0,
+          "explanation": "happy means 快樂。"
+        },
+        {
+          "type": "choice",
+          "prompt": "Choose the opposite of \"big\".",
+          "options": [
+            "tall",
+            "small",
+            "wide",
+            "long"
+          ],
+          "answerIndex": 1,
+          "explanation": "small 是 big 的相反詞。"
+        },
+        {
+          "type": "choice",
+          "prompt": "Which word is a colour?",
+          "options": [
+            "blue",
+            "book",
+            "bird",
+            "ball"
+          ],
+          "answerIndex": 0,
+          "explanation": "blue 是顏色。"
+        }
+      ]
+    },
+    {
+      "id": "S5-英文-spelling",
+      "grade": "S5",
+      "subject": "英文",
+      "title": "Spelling Scramble",
+      "description": "S5 英文・Spelling Scramble挑戰",
+      "engine": "puzzle",
+      "icon": "SpellCheck",
+      "difficulty": "高手",
+      "skill": "spelling",
+      "questions": [
+        {
+          "type": "puzzle",
+          "prompt": "Arrange the letters to spell a fruit.",
+          "tokens": [
+            "p",
+            "a",
+            "l",
+            "p",
+            "e"
+          ],
+          "correctOrder": [
+            "a",
+            "p",
+            "p",
+            "l",
+            "e"
+          ],
+          "explanation": "apple 是「蘋果」。"
+        },
+        {
+          "type": "puzzle",
+          "prompt": "Arrange the letters to spell an animal.",
+          "tokens": [
+            "c",
+            "t",
+            "a"
+          ],
+          "correctOrder": [
+            "c",
+            "a",
+            "t"
+          ],
+          "explanation": "cat 是「貓」。"
+        }
+      ]
+    },
+    {
+      "id": "S5-英文-sentence",
+      "grade": "S5",
+      "subject": "英文",
+      "title": "Sentence Builder",
+      "description": "S5 英文・Sentence Builder挑戰",
+      "engine": "puzzle",
+      "icon": "TextCursorInput",
+      "difficulty": "高手",
+      "skill": "sentence",
+      "questions": [
+        {
+          "type": "puzzle",
+          "prompt": "Build a correct English sentence.",
+          "tokens": [
+            "to",
+            "school",
+            "walk",
+            "I"
+          ],
+          "correctOrder": [
+            "I",
+            "walk",
+            "to",
+            "school"
+          ],
+          "explanation": "英文基本語序是主語 + 動詞 + 其他成分。"
+        },
+        {
+          "type": "puzzle",
+          "prompt": "Build a correct English sentence.",
+          "tokens": [
+            "is",
+            "She",
+            "kind"
+          ],
+          "correctOrder": [
+            "She",
+            "is",
+            "kind"
+          ],
+          "explanation": "be 動詞要放在主語 She 後面。"
+        }
+      ]
+    },
+    {
+      "id": "S5-英文-tense",
+      "grade": "S5",
+      "subject": "英文",
+      "title": "Tense Master",
+      "description": "S5 英文・Tense Master挑戰",
+      "engine": "rpg",
+      "icon": "Swords",
+      "difficulty": "高手",
+      "skill": "tense",
+      "questions": [
+        {
+          "type": "choice",
+          "prompt": "She ______ to school every day.",
+          "options": [
+            "walk",
+            "walks",
+            "walking",
+            "walked"
+          ],
+          "answerIndex": 1,
+          "explanation": "She 是第三人稱單數，現在式動詞加 s。"
+        },
+        {
+          "type": "choice",
+          "prompt": "They ______ football yesterday.",
+          "options": [
+            "play",
+            "plays",
+            "played",
+            "playing"
+          ],
+          "answerIndex": 2,
+          "explanation": "yesterday 提示用過去式 played。"
+        },
+        {
+          "type": "choice",
+          "prompt": "I ______ a student.",
+          "options": [
+            "am",
+            "is",
+            "are",
+            "be"
+          ],
+          "answerIndex": 0,
+          "explanation": "I 配 am。"
+        }
+      ]
+    },
+    {
+      "id": "S5-英文-grammarVault",
+      "grade": "S5",
+      "subject": "英文",
+      "title": "Grammar Vault",
+      "description": "S5 英文・Grammar Vault挑戰",
+      "engine": "chest",
+      "icon": "LockKeyhole",
+      "difficulty": "高手",
+      "skill": "grammarVault",
+      "questions": [
+        {
+          "type": "text",
+          "prompt": "Complete: \"I ___ a student.\"",
+          "answer": "am",
+          "hint": "提示：I 的 be 動詞。",
+          "explanation": "主語 I 要配 am。"
+        },
+        {
+          "type": "text",
+          "prompt": "Complete: \"She ___ my friend.\"",
+          "answer": "is",
+          "hint": "提示：She 的 be 動詞。",
+          "explanation": "第三人稱單數 She 要配 is。"
+        }
+      ]
+    },
+    {
+      "id": "S5-數學-calc",
+      "grade": "S5",
+      "subject": "數學",
+      "title": "Calculation Dash",
+      "description": "S5 數學・Calculation Dash挑戰",
+      "engine": "race",
+      "icon": "Gauge",
+      "difficulty": "高手",
+      "skill": "calc",
+      "questions": [
+        {
+          "type": "choice",
+          "prompt": "13 + 15 = ?",
+          "options": [
+            "27",
+            "28",
+            "29",
+            "30"
+          ],
+          "answerIndex": 1,
+          "explanation": "13 加 15 等於 28。"
+        },
+        {
+          "type": "choice",
+          "prompt": "26 − 15 = ?",
+          "options": [
+            "-2",
+            "13",
+            "11",
+            "41"
+          ],
+          "answerIndex": 2,
+          "explanation": "26 減 15 等於 11。"
+        },
+        {
+          "type": "choice",
+          "prompt": "13 × 2 = ?",
+          "options": [
+            "26",
+            "15",
+            "39",
+            "11"
+          ],
+          "answerIndex": 0,
+          "explanation": "13 乘 2 等於 26。"
+        }
+      ]
+    },
+    {
+      "id": "S5-數學-numberOrder",
+      "grade": "S5",
+      "subject": "數學",
+      "title": "Number Puzzle",
+      "description": "S5 數學・Number Puzzle挑戰",
+      "engine": "puzzle",
+      "icon": "ArrowDownUp",
+      "difficulty": "高手",
+      "skill": "numberOrder",
+      "questions": [
+        {
+          "type": "puzzle",
+          "prompt": "由小至大排列數字。",
+          "tokens": [
+            "12",
+            "7",
+            "9"
+          ],
+          "correctOrder": [
+            "7",
+            "9",
+            "12"
+          ],
+          "explanation": "先比較十位數；7 和 9 都小於 12。"
+        },
+        {
+          "type": "puzzle",
+          "prompt": "由大至小排列數字。",
+          "tokens": [
+            "15",
+            "20",
+            "18"
+          ],
+          "correctOrder": [
+            "20",
+            "18",
+            "15"
+          ],
+          "explanation": "比較十位數可知 20 最大，15 最小。"
+        }
+      ]
+    },
+    {
+      "id": "S5-數學-fractionBoss",
+      "grade": "S5",
+      "subject": "數學",
+      "title": "Fraction Boss",
+      "description": "S5 數學・Fraction Boss挑戰",
+      "engine": "rpg",
+      "icon": "Shield",
+      "difficulty": "高手",
+      "skill": "fractionBoss",
+      "questions": [
+        {
+          "type": "choice",
+          "prompt": "1/2 + 1/4 = ?",
+          "options": [
+            "2/6",
+            "3/4",
+            "1/6",
+            "2/4"
+          ],
+          "answerIndex": 1,
+          "explanation": "把 1/2 化成 2/4，2/4 + 1/4 = 3/4。"
+        },
+        {
+          "type": "choice",
+          "prompt": "哪個分數等於 1/2？",
+          "options": [
+            "2/3",
+            "2/4",
+            "3/4",
+            "1/3"
+          ],
+          "answerIndex": 1,
+          "explanation": "2/4 同時除以 2 得 1/2。"
+        },
+        {
+          "type": "choice",
+          "prompt": "3/5 的分子是？",
+          "options": [
+            "3",
+            "5",
+            "8",
+            "15"
+          ],
+          "answerIndex": 0,
+          "explanation": "分子是分數線上面的數字。"
+        }
+      ]
+    },
+    {
+      "id": "S5-數學-equationVault",
+      "grade": "S5",
+      "subject": "數學",
+      "title": "Equation Vault",
+      "description": "S5 數學・Equation Vault挑戰",
+      "engine": "chest",
+      "icon": "Vault",
+      "difficulty": "高手",
+      "skill": "equationVault",
+      "questions": [
+        {
+          "type": "text",
+          "prompt": "解密：x + 14 = 31，輸入 x。",
+          "answer": "17",
+          "hint": "提示：用 31 減 14。",
+          "explanation": "x = 31 − 14 = 17。"
+        },
+        {
+          "type": "text",
+          "prompt": "解密：2x = 34，輸入 x。",
+          "answer": "17",
+          "hint": "提示：兩邊同除以 2。",
+          "explanation": "x = 34 ÷ 2 = 17。"
+        }
+      ]
+    },
+    {
+      "id": "S5-數學-geometryLock",
+      "grade": "S5",
+      "subject": "數學",
+      "title": "Geometry Lock",
+      "description": "S5 數學・Geometry Lock挑戰",
+      "engine": "chest",
+      "icon": "Triangle",
+      "difficulty": "高手",
+      "skill": "geometryLock",
+      "questions": [
+        {
+          "type": "text",
+          "prompt": "三角形三個內角和是多少度？",
+          "answer": "180",
+          "hint": "提示：輸入數字。",
+          "explanation": "任何三角形的內角和都是 180 度。"
+        },
+        {
+          "type": "text",
+          "prompt": "正方形有多少條相等的邊？",
+          "answer": "4",
+          "hint": "提示：輸入數字。",
+          "explanation": "正方形有四條相等的邊。"
+        }
+      ]
+    },
+    {
+      "id": "S6-中文-classifier",
+      "grade": "S6",
+      "subject": "中文",
+      "title": "量詞衝刺",
+      "description": "S6 中文・量詞衝刺挑戰",
+      "engine": "race",
+      "icon": "Layers",
+      "difficulty": "高手",
+      "skill": "classifier",
+      "questions": [
+        {
+          "type": "choice",
+          "prompt": "「一＿＿雨傘」最合適的量詞是？",
+          "options": [
+            "把",
+            "張",
+            "枝",
+            "頂"
+          ],
+          "answerIndex": 3,
+          "explanation": "「頂」用於雨傘、帽子等有頂部覆蓋的物品。"
+        },
+        {
+          "type": "choice",
+          "prompt": "「一＿＿書」最合適的量詞是？",
+          "options": [
+            "本",
+            "條",
+            "匹",
+            "座"
+          ],
+          "answerIndex": 0,
+          "explanation": "「本」用於書籍、簿冊。"
+        },
+        {
+          "type": "choice",
+          "prompt": "「一＿＿魚」最合適的量詞是？",
+          "options": [
+            "條",
+            "件",
+            "艘",
+            "棵"
+          ],
+          "answerIndex": 0,
+          "explanation": "「條」可用於魚、褲、河流等細長事物。"
+        }
+      ]
+    },
+    {
+      "id": "S6-中文-idiom",
+      "grade": "S6",
+      "subject": "中文",
+      "title": "成語快答",
+      "description": "S6 中文・成語快答挑戰",
+      "engine": "race",
+      "icon": "Sparkles",
+      "difficulty": "高手",
+      "skill": "idiom",
+      "questions": [
+        {
+          "type": "choice",
+          "prompt": "「專心＿＿」形容精神集中，應填哪一項？",
+          "options": [
+            "一致",
+            "一意",
+            "一心",
+            "一眼"
+          ],
+          "answerIndex": 2,
+          "explanation": "「專心一意」指集中精神，專一不分心。"
+        },
+        {
+          "type": "choice",
+          "prompt": "「守株待兔」比喻甚麼？",
+          "options": [
+            "努力耕作",
+            "死守狹隘經驗",
+            "樂於助人",
+            "勇敢冒險"
+          ],
+          "answerIndex": 1,
+          "explanation": "守株待兔諷刺不主動努力，只希望僥倖成功。"
+        },
+        {
+          "type": "choice",
+          "prompt": "「畫蛇添足」最貼近哪個意思？",
+          "options": [
+            "多做無益的事",
+            "仔細觀察",
+            "以少勝多",
+            "互相合作"
+          ],
+          "answerIndex": 0,
+          "explanation": "畫蛇添足指做了多餘的事，反而弄巧成拙。"
+        }
+      ]
+    },
+    {
+      "id": "S6-中文-reorder",
+      "grade": "S6",
+      "subject": "中文",
+      "title": "句式拼圖",
+      "description": "S6 中文・句式拼圖挑戰",
+      "engine": "puzzle",
+      "icon": "Puzzle",
+      "difficulty": "高手",
+      "skill": "reorder",
+      "questions": [
+        {
+          "type": "puzzle",
+          "prompt": "把詞語排成正確句子。",
+          "tokens": [
+            "今天",
+            "圖書館",
+            "我",
+            "去"
+          ],
+          "correctOrder": [
+            "我",
+            "今天",
+            "去",
+            "圖書館"
+          ],
+          "explanation": "主語「我」在前，時間「今天」後接動詞「去」和地點「圖書館」。"
+        },
+        {
+          "type": "puzzle",
+          "prompt": "把詞語排成正確句子。",
+          "tokens": [
+            "很",
+            "同學們",
+            "認真",
+            "溫習"
+          ],
+          "correctOrder": [
+            "同學們",
+            "很",
+            "認真",
+            "溫習"
+          ],
+          "explanation": "先寫主語「同學們」，再以副詞和形容詞修飾動作。"
+        }
+      ]
+    },
+    {
+      "id": "S6-中文-classical",
+      "grade": "S6",
+      "subject": "中文",
+      "title": "文言勇者",
+      "description": "S6 中文・文言勇者挑戰",
+      "engine": "rpg",
+      "icon": "ScrollText",
+      "difficulty": "高手",
+      "skill": "classical",
+      "questions": [
+        {
+          "type": "choice",
+          "prompt": "「學而時習之」中「習」的意思是？",
+          "options": [
+            "睡覺",
+            "溫習、練習",
+            "旅行",
+            "習慣"
+          ],
+          "answerIndex": 1,
+          "explanation": "「習」在這裡指溫習和練習。"
+        },
+        {
+          "type": "choice",
+          "prompt": "「己所不欲，勿施於人」的意思最接近哪一項？",
+          "options": [
+            "只顧自己",
+            "不要把自己不喜歡的事強加於別人",
+            "做事要快",
+            "一定要聽從別人"
+          ],
+          "answerIndex": 1,
+          "explanation": "這句強調推己及人和尊重別人。"
+        },
+        {
+          "type": "choice",
+          "prompt": "「溫故而知新」的「故」指甚麼？",
+          "options": [
+            "故事",
+            "舊有知識",
+            "已故的人",
+            "故鄉"
+          ],
+          "answerIndex": 1,
+          "explanation": "「故」指已學過的、舊有的知識。"
+        }
+      ]
+    },
+    {
+      "id": "S6-中文-languageVault",
+      "grade": "S6",
+      "subject": "中文",
+      "title": "語文密碼鎖",
+      "description": "S6 中文・語文密碼鎖挑戰",
+      "engine": "chest",
+      "icon": "KeyRound",
+      "difficulty": "高手",
+      "skill": "languageVault",
+      "questions": [
+        {
+          "type": "text",
+          "prompt": "輸入「亡羊補牢」的下一句常用意思：比喻事情出了差錯以後，＿＿還不算晚。",
+          "answer": "設法補救",
+          "hint": "提示：四個字，從「設」開始。",
+          "explanation": "「亡羊補牢」比喻事情出了差錯以後，設法補救還不算晚。"
+        },
+        {
+          "type": "text",
+          "prompt": "輸入「學而不思則罔，思而不學則＿＿。」的最後一字。",
+          "answer": "殆",
+          "hint": "提示：讀音是 dai。",
+          "explanation": "這句說明學習與思考要互相配合。"
+        }
+      ]
+    },
+    {
+      "id": "S6-英文-wordDash",
+      "grade": "S6",
+      "subject": "英文",
+      "title": "Word Dash",
+      "description": "S6 英文・Word Dash挑戰",
+      "engine": "race",
+      "icon": "Languages",
+      "difficulty": "高手",
+      "skill": "wordDash",
+      "questions": [
+        {
+          "type": "choice",
+          "prompt": "Which word means 「快樂」?",
+          "options": [
+            "happy",
+            "hungry",
+            "heavy",
+            "honest"
+          ],
+          "answerIndex": 0,
+          "explanation": "happy means 快樂。"
+        },
+        {
+          "type": "choice",
+          "prompt": "Choose the opposite of \"big\".",
+          "options": [
+            "tall",
+            "small",
+            "wide",
+            "long"
+          ],
+          "answerIndex": 1,
+          "explanation": "small 是 big 的相反詞。"
+        },
+        {
+          "type": "choice",
+          "prompt": "Which word is a colour?",
+          "options": [
+            "blue",
+            "book",
+            "bird",
+            "ball"
+          ],
+          "answerIndex": 0,
+          "explanation": "blue 是顏色。"
+        }
+      ]
+    },
+    {
+      "id": "S6-英文-spelling",
+      "grade": "S6",
+      "subject": "英文",
+      "title": "Spelling Scramble",
+      "description": "S6 英文・Spelling Scramble挑戰",
+      "engine": "puzzle",
+      "icon": "SpellCheck",
+      "difficulty": "高手",
+      "skill": "spelling",
+      "questions": [
+        {
+          "type": "puzzle",
+          "prompt": "Arrange the letters to spell a fruit.",
+          "tokens": [
+            "p",
+            "a",
+            "l",
+            "p",
+            "e"
+          ],
+          "correctOrder": [
+            "a",
+            "p",
+            "p",
+            "l",
+            "e"
+          ],
+          "explanation": "apple 是「蘋果」。"
+        },
+        {
+          "type": "puzzle",
+          "prompt": "Arrange the letters to spell an animal.",
+          "tokens": [
+            "c",
+            "t",
+            "a"
+          ],
+          "correctOrder": [
+            "c",
+            "a",
+            "t"
+          ],
+          "explanation": "cat 是「貓」。"
+        }
+      ]
+    },
+    {
+      "id": "S6-英文-sentence",
+      "grade": "S6",
+      "subject": "英文",
+      "title": "Sentence Builder",
+      "description": "S6 英文・Sentence Builder挑戰",
+      "engine": "puzzle",
+      "icon": "TextCursorInput",
+      "difficulty": "高手",
+      "skill": "sentence",
+      "questions": [
+        {
+          "type": "puzzle",
+          "prompt": "Build a correct English sentence.",
+          "tokens": [
+            "to",
+            "school",
+            "walk",
+            "I"
+          ],
+          "correctOrder": [
+            "I",
+            "walk",
+            "to",
+            "school"
+          ],
+          "explanation": "英文基本語序是主語 + 動詞 + 其他成分。"
+        },
+        {
+          "type": "puzzle",
+          "prompt": "Build a correct English sentence.",
+          "tokens": [
+            "is",
+            "She",
+            "kind"
+          ],
+          "correctOrder": [
+            "She",
+            "is",
+            "kind"
+          ],
+          "explanation": "be 動詞要放在主語 She 後面。"
+        }
+      ]
+    },
+    {
+      "id": "S6-英文-tense",
+      "grade": "S6",
+      "subject": "英文",
+      "title": "Tense Master",
+      "description": "S6 英文・Tense Master挑戰",
+      "engine": "rpg",
+      "icon": "Swords",
+      "difficulty": "高手",
+      "skill": "tense",
+      "questions": [
+        {
+          "type": "choice",
+          "prompt": "She ______ to school every day.",
+          "options": [
+            "walk",
+            "walks",
+            "walking",
+            "walked"
+          ],
+          "answerIndex": 1,
+          "explanation": "She 是第三人稱單數，現在式動詞加 s。"
+        },
+        {
+          "type": "choice",
+          "prompt": "They ______ football yesterday.",
+          "options": [
+            "play",
+            "plays",
+            "played",
+            "playing"
+          ],
+          "answerIndex": 2,
+          "explanation": "yesterday 提示用過去式 played。"
+        },
+        {
+          "type": "choice",
+          "prompt": "I ______ a student.",
+          "options": [
+            "am",
+            "is",
+            "are",
+            "be"
+          ],
+          "answerIndex": 0,
+          "explanation": "I 配 am。"
+        }
+      ]
+    },
+    {
+      "id": "S6-英文-grammarVault",
+      "grade": "S6",
+      "subject": "英文",
+      "title": "Grammar Vault",
+      "description": "S6 英文・Grammar Vault挑戰",
+      "engine": "chest",
+      "icon": "LockKeyhole",
+      "difficulty": "高手",
+      "skill": "grammarVault",
+      "questions": [
+        {
+          "type": "text",
+          "prompt": "Complete: \"I ___ a student.\"",
+          "answer": "am",
+          "hint": "提示：I 的 be 動詞。",
+          "explanation": "主語 I 要配 am。"
+        },
+        {
+          "type": "text",
+          "prompt": "Complete: \"She ___ my friend.\"",
+          "answer": "is",
+          "hint": "提示：She 的 be 動詞。",
+          "explanation": "第三人稱單數 She 要配 is。"
+        }
+      ]
+    },
+    {
+      "id": "S6-數學-calc",
+      "grade": "S6",
+      "subject": "數學",
+      "title": "Calculation Dash",
+      "description": "S6 數學・Calculation Dash挑戰",
+      "engine": "race",
+      "icon": "Gauge",
+      "difficulty": "高手",
+      "skill": "calc",
+      "questions": [
+        {
+          "type": "choice",
+          "prompt": "14 + 16 = ?",
+          "options": [
+            "29",
+            "30",
+            "31",
+            "32"
+          ],
+          "answerIndex": 1,
+          "explanation": "14 加 16 等於 30。"
+        },
+        {
+          "type": "choice",
+          "prompt": "28 − 16 = ?",
+          "options": [
+            "-2",
+            "14",
+            "12",
+            "44"
+          ],
+          "answerIndex": 2,
+          "explanation": "28 減 16 等於 12。"
+        },
+        {
+          "type": "choice",
+          "prompt": "14 × 2 = ?",
+          "options": [
+            "28",
+            "16",
+            "42",
+            "12"
+          ],
+          "answerIndex": 0,
+          "explanation": "14 乘 2 等於 28。"
+        }
+      ]
+    },
+    {
+      "id": "S6-數學-numberOrder",
+      "grade": "S6",
+      "subject": "數學",
+      "title": "Number Puzzle",
+      "description": "S6 數學・Number Puzzle挑戰",
+      "engine": "puzzle",
+      "icon": "ArrowDownUp",
+      "difficulty": "高手",
+      "skill": "numberOrder",
+      "questions": [
+        {
+          "type": "puzzle",
+          "prompt": "由小至大排列數字。",
+          "tokens": [
+            "12",
+            "7",
+            "9"
+          ],
+          "correctOrder": [
+            "7",
+            "9",
+            "12"
+          ],
+          "explanation": "先比較十位數；7 和 9 都小於 12。"
+        },
+        {
+          "type": "puzzle",
+          "prompt": "由大至小排列數字。",
+          "tokens": [
+            "15",
+            "20",
+            "18"
+          ],
+          "correctOrder": [
+            "20",
+            "18",
+            "15"
+          ],
+          "explanation": "比較十位數可知 20 最大，15 最小。"
+        }
+      ]
+    },
+    {
+      "id": "S6-數學-fractionBoss",
+      "grade": "S6",
+      "subject": "數學",
+      "title": "Fraction Boss",
+      "description": "S6 數學・Fraction Boss挑戰",
+      "engine": "rpg",
+      "icon": "Shield",
+      "difficulty": "高手",
+      "skill": "fractionBoss",
+      "questions": [
+        {
+          "type": "choice",
+          "prompt": "1/2 + 1/4 = ?",
+          "options": [
+            "2/6",
+            "3/4",
+            "1/6",
+            "2/4"
+          ],
+          "answerIndex": 1,
+          "explanation": "把 1/2 化成 2/4，2/4 + 1/4 = 3/4。"
+        },
+        {
+          "type": "choice",
+          "prompt": "哪個分數等於 1/2？",
+          "options": [
+            "2/3",
+            "2/4",
+            "3/4",
+            "1/3"
+          ],
+          "answerIndex": 1,
+          "explanation": "2/4 同時除以 2 得 1/2。"
+        },
+        {
+          "type": "choice",
+          "prompt": "3/5 的分子是？",
+          "options": [
+            "3",
+            "5",
+            "8",
+            "15"
+          ],
+          "answerIndex": 0,
+          "explanation": "分子是分數線上面的數字。"
+        }
+      ]
+    },
+    {
+      "id": "S6-數學-equationVault",
+      "grade": "S6",
+      "subject": "數學",
+      "title": "Equation Vault",
+      "description": "S6 數學・Equation Vault挑戰",
+      "engine": "chest",
+      "icon": "Vault",
+      "difficulty": "高手",
+      "skill": "equationVault",
+      "questions": [
+        {
+          "type": "text",
+          "prompt": "解密：x + 15 = 33，輸入 x。",
+          "answer": "18",
+          "hint": "提示：用 33 減 15。",
+          "explanation": "x = 33 − 15 = 18。"
+        },
+        {
+          "type": "text",
+          "prompt": "解密：2x = 36，輸入 x。",
+          "answer": "18",
+          "hint": "提示：兩邊同除以 2。",
+          "explanation": "x = 36 ÷ 2 = 18。"
+        }
+      ]
+    },
+    {
+      "id": "S6-數學-geometryLock",
+      "grade": "S6",
+      "subject": "數學",
+      "title": "Geometry Lock",
+      "description": "S6 數學・Geometry Lock挑戰",
+      "engine": "chest",
+      "icon": "Triangle",
+      "difficulty": "高手",
+      "skill": "geometryLock",
+      "questions": [
+        {
+          "type": "text",
+          "prompt": "三角形三個內角和是多少度？",
+          "answer": "180",
+          "hint": "提示：輸入數字。",
+          "explanation": "任何三角形的內角和都是 180 度。"
+        },
+        {
+          "type": "text",
+          "prompt": "正方形有多少條相等的邊？",
+          "answer": "4",
+          "hint": "提示：輸入數字。",
+          "explanation": "正方形有四條相等的邊。"
+        }
+      ]
+    }
+  ]
+}
