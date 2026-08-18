@@ -1,59 +1,116 @@
 import { mkdir, writeFile } from 'node:fs/promises';
 
 const grades = ['P1', 'P2', 'P3', 'P4', 'P5', 'P6', 'S1', 'S2', 'S3', 'S4', 'S5', 'S6'];
-const choice = (prompt, options, answerIndex, explanation) => ({ type: 'choice', prompt, options, answerIndex, explanation });
-const puzzle = (prompt, tokens, correctOrder, explanation) => ({ type: 'puzzle', prompt, tokens, correctOrder, explanation });
-const text = (prompt, answer, hint, explanation) => ({ type: 'text', prompt, answer, hint, explanation });
+const engines = ['race', 'puzzle', 'rpg', 'chest', 'race'];
+const icons = ['Gauge', 'Puzzle', 'Shield', 'LockKeyhole', 'Sparkles'];
+const choice = (prompt, options, answerIndex, explanation, extra = {}) => ({ type: 'choice', prompt, options, answerIndex, explanation, ...extra });
+const puzzle = (prompt, tokens, correctOrder, explanation, extra = {}) => ({ type: 'puzzle', prompt, tokens, correctOrder, explanation, ...extra });
+const text = (prompt, answer, hint, explanation, extra = {}) => ({ type: 'text', prompt, answer, hint, explanation, ...extra });
 
-const topics = {
-  中文: [
-    { key: 'classifier', title: '量詞衝刺', engine: 'race', icon: 'Layers', questions: () => [choice('「一＿＿雨傘」最合適的量詞是？', ['把', '張', '枝', '頂'], 3, '「頂」用於雨傘、帽子等有頂部覆蓋的物品。'), choice('「一＿＿書」最合適的量詞是？', ['本', '條', '匹', '座'], 0, '「本」用於書籍、簿冊。'), choice('「一＿＿魚」最合適的量詞是？', ['條', '件', '艘', '棵'], 0, '「條」可用於魚、褲、河流等細長事物。')] },
-    { key: 'idiom', title: '成語快答', engine: 'race', icon: 'Sparkles', questions: () => [choice('「專心＿＿」形容精神集中，應填哪一項？', ['一致', '一意', '一心', '一眼'], 2, '「專心一意」指集中精神，專一不分心。'), choice('「守株待兔」比喻甚麼？', ['努力耕作', '死守狹隘經驗', '樂於助人', '勇敢冒險'], 1, '守株待兔諷刺不主動努力，只希望僥倖成功。'), choice('「畫蛇添足」最貼近哪個意思？', ['多做無益的事', '仔細觀察', '以少勝多', '互相合作'], 0, '畫蛇添足指做了多餘的事，反而弄巧成拙。')] },
-    { key: 'reorder', title: '句式拼圖', engine: 'puzzle', icon: 'Puzzle', questions: () => [puzzle('把詞語排成正確句子。', ['今天', '圖書館', '我', '去'], ['我', '今天', '去', '圖書館'], '主語「我」在前，時間「今天」後接動詞「去」和地點「圖書館」。'), puzzle('把詞語排成正確句子。', ['很', '同學們', '認真', '溫習'], ['同學們', '很', '認真', '溫習'], '先寫主語「同學們」，再以副詞和形容詞修飾動作。')] },
-    { key: 'classical', title: '文言勇者', engine: 'rpg', icon: 'ScrollText', questions: () => [choice('「學而時習之」中「習」的意思是？', ['睡覺', '溫習、練習', '旅行', '習慣'], 1, '「習」在這裡指溫習和練習。'), choice('「己所不欲，勿施於人」的意思最接近哪一項？', ['只顧自己', '不要把自己不喜歡的事強加於別人', '做事要快', '一定要聽從別人'], 1, '這句強調推己及人和尊重別人。'), choice('「溫故而知新」的「故」指甚麼？', ['故事', '舊有知識', '已故的人', '故鄉'], 1, '「故」指已學過的、舊有的知識。')] },
-    { key: 'languageVault', title: '語文密碼鎖', engine: 'chest', icon: 'KeyRound', questions: () => [text('輸入「亡羊補牢」的下一句常用意思：比喻事情出了差錯以後，＿＿還不算晚。', '設法補救', '提示：四個字，從「設」開始。', '「亡羊補牢」比喻事情出了差錯以後，設法補救還不算晚。'), text('輸入「學而不思則罔，思而不學則＿＿。」的最後一字。', '殆', '提示：讀音是 dai。', '這句說明學習與思考要互相配合。')] },
-  ],
-  英文: [
-    { key: 'wordDash', title: 'Word Dash', engine: 'race', icon: 'Languages', questions: () => [choice('Which word means 「快樂」?', ['happy', 'hungry', 'heavy', 'honest'], 0, 'happy means 快樂。'), choice('Choose the opposite of "big".', ['tall', 'small', 'wide', 'long'], 1, 'small 是 big 的相反詞。'), choice('Which word is a colour?', ['blue', 'book', 'bird', 'ball'], 0, 'blue 是顏色。')] },
-    { key: 'spelling', title: 'Spelling Scramble', engine: 'puzzle', icon: 'SpellCheck', questions: () => [puzzle('Arrange the letters to spell a fruit.', ['p', 'a', 'l', 'p', 'e'], ['a', 'p', 'p', 'l', 'e'], 'apple 是「蘋果」。'), puzzle('Arrange the letters to spell an animal.', ['c', 't', 'a'], ['c', 'a', 't'], 'cat 是「貓」。')] },
-    { key: 'sentence', title: 'Sentence Builder', engine: 'puzzle', icon: 'TextCursorInput', questions: () => [puzzle('Build a correct English sentence.', ['to', 'school', 'walk', 'I'], ['I', 'walk', 'to', 'school'], '英文基本語序是主語 + 動詞 + 其他成分。'), puzzle('Build a correct English sentence.', ['is', 'She', 'kind'], ['She', 'is', 'kind'], 'be 動詞要放在主語 She 後面。')] },
-    { key: 'tense', title: 'Tense Master', engine: 'rpg', icon: 'Swords', questions: () => [choice('She ______ to school every day.', ['walk', 'walks', 'walking', 'walked'], 1, 'She 是第三人稱單數，現在式動詞加 s。'), choice('They ______ football yesterday.', ['play', 'plays', 'played', 'playing'], 2, 'yesterday 提示用過去式 played。'), choice('I ______ a student.', ['am', 'is', 'are', 'be'], 0, 'I 配 am。')] },
-    { key: 'grammarVault', title: 'Grammar Vault', engine: 'chest', icon: 'LockKeyhole', questions: () => [text('Complete: "I ___ a student."', 'am', '提示：I 的 be 動詞。', '主語 I 要配 am。'), text('Complete: "She ___ my friend."', 'is', '提示：She 的 be 動詞。', '第三人稱單數 She 要配 is。')] },
-  ],
-  數學: [
-    { key: 'calc', title: 'Calculation Dash', engine: 'race', icon: 'Gauge', questions: (level) => { const a = level + 3; const b = level + 5; return [choice(`${a} + ${b} = ?`, [String(a + b - 1), String(a + b), String(a + b + 1), String(a + b + 2)], 1, `${a} 加 ${b} 等於 ${a + b}。`), choice(`${a * 2} − ${b} = ?`, [String(a - b), String(a), String(a * 2 - b), String(a * 2 + b)], 2, `${a * 2} 減 ${b} 等於 ${a * 2 - b}。`), choice(`${a} × 2 = ?`, [String(a * 2), String(a + 2), String(a * 3), String(a - 2)], 0, `${a} 乘 2 等於 ${a * 2}。`)]; } },
-    { key: 'numberOrder', title: 'Number Puzzle', engine: 'puzzle', icon: 'ArrowDownUp', questions: () => [puzzle('由小至大排列數字。', ['12', '7', '9'], ['7', '9', '12'], '先比較十位數；7 和 9 都小於 12。'), puzzle('由大至小排列數字。', ['15', '20', '18'], ['20', '18', '15'], '比較十位數可知 20 最大，15 最小。')] },
-    { key: 'fractionBoss', title: 'Fraction Boss', engine: 'rpg', icon: 'Shield', questions: () => [choice('1/2 + 1/4 = ?', ['2/6', '3/4', '1/6', '2/4'], 1, '把 1/2 化成 2/4，2/4 + 1/4 = 3/4。'), choice('哪個分數等於 1/2？', ['2/3', '2/4', '3/4', '1/3'], 1, '2/4 同時除以 2 得 1/2。'), choice('3/5 的分子是？', ['3', '5', '8', '15'], 0, '分子是分數線上面的數字。')] },
-    { key: 'equationVault', title: 'Equation Vault', engine: 'chest', icon: 'Vault', questions: (level) => { const a = level + 4; const b = level + 7; return [text(`解密：x + ${a} = ${a + b}，輸入 x。`, String(b), `提示：用 ${a + b} 減 ${a}。`, `x = ${a + b} − ${a} = ${b}。`), text(`解密：2x = ${b * 2}，輸入 x。`, String(b), `提示：兩邊同除以 2。`, `x = ${b * 2} ÷ 2 = ${b}。`)]; } },
-    { key: 'geometryLock', title: 'Geometry Lock', engine: 'chest', icon: 'Triangle', questions: () => [text('三角形三個內角和是多少度？', '180', '提示：輸入數字。', '任何三角形的內角和都是 180 度。'), text('正方形有多少條相等的邊？', '4', '提示：輸入數字。', '正方形有四條相等的邊。')] },
-  ],
+const chineseMap = {
+  P1:['常用字與標點','完整句子表達','兒歌與童話閱讀','看圖寫句','節日與禮貌'], P2:['故事順序與重點','四素句寫作','寓言與因果','標點符號運用','神話與傳說'], P3:['記敍文主旨','段落結構與閱讀策略','日記與書信','比喻與擬人','成語與古詩'], P4:['散文與說明文','中心思想與目的','人物景物描寫','排比與反問','論語選句與唐宋詩詞'], P5:['小說劇本與科普閱讀','篇章結構與過渡','議論文論點論據','說明方法與修辭效果','成語故事與古典小說'], P6:['閱讀策略與鑒賞','夾敍夾議寫作','實用文與演講辭','仁義禮智信文化','專題研習與高階思維'],
+  S1:['白話與淺易文言閱讀','記敍描寫與抒情','比喻擬人排比對偶','唐詩宋詞與散文','儒家思想與傳統美德'], S2:['史記選段與篇章結構','說明文與議論文','論證方法','文言虛詞與實詞','古典小說與辯論'], S3:['多文體比較閱讀','實用文與評論','文言時代與寫作風格','現代詩與古典詩詞','文化精神與批判思維'], S4:['DSE白話文閱讀','DSE文言文詞句翻譯','指定篇章研讀','長文寫作立意與結構','實用文寫作'], S5:['DSE閱讀手法與評價','文言文文化內涵','情境寫作與選材','聆聽資訊與立場','綜合能力資料篩選'], S6:['DSE閱讀比較與推論','指定篇章整合','長文語言與修辭','說話討論與短講','綜合寫作與應試策略'],
+};
+const englishMap = {
+  P1:['Phonics and Alphabet','Classroom Instructions','Family and Animals Vocabulary','I am / He is Sentences','Picture Book Reading'], P2:['High-frequency Words','Present Continuous','Likes and Questions','Weather and Actions','Simple Story Writing'], P3:['Past Tense and Comparatives','People Places Transport','Connectors: and but because','Postcards and Diaries','Information Text Reading'], P4:['Past Continuous and Future','Modal Verbs','Stories Letters Reports','Health Environment Travel','Fact and Opinion'], P5:['Present Perfect','Passive Voice','Relative Clauses','Technology Culture Nature','Purpose and Main Ideas'], P6:['Conditionals and Reported Speech','Complex Sentences','Academic Vocabulary','Novel Drama Poetry Reading','Persuasive Writing'],
+  S1:['Text Main Ideas and Details','Tense Consistency','Modal Verbs and Questions','School Family Food Vocabulary','Paragraphs Letters and Stories'], S2:['Fact Opinion and Devices','Present Perfect and Passive','First Conditional','Environment Technology Health','Narrative Explanatory Opinion Writing'], S3:['Author Purpose and Tone','Reported Speech','Second Third Conditionals','Relative Clauses Gerunds Infinitives','Reports and Proposals'], S4:['DSE Reading Skills','Practical Writing','Narrative Descriptive Writing','Listening and Integrated Tasks','Discussion and Individual Response'], S5:['Inference and Word Meaning','Email Report Review Writing','Argumentative Writing','Integrated Source Selection','Speaking Interaction'], S6:['DSE Multi-text Reading','Genre Register and Organisation','Extended Writing','Listening Integration','Group Discussion Strategy'],
+};
+const mathMap = {
+  P1:[['1–100與位值','Numbers 1–100 and Place Value'],['兩位數加減','Two-digit Addition and Subtraction'],['基本平面與立體圖形','Basic 2D and 3D Shapes'],['長度時間與日期','Length Time and Dates'],['象形圖與簡單規律','Pictographs and Simple Patterns']], P2:[['1000以內與乘除初步','Numbers to 1000 and Early Multiplication Division'],['2、5、10乘法表','2 5 10 Times Tables'],['角與平行垂直','Angles Parallel and Perpendicular Lines'],['長度重量與時間','Length Mass and Time'],['棒形圖與符號規律','Bar Charts and Symbolic Patterns']], P3:[['四位數與乘除','Four-digit Numbers and Operations'],['分數與小數初步','Introduction to Fractions and Decimals'],['三角形四邊形與周長','Triangles Quadrilaterals and Perimeter'],['容量面積與秒','Capacity Area and Seconds'],['統計表與簡單方程','Data Tables and Simple Equations']], P4:[['大數乘除與因數倍數','Large Numbers Operations Factors Multiples'],['同分母分數與小數加減','Like Fractions and Decimal Addition Subtraction'],['對稱角與周長面積','Symmetry Angles Perimeter Area'],['單位換算','Unit Conversion'],['折線圖與代數式','Line Graphs and Algebraic Expressions']], P5:[['分數小數百分數','Fractions Decimals Percentages'],['平均數與質合數','Mean Prime and Composite Numbers'],['平行四邊形梯形面積','Areas of Parallelograms and Trapezia'],['體積與24小時制','Volume and 24-hour Time'],['圓形圖與一元方程','Pie Charts and Linear Equations']], P6:[['分數四則與比比例','Fraction Operations Ratio Proportion'],['圓與角度','Circles and Angles'],['速度體積表面積','Speed Volume Surface Area'],['平均數中位數','Mean and Median'],['公式代入與方程應用','Substitution and Equation Applications']],
+  S1:[['整數分數與百分數','Integers Fractions and Percentages'],['比比例與有理數','Ratio Proportion and Rational Numbers'],['代數式與一元一次方程','Algebraic Expressions and Linear Equations'],['角三角形與四邊形','Angles Triangles and Quadrilaterals'],['圖表與集中趨勢','Data Displays and Central Tendency']], S2:[['二元一次方程','Simultaneous Linear Equations'],['展開因式分解與不等式','Expansion Factorisation and Inequalities'],['畢氏定理相似與三角比','Pythagoras Similarity and Trigonometry'],['圓的基本性質','Circle Properties'],['概率與統計圖表','Probability and Statistical Graphs']], S3:[['二次方程與函數','Quadratic Equations and Functions'],['指數律與根式','Indices and Surds'],['圓與幾何證明','Circle Geometry and Proof'],['圓錐球體與體積','Cones Spheres Area and Volume'],['概率計算與統計誤用','Probability Calculation and Statistical Misuse']], S4:[['指數與對數函數','Exponential and Logarithmic Functions'],['二次函數與多項式','Quadratic Functions and Polynomials'],['方程不等式與數列','Equations Inequalities and Sequences'],['直線圓與三角學','Lines Circles and Trigonometry'],['排列組合與概率','Permutations Combinations and Probability']], S5:[['對數與增長','Logarithms and Growth'],['函數與多項式方程','Functions and Polynomial Equations'],['坐標幾何與軌跡','Coordinate Geometry and Loci'],['三維空間幾何','Three-dimensional Geometry'],['統計抽樣與離差','Statistics Sampling and Dispersion']], S6:[['DSE代數整合','DSE Algebra Consolidation'],['DSE三角學與幾何','DSE Trigonometry and Geometry'],['DSE概率與統計','DSE Probability and Statistics'],['數學建模','Mathematical Modelling'],['DSE綜合解難','DSE Mixed Problem Solving']],
 };
 
-const curriculum = [];
+const chineseBase = [
+  ['下列哪項最能幫助找出篇章主旨？',['綜合題目、重點句和全文內容','只看第一個字','只數標點','跳過所有段落'],0,'主旨要從題目、中心句、段意和全文內容綜合判斷。'],['「比喻」的主要作用是甚麼？',['以具體事物說明抽象內容，使形象鮮明','把句子變短','只列出數字','重複詞語'],0,'比喻能令表達更生動具體。'],['議論文要令觀點有說服力，應加入甚麼？',['合適論據和例子','無關故事','重複句子','沒有根據的結論'],0,'論點要有論據支持。'],['「雖然下雨，＿＿我們仍出發。」應填甚麼？',['但是','所以','因為','因此'],0,'「雖然……但是……」表示轉折。'],['文言文翻譯最重要的是甚麼？',['理解詞義句式並通順表達','逐字照搬','只翻標點','任意增添情節'],0,'翻譯要忠實、通順。'],['聆聽演講時，哪種做法有效？',['記錄關鍵詞並歸納','只看窗外','忽略目的','只記第一句'],0,'關鍵詞有助歸納要點。'],['實用文首先注意甚麼？',['目的、對象和格式','只追求字數','一定用古文','不需稱謂'],0,'實用文須切合目的、對象及格式。'],['「己所不欲，勿施於人」強調甚麼？',['推己及人、尊重別人','只顧自己','做事越快越好','甚麼都不做'],0,'意即不把自己不想承受的事強加給別人。'],['修改文章時應檢查甚麼？',['切題、結構、語句和標點','只加感嘆號','刪所有標點','不再閱讀'],0,'修改要兼顧內容、結構和語言。'],['記敍文常交代哪組要素？',['時間、地點、人物、事件','公式、圖表、定理、證明','音標、詞根、詞綴','樣本、母體、組距'],0,'記敍文常交代時間、地點、人物及事件。'],
+];
+const englishBase = [
+  ['Choose the correct verb: “She ___ to school every day.”',['walk','walks','walking','walked'],1,'She is third-person singular, so the present simple verb is walks.'],['Choose the opposite of “ancient”.',['modern','quiet','narrow','honest'],0,'Modern is the opposite of ancient.'],['Which connector shows a reason?',['because','but','although','then'],0,'Because introduces a reason.'],['Choose the best modal verb: “You ___ wear a helmet when cycling.”',['should','would','might','used'],0,'Should is used to give advice.'],['Which sentence is in the past tense?',['They visited the museum.','They visit the museum.','They are visit the museum.','They will visited the museum.'],0,'Visited is the regular past tense form.'],['What is the main purpose of a topic sentence?',['To state the main idea of a paragraph','To list every example','To repeat the title','To end an email'],0,'A topic sentence states a paragraph’s main idea.'],['Choose the correct passive form: “The cake ___ by Tom.”',['was made','made','is making','has make'],0,'The passive voice uses be + past participle.'],['Which word is a noun?',['decision','quickly','beautiful','because'],0,'Decision names a thing or idea.'],['Choose the correct conditional: “If it rains, we ___ inside.”',['will stay','stayed','would stayed','are stay'],0,'The first conditional uses present simple plus will.'],['What should a formal email include?',['A clear subject, greeting, purpose and closing','Only emojis','No paragraphs','A random title'],0,'Formal emails need a clear structure and suitable register.'],
+];
+function makeMathQuestion(topic, gradeIndex, i) {
+  const bilingual = gradeIndex >= 6; const group = topic.slot; const a = 4 + i + gradeIndex; const b = 2 + (i % 4); const prefix = `${topic.title}｜第${i + 1}題：`;
+  if (group === 1) { const p = 10 + i * 5; const answer = p / 100; return choice(`${prefix}${p}% 化為小數是？`, [String(answer),String(answer + .1),String(answer + 1),String(p)], 0, `${p}% = ${p} ÷ 100 = ${answer}。`, bilingual ? { promptEn:`${topic.titleEn} | Question ${i + 1}: ${p}% as a decimal is?`, explanationEn:`${p}% = ${p} ÷ 100 = ${answer}.` } : {}); }
+  if (group === 2) { const answer = b + 3; return text(`${prefix}解方程 2x + ${b} = ${2 * answer + b}，輸入 x。`, String(answer), `提示：先減 ${b}，再除以 2。`, `2x = ${2 * answer}，所以 x = ${answer}。`, bilingual ? { promptEn:`${topic.titleEn} | Question ${i + 1}: Solve 2x + ${b} = ${2 * answer + b}. Enter x.`, explanationEn:`2x = ${2 * answer}, so x = ${answer}.` } : {}); }
+  if (group === 3) { const base = 5 + i; const height = 4 + (i % 3); const answer = base * height / 2; return choice(`${prefix}底為${base}厘米、高為${height}厘米的三角形面積是？`, [String(answer),String(base * height),String(base + height),String(answer + 2)], 0, `三角形面積 = 底 × 高 ÷ 2 = ${base} × ${height} ÷ 2 = ${answer}平方厘米。`, bilingual ? { promptEn:`${topic.titleEn} | Question ${i + 1}: A triangle has base ${base} cm and height ${height} cm. Its area is?`, explanationEn:`Area = base × height ÷ 2 = ${answer} cm².` } : {}); }
+  if (group === 4) { const values = [i + 4, i + 6, i + 8]; const answer = i + 6; return choice(`${prefix}${values.join('、')} 的平均數是？`, [String(answer),String(answer + 1),String(answer - 1),String(values.reduce((x,y)=>x+y,0))], 0, `平均數 = (${values.join(' + ')}) ÷ 3 = ${answer}。`, bilingual ? { promptEn:`${topic.titleEn} | Question ${i + 1}: What is the mean of ${values.join(', ')}?`, explanationEn:`Mean = (${values.join(' + ')}) ÷ 3 = ${answer}.` } : {}); }
+  const answer = a + b; return choice(`${prefix}${a} + ${b} = ?`, [String(answer - 1),String(answer),String(answer + 1),String(answer + 2)], 1, `${a} 加 ${b} 等於 ${answer}。`, bilingual ? { promptEn:`${topic.titleEn} | Question ${i + 1}: ${a} + ${b} = ?`, explanationEn:`${a} plus ${b} equals ${answer}.` } : {});
+}
+
+const topics = [];
 grades.forEach((grade, gradeIndex) => {
-  Object.entries(topics).forEach(([subject, subjectTopics]) => {
-    subjectTopics.forEach((topic, topicIndex) => {
-      curriculum.push({
-        id: `${grade}-${subject}-${topic.key}`,
-        grade,
-        subject,
-        title: topic.title,
-        description: `${grade} ${subject}・${topic.title}挑戰`,
-        engine: topic.engine,
-        icon: topic.icon,
-        difficulty: gradeIndex < 4 ? '新手' : gradeIndex < 8 ? '進階' : '高手',
-        skill: topic.key,
-        questions: topic.questions(gradeIndex, topicIndex),
-      });
-    });
-  });
+  const add = (subject, title, index, titleEn = '') => {
+    const bilingual = subject === '數學' && gradeIndex >= 6; const topic = { id:`${grade}-${subject}-${index + 1}`, grade, subject, title, titleEn, description:`${grade} ${subject}・${title}課程任務`, engine:engines[index], icon:icons[index], difficulty:gradeIndex < 6 ? '基礎' : gradeIndex < 9 ? '初中' : 'DSE', curriculumArea:title, bilingual, slot:index };
+    if (subject === '數學') topic.questions = Array.from({length:10},(_,i)=>makeMathQuestionByEngine(topic, gradeIndex, i));
+    else if (topic.engine === 'puzzle') topic.questions = Array.from({length:10},(_,i)=> { const english = subject === '英文'; const tokens = english ? ['school','to','walk','I'] : ['今天','圖書館','我','去']; const order = english ? ['I','walk','to','school'] : ['我','今天','去','圖書館']; return puzzle(`${title}｜第${i+1}題：${english ? 'Arrange the sentence.' : '把詞語排成正確句子。'}`, tokens, order, `正確次序是「${order.join(' ')}」。`); });
+    else if (topic.engine === 'chest') topic.questions = Array.from({length:10},(_,i)=> text(`${title}｜第${i+1}題：輸入「學而不思則罔，思而不學則＿＿。」的最後一字。`, '殆', '提示：讀音是 dai。', '原句說明學習與思考要互相配合。'));
+    else { const base = subject === '中文' ? chineseBase : englishBase; topic.questions = base.map(([stem,options,answerIndex,explanation])=>choice(`${title}｜${stem}`, options, answerIndex, explanation)); }
+    topics.push(topic);
+  };
+  chineseMap[grade].forEach((title,index)=>add('中文',title,index)); englishMap[grade].forEach((title,index)=>add('英文',title,index)); mathMap[grade].forEach(([title,titleEn],index)=>add('數學',title,index,titleEn));
 });
 
-const database = {
-  meta: { title: 'EduQuest 邊學邊玩', topicCount: curriculum.length, subjects: ['中文', '英文', '數學'], grades },
-  topics: curriculum,
-};
+function makeMathQuestionByEngine(topic, gradeIndex, i) {
+  if (gradeIndex >= 6) return makeSeniorMathQuestion(topic, i);
+  const bilingual = gradeIndex >= 6; const number = i + gradeIndex + 6; const extra = bilingual ? { promptEn:'', explanationEn:'' } : {};
+  if (topic.engine === 'puzzle') {
+    const tokens = [String(number + 4), String(number), String(number + 2)]; const order = [String(number), String(number + 2), String(number + 4)];
+    return puzzle(`${topic.title}｜第${i + 1}題：由小至大排列數字。`, tokens, order, `由小至大：${order.join('、')}。`, bilingual ? { promptEn:`${topic.titleEn} | Question ${i + 1}: Arrange the numbers in ascending order.`, explanationEn:`Ascending order: ${order.join(', ')}.` } : extra);
+  }
+  if (topic.engine === 'chest') {
+    const answer = i + 5; const shift = i + 3;
+    return text(`${topic.title}｜第${i + 1}題：解 2x + ${shift} = ${answer * 2 + shift}，輸入 x。`, String(answer), `提示：先減 ${shift}，再除以 2。`, `2x = ${answer * 2}，所以 x = ${answer}。`, bilingual ? { promptEn:`${topic.titleEn} | Question ${i + 1}: Solve 2x + ${shift} = ${answer * 2 + shift}. Enter x.`, explanationEn:`2x = ${answer * 2}, so x = ${answer}.` } : extra);
+  }
+  if (topic.engine === 'rpg') {
+    const base = 5 + i; const height = 4 + (i % 3); const answer = base * height / 2;
+    return choice(`${topic.title}｜第${i + 1}題：底為${base}厘米、高為${height}厘米的三角形面積是？`, [String(answer), String(base * height), String(base + height), String(answer + 2)], 0, `三角形面積 = 底 × 高 ÷ 2 = ${answer}平方厘米。`, bilingual ? { promptEn:`${topic.titleEn} | Question ${i + 1}: A triangle has base ${base} cm and height ${height} cm. Its area is?`, explanationEn:`Area = base × height ÷ 2 = ${answer} cm².` } : extra);
+  }
+  const a = number; const b = i + 2; const answer = a + b;
+  return choice(`${topic.title}｜第${i + 1}題：${a} + ${b} = ?`, [String(answer - 1), String(answer), String(answer + 1), String(answer + 2)], 1, `${a} 加 ${b} 等於 ${answer}。`, bilingual ? { promptEn:`${topic.titleEn} | Question ${i + 1}: ${a} + ${b} = ?`, explanationEn:`${a} plus ${b} equals ${answer}.` } : extra);
+}
 
-await mkdir(new URL('../client/src/data/', import.meta.url), { recursive: true });
-await writeFile(new URL('../client/src/data/curriculumDB.json', import.meta.url), `${JSON.stringify(database, null, 2)}\n`, 'utf8');
-console.log(`Generated ${curriculum.length} playable topics.`);
+function seniorChoice(topic, i, zh, en, answer, options, explanation, explanationEn) {
+  return choice(`${topic.title}｜第${i + 1}題：${zh}`, options.map(String), options.findIndex((item) => String(item) === String(answer)), explanation, { promptEn:`${topic.titleEn} | Question ${i + 1}: ${en}`, explanationEn });
+}
+function seniorPuzzle(topic, i, zh, en, tokens, correctOrder, explanation, explanationEn) {
+  return puzzle(`${topic.title}｜第${i + 1}題：${zh}`, tokens, correctOrder, explanation, { promptEn:`${topic.titleEn} | Question ${i + 1}: ${en}`, explanationEn });
+}
+function seniorText(topic, i, zh, en, answer, hint, explanation, explanationEn) {
+  return text(`${topic.title}｜第${i + 1}題：${zh}`, String(answer), hint, explanation, { promptEn:`${topic.titleEn} | Question ${i + 1}: ${en}`, explanationEn });
+}
+function makeSeniorMathQuestion(topic, i) {
+  const n = i + 2; const key = `${topic.grade}-${topic.slot}`;
+  if (key === 'S1-0') { const p = n * 10; return seniorChoice(topic,i,`${p}% 化為小數是？`,`What is ${p}% as a decimal?`,p/100,[p/100,p/10,p,1+p/100],`${p}% = ${p} ÷ 100 = ${p/100}。`,`${p}% = ${p} ÷ 100 = ${p/100}.`); }
+  if (key === 'S1-1') return seniorPuzzle(topic,i,'把比 2：3 排成正確寫法。','Arrange the ratio 2 to 3 correctly.',['3','：','2'],['2','：','3'],'比的前項在前、後項在後，寫作 2：3。','The antecedent comes first, so the ratio is 2:3.');
+  if (key === 'S1-2') { const a=n+3,b=n+5; return seniorChoice(topic,i,`化簡 ${a}x + ${b}x。`,`Simplify ${a}x + ${b}x.`,`${a+b}x`,[`${a+b}x`,`${a*b}x`,`${b-a}x`,`x²`],`同類項的係數相加：${a}x + ${b}x = ${a+b}x。`,`Add coefficients of like terms: ${a}x + ${b}x = ${a+b}x.`); }
+  if (key === 'S1-3') { const a=50+i,b=60-i; return seniorText(topic,i,`三角形另外兩角為 ${a}° 和 ${b}°，第三角是多少度？`,`Two angles of a triangle are ${a}° and ${b}°. Find the third angle.`,180-a-b,'提示：三角形內角和是 180°。',`第三角 = 180 − ${a} − ${b} = ${180-a-b}°。`,`Third angle = 180 − ${a} − ${b} = ${180-a-b}°.`); }
+  if (key === 'S1-4') { const vals=[n,n+2,n+4]; return seniorChoice(topic,i,`${vals.join('、')} 的平均數是？`,`What is the mean of ${vals.join(', ')}?`,n+2,[n+2,n+3,n+1,vals.reduce((x,y)=>x+y,0)],`平均數 = (${vals.join(' + ')}) ÷ 3 = ${n+2}。`,`Mean = (${vals.join(' + ')}) ÷ 3 = ${n+2}.`); }
+  if (key === 'S2-0') { const x=n+1,y=n+2; return seniorChoice(topic,i,`若 x + y = ${x+y}，且 x = ${x}，則 y =？`,`If x + y = ${x+y} and x = ${x}, find y.`,y,[y,x,x+y,y+1],`y = ${x+y} − ${x} = ${y}。`,`y = ${x+y} − ${x} = ${y}.`); }
+  if (key === 'S2-1') return seniorPuzzle(topic,i,'把 x² + 5x + 6 的因式分解排成正確形式。','Arrange the factorisation of x² + 5x + 6.',['3)', '(x +', '2)(x +'],['(x +','2)(x +','3)'],'x² + 5x + 6 = (x + 2)(x + 3)。','x² + 5x + 6 = (x + 2)(x + 3).');
+  if (key === 'S2-2') { const a=3+i,b=4+i,c=Math.sqrt(a*a+b*b); return seniorChoice(topic,i,`直角三角形兩直角邊為 ${a} 和 ${b}，斜邊是？`,`A right triangle has legs ${a} and ${b}. Find the hypotenuse.`,c,[c,a+b,c+1,c-1],`由畢氏定理，c² = ${a}² + ${b}²，所以 c = ${c}。`,`By Pythagoras, c² = ${a}² + ${b}², so c = ${c}.`); }
+  if (key === 'S2-3') { const r=n+2; return seniorText(topic,i,`半徑為 ${r} cm 的圓，直徑是多少 cm？`,`A circle has radius ${r} cm. Find its diameter.`,r*2,'提示：直徑 = 2 × 半徑。',`直徑 = 2 × ${r} = ${r*2} cm。`,`Diameter = 2 × ${r} = ${r*2} cm.`); }
+  if (key === 'S2-4') { const favourable=n, total=n+4; return seniorChoice(topic,i,`袋中有 ${favourable} 個紅球和 4 個藍球，抽到紅球的概率是？`,`A bag has ${favourable} red and 4 blue balls. What is P(red)?`,`${favourable}/${total}`,[`${favourable}/${total}`,`1/${total}`,`${total}/${favourable}`,`${favourable+1}/${total}`],`有利結果除以總結果：${favourable}/${total}。`,`Favourable outcomes over total outcomes: ${favourable}/${total}.`); }
+  if (key === 'S3-0') { const root=n; return seniorChoice(topic,i,`解 x² − ${root*root} = 0 的正根。`,`Solve x² − ${root*root} = 0; give the positive root.`,root,[root,-root,root*root,root+1],`x² = ${root*root}，正根 x = ${root}。`,`x² = ${root*root}, so the positive root is ${root}.`); }
+  if (key === 'S3-1') return seniorPuzzle(topic,i,'把指數律 a² × a³ 的結果排成正確式子。','Arrange the result of a² × a³.',['a⁵','=', 'a² × a³'],['a² × a³','=', 'a⁵'],'同底數相乘，指數相加：2 + 3 = 5。','For equal bases, add indices: 2 + 3 = 5.');
+  if (key === 'S3-2') return seniorChoice(topic,i,'圓周角對同一弧所對的圓心角為 80°，圓周角是？','An arc subtends 80° at the centre. Find the angle at the circumference.',40,[40,80,160,20],'同弧所對的圓周角等於圓心角的一半：80° ÷ 2 = 40°。','The angle at the circumference is half the central angle: 80° ÷ 2 = 40°.');
+  if (key === 'S3-3') { const r=n; const h=3; return seniorText(topic,i,`圓錐體積 = 1/3 × 底面積 × 高。若底面積為 ${r*3} cm²、高為 ${h} cm，體積是多少 cm³？`,`Cone volume = 1/3 × base area × height. If base area is ${r*3} cm² and height is ${h} cm, find the volume.`,r*3,'提示：代入 1/3 × 底面積 × 高。',`體積 = 1/3 × ${r*3} × ${h} = ${r*3} cm³。`,`Volume = 1/3 × ${r*3} × ${h} = ${r*3} cm³.`); }
+  if (key === 'S3-4') return seniorChoice(topic,i,'擲一枚公平硬幣一次，出現正面的概率是？','A fair coin is tossed once. What is P(heads)?','1/2',['1/2','1','1/4','2'],'正、反兩個等可能結果，正面的概率是 1/2。','There are two equally likely outcomes, so P(heads) = 1/2.');
+  if (key === 'S4-0') { const exponent=n; const answer=2**exponent; return seniorChoice(topic,i,`2 的 ${exponent} 次方是？`,`What is 2 to the power of ${exponent}?`,answer,[answer,answer+1,answer+2,Math.max(0,answer-1)],`2^${exponent} = ${answer}。`,`2^${exponent} = ${answer}.`); }
+  if (key === 'S4-1') return seniorPuzzle(topic,i,'把二次方程解題步驟排成正確次序。','Arrange the steps for solving a quadratic equation.',['求根','令方程為 0','因式分解'],['令方程為 0','因式分解','求根'],'先令方程為 0，再因式分解，最後求根。','Set the equation to zero, factorise, then find the roots.');
+  if (key === 'S4-2') { const first=n, d=3; const answer=first+d; return seniorChoice(topic,i,`等差數列首項為 ${first}、公差為 ${d}，第二項是？`,`An arithmetic sequence has first term ${first} and common difference ${d}. What is the second term?`,answer,[answer,answer+1,answer+2,answer-1],`第二項 = 首項 + 公差 = ${answer}。`,`Second term = first term + common difference = ${answer}.`); }
+  if (key === 'S4-3') { const m=n, c=2; return seniorText(topic,i,`直線 y = ${m}x + ${c}，當 x = 3 時，y 是？`,`For y = ${m}x + ${c}, find y when x = 3.`,m*3+c,'提示：把 x = 3 代入。',`y = ${m}(3) + ${c} = ${m*3+c}。`,`y = ${m}(3) + ${c} = ${m*3+c}.`); }
+  if (key === 'S4-4') { const nItems=n+2; const answer=nItems*(nItems-1)/2; return seniorChoice(topic,i,`${nItems} 個不同物件任取 2 個的組合數是？`,`How many ways can 2 objects be chosen from ${nItems} different objects?`,answer,[answer,answer+1,answer-1,nItems],`C(${nItems},2) = ${nItems}×${nItems-1}÷2 = ${answer}。`,`C(${nItems},2) = ${nItems}×${nItems-1}÷2 = ${answer}.`); }
+  if (key === 'S5-0') return seniorChoice(topic,i,'log₁₀(1000) 的值是？','What is log₁₀(1000)?',3,[3,10,1000,2],'因為 10³ = 1000，所以 log₁₀(1000) = 3。','Since 10³ = 1000, log₁₀(1000) = 3.');
+  if (key === 'S5-1') return seniorPuzzle(topic,i,'把函數 y = 2x + 1 排成正確式子。','Arrange the function y = 2x + 1.',['+ 1','y =','2x'],['y =','2x','+ 1'],'函數寫作 y = 2x + 1。','The function is written as y = 2x + 1.');
+  if (key === 'S5-2') return seniorChoice(topic,i,'直線經過 (1,2) 和 (3,6)，斜率是？','A line passes through (1,2) and (3,6). What is its gradient?',2,[2,4,3,1],'斜率 = (6−2)÷(3−1)=2。','Gradient = (6−2)÷(3−1)=2.');
+  if (key === 'S5-3') { const l=n, w=3, h=2; return seniorText(topic,i,`長方體長 ${l}、闊 ${w}、高 ${h}，體積是多少？`,`A cuboid has length ${l}, width ${w}, height ${h}. Find its volume.`,l*w*h,'提示：長 × 闊 × 高。',`體積 = ${l}×${w}×${h} = ${l*w*h}。`,`Volume = ${l}×${w}×${h} = ${l*w*h}.`); }
+  if (key === 'S5-4') return seniorChoice(topic,i,'抽樣調查中，哪一項有助提升代表性？','Which practice improves representativeness in a sample survey?','隨機抽樣',['隨機抽樣','只訪問朋友','只選一個年齡','刪去不喜歡的答案'],'隨機抽樣可減少選擇偏差。','Random sampling reduces selection bias.');
+  if (key === 'S6-0') return seniorChoice(topic,i,'x² − 9 的因式分解是？','Factorise x² − 9.','(x − 3)(x + 3)',['(x − 3)(x + 3)','(x − 9)(x + 1)','(x − 3)²','x(x − 9)'],'這是平方差：x² − 3² = (x−3)(x+3)。','This is a difference of squares: x² − 3² = (x−3)(x+3).');
+  if (key === 'S6-1') return seniorPuzzle(topic,i,'把正弦定理的比值排成正確形式。','Arrange the sine rule ratio.',['sin A','a','=', '÷'],['a','÷','sin A','='],'正弦定理使用邊長與其對角正弦的比值。','The sine rule compares a side with the sine of its opposite angle.');
+  if (key === 'S6-2') return seniorChoice(topic,i,'兩枚公平硬幣同時擲出，兩面都是正面的概率是？','Two fair coins are tossed. What is P(two heads)?','1/4',['1/4','1/2','1','3/4'],'可能結果有四個，只有 HH 符合，因此概率為 1/4。','There are four equally likely outcomes; only HH works, so the probability is 1/4.');
+  if (key === 'S6-3') { const rate=n*10; return seniorText(topic,i,`模型 y = ${rate}x，當 x = 4 時，y 是？`,`For the model y = ${rate}x, find y when x = 4.`,rate*4,'提示：把 x = 4 代入。',`y = ${rate}×4 = ${rate*4}。`,`y = ${rate}×4 = ${rate*4}.`); }
+  return seniorChoice(topic,i,'一個三角形的內角和是多少度？','What is the sum of the interior angles of a triangle?',180,[180,90,360,270],'三角形內角和恆為 180°。','The interior angles of a triangle always sum to 180°.');
+}
+
+const database = { meta:{ title:'EduQuest 邊學邊玩', topicCount:topics.length, questionsPerTopic:10, subjects:['中文','英文','數學'], grades, curriculumSource:'pasted_content.txt' }, topics };
+await mkdir(new URL('../client/src/data/',import.meta.url),{recursive:true});
+await writeFile(new URL('../client/src/data/curriculumDB.json',import.meta.url),`${JSON.stringify(database,null,2)}\n`,'utf8');
+console.log(`Generated ${topics.length} curriculum-aligned topics with ${topics.length * 10} questions.`);

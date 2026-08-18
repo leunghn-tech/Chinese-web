@@ -8,12 +8,16 @@ const counts = {
   grades: Object.fromEntries(database.meta.grades.map((grade) => [grade, database.topics.filter((topic) => topic.grade === grade).length])),
 };
 
-const invalid = database.topics.filter((topic) => !topic.questions.length || topic.questions.some((question) => question.type !== expectedByEngine[topic.engine] || !question.explanation));
+const invalid = database.topics.filter((topic) => topic.questions.length !== 10 || topic.questions.some((question) => question.type !== expectedByEngine[topic.engine] || !question.explanation));
 const uniqueIds = new Set(database.topics.map((topic) => topic.id));
+const seniorMath = database.topics.filter((topic) => topic.subject === '數學' && /^S[1-6]$/.test(topic.grade));
+const bilingualGaps = seniorMath.filter((topic) => !topic.bilingual || !topic.titleEn || topic.questions.some((question) => !question.promptEn || !question.explanationEn));
+const totalQuestions = database.topics.reduce((total, topic) => total + topic.questions.length, 0);
+const malformedQuestions = database.topics.flatMap((topic) => topic.questions.map((question, index) => ({ topic: topic.id, index, question })).filter(({ question }) => (question.type === 'choice' && (!Array.isArray(question.options) || question.options.length !== 4 || new Set(question.options.map(String)).size !== 4 || question.answerIndex < 0 || question.answerIndex > 3)) || (question.type === 'puzzle' && (!question.tokens?.length || !question.correctOrder?.length)) || (question.type === 'text' && !String(question.answer).trim())));
 
-if (counts.topics !== 180 || invalid.length || uniqueIds.size !== counts.topics || Object.values(counts.subjects).some((count) => count !== 60) || Object.values(counts.grades).some((count) => count !== 15)) {
-  console.error({ counts, invalid: invalid.map((topic) => topic.id), uniqueIds: uniqueIds.size });
+if (counts.topics !== 180 || totalQuestions !== 1800 || invalid.length || bilingualGaps.length || malformedQuestions.length || seniorMath.length !== 30 || uniqueIds.size !== counts.topics || Object.values(counts.subjects).some((count) => count !== 60) || Object.values(counts.grades).some((count) => count !== 15)) {
+  console.error({ counts, totalQuestions, invalid: invalid.map((topic) => topic.id), bilingualGaps: bilingualGaps.map((topic) => topic.id), malformedQuestions: malformedQuestions.map(({ topic, index }) => `${topic}#${index + 1}`), uniqueIds: uniqueIds.size });
   process.exit(1);
 }
 
-console.log(JSON.stringify({ status: 'valid', ...counts, uniqueIds: uniqueIds.size }, null, 2));
+console.log(JSON.stringify({ status: 'valid', ...counts, totalQuestions, seniorMathBilingualTopics: seniorMath.length, uniqueIds: uniqueIds.size }, null, 2));
