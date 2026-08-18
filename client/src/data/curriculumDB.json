@@ -739,117 +739,312 @@
       "title": "看圖寫句",
       "titleEn": "",
       "description": "P1 中文・看圖寫句課程任務",
-      "engine": "chest",
-      "icon": "LockKeyhole",
+      "engine": "composition",
+      "icon": "PenLine",
       "difficulty": "基礎",
       "curriculumArea": "看圖寫句",
       "bilingual": false,
       "slot": 3,
       "questions": [
         {
-          "type": "text",
-          "prompt": "看圖寫句｜第1題：「我今天上學。」句末的標點是甚麼？",
-          "answer": "句號",
-          "hint": "提示：陳述一句完整意思後使用的標點。",
-          "explanation": "正確答案是「句號」：陳述一句完整意思後使用的標點。"
+          "type": "composition",
+          "activity": "picture-write",
+          "prompt": "看圖寫句｜第1題：觀察「操場上跳繩」的圖畫，寫一句完整句子。",
+          "scene": {
+            "kind": "school",
+            "title": "操場活動",
+            "alt": "兩位小學生在操場跳繩的插圖",
+            "caption": "小明和小欣在操場跳繩。"
+          },
+          "hintWords": [
+            "小明",
+            "操場",
+            "跳繩"
+          ],
+          "answer": "小明在操場跳繩。",
+          "sampleAnswer": "小明在操場跳繩。",
+          "placeholder": "請寫一句完整句子，例如：小明在操場跳繩。",
+          "explanation": "參考句為「小明在操場跳繩。」。只要句子切合圖意、意思完整，教師可確認為正確。"
         },
         {
-          "type": "text",
-          "prompt": "看圖寫句｜第2題：「媽媽，早晨！」中間的標點是甚麼？",
-          "answer": "逗號",
-          "hint": "提示：把一句話中停頓的部分分開。",
-          "explanation": "正確答案是「逗號」：把一句話中停頓的部分分開。"
+          "type": "composition",
+          "activity": "picture-write",
+          "prompt": "看圖寫句｜第2題：觀察「課室裏閱讀」的圖畫，寫一句完整句子。",
+          "scene": {
+            "kind": "library",
+            "title": "課室閱讀",
+            "alt": "小學生在課室看圖書的插圖",
+            "caption": "小欣坐在課室裏看故事書。"
+          },
+          "hintWords": [
+            "小欣",
+            "課室",
+            "看故事書"
+          ],
+          "answer": "小欣在課室裏看故事書。",
+          "sampleAnswer": "小欣在課室裏看故事書。",
+          "placeholder": "請寫一句完整句子，例如：小明在操場跳繩。",
+          "explanation": "參考句為「小欣在課室裏看故事書。」。只要句子切合圖意、意思完整，教師可確認為正確。"
         },
         {
-          "type": "text",
-          "prompt": "看圖寫句｜第3題：「你喜歡故事書嗎？」句末的標點是甚麼？",
-          "answer": "問號",
-          "hint": "提示：表示提出問題的標點。",
-          "explanation": "正確答案是「問號」：表示提出問題的標點。"
+          "type": "composition",
+          "activity": "picture-write",
+          "prompt": "看圖寫句｜第3題：觀察「公園裏放風箏」的圖畫，寫一句完整句子。",
+          "scene": {
+            "kind": "park",
+            "title": "公園遊玩",
+            "alt": "小朋友在公園放風箏的插圖",
+            "caption": "阿朗在公園放風箏。"
+          },
+          "hintWords": [
+            "阿朗",
+            "公園",
+            "放風箏"
+          ],
+          "answer": "阿朗在公園放風箏。",
+          "sampleAnswer": "阿朗在公園放風箏。",
+          "placeholder": "請寫一句完整句子，例如：小明在操場跳繩。",
+          "explanation": "參考句為「阿朗在公園放風箏。」。只要句子切合圖意、意思完整，教師可確認為正確。"
         },
         {
-          "type": "text",
-          "prompt": "看圖寫句｜第4題：「小明在操場跑步」屬於甚麼？",
-          "answer": "完整句子",
-          "hint": "提示：有清楚的人物和意思的句子。",
-          "explanation": "正確答案是「完整句子」：有清楚的人物和意思的句子。"
+          "type": "composition",
+          "activity": "picture-write",
+          "prompt": "看圖寫句｜第4題：觀察「家中整理玩具」的圖畫，寫一句完整句子。",
+          "scene": {
+            "kind": "home",
+            "title": "家中整理",
+            "alt": "小朋友在家中把玩具放進箱子的插圖",
+            "caption": "樂樂在家中收拾玩具。"
+          },
+          "hintWords": [
+            "樂樂",
+            "家中",
+            "收拾玩具"
+          ],
+          "answer": "樂樂在家中收拾玩具。",
+          "sampleAnswer": "樂樂在家中收拾玩具。",
+          "placeholder": "請寫一句完整句子，例如：小明在操場跳繩。",
+          "explanation": "參考句為「樂樂在家中收拾玩具。」。只要句子切合圖意、意思完整，教師可確認為正確。"
         },
         {
-          "type": "text",
-          "prompt": "看圖寫句｜第5題：看圖寫句時，先要找出圖中的甚麼？",
-          "answer": "人物",
-          "hint": "提示：看圖寫句時先觀察圖中的人。",
-          "explanation": "正確答案是「人物」：看圖寫句時先觀察圖中的人。"
+          "type": "composition",
+          "activity": "picture-write",
+          "prompt": "看圖寫句｜第5題：觀察「雨天撐傘」的圖畫，寫一句完整句子。",
+          "scene": {
+            "kind": "school",
+            "title": "雨天上學",
+            "alt": "小學生在雨天撐傘上學的插圖",
+            "caption": "美兒撐着雨傘上學。"
+          },
+          "hintWords": [
+            "美兒",
+            "雨傘",
+            "上學"
+          ],
+          "answer": "美兒撐着雨傘上學。",
+          "sampleAnswer": "美兒撐着雨傘上學。",
+          "placeholder": "請寫一句完整句子，例如：小明在操場跳繩。",
+          "explanation": "參考句為「美兒撐着雨傘上學。」。只要句子切合圖意、意思完整，教師可確認為正確。"
         },
         {
-          "type": "text",
-          "prompt": "看圖寫句｜第6題：「小欣畫畫」中小欣正在做甚麼？",
-          "answer": "動作",
-          "hint": "提示：說明人物正在做甚麼。",
-          "explanation": "正確答案是「動作」：說明人物正在做甚麼。"
+          "type": "composition",
+          "activity": "picture-write",
+          "prompt": "看圖寫句｜第6題：觀察「圖書角借書」的圖畫，寫一句完整句子。",
+          "scene": {
+            "kind": "library",
+            "title": "圖書角",
+            "alt": "小學生在圖書角借故事書的插圖",
+            "caption": "志強在圖書角借故事書。"
+          },
+          "hintWords": [
+            "志強",
+            "圖書角",
+            "借故事書"
+          ],
+          "answer": "志強在圖書角借故事書。",
+          "sampleAnswer": "志強在圖書角借故事書。",
+          "placeholder": "請寫一句完整句子，例如：小明在操場跳繩。",
+          "explanation": "參考句為「志強在圖書角借故事書。」。只要句子切合圖意、意思完整，教師可確認為正確。"
         },
         {
-          "type": "text",
-          "prompt": "看圖寫句｜第7題：「在課室讀書」中的課室是甚麼？",
-          "answer": "地點",
-          "hint": "提示：指出事情發生的位置。",
-          "explanation": "正確答案是「地點」：指出事情發生的位置。"
+          "type": "composition",
+          "activity": "picture-write",
+          "prompt": "看圖寫句｜第7題：觀察「幫助同學」的圖畫，寫一句完整句子。",
+          "scene": {
+            "kind": "school",
+            "title": "互相幫助",
+            "alt": "一位小學生扶起跌倒同學的插圖",
+            "caption": "小文扶起跌倒的同學。"
+          },
+          "hintWords": [
+            "小文",
+            "同學",
+            "扶起"
+          ],
+          "answer": "小文扶起跌倒的同學。",
+          "sampleAnswer": "小文扶起跌倒的同學。",
+          "placeholder": "請寫一句完整句子，例如：小明在操場跳繩。",
+          "explanation": "參考句為「小文扶起跌倒的同學。」。只要句子切合圖意、意思完整，教師可確認為正確。"
         },
         {
-          "type": "text",
-          "prompt": "看圖寫句｜第8題：新年時家人拜年、派利是的節日是甚麼？",
-          "answer": "春節",
-          "hint": "提示：家人團聚和拜年的傳統節日。",
-          "explanation": "正確答案是「春節」：家人團聚和拜年的傳統節日。"
+          "type": "composition",
+          "activity": "picture-write",
+          "prompt": "看圖寫句｜第8題：觀察「海邊拾垃圾」的圖畫，寫一句完整句子。",
+          "scene": {
+            "kind": "beach",
+            "title": "清潔海灘",
+            "alt": "小學生在海邊把垃圾放進袋子的插圖",
+            "caption": "同學在海邊拾垃圾。"
+          },
+          "hintWords": [
+            "同學",
+            "海邊",
+            "拾垃圾"
+          ],
+          "answer": "同學在海邊拾垃圾。",
+          "sampleAnswer": "同學在海邊拾垃圾。",
+          "placeholder": "請寫一句完整句子，例如：小明在操場跳繩。",
+          "explanation": "參考句為「同學在海邊拾垃圾。」。只要句子切合圖意、意思完整，教師可確認為正確。"
         },
         {
-          "type": "text",
-          "prompt": "看圖寫句｜第9題：一家人賞月、吃月餅的節日是甚麼？",
-          "answer": "中秋節",
-          "hint": "提示：賞月和吃月餅的傳統節日。",
-          "explanation": "正確答案是「中秋節」：賞月和吃月餅的傳統節日。"
+          "type": "composition",
+          "activity": "picture-write",
+          "prompt": "看圖寫句｜第9題：觀察「市場買水果」的圖畫，寫一句完整句子。",
+          "scene": {
+            "kind": "market",
+            "title": "市場購物",
+            "alt": "小朋友跟媽媽在市場買水果的插圖",
+            "caption": "小美和媽媽在市場買水果。"
+          },
+          "hintWords": [
+            "小美",
+            "媽媽",
+            "買水果"
+          ],
+          "answer": "小美和媽媽在市場買水果。",
+          "sampleAnswer": "小美和媽媽在市場買水果。",
+          "placeholder": "請寫一句完整句子，例如：小明在操場跳繩。",
+          "explanation": "參考句為「小美和媽媽在市場買水果。」。只要句子切合圖意、意思完整，教師可確認為正確。"
         },
         {
-          "type": "text",
-          "prompt": "看圖寫句｜第10題：見到老師說「早晨」表現了甚麼？",
-          "answer": "禮貌",
-          "hint": "提示：見到老師主動問好的態度。",
-          "explanation": "正確答案是「禮貌」：見到老師主動問好的態度。"
+          "type": "composition",
+          "activity": "picture-write",
+          "prompt": "看圖寫句｜第10題：觀察「花園澆花」的圖畫，寫一句完整句子。",
+          "scene": {
+            "kind": "park",
+            "title": "花園植物",
+            "alt": "小朋友在花園澆花的插圖",
+            "caption": "弟弟在花園澆花。"
+          },
+          "hintWords": [
+            "弟弟",
+            "花園",
+            "澆花"
+          ],
+          "answer": "弟弟在花園澆花。",
+          "sampleAnswer": "弟弟在花園澆花。",
+          "placeholder": "請寫一句完整句子，例如：小明在操場跳繩。",
+          "explanation": "參考句為「弟弟在花園澆花。」。只要句子切合圖意、意思完整，教師可確認為正確。"
         },
         {
-          "type": "text",
-          "prompt": "看圖寫句｜第11題：同學跌倒時扶他起來表現甚麼？",
-          "answer": "友愛",
-          "hint": "提示：願意幫助同學的態度。",
-          "explanation": "正確答案是「友愛」：願意幫助同學的態度。"
+          "type": "composition",
+          "activity": "picture-write",
+          "prompt": "看圖寫句｜第11題：觀察「生日送賀卡」的圖畫，寫一句完整句子。",
+          "scene": {
+            "kind": "home",
+            "title": "生日祝福",
+            "alt": "小朋友在家中送賀卡給祖母的插圖",
+            "caption": "嘉嘉送賀卡給祖母。"
+          },
+          "hintWords": [
+            "嘉嘉",
+            "祖母",
+            "送賀卡"
+          ],
+          "answer": "嘉嘉送賀卡給祖母。",
+          "sampleAnswer": "嘉嘉送賀卡給祖母。",
+          "placeholder": "請寫一句完整句子，例如：小明在操場跳繩。",
+          "explanation": "參考句為「嘉嘉送賀卡給祖母。」。只要句子切合圖意、意思完整，教師可確認為正確。"
         },
         {
-          "type": "text",
-          "prompt": "看圖寫句｜第12題：別人說話時不插嘴表現甚麼？",
-          "answer": "尊重",
-          "hint": "提示：耐心聆聽別人說話的態度。",
-          "explanation": "正確答案是「尊重」：耐心聆聽別人說話的態度。"
+          "type": "composition",
+          "activity": "picture-write",
+          "prompt": "看圖寫句｜第12題：觀察「排隊進禮堂」的圖畫，寫一句完整句子。",
+          "scene": {
+            "kind": "school",
+            "title": "守秩序",
+            "alt": "學生在學校禮堂前排隊的插圖",
+            "caption": "同學們排隊進入禮堂。"
+          },
+          "hintWords": [
+            "同學們",
+            "排隊",
+            "進入禮堂"
+          ],
+          "answer": "同學們排隊進入禮堂。",
+          "sampleAnswer": "同學們排隊進入禮堂。",
+          "placeholder": "請寫一句完整句子，例如：小明在操場跳繩。",
+          "explanation": "參考句為「同學們排隊進入禮堂。」。只要句子切合圖意、意思完整，教師可確認為正確。"
         },
         {
-          "type": "text",
-          "prompt": "看圖寫句｜第13題：把紅球和藍球放在一起看顏色不同是甚麼思考方法？",
-          "answer": "比較",
-          "hint": "提示：找出兩件物品相同或不同的地方。",
-          "explanation": "正確答案是「比較」：找出兩件物品相同或不同的地方。"
+          "type": "composition",
+          "activity": "picture-write",
+          "prompt": "看圖寫句｜第13題：觀察「照顧小狗」的圖畫，寫一句完整句子。",
+          "scene": {
+            "kind": "park",
+            "title": "愛護動物",
+            "alt": "小朋友在公園餵小狗喝水的插圖",
+            "caption": "阿俊在公園給小狗喝水。"
+          },
+          "hintWords": [
+            "阿俊",
+            "公園",
+            "給小狗喝水"
+          ],
+          "answer": "阿俊在公園給小狗喝水。",
+          "sampleAnswer": "阿俊在公園給小狗喝水。",
+          "placeholder": "請寫一句完整句子，例如：小明在操場跳繩。",
+          "explanation": "參考句為「阿俊在公園給小狗喝水。」。只要句子切合圖意、意思完整，教師可確認為正確。"
         },
         {
-          "type": "text",
-          "prompt": "看圖寫句｜第14題：把水果和文具分開放是甚麼思考方法？",
-          "answer": "分類",
-          "hint": "提示：按共同特徵把物品分組。",
-          "explanation": "正確答案是「分類」：按共同特徵把物品分組。"
+          "type": "composition",
+          "activity": "picture-write",
+          "prompt": "看圖寫句｜第14題：觀察「洗手後關水」的圖畫，寫一句完整句子。",
+          "scene": {
+            "kind": "home",
+            "title": "節約用水",
+            "alt": "小朋友在洗手間關上水龍頭的插圖",
+            "caption": "小欣洗手後關上水龍頭。"
+          },
+          "hintWords": [
+            "小欣",
+            "洗手後",
+            "關上水龍頭"
+          ],
+          "answer": "小欣洗手後關上水龍頭。",
+          "sampleAnswer": "小欣洗手後關上水龍頭。",
+          "placeholder": "請寫一句完整句子，例如：小明在操場跳繩。",
+          "explanation": "參考句為「小欣洗手後關上水龍頭。」。只要句子切合圖意、意思完整，教師可確認為正確。"
         },
         {
-          "type": "text",
-          "prompt": "看圖寫句｜第15題：想知道「蘋果」怎樣寫，可使用甚麼工具？",
-          "answer": "圖畫字典",
-          "hint": "提示：利用圖片查找字詞的工具。",
-          "explanation": "正確答案是「圖畫字典」：利用圖片查找字詞的工具。"
+          "type": "composition",
+          "activity": "picture-write",
+          "prompt": "看圖寫句｜第15題：觀察「向老師問好」的圖畫，寫一句完整句子。",
+          "scene": {
+            "kind": "school",
+            "title": "禮貌問候",
+            "alt": "小學生在校門口向老師問好的插圖",
+            "caption": "小明在校門口向老師問早晨。"
+          },
+          "hintWords": [
+            "小明",
+            "校門口",
+            "向老師問早晨"
+          ],
+          "answer": "小明在校門口向老師問早晨。",
+          "sampleAnswer": "小明在校門口向老師問早晨。",
+          "placeholder": "請寫一句完整句子，例如：小明在操場跳繩。",
+          "explanation": "參考句為「小明在校門口向老師問早晨。」。只要句子切合圖意、意思完整，教師可確認為正確。"
         }
       ]
     },

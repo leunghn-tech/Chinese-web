@@ -1,6 +1,7 @@
 const choice = (prompt, options, answerIndex, explanation, extra = {}) => ({ type: 'choice', prompt, options, answerIndex, explanation, ...extra });
 const puzzle = (prompt, tokens, correctOrder, explanation, extra = {}) => ({ type: 'puzzle', prompt, tokens, correctOrder, explanation, ...extra });
 const text = (prompt, answer, hint, explanation, extra = {}) => ({ type: 'text', prompt, answer, hint, explanation, ...extra });
+const composition = (prompt, scene, hintWords, sampleAnswer, explanation) => ({ type: 'composition', activity: 'picture-write', prompt, scene, hintWords, answer: sampleAnswer, sampleAnswer, placeholder: '請寫一句完整句子，例如：小明在操場跳繩。', explanation });
 
 const profiles = {
   P1: {
@@ -57,6 +58,26 @@ const wrongOptions = (correct, all) => [correct, ...all.filter((item) => item !=
 export function makePrimaryChineseQuestions(grade, topicIndex, title) {
   const profile = profiles[grade];
   if (!profile) return [];
+  if (grade === 'P1' && topicIndex === 3) {
+    const scenes = [
+      ['操場上跳繩',{ kind:'school', title:'操場活動', alt:'兩位小學生在操場跳繩的插圖', caption:'小明和小欣在操場跳繩。' },['小明','操場','跳繩'],'小明在操場跳繩。'],
+      ['課室裏閱讀',{ kind:'library', title:'課室閱讀', alt:'小學生在課室看圖書的插圖', caption:'小欣坐在課室裏看故事書。' },['小欣','課室','看故事書'],'小欣在課室裏看故事書。'],
+      ['公園裏放風箏',{ kind:'park', title:'公園遊玩', alt:'小朋友在公園放風箏的插圖', caption:'阿朗在公園放風箏。' },['阿朗','公園','放風箏'],'阿朗在公園放風箏。'],
+      ['家中整理玩具',{ kind:'home', title:'家中整理', alt:'小朋友在家中把玩具放進箱子的插圖', caption:'樂樂在家中收拾玩具。' },['樂樂','家中','收拾玩具'],'樂樂在家中收拾玩具。'],
+      ['雨天撐傘',{ kind:'school', title:'雨天上學', alt:'小學生在雨天撐傘上學的插圖', caption:'美兒撐着雨傘上學。' },['美兒','雨傘','上學'],'美兒撐着雨傘上學。'],
+      ['圖書角借書',{ kind:'library', title:'圖書角', alt:'小學生在圖書角借故事書的插圖', caption:'志強在圖書角借故事書。' },['志強','圖書角','借故事書'],'志強在圖書角借故事書。'],
+      ['幫助同學',{ kind:'school', title:'互相幫助', alt:'一位小學生扶起跌倒同學的插圖', caption:'小文扶起跌倒的同學。' },['小文','同學','扶起'],'小文扶起跌倒的同學。'],
+      ['海邊拾垃圾',{ kind:'beach', title:'清潔海灘', alt:'小學生在海邊把垃圾放進袋子的插圖', caption:'同學在海邊拾垃圾。' },['同學','海邊','拾垃圾'],'同學在海邊拾垃圾。'],
+      ['市場買水果',{ kind:'market', title:'市場購物', alt:'小朋友跟媽媽在市場買水果的插圖', caption:'小美和媽媽在市場買水果。' },['小美','媽媽','買水果'],'小美和媽媽在市場買水果。'],
+      ['花園澆花',{ kind:'park', title:'花園植物', alt:'小朋友在花園澆花的插圖', caption:'弟弟在花園澆花。' },['弟弟','花園','澆花'],'弟弟在花園澆花。'],
+      ['生日送賀卡',{ kind:'home', title:'生日祝福', alt:'小朋友在家中送賀卡給祖母的插圖', caption:'嘉嘉送賀卡給祖母。' },['嘉嘉','祖母','送賀卡'],'嘉嘉送賀卡給祖母。'],
+      ['排隊進禮堂',{ kind:'school', title:'守秩序', alt:'學生在學校禮堂前排隊的插圖', caption:'同學們排隊進入禮堂。' },['同學們','排隊','進入禮堂'],'同學們排隊進入禮堂。'],
+      ['照顧小狗',{ kind:'park', title:'愛護動物', alt:'小朋友在公園餵小狗喝水的插圖', caption:'阿俊在公園給小狗喝水。' },['阿俊','公園','給小狗喝水'],'阿俊在公園給小狗喝水。'],
+      ['洗手後關水',{ kind:'home', title:'節約用水', alt:'小朋友在洗手間關上水龍頭的插圖', caption:'小欣洗手後關上水龍頭。' },['小欣','洗手後','關上水龍頭'],'小欣洗手後關上水龍頭。'],
+      ['向老師問好',{ kind:'school', title:'禮貌問候', alt:'小學生在校門口向老師問好的插圖', caption:'小明在校門口向老師問早晨。' },['小明','校門口','向老師問早晨'],'小明在校門口向老師問早晨。'],
+    ];
+    return scenes.map(([context, scene, hintWords, sampleAnswer], index) => composition(`${title}｜第${index + 1}題：觀察「${context}」的圖畫，寫一句完整句子。`, scene, hintWords, sampleAnswer, `參考句為「${sampleAnswer}」。只要句子切合圖意、意思完整，教師可確認為正確。`));
+  }
   if (topicIndex === 2) {
     const allPeople = profile.passages.map((item) => item.who).concat(['老師']);
     const allPlaces = profile.passages.map((item) => item.place).concat(['圖書館']);

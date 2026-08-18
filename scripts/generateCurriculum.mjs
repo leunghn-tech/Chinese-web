@@ -119,7 +119,7 @@ function makeMathQuestion(topic, gradeIndex, i) {
 const topics = [];
 grades.forEach((grade, gradeIndex) => {
   const add = (subject, title, index, titleEn = '') => {
-    const bilingual = subject === '數學' && gradeIndex >= 6; const topic = { id:`${grade}-${subject}-${index + 1}`, grade, subject, title, titleEn, description:`${grade} ${subject}・${title}課程任務`, engine:engines[index], icon:icons[index], difficulty:gradeIndex < 6 ? '基礎' : gradeIndex < 9 ? '初中' : 'DSE', curriculumArea:title, bilingual, slot:index };
+    const bilingual = subject === '數學' && gradeIndex >= 6; const isPictureWriting = grade === 'P1' && subject === '中文' && index === 3; const topic = { id:`${grade}-${subject}-${index + 1}`, grade, subject, title, titleEn, description:`${grade} ${subject}・${title}課程任務`, engine:isPictureWriting ? 'composition' : engines[index], icon:isPictureWriting ? 'PenLine' : icons[index], difficulty:gradeIndex < 6 ? '基礎' : gradeIndex < 9 ? '初中' : 'DSE', curriculumArea:title, bilingual, slot:index };
     if (subject === '中文' && gradeIndex < 6) topic.questions = makePrimaryChineseQuestions(grade, index, title);
     else if (subject === '數學') topic.questions = Array.from({length:10},(_,i)=>makeMathQuestionByEngine(topic, gradeIndex, i));
     else if (topic.engine === 'puzzle') topic.questions = makeLanguagePuzzles(subject, title, gradeIndex);
