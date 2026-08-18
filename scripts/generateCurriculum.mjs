@@ -9,7 +9,7 @@ const puzzle = (prompt, tokens, correctOrder, explanation, extra = {}) => ({ typ
 const text = (prompt, answer, hint, explanation, extra = {}) => ({ type: 'text', prompt, answer, hint, explanation, ...extra });
 
 const chineseMap = {
-  P1:['常用字與標點','完整句子表達','兒歌與童話閱讀','看圖寫句','節日與禮貌'], P2:['故事順序與重點','四素句寫作','寓言與因果','標點符號運用','神話與傳說'], P3:['記敍文主旨','段落結構與閱讀策略','日記與書信','比喻與擬人','成語與古詩'], P4:['散文說明文與成語故事','中心思想與寫作目的','人物景物描寫','排比反問與修改文章','唐詩宋詞與傳統藝術'], P5:['小說劇本與科普閱讀','篇章結構與過渡','議論文論點論據','說明方法與修辭效果','成語故事與古典小說'], P6:['世說新語與閱讀策略','夾敍夾議寫作','實用文與演講辭','仁義禮智信文化','專題研習與高階思維'],
+  P1:['常用字、標點與生活語文','完整句子表達','兒歌與童話閱讀','看圖寫句','生活禮貌與簡單應用'], P2:['故事順序與重點','四素句寫作','寓言與因果閱讀','標點符號運用','賀卡、通知與生活應用'], P3:['記敍文主旨與細節','段落結構與閱讀策略','日記與書信寫作','比喻與擬人','成語、古詩與生活表達'], P4:['散文與說明文閱讀','中心思想與寫作目的','人物景物描寫','排比、反問與修改文章','段落寫作與修辭應用'], P5:['小說、劇本與科普閱讀','篇章結構與過渡','議論文論點論據','說明方法與修辭效果','說明與議論寫作應用'], P6:['閱讀策略與篇章理解','夾敍夾議寫作','實用文與演講辭','論證與建議寫作','專題研習與資料表達'],
   S1:['白話與論語閱讀','記敍描寫與抒情','比喻擬人排比對偶','唐詩宋詞與現代散文','儒家思想與傳統美德'], S2:['世說新語與篇章結構','說明文與議論文','舉例對比比喻論證','文言虛詞與實詞','水滸傳選段與辯論'], S3:['多文體比較閱讀','實用文報告與評論','史記選段與寫作風格','現代詩散文與古典詩詞','文化精神與高階思維'], S4:['DSE白話文閱讀','DSE文言文詞句翻譯','指定篇章研讀','長文寫作立意與結構','實用文寫作'], S5:['DSE閱讀手法與評價','文言文文化內涵','情境寫作與選材','聆聽資訊與立場','綜合能力資料篩選'], S6:['DSE閱讀比較與推論','指定篇章整合','長文語言與修辭','說話討論與短講','綜合寫作與應試策略'],
 };
 const englishMap = {
@@ -119,7 +119,7 @@ function makeMathQuestion(topic, gradeIndex, i) {
 const topics = [];
 grades.forEach((grade, gradeIndex) => {
   const add = (subject, title, index, titleEn = '') => {
-    const bilingual = subject === '數學' && gradeIndex >= 6; const isPictureWriting = grade === 'P1' && subject === '中文' && index === 3; const topic = { id:`${grade}-${subject}-${index + 1}`, grade, subject, title, titleEn, description:`${grade} ${subject}・${title}課程任務`, engine:isPictureWriting ? 'composition' : engines[index], icon:isPictureWriting ? 'PenLine' : icons[index], difficulty:gradeIndex < 6 ? '基礎' : gradeIndex < 9 ? '初中' : 'DSE', curriculumArea:title, bilingual, slot:index };
+    const bilingual = subject === '數學' && gradeIndex >= 6; const isWritingWorkshop = /^P[1-6]$/.test(grade) && subject === '中文' && index === 3; const topic = { id:`${grade}-${subject}-${index + 1}`, grade, subject, title, titleEn, description:`${grade} ${subject}・${title}課程任務`, engine:isWritingWorkshop ? 'composition' : engines[index], icon:isWritingWorkshop ? 'PenLine' : icons[index], difficulty:gradeIndex < 6 ? '基礎' : gradeIndex < 9 ? '初中' : 'DSE', curriculumArea:title, bilingual, slot:index };
     if (subject === '中文' && gradeIndex < 6) topic.questions = makePrimaryChineseQuestions(grade, index, title);
     else if (subject === '數學') topic.questions = Array.from({length:10},(_,i)=>makeMathQuestionByEngine(topic, gradeIndex, i));
     else if (topic.engine === 'puzzle') topic.questions = makeLanguagePuzzles(subject, title, gradeIndex);

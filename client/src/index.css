@@ -34,3 +34,6 @@
 @media(max-width:640px){.composition-engine .engine-intro{padding:1rem}.picture-scene{border-width:3px}.composition-card{padding:1rem}.composition-actions>*{width:100%;justify-content:center}.writing-field textarea{font-size:1rem}}
 
 .picture-scene figcaption > svg{width:16px!important;height:16px!important;flex:0 0 16px}.picture-scene > svg{display:block;width:100%;height:auto}
+
+/* 教師回饋控制：每題由清楚的下一題按鈕推進，答錯時須先完成三秒解析。 */
+.feedback-next-btn{display:inline-flex;align-items:center;justify-content:center;gap:.4rem;min-width:150px;margin-top:.85rem;padding:.72rem 1rem;border:0;border-radius:.65rem;background:#48d8ff;color:#06304a;font:900 .88rem var(--display);box-shadow:0 8px 20px rgba(72,216,255,.24)}.feedback-next-btn:disabled{background:#5d7193;color:#d6e2f2;box-shadow:none;cursor:not-allowed}.feedback-overlay.success .feedback-next-btn{background:#4de4a9;color:#073f31}
