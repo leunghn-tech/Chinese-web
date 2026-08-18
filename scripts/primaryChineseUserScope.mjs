@@ -40,23 +40,6 @@ const makeChoiceTopic = (grade, index, title, entries, distractors, area) => ({
 
 const scope = {
   P1: [
-    ['認讀生字與基本筆畫', [
-      strokeQuestion({ character:'日', strokes:['橫','豎','橫折','橫'], targetOrder:1, distractors:['豎','撇','點'], explanation:'「日」字先寫頂部的橫。' }),
-      strokeQuestion({ character:'日', strokes:['橫','豎','橫折','橫'], targetOrder:2, distractors:['橫','撇','點'], explanation:'「日」字第二筆是左邊直下的豎。' }),
-      strokeQuestion({ character:'十', strokes:['橫','豎'], targetOrder:2, distractors:['橫','撇','點'], explanation:'「十」先橫後豎，所以第二筆是豎。' }),
-      strokeQuestion({ character:'人', strokes:['撇','捺'], targetOrder:1, distractors:['捺','橫','豎'], explanation:'「人」字先從左上寫出撇。' }),
-      strokeQuestion({ character:'木', strokes:['橫','豎','撇','捺'], targetOrder:2, distractors:['橫','撇','捺'], explanation:'「木」的第二筆是中間直下的豎。' }),
-      strokeQuestion({ character:'小', strokes:['豎鈎','撇','點'], targetOrder:3, distractors:['豎鈎','撇','橫'], explanation:'「小」字最後一筆是右邊的點。' }),
-      strokeQuestion({ character:'口', strokes:['豎','橫折','橫'], targetOrder:2, distractors:['豎','橫','撇'], explanation:'「口」的第二筆是橫折，先橫再向下折。' }),
-      strokeQuestion({ character:'山', strokes:['豎','豎折','豎'], targetOrder:3, distractors:['豎折','橫','撇'], explanation:'「山」字最後補上右邊的豎。' }),
-      strokeQuestion({ character:'大', strokes:['橫','撇','捺'], targetOrder:3, distractors:['橫','撇','豎'], explanation:'「大」字最後一筆向右下伸展，是捺。' }),
-      strokeQuestion({ character:'月', strokes:['撇','橫折鈎','橫','橫'], targetOrder:2, distractors:['撇','橫','豎'], explanation:'「月」字第二筆是包住右側的橫折鈎。' }),
-      strokeQuestion({ character:'火', strokes:['點','撇','撇','捺'], targetOrder:1, distractors:['撇','捺','橫'], explanation:'「火」字起筆是上方的小點。' }),
-      strokeQuestion({ character:'一', strokes:['橫'], targetOrder:1, distractors:['豎','撇','點'], explanation:'「一」字只有一筆橫。' }),
-      strokeQuestion({ character:'上', strokes:['豎','橫','橫'], targetOrder:3, distractors:['豎','撇','捺'], explanation:'「上」字最後寫底部的一橫。' }),
-      strokeQuestion({ character:'田', strokes:['豎','橫折','橫','豎','橫'], targetOrder:4, distractors:['橫折','橫','撇'], explanation:'「田」字先完成外框，再寫中間的豎。' }),
-      strokeQuestion({ character:'正', strokes:['橫','豎','橫','豎','橫'], targetOrder:5, distractors:['豎','撇','點'], explanation:'「正」字最後一筆是最下方的橫。' }),
-    ], ['橫','豎','撇','捺','點','橫折','豎鈎','橫折鈎'], '認讀生字、基本筆畫'],
     ['簡單量詞與單句', [
       ['一＿＿書，最合適填甚麼量詞？','本','書通常用「本」作量詞。'],['一＿＿鉛筆，最合適填甚麼量詞？','枝','細長的鉛筆常用「枝」。'],['一＿＿小鳥，最合適填甚麼量詞？','隻','小鳥常用「隻」作量詞。'],['一＿＿花，最合適填甚麼量詞？','朵','花常用「朵」作量詞。'],['一＿＿雨傘，最合適填甚麼量詞？','把','雨傘常用「把」作量詞。'],['一＿＿桌子，最合適填甚麼量詞？','張','桌子常用「張」作量詞。'],['一＿＿牛奶，最合適填甚麼量詞？','杯','液體裝在杯中可說「一杯」。'],['一＿＿門，最合適填甚麼量詞？','扇','門常用「扇」作量詞。'],['「小明在跑步。」是一個甚麼？','完整單句','有清楚意思的句子是完整單句。'],['「媽媽煮飯。」句中的人物是誰？','媽媽','句中做動作的人物是媽媽。'],['「小狗睡覺。」句中的動作是甚麼？','睡覺','「睡覺」說明小狗的動作。'],['「我看書。」句中「書」是甚麼？','看的物件','書是「看」的對象。'],['哪一句是完整單句？','弟弟在畫畫','這句有人物和動作，意思完整。'],['哪一句最適合描述圖片中的女孩跳繩？','女孩在跳繩','描述圖片要寫出人物和動作。'],['「一＿＿蘋果」最合適填甚麼？','個','蘋果常用「個」作量詞。']], ['本','枝','隻','朵','把','張','杯','扇','個','完整單句'], '量詞、單句'],
     ['認識句號及問號', [

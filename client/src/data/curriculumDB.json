@@ -17,332 +17,13 @@
       "id": "P1-中文-1",
       "grade": "P1",
       "subject": "中文",
-      "title": "認讀生字與基本筆畫",
-      "description": "P1 中文・認讀生字、基本筆畫",
-      "curriculumArea": "認讀生字、基本筆畫",
-      "engine": "race",
-      "icon": "Gauge",
-      "difficulty": "基礎",
-      "slot": 0,
-      "questions": [
-        {
-          "type": "choice",
-          "prompt": "認讀生字與基本筆畫｜第1題：請看方格內的「日」字，選出它的第 1 筆。",
-          "options": [
-            "橫",
-            "豎",
-            "撇",
-            "點"
-          ],
-          "answerIndex": 0,
-          "explanation": "「日」字先寫頂部的橫。",
-          "visualType": "stroke-grid",
-          "character": "日",
-          "strokes": [
-            "橫",
-            "豎",
-            "橫折",
-            "橫"
-          ],
-          "targetOrder": 1
-        },
-        {
-          "type": "choice",
-          "prompt": "認讀生字與基本筆畫｜第2題：請看方格內的「日」字，選出它的第 2 筆。",
-          "options": [
-            "橫",
-            "撇",
-            "點",
-            "豎"
-          ],
-          "answerIndex": 3,
-          "explanation": "「日」字第二筆是左邊直下的豎。",
-          "visualType": "stroke-grid",
-          "character": "日",
-          "strokes": [
-            "橫",
-            "豎",
-            "橫折",
-            "橫"
-          ],
-          "targetOrder": 2
-        },
-        {
-          "type": "choice",
-          "prompt": "認讀生字與基本筆畫｜第3題：請看方格內的「十」字，選出它的第 2 筆。",
-          "options": [
-            "撇",
-            "點",
-            "豎",
-            "橫"
-          ],
-          "answerIndex": 2,
-          "explanation": "「十」先橫後豎，所以第二筆是豎。",
-          "visualType": "stroke-grid",
-          "character": "十",
-          "strokes": [
-            "橫",
-            "豎"
-          ],
-          "targetOrder": 2
-        },
-        {
-          "type": "choice",
-          "prompt": "認讀生字與基本筆畫｜第4題：請看方格內的「人」字，選出它的第 1 筆。",
-          "options": [
-            "豎",
-            "撇",
-            "捺",
-            "橫"
-          ],
-          "answerIndex": 1,
-          "explanation": "「人」字先從左上寫出撇。",
-          "visualType": "stroke-grid",
-          "character": "人",
-          "strokes": [
-            "撇",
-            "捺"
-          ],
-          "targetOrder": 1
-        },
-        {
-          "type": "choice",
-          "prompt": "認讀生字與基本筆畫｜第5題：請看方格內的「木」字，選出它的第 2 筆。",
-          "options": [
-            "豎",
-            "橫",
-            "撇",
-            "捺"
-          ],
-          "answerIndex": 0,
-          "explanation": "「木」的第二筆是中間直下的豎。",
-          "visualType": "stroke-grid",
-          "character": "木",
-          "strokes": [
-            "橫",
-            "豎",
-            "撇",
-            "捺"
-          ],
-          "targetOrder": 2
-        },
-        {
-          "type": "choice",
-          "prompt": "認讀生字與基本筆畫｜第6題：請看方格內的「小」字，選出它的第 3 筆。",
-          "options": [
-            "豎鈎",
-            "撇",
-            "橫",
-            "點"
-          ],
-          "answerIndex": 3,
-          "explanation": "「小」字最後一筆是右邊的點。",
-          "visualType": "stroke-grid",
-          "character": "小",
-          "strokes": [
-            "豎鈎",
-            "撇",
-            "點"
-          ],
-          "targetOrder": 3
-        },
-        {
-          "type": "choice",
-          "prompt": "認讀生字與基本筆畫｜第7題：請看方格內的「口」字，選出它的第 2 筆。",
-          "options": [
-            "橫",
-            "撇",
-            "橫折",
-            "豎"
-          ],
-          "answerIndex": 2,
-          "explanation": "「口」的第二筆是橫折，先橫再向下折。",
-          "visualType": "stroke-grid",
-          "character": "口",
-          "strokes": [
-            "豎",
-            "橫折",
-            "橫"
-          ],
-          "targetOrder": 2
-        },
-        {
-          "type": "choice",
-          "prompt": "認讀生字與基本筆畫｜第8題：請看方格內的「山」字，選出它的第 3 筆。",
-          "options": [
-            "撇",
-            "豎",
-            "豎折",
-            "橫"
-          ],
-          "answerIndex": 1,
-          "explanation": "「山」字最後補上右邊的豎。",
-          "visualType": "stroke-grid",
-          "character": "山",
-          "strokes": [
-            "豎",
-            "豎折",
-            "豎"
-          ],
-          "targetOrder": 3
-        },
-        {
-          "type": "choice",
-          "prompt": "認讀生字與基本筆畫｜第9題：請看方格內的「大」字，選出它的第 3 筆。",
-          "options": [
-            "捺",
-            "橫",
-            "撇",
-            "豎"
-          ],
-          "answerIndex": 0,
-          "explanation": "「大」字最後一筆向右下伸展，是捺。",
-          "visualType": "stroke-grid",
-          "character": "大",
-          "strokes": [
-            "橫",
-            "撇",
-            "捺"
-          ],
-          "targetOrder": 3
-        },
-        {
-          "type": "choice",
-          "prompt": "認讀生字與基本筆畫｜第10題：請看方格內的「月」字，選出它的第 2 筆。",
-          "options": [
-            "撇",
-            "橫",
-            "豎",
-            "橫折鈎"
-          ],
-          "answerIndex": 3,
-          "explanation": "「月」字第二筆是包住右側的橫折鈎。",
-          "visualType": "stroke-grid",
-          "character": "月",
-          "strokes": [
-            "撇",
-            "橫折鈎",
-            "橫",
-            "橫"
-          ],
-          "targetOrder": 2
-        },
-        {
-          "type": "choice",
-          "prompt": "認讀生字與基本筆畫｜第11題：請看方格內的「火」字，選出它的第 1 筆。",
-          "options": [
-            "捺",
-            "橫",
-            "點",
-            "撇"
-          ],
-          "answerIndex": 2,
-          "explanation": "「火」字起筆是上方的小點。",
-          "visualType": "stroke-grid",
-          "character": "火",
-          "strokes": [
-            "點",
-            "撇",
-            "撇",
-            "捺"
-          ],
-          "targetOrder": 1
-        },
-        {
-          "type": "choice",
-          "prompt": "認讀生字與基本筆畫｜第12題：請看方格內的「一」字，選出它的第 1 筆。",
-          "options": [
-            "點",
-            "橫",
-            "豎",
-            "撇"
-          ],
-          "answerIndex": 1,
-          "explanation": "「一」字只有一筆橫。",
-          "visualType": "stroke-grid",
-          "character": "一",
-          "strokes": [
-            "橫"
-          ],
-          "targetOrder": 1
-        },
-        {
-          "type": "choice",
-          "prompt": "認讀生字與基本筆畫｜第13題：請看方格內的「上」字，選出它的第 3 筆。",
-          "options": [
-            "橫",
-            "豎",
-            "撇",
-            "捺"
-          ],
-          "answerIndex": 0,
-          "explanation": "「上」字最後寫底部的一橫。",
-          "visualType": "stroke-grid",
-          "character": "上",
-          "strokes": [
-            "豎",
-            "橫",
-            "橫"
-          ],
-          "targetOrder": 3
-        },
-        {
-          "type": "choice",
-          "prompt": "認讀生字與基本筆畫｜第14題：請看方格內的「田」字，選出它的第 4 筆。",
-          "options": [
-            "橫折",
-            "橫",
-            "撇",
-            "豎"
-          ],
-          "answerIndex": 3,
-          "explanation": "「田」字先完成外框，再寫中間的豎。",
-          "visualType": "stroke-grid",
-          "character": "田",
-          "strokes": [
-            "豎",
-            "橫折",
-            "橫",
-            "豎",
-            "橫"
-          ],
-          "targetOrder": 4
-        },
-        {
-          "type": "choice",
-          "prompt": "認讀生字與基本筆畫｜第15題：請看方格內的「正」字，選出它的第 5 筆。",
-          "options": [
-            "撇",
-            "點",
-            "橫",
-            "豎"
-          ],
-          "answerIndex": 2,
-          "explanation": "「正」字最後一筆是最下方的橫。",
-          "visualType": "stroke-grid",
-          "character": "正",
-          "strokes": [
-            "橫",
-            "豎",
-            "橫",
-            "豎",
-            "橫"
-          ],
-          "targetOrder": 5
-        }
-      ]
-    },
-    {
-      "id": "P1-中文-2",
-      "grade": "P1",
-      "subject": "中文",
       "title": "簡單量詞與單句",
       "description": "P1 中文・量詞、單句",
       "curriculumArea": "量詞、單句",
       "engine": "race",
       "icon": "Gauge",
       "difficulty": "基礎",
-      "slot": 1,
+      "slot": 0,
       "questions": [
         {
           "type": "choice",
@@ -527,7 +208,7 @@
       ]
     },
     {
-      "id": "P1-中文-3",
+      "id": "P1-中文-2",
       "grade": "P1",
       "subject": "中文",
       "title": "認識句號及問號",
@@ -536,7 +217,7 @@
       "engine": "race",
       "icon": "Gauge",
       "difficulty": "基礎",
-      "slot": 2,
+      "slot": 1,
       "questions": [
         {
           "type": "choice",
@@ -5767,8 +5448,8 @@
     }
   ],
   "summary": {
-    "totalTopics": 23,
-    "totalQuestions": 345,
+    "totalTopics": 22,
+    "totalQuestions": 330,
     "questionsPerTopic": 15
   }
 }
