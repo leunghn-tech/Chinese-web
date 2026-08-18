@@ -1,4 +1,5 @@
 import { mkdir, writeFile } from 'node:fs/promises';
+import { makePrimaryChineseQuestions } from './primaryChineseContent.mjs';
 
 const grades = ['P1', 'P2', 'P3', 'P4', 'P5', 'P6', 'S1', 'S2', 'S3', 'S4', 'S5', 'S6'];
 const engines = ['race', 'puzzle', 'rpg', 'chest', 'race'];
@@ -119,7 +120,8 @@ const topics = [];
 grades.forEach((grade, gradeIndex) => {
   const add = (subject, title, index, titleEn = '') => {
     const bilingual = subject === '數學' && gradeIndex >= 6; const topic = { id:`${grade}-${subject}-${index + 1}`, grade, subject, title, titleEn, description:`${grade} ${subject}・${title}課程任務`, engine:engines[index], icon:icons[index], difficulty:gradeIndex < 6 ? '基礎' : gradeIndex < 9 ? '初中' : 'DSE', curriculumArea:title, bilingual, slot:index };
-    if (subject === '數學') topic.questions = Array.from({length:10},(_,i)=>makeMathQuestionByEngine(topic, gradeIndex, i));
+    if (subject === '中文' && gradeIndex < 6) topic.questions = makePrimaryChineseQuestions(grade, index, title);
+    else if (subject === '數學') topic.questions = Array.from({length:10},(_,i)=>makeMathQuestionByEngine(topic, gradeIndex, i));
     else if (topic.engine === 'puzzle') topic.questions = makeLanguagePuzzles(subject, title, gradeIndex);
     else if (topic.engine === 'chest') topic.questions = makeLanguageVault(subject, title, gradeIndex);
     else { const base = subject === '中文' ? chineseBase : englishBase; topic.questions = base.map(([stem,options,answerIndex,explanation])=>choice(`${title}｜${stem}`, options, answerIndex, explanation)); }
@@ -216,7 +218,7 @@ function makeSeniorMathQuestion(topic, i) {
   { const coefficient=i+2, answer=i+4; return seniorChoice(topic,i,`綜合解難：解 ${coefficient}x = ${coefficient*answer}。`,`Mixed problem solving: solve ${coefficient}x = ${coefficient*answer}.`,answer,[answer,answer+1,answer-1,answer+2],`兩邊同除以 ${coefficient}，x = ${answer}。`,`Divide both sides by ${coefficient}; x = ${answer}.`); }
 }
 
-const database = { meta:{ title:'EduQuest 邊學邊玩', topicCount:topics.length, questionsPerTopic:10, subjects:['中文','英文','數學'], grades, curriculumSource:'pasted_content.txt' }, topics };
+const database = { meta:{ title:'EduQuest 邊學邊玩', topicCount:topics.length, questionPolicy:'P1–P6 中文每個 Topic 15 題；其餘 Topic 每個 10 題', totalQuestionCount:1950, subjects:['中文','英文','數學'], grades, curriculumSource:'pasted_content_2.txt' }, topics };
 await mkdir(new URL('../client/src/data/',import.meta.url),{recursive:true});
 await writeFile(new URL('../client/src/data/curriculumDB.json',import.meta.url),`${JSON.stringify(database,null,2)}\n`,'utf8');
-console.log(`Generated ${topics.length} curriculum-aligned topics with ${topics.length * 10} questions.`);
+console.log(`Generated ${topics.length} curriculum-aligned topics with 1950 questions (P1–P6 Chinese: 15 each; others: 10 each).`);
