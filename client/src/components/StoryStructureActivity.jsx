@@ -3,21 +3,42 @@ import { BookOpen, Check, ChevronRight, GripVertical, RotateCcw, Sparkles, Troph
 import { useState } from 'react';
 
 function WorkbenchFrame({ unit, taskLabel }) {
-  return <header className="activity-workbench-frame"><div className="activity-brand-lockup"><span className="activity-brand-mark">EQ</span><div><b>EduQuest</b><small>小學課堂展示版</small></div></div><div className="activity-course-file"><span>小一・中國語文</span><b>{unit.area}・{unit.title}</b></div><div className="activity-task-stamp"><span>課堂工作紙</span><b>{taskLabel}</b></div></header>;
+  return <header className="activity-workbench-frame"><span className="activity-file-tab">P1<br />中文</span><div className="activity-brand-lockup"><span className="activity-brand-mark"><i></i><i></i><i></i><Sparkles size={18} /></span><div><b>Edu<span>Quest</span></b><small>小學課堂展示版</small></div></div><div className="activity-course-file"><span>小一・中國語文</span><b>{unit.area}・{unit.title}</b></div><div className="activity-task-stamp"><span>課堂工作紙</span><b>{taskLabel}</b></div></header>;
+}
+
+function shuffle(items) {
+  const shuffled = [...items];
+  for (let index = shuffled.length - 1; index > 0; index -= 1) {
+    const swapIndex = Math.floor(Math.random() * (index + 1));
+    [shuffled[index], shuffled[swapIndex]] = [shuffled[swapIndex], shuffled[index]];
+  }
+  return shuffled;
+}
+
+function createStorySession(stories) {
+  const story = stories[Math.floor(Math.random() * stories.length)] || stories[0];
+  return { story, questions: shuffle(story.questions) };
 }
 
 export default function StoryStructureActivity({ unit, onBack, onComplete }) {
+  const [session, setSession] = useState(() => createStorySession(unit.stories));
   const [questionIndex, setQuestionIndex] = useState(0);
   const [selectedStage, setSelectedStage] = useState(false);
   const [placedParagraph, setPlacedParagraph] = useState(null);
   const [feedback, setFeedback] = useState(null);
   const [showSummary, setShowSummary] = useState(false);
-  const question = unit.questions[questionIndex];
-  const paragraph = unit.story.paragraphs.find((item) => item.id === placedParagraph);
+  const { story, questions } = session;
+  const question = questions[questionIndex];
+  const paragraph = story.paragraphs.find((item) => item.id === placedParagraph);
   const completed = placedParagraph === question.answer;
 
   const resetQuestion = () => { setSelectedStage(false); setPlacedParagraph(null); setFeedback(null); };
-  const replay = () => { setQuestionIndex(0); setShowSummary(false); resetQuestion(); };
+  const replay = () => { setSession(createStorySession(unit.stories)); setQuestionIndex(0); setShowSummary(false); resetQuestion(); };
+  const retryRandomQuestion = () => {
+    const nextIndex = questions.length > 1 ? (questionIndex + 1 + Math.floor(Math.random() * (questions.length - 1))) % questions.length : 0;
+    setQuestionIndex(nextIndex);
+    resetQuestion();
+  };
   const placeStage = (paragraphId, fromDrag = false) => {
     if (completed || (!selectedStage && !fromDrag)) return;
     if (paragraphId !== question.answer) {
@@ -31,12 +52,12 @@ export default function StoryStructureActivity({ unit, onBack, onComplete }) {
     setFeedback({ correct: true, paragraphId });
   };
   const nextQuestion = () => {
-    if (questionIndex >= unit.questions.length - 1) { onComplete?.(unit); setShowSummary(true); return; }
+    if (questionIndex >= questions.length - 1) { onComplete?.(unit, questions.map((item) => item.id)); setShowSummary(true); return; }
     setQuestionIndex((index) => index + 1);
     resetQuestion();
   };
 
-  if (showSummary) return <main className="site-shell story-page"><WorkbenchFrame unit={unit} taskLabel="結算" /><section className="activity-summary"><span><Trophy size={28} /> 閱讀任務完成</span><h1>一篇短文，完成<br /><em>{unit.questions.length} 條閱讀問題。</em></h1><p>你已在《{unit.story.title}》中找出起、承、轉、合的段落線索。</p><div className="summary-score"><b>{unit.questions.length}</b><span>題全部完成</span></div><div className="summary-actions"><button onClick={onBack}>返回中文目錄</button><button onClick={replay}><RotateCcw size={17} /> 重讀並重玩</button></div></section></main>;
+  if (showSummary) return <main className="site-shell story-page"><WorkbenchFrame unit={unit} taskLabel="結算" /><section className="activity-summary"><span><Trophy size={28} /> 閱讀任務完成</span><h1>《{story.title}》<br /><em>{questions.length} 條問題完成。</em></h1><p>你已找出起、承、轉、合的段落線索；按「隨機重玩」會換一篇短文並重新排列題目。</p><div className="summary-score"><b>{questions.length}</b><span>題全部完成</span></div><div className="summary-actions"><button onClick={onBack}>返回中文目錄</button><button onClick={replay}><RotateCcw size={17} /> 隨機重玩</button></div></section></main>;
 
-  return <main className="site-shell story-page"><WorkbenchFrame unit={unit} taskLabel={`任務 ${questionIndex + 1} / ${unit.questions.length}`} /><header className="match-topbar"><button onClick={onBack} className="match-back">返回中文目錄</button><div><span>{unit.area}・{unit.title}</span><b>第 {questionIndex + 1} / {unit.questions.length} 題</b></div><div className="match-progress" aria-label={`進度 ${questionIndex + 1} / ${unit.questions.length}`}><i style={{ width: `${((questionIndex + 1) / unit.questions.length) * 100}%` }} /></div></header><section className="story-stage"><div className="match-heading"><span><Sparkles size={16} /> 短文閱讀任務</span><h1>{question.prompt}</h1><p>先讀短文；再把「{question.stage}」標籤拖到最合適的段落。平板上可先點標籤，再點段落。</p></div><section className="story-reader"><div className="story-reader-head"><span><BookOpen size={18} /> 閱讀短文</span><div><b>{unit.story.title}</b><small>{unit.story.intro}</small></div></div><div className="story-paragraphs">{unit.story.paragraphs.map((item, index) => <button key={item.id} onDragOver={(event) => event.preventDefault()} onDrop={(event) => { event.preventDefault(); placeStage(item.id, true); }} onClick={() => placeStage(item.id)} className={`story-paragraph ${completed && item.id === paragraph?.id ? 'right' : ''} ${feedback?.correct === false && feedback.paragraphId === item.id ? 'wrong' : ''}`}><span>第 {index + 1} 段</span><p>{item.text}</p></button>)}</div></section><section className="story-stage-token" aria-label="段落結構標籤"><div><span>任務標籤</span><small><GripVertical size={14} /> 拖曳或點選</small></div><button draggable={Boolean(!completed)} disabled={completed} onDragStart={(event) => { event.dataTransfer.setData('story-stage', question.stage); setSelectedStage(true); }} onDragEnd={() => setSelectedStage(false)} onClick={() => setSelectedStage((current) => !current)} className={selectedStage ? 'selected' : ''}>{question.stage}</button></section>{feedback && !completed && <div className="match-feedback incorrect"><X size={19} /> 這段還未最符合「{question.stage}」的作用。請再看問題和段落線索。</div>}{completed && <div className="match-complete"><div><span><Check size={20} /> 配對正確</span><b>你找對第 {unit.story.paragraphs.findIndex((item) => item.id === question.answer) + 1} 段了！</b><p>{question.explanation}</p></div><div className="complete-actions"><button onClick={resetQuestion}><RotateCcw size={16} /> 再試一次</button><button onClick={nextQuestion}>{questionIndex === unit.questions.length - 1 ? '查看結算' : '下一題'} <ChevronRight size={17} /></button></div></div>}</section></main>;
+  return <main className="site-shell story-page"><WorkbenchFrame unit={unit} taskLabel={`任務 ${questionIndex + 1} / ${questions.length}`} /><header className="match-topbar"><button onClick={onBack} className="match-back">返回中文目錄</button><div><span>{unit.area}・{unit.title}</span><b>第 {questionIndex + 1} / {questions.length} 題</b></div><div className="match-progress" aria-label={`進度 ${questionIndex + 1} / ${questions.length}`}><i style={{ width: `${((questionIndex + 1) / questions.length) * 100}%` }} /></div></header><section className="story-stage"><div className="match-heading"><span><Sparkles size={16} /> 短文閱讀任務</span><h1>{question.prompt}</h1><p>先讀短文；再把「{question.stage}」標籤拖到最合適的段落。平板上可先點標籤，再點段落。</p></div><section className="story-reader"><div className="story-reader-head"><span><BookOpen size={18} /> 閱讀短文</span><div><b>{story.title}</b><small>{story.intro}</small></div></div><div className="story-paragraphs">{story.paragraphs.map((item, index) => <button key={item.id} onDragOver={(event) => event.preventDefault()} onDrop={(event) => { event.preventDefault(); placeStage(item.id, true); }} onClick={() => placeStage(item.id)} className={`story-paragraph ${completed && item.id === paragraph?.id ? 'right' : ''} ${feedback?.correct === false && feedback.paragraphId === item.id ? 'wrong' : ''}`}><span>第 {index + 1} 段</span><p>{item.text}</p></button>)}</div></section><section className="story-stage-token" aria-label="段落結構標籤"><div><span>任務標籤</span><small><GripVertical size={14} /> 拖曳或點選</small></div><button draggable={Boolean(!completed)} disabled={completed} onDragStart={(event) => { event.dataTransfer.setData('story-stage', question.stage); setSelectedStage(true); }} onDragEnd={() => setSelectedStage(false)} onClick={() => setSelectedStage((current) => !current)} className={selectedStage ? 'selected' : ''}>{question.stage}</button></section>{feedback && !completed && <div className="match-feedback incorrect"><X size={19} /> 這段還未最符合「{question.stage}」的作用。請再看問題和段落線索。</div>}{completed && <div className="match-complete"><div><span><Check size={20} /> 配對正確</span><b>你找對第 {story.paragraphs.findIndex((item) => item.id === question.answer) + 1} 段了！</b><p>{question.explanation}</p></div><div className="complete-actions"><button onClick={retryRandomQuestion}><RotateCcw size={16} /> 隨機再試一題</button><button onClick={nextQuestion}>{questionIndex === questions.length - 1 ? '查看結算' : '下一題'} <ChevronRight size={17} /></button></div></div>}</section></main>;
 }

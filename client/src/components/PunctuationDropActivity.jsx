@@ -3,7 +3,7 @@ import { Check, ChevronRight, GripVertical, RotateCcw, Sparkles, Trophy, X } fro
 import { useState } from 'react';
 
 function WorkbenchFrame({ unit, taskLabel }) {
-  return <header className="activity-workbench-frame"><div className="activity-brand-lockup"><span className="activity-brand-mark">EQ</span><div><b>EduQuest</b><small>小學課堂展示版</small></div></div><div className="activity-course-file"><span>小一・中國語文</span><b>{unit.area}・{unit.title}</b></div><div className="activity-task-stamp"><span>課堂工作紙</span><b>{taskLabel}</b></div></header>;
+  return <header className="activity-workbench-frame"><span className="activity-file-tab">P1<br />中文</span><div className="activity-brand-lockup"><span className="activity-brand-mark"><i></i><i></i><i></i><Sparkles size={18} /></span><div><b>Edu<span>Quest</span></b><small>小學課堂展示版</small></div></div><div className="activity-course-file"><span>小一・中國語文</span><b>{unit.area}・{unit.title}</b></div><div className="activity-task-stamp"><span>課堂工作紙</span><b>{taskLabel}</b></div></header>;
 }
 
 export default function PunctuationDropActivity({ unit, onBack, onComplete }) {
