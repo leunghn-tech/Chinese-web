@@ -52,7 +52,17 @@ export default {
         },
       ],
     },
-    { id: 'P1-CN-R02', area: '閱讀', title: '常用部首認識', questions: [] },
+    {
+      id: 'P1-CN-R02', area: '閱讀', title: '常用部首認識', interaction: 'radical-sort',
+      questions: [
+        { id: 'P1-CN-R02-Q01', prompt: '「河」字的部首是哪一個？', character: '河', radical: '氵', radicalName: '三點水', choices: ['氵', '木', '口', '女'], explanation: '「河」的左邊是「氵」，表示它和水有關。' },
+        { id: 'P1-CN-R02-Q02', prompt: '「林」字的部首是哪一個？', character: '林', radical: '木', radicalName: '木字旁', choices: ['日', '木', '扌', '口'], explanation: '「林」由兩個「木」組成，所以部首是「木」。' },
+        { id: 'P1-CN-R02-Q03', prompt: '「媽」字的部首是哪一個？', character: '媽', radical: '女', radicalName: '女字旁', choices: ['女', '氵', '日', '木'], explanation: '「媽」的左邊是「女」，所以部首是「女」。' },
+        { id: 'P1-CN-R02-Q04', prompt: '「問」字的部首是哪一個？', character: '問', radical: '口', radicalName: '口字旁', choices: ['扌', '口', '女', '木'], explanation: '「問」字裡有「口」，問話時要用口，所以部首是「口」。' },
+        { id: 'P1-CN-R02-Q05', prompt: '「明」字的部首是哪一個？', character: '明', radical: '日', radicalName: '日字旁', choices: ['日', '氵', '口', '扌'], explanation: '「明」的左邊是「日」，表示太陽帶來光明。' },
+        { id: 'P1-CN-R02-Q06', prompt: '「抱」字的部首是哪一個？', character: '抱', radical: '扌', radicalName: '提手旁', choices: ['女', '木', '扌', '日'], explanation: '「抱」的左邊是「扌」，表示用手做動作。' },
+      ],
+    },
     { id: 'P1-CN-R03', area: '閱讀', title: '基本標點符號', questions: [] },
     { id: 'P1-CN-R04', area: '閱讀', title: '短文起、承、轉、合', questions: [] },
     { id: 'P1-CN-W01', area: '寫作', title: '句子擴寫', questions: [] },

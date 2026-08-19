@@ -22,6 +22,7 @@ for (const topic of database.topics) {
 }
 
 const p1WordUnit = p1Bank.units.find((unit) => unit.id === 'P1-CN-R01');
+const p1RadicalUnit = p1Bank.units.find((unit) => unit.id === 'P1-CN-R02');
 if (!p1WordUnit) errors.push('缺少 P1「認讀基礎字詞」題庫單元。');
 else {
   if (p1WordUnit.interaction !== 'word-match') errors.push('P1 認讀基礎字詞必須使用 word-match 互動。');
@@ -36,9 +37,21 @@ else {
   }
 }
 
+if (!p1RadicalUnit) errors.push('缺少 P1「常用部首認識」題庫單元。');
+else {
+  if (p1RadicalUnit.interaction !== 'radical-sort') errors.push('P1 常用部首認識必須使用 radical-sort 互動。');
+  if (p1RadicalUnit.questions.length < 6) errors.push('P1 常用部首認識至少需要 6 題。');
+  for (const question of p1RadicalUnit.questions) {
+    if (!question.prompt || !question.explanation || !question.character || !question.radical || !question.radicalName) errors.push(`${question.id} 缺少部首題必要資料。`);
+    if (!Array.isArray(question.choices) || question.choices.length !== 4) errors.push(`${question.id} 必須有四個候選部首。`);
+    if (!question.choices?.includes(question.radical)) errors.push(`${question.id} 的正確部首必須包含在候選中。`);
+    if (new Set(question.choices || []).size !== question.choices?.length) errors.push(`${question.id} 的候選部首不可重複。`);
+  }
+}
+
 if (errors.length) {
   console.error(JSON.stringify({ status: 'invalid', errors }, null, 2));
   process.exit(1);
 }
 
-console.log(JSON.stringify({ status: 'valid', mode: database.mode, topics: database.topics.length, grades, subjects, questionsPerTopic: 1, p1WordMatchQuestions: p1WordUnit.questions.length }, null, 2));
+console.log(JSON.stringify({ status: 'valid', mode: database.mode, topics: database.topics.length, grades, subjects, questionsPerTopic: 1, p1WordMatchQuestions: p1WordUnit.questions.length, p1RadicalQuestions: p1RadicalUnit.questions.length }, null, 2));
