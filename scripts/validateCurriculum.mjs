@@ -35,6 +35,10 @@ const p2FormatUnit = p2Bank.units.find((unit) => unit.id === 'P2-CN-W03');
 const p3Bank = (await import('../client/src/data/questionBanks/chinese/p3.js')).default;
 const p3InfoUnit = p3Bank.units.find((unit) => unit.id === 'P3-CN-R01');
 const p3IdiomUnit = p3Bank.units.find((unit) => unit.id === 'P3-CN-R02');
+const p3ParagraphMarkUnit = p3Bank.units.find((unit) => unit.id === 'P3-CN-R03');
+const p3MetaphorUnit = p3Bank.units.find((unit) => unit.id === 'P3-CN-R04');
+const p3PersonificationUnit = p3Bank.units.find((unit) => unit.id === 'P3-CN-R05');
+const p3ParallelismUnit = p3Bank.units.find((unit) => unit.id === 'P3-CN-R06');
 if (!p1WordUnit) errors.push('缺少 P1「認讀基礎字詞」題庫單元。');
 else {
   if (p1WordUnit.interaction !== 'word-match') errors.push('P1 認讀基礎字詞必須使用 word-match 互動。');
@@ -174,9 +178,25 @@ else {
   for (const question of p3IdiomUnit.questions) if (!question.context || !question.prompt || !question.answer || !question.explanation || question.choices?.length !== 4 || !question.choices.includes(question.answer)) errors.push(`${question.id} 缺少完整的成語資料。`);
 }
 
+if (!p3ParagraphMarkUnit) errors.push('缺少 P3「說明文段落重點標記」題庫單元。');
+else {
+  if (p3ParagraphMarkUnit.interaction !== 'paragraph-mark') errors.push('P3 說明文段落重點標記必須使用 paragraph-mark 互動。');
+  if (p3ParagraphMarkUnit.questions.length < 10) errors.push('P3 說明文段落重點標記至少需要十題。');
+  for (const question of p3ParagraphMarkUnit.questions) if (!question.title || !question.prompt || !question.answer || !question.explanation || question.paragraphs?.length < 3 || !question.paragraphs.some((paragraph) => paragraph.id === question.answer)) errors.push(`${question.id} 缺少完整的段落標記資料。`);
+}
+
+for (const [name, unit] of [['比喻', p3MetaphorUnit], ['擬人', p3PersonificationUnit], ['排比', p3ParallelismUnit]]) {
+  if (!unit) errors.push(`缺少 P3「${name}手法」題庫單元。`);
+  else {
+    if (unit.interaction !== 'p3-figure') errors.push(`P3 ${name}手法必須使用 p3-figure 互動。`);
+    if (unit.questions.length < 10) errors.push(`P3 ${name}手法至少需要十題。`);
+    for (const question of unit.questions) if (!question.hint || !question.prompt || !question.answer || !question.explanation || question.choices?.length !== 4 || !question.choices.includes(question.answer)) errors.push(`${question.id} 缺少完整的${name}資料。`);
+  }
+}
+
 if (errors.length) {
   console.error(JSON.stringify({ status: 'invalid', errors }, null, 2));
   process.exit(1);
 }
 
-console.log(JSON.stringify({ status: 'valid', mode: database.mode, topics: database.topics.length, grades, subjects, questionsPerTopic: 1, p1WordMatchQuestions: p1WordUnit.questions.length, p1RadicalQuestions: p1RadicalUnit.questions.length, p1PunctuationQuestions: p1PunctuationUnit.questions.length, p1StoryStructureQuestions: p1StoryUnit.questions.length, p1SentenceExpandQuestions: p1SentenceUnit.questions.length, p2ContextQuestions: p2ContextUnit.questions.length, p2ConnectorQuestions: p2ConnectorUnit.questions.length, p2TaleQuestions: p2TaleUnit.questions.length, p2PortraitQuestions: p2PortraitUnit.questions.length, p2PracticalQuestions: p2PracticalUnit.questions.length, p2FormatQuestions: p2FormatUnit.questions.length, p3InfoQuestions: p3InfoUnit.questions.length, p3IdiomQuestions: p3IdiomUnit.questions.length }, null, 2));
+console.log(JSON.stringify({ status: 'valid', mode: database.mode, topics: database.topics.length, grades, subjects, questionsPerTopic: 1, p1WordMatchQuestions: p1WordUnit.questions.length, p1RadicalQuestions: p1RadicalUnit.questions.length, p1PunctuationQuestions: p1PunctuationUnit.questions.length, p1StoryStructureQuestions: p1StoryUnit.questions.length, p1SentenceExpandQuestions: p1SentenceUnit.questions.length, p2ContextQuestions: p2ContextUnit.questions.length, p2ConnectorQuestions: p2ConnectorUnit.questions.length, p2TaleQuestions: p2TaleUnit.questions.length, p2PortraitQuestions: p2PortraitUnit.questions.length, p2PracticalQuestions: p2PracticalUnit.questions.length, p2FormatQuestions: p2FormatUnit.questions.length, p3InfoQuestions: p3InfoUnit.questions.length, p3IdiomQuestions: p3IdiomUnit.questions.length, p3ParagraphMarkQuestions: p3ParagraphMarkUnit.questions.length, p3MetaphorQuestions: p3MetaphorUnit.questions.length, p3PersonificationQuestions: p3PersonificationUnit.questions.length, p3ParallelismQuestions: p3ParallelismUnit.questions.length }, null, 2));

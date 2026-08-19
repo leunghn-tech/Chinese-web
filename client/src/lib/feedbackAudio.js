@@ -1,6 +1,7 @@
 /* 課堂鼓勵音效：只在學生點選或拖放互動後啟動，避免自動播放及外部音檔載入。 */
 const playSequence = (notes, startDelay = 0) => {
   if (typeof window === 'undefined') return;
+  try { if (JSON.parse(window.localStorage.getItem('eduquest-feedback-settings') || '{}').sound === false) return; } catch { /* 使用預設音效設定。 */ }
   const Context = window.AudioContext || window.webkitAudioContext;
   if (!Context) return;
   try {
