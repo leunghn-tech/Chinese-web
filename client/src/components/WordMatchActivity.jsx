@@ -2,7 +2,7 @@
 import { Check, ChevronRight, GripVertical, MousePointer2, RotateCcw, Sparkles, X } from 'lucide-react';
 import { useMemo, useState } from 'react';
 
-export default function WordMatchActivity({ unit, onBack }) {
+export default function WordMatchActivity({ unit, onBack, onComplete }) {
   const [questionIndex, setQuestionIndex] = useState(0);
   const [matches, setMatches] = useState({});
   const [selectedWordId, setSelectedWordId] = useState(null);
@@ -32,6 +32,7 @@ export default function WordMatchActivity({ unit, onBack }) {
 
   const nextQuestion = () => {
     if (questionIndex >= unit.questions.length - 1) {
+      onComplete?.(unit);
       onBack();
       return;
     }

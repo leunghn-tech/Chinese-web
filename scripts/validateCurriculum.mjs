@@ -40,7 +40,7 @@ else {
 if (!p1RadicalUnit) errors.push('缺少 P1「常用部首認識」題庫單元。');
 else {
   if (p1RadicalUnit.interaction !== 'radical-sort') errors.push('P1 常用部首認識必須使用 radical-sort 互動。');
-  if (p1RadicalUnit.questions.length < 6) errors.push('P1 常用部首認識至少需要 6 題。');
+  if (p1RadicalUnit.questions.length < 10) errors.push('P1 常用部首認識至少需要 10 題。');
   for (const question of p1RadicalUnit.questions) {
     if (!question.prompt || !question.explanation || !question.character || !question.radical || !question.radicalName) errors.push(`${question.id} 缺少部首題必要資料。`);
     if (!Array.isArray(question.choices) || question.choices.length !== 4) errors.push(`${question.id} 必須有四個候選部首。`);
@@ -49,9 +49,21 @@ else {
   }
 }
 
+const p1PunctuationUnit = p1Bank.units.find((unit) => unit.id === 'P1-CN-R03');
+if (!p1PunctuationUnit) errors.push('缺少 P1「基本標點符號」題庫單元。');
+else {
+  if (p1PunctuationUnit.interaction !== 'punctuation-drop') errors.push('P1 基本標點符號必須使用 punctuation-drop 互動。');
+  if (p1PunctuationUnit.questions.length < 6) errors.push('P1 基本標點符號至少需要 6 題。');
+  for (const question of p1PunctuationUnit.questions) {
+    if (!question.prompt || !question.before || !question.answer || !question.explanation) errors.push(`${question.id} 缺少標點題必要資料。`);
+    if (!Array.isArray(question.choices) || question.choices.length !== 3) errors.push(`${question.id} 必須有三個候選標點。`);
+    if (!question.choices?.includes(question.answer)) errors.push(`${question.id} 的正確標點必須包含在候選中。`);
+  }
+}
+
 if (errors.length) {
   console.error(JSON.stringify({ status: 'invalid', errors }, null, 2));
   process.exit(1);
 }
 
-console.log(JSON.stringify({ status: 'valid', mode: database.mode, topics: database.topics.length, grades, subjects, questionsPerTopic: 1, p1WordMatchQuestions: p1WordUnit.questions.length, p1RadicalQuestions: p1RadicalUnit.questions.length }, null, 2));
+console.log(JSON.stringify({ status: 'valid', mode: database.mode, topics: database.topics.length, grades, subjects, questionsPerTopic: 1, p1WordMatchQuestions: p1WordUnit.questions.length, p1RadicalQuestions: p1RadicalUnit.questions.length, p1PunctuationQuestions: p1PunctuationUnit.questions.length }, null, 2));
