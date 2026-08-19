@@ -93,5 +93,20 @@ export default {
         { id: 'P2-CN-W02-Q10', document: '書信：邀請好朋友下星期到海洋公園。', prompt: '哪一句最能清楚寫出邀請內容？', answer: '下星期六我想和你到海洋公園，你有空一起去嗎？', choices: ['下星期六我想和你到海洋公園，你有空一起去嗎？', '今天天氣很好。', '我很喜歡海洋。', '祝你身體健康！'], explanation: '書信內容要清楚交代時間、地點和邀請對象要做的事。' },
       ],
     },
+    {
+      id: 'P2-CN-W03', area: '寫作', title: '日記與書信格式排序', interaction: 'format-sort',
+      questions: [
+        { id: 'P2-CN-W03-Q01', title: '日記：校運會的一天', type: '日記', blocks: [{ id: 'a', text: '3月12日　星期三　晴', order: 0 }, { id: 'b', text: '今天學校舉行校運會，我參加了接力賽。', order: 1 }, { id: 'c', text: '雖然沒有得獎，我還是很高興。', order: 2 }], explanation: '日記先寫日期、星期和天氣，再記錄事情，最後寫感受。' },
+        { id: 'P2-CN-W03-Q02', title: '日記：參觀水族館', type: '日記', blocks: [{ id: 'a', text: '4月6日　星期六　雨', order: 0 }, { id: 'b', text: '今天我和家人到水族館，看見很多彩色的魚。', order: 1 }, { id: 'c', text: '我學會要愛護海洋。', order: 2 }], explanation: '日記按日期、事情、感受的次序排列，讀者便容易明白。' },
+        { id: 'P2-CN-W03-Q03', title: '日記：第一次做蛋糕', type: '日記', blocks: [{ id: 'a', text: '5月18日　星期日　晴', order: 0 }, { id: 'b', text: '媽媽教我把麵粉和雞蛋拌在一起做蛋糕。', order: 1 }, { id: 'c', text: '吃到自己做的蛋糕，我感到很自豪。', order: 2 }], explanation: '日記先標示日期天氣，再寫做過的事和自己的感受。' },
+        { id: 'P2-CN-W03-Q04', title: '日記：照顧小植物', type: '日記', blocks: [{ id: 'a', text: '6月2日　星期一　陰', order: 0 }, { id: 'b', text: '放學後，我替窗邊的小植物澆水。', order: 1 }, { id: 'c', text: '看見新葉長出來，我十分期待。', order: 2 }], explanation: '日記用日期開始，記下事情，最後可寫感受或想法。' },
+        { id: 'P2-CN-W03-Q05', title: '書信：邀請表姐來玩', type: '書信', blocks: [{ id: 'a', text: '親愛的表姐：', order: 0 }, { id: 'b', text: '下星期六我想和你一起做手工，你有空來我家嗎？', order: 1 }, { id: 'c', text: '祝　天天開心！', order: 2 }, { id: 'd', text: '你的表妹　小美', order: 3 }], explanation: '書信依次有稱呼、正文、祝福語和署名。' },
+        { id: 'P2-CN-W03-Q06', title: '書信：感謝姨姨的禮物', type: '書信', blocks: [{ id: 'a', text: '親愛的姨姨：', order: 0 }, { id: 'b', text: '謝謝你送我生日禮物，我很喜歡那本故事書。', order: 1 }, { id: 'c', text: '祝　身體健康！', order: 2 }, { id: 'd', text: '你的外甥女　小欣', order: 3 }], explanation: '書信先稱呼收信人，正文說清楚事情，再祝福和署名。' },
+        { id: 'P2-CN-W03-Q07', title: '書信：告訴外公新學校生活', type: '書信', blocks: [{ id: 'a', text: '親愛的外公：', order: 0 }, { id: 'b', text: '我在新學校認識了很多朋友，老師對我很好。', order: 1 }, { id: 'c', text: '祝　生活愉快！', order: 2 }, { id: 'd', text: '你的孫子　小朗', order: 3 }], explanation: '正文要清楚寫出想與收信人分享的內容。' },
+        { id: 'P2-CN-W03-Q08', title: '書信：祝福朋友考試', type: '書信', blocks: [{ id: 'a', text: '親愛的小晴：', order: 0 }, { id: 'b', text: '我知道你明天考試，希望你溫習順利，不要太緊張。', order: 1 }, { id: 'c', text: '祝　考試順利！', order: 2 }, { id: 'd', text: '你的朋友　小琪', order: 3 }], explanation: '寫給朋友的書信同樣要有稱呼、內容、祝福語和署名。' },
+        { id: 'P2-CN-W03-Q09', title: '書信：向老師道謝', type: '書信', blocks: [{ id: 'a', text: '敬愛的陳老師：', order: 0 }, { id: 'b', text: '謝謝你耐心教我做閱讀理解，我現在更有信心了。', order: 1 }, { id: 'c', text: '祝　工作愉快！', order: 2 }, { id: 'd', text: '你的學生　小文', order: 3 }], explanation: '寫給老師的書信可用「敬愛的」作稱呼，結尾再署名。' },
+        { id: 'P2-CN-W03-Q10', title: '書信：邀請朋友看展覽', type: '書信', blocks: [{ id: 'a', text: '親愛的小健：', order: 0 }, { id: 'b', text: '星期日有恐龍展覽，我想邀請你一起去參觀。', order: 1 }, { id: 'c', text: '祝　天天進步！', order: 2 }, { id: 'd', text: '你的同學　小明', order: 3 }], explanation: '邀請信的正文要交代時間、活動和邀請對象。' },
+      ],
+    },
   ],
 };

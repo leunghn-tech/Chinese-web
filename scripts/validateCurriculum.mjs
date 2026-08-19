@@ -31,6 +31,10 @@ const p2ConnectorUnit = p2Bank.units.find((unit) => unit.id === 'P2-CN-R02');
 const p2TaleUnit = p2Bank.units.find((unit) => unit.id === 'P2-CN-R03');
 const p2PortraitUnit = p2Bank.units.find((unit) => unit.id === 'P2-CN-W01');
 const p2PracticalUnit = p2Bank.units.find((unit) => unit.id === 'P2-CN-W02');
+const p2FormatUnit = p2Bank.units.find((unit) => unit.id === 'P2-CN-W03');
+const p3Bank = (await import('../client/src/data/questionBanks/chinese/p3.js')).default;
+const p3InfoUnit = p3Bank.units.find((unit) => unit.id === 'P3-CN-R01');
+const p3IdiomUnit = p3Bank.units.find((unit) => unit.id === 'P3-CN-R02');
 if (!p1WordUnit) errors.push('缺少 P1「認讀基礎字詞」題庫單元。');
 else {
   if (p1WordUnit.interaction !== 'word-match') errors.push('P1 認讀基礎字詞必須使用 word-match 互動。');
@@ -145,9 +149,34 @@ else {
   for (const question of p2PracticalUnit.questions) if (!question.document || !question.prompt || !question.answer || !question.explanation || question.choices?.length !== 4 || !question.choices.includes(question.answer)) errors.push(`${question.id} 缺少完整的日記或書信資料。`);
 }
 
+if (!p2FormatUnit) errors.push('缺少 P2「日記與書信格式排序」題庫單元。');
+else {
+  if (p2FormatUnit.interaction !== 'format-sort') errors.push('P2 日記與書信格式排序必須使用 format-sort 互動。');
+  if (p2FormatUnit.questions.length < 10) errors.push('P2 日記與書信格式排序至少需要十組。');
+  for (const question of p2FormatUnit.questions) {
+    if (!question.title || !question.type || !question.explanation || !Array.isArray(question.blocks) || question.blocks.length < 3) errors.push(`${question.id} 缺少完整的格式排序資料。`);
+    const orders = question.blocks?.map((block) => block.order) || [];
+    if (new Set(orders).size !== orders.length || !orders.every((order, index) => order === index)) errors.push(`${question.id} 的格式卡次序必須由零開始且不可重複。`);
+  }
+}
+
+if (!p3InfoUnit) errors.push('缺少 P3「短篇說明文閱讀理解」題庫單元。');
+else {
+  if (p3InfoUnit.interaction !== 'p3-reading') errors.push('P3 短篇說明文閱讀理解必須使用 p3-reading 互動。');
+  if (p3InfoUnit.questions.length < 10) errors.push('P3 短篇說明文閱讀理解至少需要十題。');
+  for (const question of p3InfoUnit.questions) if (!question.title || !question.text || !question.prompt || !question.answer || !question.explanation || question.choices?.length !== 4 || !question.choices.includes(question.answer)) errors.push(`${question.id} 缺少完整的說明文閱讀資料。`);
+}
+
+if (!p3IdiomUnit) errors.push('缺少 P3「基礎成語運用」題庫單元。');
+else {
+  if (p3IdiomUnit.interaction !== 'p3-idiom') errors.push('P3 基礎成語運用必須使用 p3-idiom 互動。');
+  if (p3IdiomUnit.questions.length < 10) errors.push('P3 基礎成語運用至少需要十題。');
+  for (const question of p3IdiomUnit.questions) if (!question.context || !question.prompt || !question.answer || !question.explanation || question.choices?.length !== 4 || !question.choices.includes(question.answer)) errors.push(`${question.id} 缺少完整的成語資料。`);
+}
+
 if (errors.length) {
   console.error(JSON.stringify({ status: 'invalid', errors }, null, 2));
   process.exit(1);
 }
 
-console.log(JSON.stringify({ status: 'valid', mode: database.mode, topics: database.topics.length, grades, subjects, questionsPerTopic: 1, p1WordMatchQuestions: p1WordUnit.questions.length, p1RadicalQuestions: p1RadicalUnit.questions.length, p1PunctuationQuestions: p1PunctuationUnit.questions.length, p1StoryStructureQuestions: p1StoryUnit.questions.length, p1SentenceExpandQuestions: p1SentenceUnit.questions.length, p2ContextQuestions: p2ContextUnit.questions.length, p2ConnectorQuestions: p2ConnectorUnit.questions.length, p2TaleQuestions: p2TaleUnit.questions.length, p2PortraitQuestions: p2PortraitUnit.questions.length, p2PracticalQuestions: p2PracticalUnit.questions.length }, null, 2));
+console.log(JSON.stringify({ status: 'valid', mode: database.mode, topics: database.topics.length, grades, subjects, questionsPerTopic: 1, p1WordMatchQuestions: p1WordUnit.questions.length, p1RadicalQuestions: p1RadicalUnit.questions.length, p1PunctuationQuestions: p1PunctuationUnit.questions.length, p1StoryStructureQuestions: p1StoryUnit.questions.length, p1SentenceExpandQuestions: p1SentenceUnit.questions.length, p2ContextQuestions: p2ContextUnit.questions.length, p2ConnectorQuestions: p2ConnectorUnit.questions.length, p2TaleQuestions: p2TaleUnit.questions.length, p2PortraitQuestions: p2PortraitUnit.questions.length, p2PracticalQuestions: p2PracticalUnit.questions.length, p2FormatQuestions: p2FormatUnit.questions.length, p3InfoQuestions: p3InfoUnit.questions.length, p3IdiomQuestions: p3IdiomUnit.questions.length }, null, 2));
