@@ -1,6 +1,8 @@
 /* 小三說明文重點標記：閱讀多段短文後，點選最能回答問題的重點段落。 */
 import { Check, ChevronRight, Highlighter, RotateCcw, Sparkles, Trophy, X } from 'lucide-react';
 import { useMemo, useState } from 'react';
+import UnitResultSummary from './UnitResultSummary';
+import { pauseExamTimer } from '../lib/examTimerStore';
 
 const shuffle = (items) => { const copied = [...items]; for (let index = copied.length - 1; index > 0; index -= 1) { const swap = Math.floor(Math.random() * (index + 1)); [copied[index], copied[swap]] = [copied[swap], copied[index]]; } return copied; };
 function Frame({ unit, label }) { return <header className="activity-workbench-frame"><span className="activity-file-tab">P3<br />中文</span><div className="activity-brand-lockup"><span className="activity-brand-mark"><i></i><i></i><i></i><Sparkles size={18} /></span><div><b>Edu<span>Quest</span></b><small>小學課堂展示版</small></div></div><div className="activity-course-file"><span>P3・中國語文</span><b>{unit.area}・{unit.title}</b></div><div className="activity-task-stamp"><span>課堂工作紙</span><b>{label}</b></div></header>; }
@@ -11,11 +13,13 @@ export default function ParagraphMarkActivity({ unit, onBack, onComplete }) {
   const [selected, setSelected] = useState(null);
   const [feedback, setFeedback] = useState(null);
   const [showSummary, setShowSummary] = useState(false);
+  const [attempts, setAttempts] = useState(0);
+  const [correctCount, setCorrectCount] = useState(0);
   const question = questions[questionIndex];
-  const replay = () => { setQuestions(shuffle(unit.questions)); setQuestionIndex(0); setSelected(null); setFeedback(null); setShowSummary(false); };
-  const choose = (paragraphId) => { if (feedback) return; setSelected(paragraphId); setFeedback({ correct: paragraphId === question.answer }); };
+  const replay = () => { setQuestions(shuffle(unit.questions)); setQuestionIndex(0); setSelected(null); setFeedback(null); setShowSummary(false); setAttempts(0); setCorrectCount(0); };
+  const choose = (paragraphId) => { if (feedback) return; setSelected(paragraphId); const correct = paragraphId === question.answer; setAttempts((value) => value + 1); if (correct) setCorrectCount((value) => value + 1); setFeedback({ correct }); };
   const reset = () => { setSelected(null); setFeedback(null); };
-  const next = () => { if (questionIndex >= questions.length - 1) { onComplete?.(unit); setShowSummary(true); return; } setQuestionIndex((value) => value + 1); reset(); };
-  if (showSummary) return <main className="site-shell paragraph-mark-page"><Frame unit={unit} label="結算" /><section className="activity-summary"><Celebration /><span><Trophy size={28} /> 重點標記完成</span><h1>你已完成全部<br /><em>{questions.length} 個段落任務。</em></h1><p>你已練習在說明文中找出可回答問題的重點段落。</p><div className="summary-score"><b>{questions.length}</b><span>題全部完成</span></div><div className="summary-actions"><button onClick={onBack} className="back-to-catalog">返回中文目錄</button><button onClick={replay}><RotateCcw size={17} /> 隨機重玩</button></div></section></main>;
+  const next = () => { if (questionIndex >= questions.length - 1) { pauseExamTimer(); onComplete?.(unit); setShowSummary(true); return; } setQuestionIndex((value) => value + 1); reset(); };
+  if (showSummary) return <main className="site-shell paragraph-mark-page"><Frame unit={unit} label="結算" /><Celebration /><UnitResultSummary unit={unit} total={questions.length} correct={correctCount} attempts={attempts} onBack={onBack} onReplay={replay} title="重點標記完成" description="你已練習在說明文中找出可回答問題的重點段落。" noun="個段落任務" /></main>;
   return <main className="site-shell paragraph-mark-page"><Frame unit={unit} label={`標記 ${questionIndex + 1} / ${questions.length}`} /><header className="match-topbar"><button onClick={onBack} className="match-back">返回中文目錄</button><div><span>{unit.area}・{unit.title}</span><b>第 {questionIndex + 1} / {questions.length} 題</b></div><div className="match-progress"><i style={{ width: `${((questionIndex + 1) / questions.length) * 100}%` }} /></div></header><section className="paragraph-mark-stage"><div className="match-heading"><span><Highlighter size={16} /> 段落重點標記</span><h1>{question.prompt}</h1><p>閱讀短文，點擊最能回答問題的段落，把它標記為重點。</p></div><section className="marked-reading-sheet"><div><span>說明文小閱讀</span><b>{question.title}</b></div>{question.paragraphs.map((paragraph, index) => <button key={paragraph.id} disabled={Boolean(feedback)} onClick={() => choose(paragraph.id)} className={`${selected === paragraph.id ? feedback?.correct ? 'selected-correct' : 'selected-wrong' : ''}`}><span>第 {index + 1} 段</span><p>{paragraph.text}</p>{selected === paragraph.id && feedback?.correct && <Check size={20} />}</button>)}</section>{feedback && <div className={`paragraph-feedback ${feedback.correct ? 'correct' : 'incorrect'}`}>{feedback.correct ? <><Check size={20} /><div><b>標記正確！</b><p>{question.explanation}</p></div></> : <><X size={20} /><div><b>這段未回答問題。</b><p>再讀一次題目，找出提及相關資料的段落。</p></div></>}<div className="complete-actions">{feedback.correct ? <button onClick={next}>{questionIndex === questions.length - 1 ? '查看結算' : '下一題'} <ChevronRight size={17} /></button> : <button onClick={reset}><RotateCcw size={16} /> 重新標記</button>}<button onClick={onBack} className="back-to-catalog">返回題目板</button></div></div>}</section></main>;
 }
