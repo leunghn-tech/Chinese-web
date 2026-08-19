@@ -17,6 +17,7 @@ import TaleReadingActivity from './components/TaleReadingActivity';
 import { playCompletionSound, playCorrectSound } from './lib/feedbackAudio';
 import TeacherFeedbackSettings from './components/TeacherFeedbackSettings';
 import ParagraphMarkActivity from './components/ParagraphMarkActivity';
+import ExamTimer from './components/ExamTimer';
 
 const SUBJECTS = {
   中文: { icon: BookOpen, color: 'chinese', english: 'Chinese', copy: '語文示範' },
@@ -30,7 +31,7 @@ function Brand() {
 }
 
 function Header({ onHome, action }) {
-  return <header className="topbar"><Brand /><div className="topbar-right"><span className="demo-pill">課堂試玩・每科一題</span><TeacherFeedbackSettings />{action}{onHome && <button className="icon-button" onClick={onHome} aria-label="返回首頁"><LayoutDashboard size={20} /></button>}</div></header>;
+  return <header className="topbar"><Brand /><div className="topbar-right"><span className="demo-pill">課堂試玩・每科一題</span><ExamTimer /><TeacherFeedbackSettings />{action}{onHome && <button className="icon-button" onClick={onHome} aria-label="返回首頁"><LayoutDashboard size={20} /></button>}</div></header>;
 }
 
 function Home({ onStart }) {
@@ -84,7 +85,7 @@ function Demo({ topic, onBack }) {
 export default function App() {
   const params = new URLSearchParams(window.location.search);
   const previewTopic = params.get('demo') ? curriculumDB.topics.find((item) => item.id === params.get('demo')) || curriculumDB.topics[0] : null;
-  const previewConfig = params.get('activity') === 'p3-parallelism' ? { grade: 'P3', id: 'P3-CN-R06' } : params.get('activity') === 'p3-personification' ? { grade: 'P3', id: 'P3-CN-R05' } : params.get('activity') === 'p3-metaphor' ? { grade: 'P3', id: 'P3-CN-R04' } : params.get('activity') === 'p3-paragraph-mark' ? { grade: 'P3', id: 'P3-CN-R03' } : params.get('activity') === 'p3-idiom' ? { grade: 'P3', id: 'P3-CN-R02' } : params.get('activity') === 'p3-information-reading' ? { grade: 'P3', id: 'P3-CN-R01' } : params.get('activity') === 'p2-format-sort' ? { grade: 'P2', id: 'P2-CN-W03' } : params.get('activity') === 'p2-practical-writing' ? { grade: 'P2', id: 'P2-CN-W02' } : params.get('activity') === 'p2-person-description' ? { grade: 'P2', id: 'P2-CN-W01' } : params.get('activity') === 'p2-tale-reading' ? { grade: 'P2', id: 'P2-CN-R03' } : params.get('activity') === 'p2-connector-cloze' ? { grade: 'P2', id: 'P2-CN-R02' } : params.get('activity') === 'p1-sentence-expand' ? { grade: 'P1', id: 'P1-CN-W01' } : params.get('activity') === 'p1-story-structure' ? { grade: 'P1', id: 'P1-CN-R04' } : params.get('activity') === 'p1-punctuation-drop' ? { grade: 'P1', id: 'P1-CN-R03' } : params.get('activity') === 'p1-radical-sort' ? { grade: 'P1', id: 'P1-CN-R02' } : params.get('activity') === 'p1-word-match' ? { grade: 'P1', id: 'P1-CN-R01' } : null;
+  const previewConfig = params.get('activity') === 'p4-practical-writing' ? { grade: 'P4', id: 'P4-CN-W04' } : params.get('activity') === 'p4-word-analysis' ? { grade: 'P4', id: 'P4-CN-R01' } : params.get('activity') === 'p3-parallelism' ? { grade: 'P3', id: 'P3-CN-R06' } : params.get('activity') === 'p3-personification' ? { grade: 'P3', id: 'P3-CN-R05' } : params.get('activity') === 'p3-metaphor' ? { grade: 'P3', id: 'P3-CN-R04' } : params.get('activity') === 'p3-paragraph-mark' ? { grade: 'P3', id: 'P3-CN-R03' } : params.get('activity') === 'p3-idiom' ? { grade: 'P3', id: 'P3-CN-R02' } : params.get('activity') === 'p3-information-reading' ? { grade: 'P3', id: 'P3-CN-R01' } : params.get('activity') === 'p2-format-sort' ? { grade: 'P2', id: 'P2-CN-W03' } : params.get('activity') === 'p2-practical-writing' ? { grade: 'P2', id: 'P2-CN-W02' } : params.get('activity') === 'p2-person-description' ? { grade: 'P2', id: 'P2-CN-W01' } : params.get('activity') === 'p2-tale-reading' ? { grade: 'P2', id: 'P2-CN-R03' } : params.get('activity') === 'p2-connector-cloze' ? { grade: 'P2', id: 'P2-CN-R02' } : params.get('activity') === 'p1-sentence-expand' ? { grade: 'P1', id: 'P1-CN-W01' } : params.get('activity') === 'p1-story-structure' ? { grade: 'P1', id: 'P1-CN-R04' } : params.get('activity') === 'p1-punctuation-drop' ? { grade: 'P1', id: 'P1-CN-R03' } : params.get('activity') === 'p1-radical-sort' ? { grade: 'P1', id: 'P1-CN-R02' } : params.get('activity') === 'p1-word-match' ? { grade: 'P1', id: 'P1-CN-R01' } : null;
   const previewUnit = previewConfig ? getChineseQuestionBank(previewConfig.grade).units.find((unit) => unit.id === previewConfig.id) : null;
   const previewView = params.get('view');
   const [screen, setScreen] = useState(previewUnit ? 'activity' : previewTopic ? 'demo' : previewView === 'catalog' ? 'catalog' : previewView === 'courses' ? 'courses' : 'home');

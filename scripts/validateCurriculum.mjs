@@ -42,7 +42,12 @@ const p3ParallelismUnit = p3Bank.units.find((unit) => unit.id === 'P3-CN-R06');
 const p3ParagraphStructureUnit = p3Bank.units.find((unit) => unit.id === 'P3-CN-W01');
 const p3SensoryUnit = p3Bank.units.find((unit) => unit.id === 'P3-CN-W02');
 const p3NarrativeUnit = p3Bank.units.find((unit) => unit.id === 'P3-CN-W03');
+const p3GenreUnit = p3Bank.units.find((unit) => unit.id === 'P3-CN-R07');
 const p4Bank = (await import('../client/src/data/questionBanks/chinese/p4.js')).default;
+const p4RequiredUnits = [
+  ['字詞辨析', 'P4-CN-R01'], ['段意歸納', 'P4-CN-R02'], ['重組句子', 'P4-CN-R03'], ['進階標點', 'P4-CN-R04'], ['句子改寫', 'P4-CN-R05'],
+  ['順敘與倒敘', 'P4-CN-W01'], ['人物與步移描寫', 'P4-CN-W02'], ['說明方法', 'P4-CN-W03'], ['實用文格式', 'P4-CN-W04'],
+];
 if (!p1WordUnit) errors.push('缺少 P1「認讀基礎字詞」題庫單元。');
 else {
   if (p1WordUnit.interaction !== 'word-match') errors.push('P1 認讀基礎字詞必須使用 word-match 互動。');
@@ -207,13 +212,20 @@ for (const [name, unit] of [['總—分—總段落結構', p3ParagraphStructure
   }
 }
 
-for (const [id, name] of [['P4-CN-R01', '文章結構與寫作順序'], ['P4-CN-R02', '表面意思與深層情感'], ['P4-CN-R03', '進階記敘、科普與抒情文'], ['P4-CN-W01', '動態與靜態描寫'], ['P4-CN-W02', '詳寫與略寫'], ['P4-CN-W03', '便條、啟事與演講稿']]) {
+if (!p3GenreUnit) errors.push('缺少 P3「進階記敘、科普與抒情文」題庫單元。');
+else {
+  if (p3GenreUnit.interaction !== 'p3-figure') errors.push('P3 進階篇章閱讀必須使用閱讀工作紙互動。');
+  if (p3GenreUnit.questions.length < 10) errors.push('P3 進階篇章閱讀至少需要十題。');
+  for (const question of p3GenreUnit.questions) if (!question.hint || !question.prompt || !question.answer || !question.explanation || question.choices?.length !== 4 || !question.choices.includes(question.answer)) errors.push(`${question.id} 缺少完整的進階篇章閱讀資料。`);
+}
+
+for (const [name, id] of p4RequiredUnits) {
   const unit = p4Bank.units.find((item) => item.id === id);
   if (!unit) errors.push(`缺少 P4「${name}」題庫單元。`);
   else {
-    if (unit.interaction !== 'p3-figure') errors.push(`P4 ${name}必須使用互動閱讀／寫作工作紙。`);
-    if (unit.questions.length < 10) errors.push(`P4 ${name}至少需要十題。`);
-    for (const question of unit.questions) if (!question.hint || !question.prompt || !question.answer || !question.explanation || question.choices?.length !== 4 || !question.choices.includes(question.answer)) errors.push(`${question.id} 缺少完整的 P4 ${name}資料。`);
+    if (unit.interaction !== 'p3-figure') errors.push(`P4 ${name}必須使用呈分試工作紙互動。`);
+    if (unit.questions.length !== 10) errors.push(`P4 ${name}必須剛好有十題。`);
+    for (const question of unit.questions) if (!question.hint || !question.prompt || !question.answer || !question.explanation || question.choices?.length !== 4 || !question.choices.includes(question.answer) || new Set(question.choices).size !== 4) errors.push(`${question.id} 缺少完整且唯一的小四呈分試資料。`);
   }
 }
 
