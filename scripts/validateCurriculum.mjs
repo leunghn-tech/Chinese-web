@@ -6,19 +6,240 @@ const here = path.dirname(fileURLToPath(import.meta.url));
 const databasePath = path.join(here, '../client/src/data/curriculumDB.json');
 const database = JSON.parse(fs.readFileSync(databasePath, 'utf8'));
 const p1Bank = (await import('../client/src/data/questionBanks/chinese/p1.js')).default;
+const { chineseQuestionBanks, chineseQuestionUnitMetadata } = await import('../client/src/data/questionBanks/chinese/index.js');
+const p1EnglishBank = (await import('../client/src/data/questionBanks/english/p1.js')).default;
+const p2EnglishBank = (await import('../client/src/data/questionBanks/english/p2.js')).default;
+const p3EnglishBank = (await import('../client/src/data/questionBanks/english/p3.js')).default;
+const p4EnglishBank = (await import('../client/src/data/questionBanks/english/p4.js')).default;
+const p5EnglishBank = (await import('../client/src/data/questionBanks/english/p5.js')).default;
+const p6EnglishBank = (await import('../client/src/data/questionBanks/english/p6.js')).default;
+const englishCatalog = (await import('../client/src/data/englishCatalog.js')).default;
+const chineseCatalog = (await import('../client/src/data/chineseCatalog.js')).default;
+const { englishPracticeLinks, chinesePracticeLinks } = await import('../client/src/data/catalogPracticeLinks.js');
 const grades = ['P1', 'P2', 'P3', 'P4', 'P5', 'P6'];
 const subjects = ['中文', '英文', '數學'];
 const expected = grades.flatMap((grade) => subjects.map((subject) => `${grade}-${subject === '英文' ? 'English' : subject}`));
 const ids = database.topics.map((topic) => topic.id);
 const errors = [];
 
-if (database.mode !== 'demo-only') errors.push('資料庫必須標示為 demo-only。');
+if (database.mode !== 'catalog-in-progress') errors.push('資料庫必須標示為 catalog-in-progress。');
 if (database.topics.length !== 18) errors.push(`應有 18 個示範單元，實際為 ${database.topics.length}。`);
 for (const id of expected) if (!ids.includes(id)) errors.push(`缺少示範單元：${id}`);
 for (const topic of database.topics) {
   if (topic.options?.length !== 4) errors.push(`${topic.id} 必須有四個選項。`);
   if (!Number.isInteger(topic.answerIndex) || topic.answerIndex < 0 || topic.answerIndex > 3) errors.push(`${topic.id} 的答案索引無效。`);
   if (!topic.prompt || !topic.explanation) errors.push(`${topic.id} 缺少題幹或解析。`);
+}
+
+const p1EnglishRequiredUnits = [
+  ['認識英文字母', 'P1-EN-A01', 'english-letter-choice'],
+  ['校園與生活單字', 'P1-EN-V01', 'english-vocabulary-choice'],
+  ['A 或 An？', 'P1-EN-G01', 'english-article-choice'],
+  ['位置在哪裡？', 'P1-EN-G02', 'english-preposition-choice'],
+  ['一個還是多個？', 'P1-EN-G03', 'english-noun-choice'],
+  ['誰在說？', 'P1-EN-G04', 'english-pronoun-foundation-choice'],
+  ['我是、你有', 'P1-EN-G05', 'english-be-have-choice'],
+  ['例句朗讀', 'P1-EN-L01', 'english-sentence-read'],
+  ['句子拼砌', 'P1-EN-S01', 'english-sentence-build'],
+];
+if (p1EnglishBank.grade !== 'P1' || p1EnglishBank.subject !== '英文') errors.push('P1 英文題庫的年級或學科資料不正確。');
+for (const [name, id, interaction] of p1EnglishRequiredUnits) {
+  const unit = p1EnglishBank.units.find((item) => item.id === id);
+  if (!unit) errors.push(`缺少 P1 英文「${name}」題庫單元。`);
+  else {
+    if (unit.interaction !== interaction) errors.push(`P1 英文「${name}」的互動類型不正確。`);
+    if (unit.questions.length !== 10) errors.push(`P1 英文「${name}」必須剛好有十題。`);
+    for (const question of unit.questions) {
+      if (!question.id) errors.push(`${name} 缺少題目編號。`);
+      if (interaction === 'english-sentence-read' || interaction === 'english-sentence-build') {
+        if (!question.sentence || !question.translation) errors.push(`${question.id || name} 缺少英文例句或中文意思。`);
+      } else {
+        if (!question.prompt || !question.answer || !question.explanation) errors.push(`${question.id || name} 缺少題幹、答案或解析。`);
+        if (!Array.isArray(question.choices) || question.choices.length !== 4 || !question.choices.includes(question.answer) || new Set(question.choices).size !== 4) errors.push(`${question.id || name} 必須有四個不重複選項，且包含正確答案。`);
+      }
+      if (interaction === 'english-vocabulary-choice' && !question.clueChinese) errors.push(`${question.id || name} 缺少中文圖意提示。`);
+    }
+  }
+}
+
+const p2EnglishRequiredUnits = [
+  ['正在做甚麼？', 'P2-EN-G01', 'english-continuous-choice'],
+  ['每天做甚麼？', 'P2-EN-G02', 'english-present-choice'],
+  ['問一問', 'P2-EN-G03', 'english-question-choice'],
+  ['我做得到！', 'P2-EN-G04', 'english-modal-choice'],
+];
+if (p2EnglishBank.grade !== 'P2' || p2EnglishBank.subject !== '英文') errors.push('P2 英文題庫的年級或學科資料不正確。');
+for (const [name, id, interaction] of p2EnglishRequiredUnits) {
+  const unit = p2EnglishBank.units.find((item) => item.id === id);
+  if (!unit) errors.push(`缺少 P2 英文「${name}」題庫單元。`);
+  else {
+    if (unit.interaction !== interaction) errors.push(`P2 英文「${name}」的互動類型不正確。`);
+    if (unit.questions.length !== 10) errors.push(`P2 英文「${name}」必須剛好有十題。`);
+    for (const question of unit.questions) {
+      if (!question.id || !question.prompt || !question.sentence || !question.answer || !question.explanation) errors.push(`${question.id || name} 缺少題幹、句子、答案或解析。`);
+      if (!Array.isArray(question.choices) || question.choices.length !== 4 || !question.choices.includes(question.answer) || new Set(question.choices).size !== 4) errors.push(`${question.id || name} 必須有四個不重複選項，且包含正確答案。`);
+    }
+  }
+}
+
+const p3EnglishRequiredUnits = [
+  ['昨天做了甚麼？', 'P3-EN-G01', 'english-past-choice'],
+  ['不規則動詞偵察', 'P3-EN-G02', 'english-irregular-choice'],
+  ['代名詞百寶袋', 'P3-EN-G03', 'english-pronoun-choice'],
+  ['把句子連起來', 'P3-EN-G04', 'english-connector-choice'],
+  ['有多少？', 'P3-EN-G05', 'english-quantifier-choice'],
+];
+if (p3EnglishBank.grade !== 'P3' || p3EnglishBank.subject !== '英文') errors.push('P3 英文題庫的年級或學科資料不正確。');
+for (const [name, id, interaction] of p3EnglishRequiredUnits) {
+  const unit = p3EnglishBank.units.find((item) => item.id === id);
+  if (!unit) errors.push(`缺少 P3 英文「${name}」題庫單元。`);
+  else {
+    if (unit.interaction !== interaction) errors.push(`P3 英文「${name}」的互動類型不正確。`);
+    if (unit.questions.length !== 10) errors.push(`P3 英文「${name}」必須剛好有十題。`);
+    for (const question of unit.questions) {
+      if (!question.id || !question.prompt || !question.sentence || !question.answer || !question.explanation) errors.push(`${question.id || name} 缺少題幹、句子、答案或解析。`);
+      if (!Array.isArray(question.choices) || question.choices.length !== 4 || !question.choices.includes(question.answer) || new Set(question.choices).size !== 4) errors.push(`${question.id || name} 必須有四個不重複選項，且包含正確答案。`);
+    }
+  }
+}
+
+const p3EnglishExtensionUnits = [
+  ['過去式例句朗讀', 'P3-EN-L01', 'english-sentence-read'],
+  ['過去式句子拼砌', 'P3-EN-S01', 'english-sentence-build'],
+  ['不規則動詞圖像記憶卡', 'P3-EN-M01', 'english-verb-memory'],
+];
+for (const [name, id, interaction] of p3EnglishExtensionUnits) {
+  const unit = p3EnglishBank.units.find((item) => item.id === id);
+  if (!unit) errors.push(`缺少 P3 英文延伸「${name}」題庫單元。`);
+  else {
+    if (unit.interaction !== interaction) errors.push(`P3 英文延伸「${name}」的互動類型不正確。`);
+    if (unit.questions.length !== 10) errors.push(`P3 英文延伸「${name}」必須剛好有十題。`);
+    for (const question of unit.questions) {
+      if (interaction === 'english-verb-memory') {
+        if (!question.id || !question.symbol || !question.baseWord || !question.pastWord || !question.translation || !question.sentence) errors.push(`${question.id || name} 缺少圖像記憶卡資料。`);
+      } else if (!question.id || !question.sentence || !question.translation) errors.push(`${question.id || name} 缺少英文例句或中文意思。`);
+    }
+  }
+}
+
+const p4EnglishRequiredUnits = [
+  ['形容詞還是副詞？', 'P4-EN-G01', 'english-adjective-choice'],
+  ['誰比較厲害？', 'P4-EN-G02', 'english-comparative-choice'],
+  ['規則與建議', 'P4-EN-G03', 'english-advanced-modal-choice'],
+  ['自己動手！', 'P4-EN-G04', 'english-reflexive-choice'],
+  ['時間、條件與轉折', 'P4-EN-G05', 'english-advanced-connector-choice'],
+];
+if (p4EnglishBank.grade !== 'P4' || p4EnglishBank.subject !== '英文') errors.push('P4 英文題庫的年級或學科資料不正確。');
+for (const [name, id, interaction] of p4EnglishRequiredUnits) {
+  const unit = p4EnglishBank.units.find((item) => item.id === id);
+  if (!unit) errors.push(`缺少 P4 英文「${name}」題庫單元。`);
+  else {
+    if (unit.interaction !== interaction) errors.push(`P4 英文「${name}」的互動類型不正確。`);
+    if (unit.questions.length !== 10) errors.push(`P4 英文「${name}」必須剛好有十題。`);
+    for (const question of unit.questions) {
+      if (!question.id || !question.prompt || !question.sentence || !question.answer || !question.explanation) errors.push(`${question.id || name} 缺少題幹、句子、答案或解析。`);
+      if (!Array.isArray(question.choices) || question.choices.length !== 4 || !question.choices.includes(question.answer) || new Set(question.choices).size !== 4) errors.push(`${question.id || name} 必須有四個不重複選項，且包含正確答案。`);
+    }
+  }
+}
+
+const p5EnglishRequiredUnits = [
+  ['已完成的經驗', 'P5-EN-G01', 'english-perfect-choice'],
+  ['完成式的時間線索', 'P5-EN-G02', 'english-perfect-time-choice'],
+  ['誰做了這件事？', 'P5-EN-G03', 'english-passive-choice'],
+  ['把兩句合起來', 'P5-EN-G04', 'english-relative-choice'],
+  ['成對連接詞', 'P5-EN-G05', 'english-correlative-choice'],
+];
+if (p5EnglishBank.grade !== 'P5' || p5EnglishBank.subject !== '英文') errors.push('P5 英文題庫的年級或學科資料不正確。');
+for (const [name, id, interaction] of p5EnglishRequiredUnits) {
+  const unit = p5EnglishBank.units.find((item) => item.id === id);
+  if (!unit) errors.push(`缺少 P5 英文「${name}」題庫單元。`);
+  else {
+    if (unit.interaction !== interaction) errors.push(`P5 英文「${name}」的互動類型不正確。`);
+    if (unit.questions.length !== 10) errors.push(`P5 英文「${name}」必須剛好有十題。`);
+    for (const question of unit.questions) {
+      if (!question.id || !question.prompt || !question.sentence || !question.answer || !question.explanation) errors.push(`${question.id || name} 缺少題幹、句子、答案或解析。`);
+      if (!Array.isArray(question.choices) || question.choices.length !== 4 || !question.choices.includes(question.answer) || new Set(question.choices).size !== 4) errors.push(`${question.id || name} 必須有四個不重複選項，且包含正確答案。`);
+    }
+  }
+}
+
+const p5EnglishExtensionUnits = [
+  ['完成式句子拼砌', 'P5-EN-S01', 'english-sentence-build'],
+  ['被動句子拼砌', 'P5-EN-S02', 'english-sentence-build'],
+];
+for (const [name, id, interaction] of p5EnglishExtensionUnits) {
+  const unit = p5EnglishBank.units.find((item) => item.id === id);
+  if (!unit) errors.push(`缺少 P5 英文延伸「${name}」題庫單元。`);
+  else {
+    if (unit.interaction !== interaction) errors.push(`P5 英文延伸「${name}」的互動類型不正確。`);
+    if (unit.questions.length !== 10) errors.push(`P5 英文延伸「${name}」必須剛好有十題。`);
+    for (const question of unit.questions) if (!question.id || !question.sentence || !question.translation) errors.push(`${question.id || name} 缺少英文例句或中文意思。`);
+  }
+}
+
+const p6EnglishRequiredUnits = [
+  ['如果……會怎樣？', 'P6-EN-G01', 'english-conditional-choice'],
+  ['把話轉述出來', 'P6-EN-G02', 'english-reported-choice'],
+  ['V-ing 還是 to V？', 'P6-EN-G03', 'english-nonfinite-choice'],
+  ['動詞多一個意思', 'P6-EN-G04', 'english-phrasal-choice'],
+];
+if (p6EnglishBank.grade !== 'P6' || p6EnglishBank.subject !== '英文') errors.push('P6 英文題庫的年級或學科資料不正確。');
+for (const [name, id, interaction] of p6EnglishRequiredUnits) {
+  const unit = p6EnglishBank.units.find((item) => item.id === id);
+  if (!unit) errors.push(`缺少 P6 英文「${name}」題庫單元。`);
+  else {
+    if (unit.interaction !== interaction) errors.push(`P6 英文「${name}」的互動類型不正確。`);
+    if (unit.questions.length !== 10) errors.push(`P6 英文「${name}」必須剛好有十題。`);
+    for (const question of unit.questions) {
+      if (!question.id || !question.prompt || !question.sentence || !question.answer || !question.explanation) errors.push(`${question.id || name} 缺少題幹、句子、答案或解析。`);
+      if (!Array.isArray(question.choices) || question.choices.length !== 4 || !question.choices.includes(question.answer) || new Set(question.choices).size !== 4) errors.push(`${question.id || name} 必須有四個不重複選項，且包含正確答案。`);
+    }
+  }
+}
+
+const p6EnglishRewriteUnits = [
+  ['條件句改寫', 'P6-EN-RW01', 'english-sentence-rewrite-conditional'],
+  ['間接引語改寫', 'P6-EN-RW02', 'english-sentence-rewrite-reported'],
+];
+for (const [name, id, interaction] of p6EnglishRewriteUnits) {
+  const unit = p6EnglishBank.units.find((item) => item.id === id);
+  if (!unit) errors.push(`缺少 P6 英文句子改寫「${name}」題庫單元。`);
+  else {
+    if (unit.interaction !== interaction) errors.push(`P6 英文句子改寫「${name}」的互動類型不正確。`);
+    if (unit.questions.length !== 10) errors.push(`P6 英文句子改寫「${name}」必須剛好有十題。`);
+    for (const question of unit.questions) {
+      if (!question.id || !question.prompt || !question.instruction || !question.source || !question.focus || !question.target || !question.hint || !question.explanation) errors.push(`${question.id || name} 缺少句子改寫必要資料。`);
+    }
+  }
+}
+
+const englishBanks = { P1: p1EnglishBank, P2: p2EnglishBank, P3: p3EnglishBank, P4: p4EnglishBank, P5: p5EnglishBank, P6: p6EnglishBank };
+for (const grade of grades) {
+  const bank = englishBanks[grade];
+  const links = englishPracticeLinks[grade] || {};
+  for (const topic of englishCatalog[grade]?.coreTopics || []) if (!Object.values(links).some((link) => link.topic === topic.title)) errors.push(`${grade} 英文核心課題「${topic.title}」尚未連結到練習。`);
+  for (const unit of bank.units) {
+    const link = links[unit.id];
+    if (!link) errors.push(`${unit.id} 未連結至英文課題目錄。`);
+    if (!unit.objective) errors.push(`${unit.id} 缺少可供核對的學習目標。`);
+  }
+  for (const unitId of Object.keys(links)) if (!bank.units.some((unit) => unit.id === unitId)) errors.push(`${grade} 英文課題映射連結了不存在的單元 ${unitId}。`);
+}
+
+for (const grade of grades) {
+  const bank = chineseQuestionBanks[grade];
+  const links = chinesePracticeLinks[grade] || {};
+  for (const unit of bank.units) {
+    const link = links[unit.id];
+    if (!link) errors.push(`${unit.id} 未連結至中文課題目錄。`);
+    else {
+      const [strand, index] = link;
+      if (!chineseCatalog[grade]?.[strand]?.[index]) errors.push(`${unit.id} 的中文課題映射無效。`);
+    }
+    if (unit.questions.some((question) => !question.learningObjective || !question.difficulty)) errors.push(`${unit.id} 有題目缺少學習目標或難度標籤。`);
+  }
+  for (const unitId of Object.keys(links)) if (!bank.units.some((unit) => unit.id === unitId)) errors.push(`${grade} 中文課題映射連結了不存在的單元 ${unitId}。`);
 }
 
 const p1WordUnit = p1Bank.units.find((unit) => unit.id === 'P1-CN-R01');
@@ -258,6 +479,38 @@ for (const [name, id] of p6RequiredUnits) {
     const ids = unit.questions.map((question) => question.id);
     if (new Set(ids).size !== ids.length) errors.push(`P6 ${name}的問題編號不可重複。`);
     for (const question of unit.questions) if (!question.hint || !question.prompt || !question.answer || !question.explanation || question.choices?.length !== 4 || !question.choices.includes(question.answer) || new Set(question.choices).size !== 4) errors.push(`${question.id} 缺少完整且唯一的小六呈分試資料。`);
+  }
+}
+
+const p6ClassicalUnit = p6Bank.units.find((unit) => unit.id === 'P6-CN-R01');
+if (!p6ClassicalUnit?.questions.every((question) => question.hintSatchel)) errors.push('P6 文言虛詞與句式每題均須提供提示錦囊內容。');
+
+for (const [name, id] of [['文言虛詞與句式', 'P6-CN-R01'], ['深層主旨', 'P6-CN-R02']]) {
+  const unit = p6Bank.units.find((item) => item.id === id);
+  if (!unit?.passageSets || unit.passageSets.length !== 2) errors.push(`P6 ${name}必須包含兩篇短篇閱讀材料。`);
+  else {
+    const passageQuestionIds = [];
+    for (const passage of unit.passageSets) {
+      if (!passage.id || !passage.title || !passage.type || !passage.text || !Array.isArray(passage.questions) || passage.questions.length !== 5) errors.push(`P6 ${name}的閱讀題組資料不完整或不是五題。`);
+      for (const question of passage.questions || []) {
+        passageQuestionIds.push(question.id);
+        if (question.passageId !== passage.id) errors.push(`${question.id} 未正確連結至所屬閱讀材料。`);
+      }
+    }
+    const unitQuestionIds = unit.questions.map((question) => question.id);
+    if (new Set(passageQuestionIds).size !== passageQuestionIds.length || passageQuestionIds.length !== 10) errors.push(`P6 ${name}的題組問題編號或題數無效。`);
+    if (passageQuestionIds.length !== unitQuestionIds.length || passageQuestionIds.some((questionId) => !unitQuestionIds.includes(questionId))) errors.push(`P6 ${name}的題組問題必須與單元問題清單一致。`);
+  }
+}
+
+const difficultyLabels = new Set(['基礎', '應用', '進階', '挑戰']);
+for (const [grade, bank] of Object.entries(chineseQuestionBanks)) {
+  for (const unit of bank.units) {
+    if (!chineseQuestionUnitMetadata[unit.id]) errors.push(`${grade}「${unit.title}」缺少單元學習目標設定。`);
+    for (const question of unit.questions) {
+      if (!difficultyLabels.has(question.difficulty)) errors.push(`${question.id} 缺少有效難度標籤。`);
+      if (!question.learningObjective?.trim()) errors.push(`${question.id} 缺少學習目標。`);
+    }
   }
 }
 
