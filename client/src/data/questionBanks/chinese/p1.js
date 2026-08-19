@@ -78,7 +78,27 @@ export default {
         { id: 'P1-CN-R03-Q06', prompt: '把正確標點拖到句子空格。', before: '請把書放在桌上', after: '', answer: '。', choices: ['！', '。', '？'], explanation: '這是一句平靜的請求，句末用句號。' },
       ],
     },
-    { id: 'P1-CN-R04', area: '閱讀', title: '短文起、承、轉、合', questions: [] },
+    {
+      id: 'P1-CN-R04', area: '閱讀', title: '短文起、承、轉、合', interaction: 'story-structure',
+      story: {
+        title: '雨天遠足',
+        intro: '先讀完整短文，再按問題找出最合適的段落。這一篇短文共有六條練習問題。',
+        paragraphs: [
+          { id: 'P1', text: '星期五早上，小琪和同學到郊外遠足。天氣晴朗，大家都很期待。' },
+          { id: 'P2', text: '他們沿著小路走，看見小鳥在樹上唱歌，也看見蝴蝶在花間飛舞。' },
+          { id: 'P3', text: '忽然，天空下起大雨，大家連忙跑到涼亭避雨。' },
+          { id: 'P4', text: '不久，雨停了，天空出現彩虹。小琪覺得這次遠足十分難忘。' },
+        ],
+      },
+      questions: [
+        { id: 'P1-CN-R04-Q01', stage: '起', prompt: '哪一段先交代時間、人物和遠足活動？', answer: 'P1', explanation: '第一段交代星期五早上、小琪和同學，以及到郊外遠足，是故事的開始。' },
+        { id: 'P1-CN-R04-Q02', stage: '承', prompt: '哪一段承接開始，寫他們沿路看見的景物？', answer: 'P2', explanation: '第二段寫小鳥、蝴蝶和花，讓故事順著遠足活動發展。' },
+        { id: 'P1-CN-R04-Q03', stage: '轉', prompt: '哪一段令故事出現明顯變化？', answer: 'P3', explanation: '第三段由晴天忽然變成下大雨，故事出現轉變。' },
+        { id: 'P1-CN-R04-Q04', stage: '合', prompt: '哪一段交代雨後結果和小琪的感受？', answer: 'P4', explanation: '第四段寫雨停、看見彩虹和難忘感受，收束整個故事。' },
+        { id: 'P1-CN-R04-Q05', stage: '轉', prompt: '哪一段最適合放「忽然」這個表示變化的詞？', answer: 'P3', explanation: '「忽然」用來提示事情突然改變；短文中正是第三段突然下起大雨。' },
+        { id: 'P1-CN-R04-Q06', stage: '合', prompt: '哪一段最能讓讀者知道故事已經結束？', answer: 'P4', explanation: '第四段寫出事件結果和人物感受，令文章有完整的結尾。' },
+      ],
+    },
     { id: 'P1-CN-W01', area: '寫作', title: '句子擴寫', questions: [] },
   ],
 };

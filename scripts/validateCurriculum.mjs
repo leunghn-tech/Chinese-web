@@ -23,6 +23,7 @@ for (const topic of database.topics) {
 
 const p1WordUnit = p1Bank.units.find((unit) => unit.id === 'P1-CN-R01');
 const p1RadicalUnit = p1Bank.units.find((unit) => unit.id === 'P1-CN-R02');
+const p1StoryUnit = p1Bank.units.find((unit) => unit.id === 'P1-CN-R04');
 if (!p1WordUnit) errors.push('缺少 P1「認讀基礎字詞」題庫單元。');
 else {
   if (p1WordUnit.interaction !== 'word-match') errors.push('P1 認讀基礎字詞必須使用 word-match 互動。');
@@ -61,9 +62,22 @@ else {
   }
 }
 
+if (!p1StoryUnit) errors.push('缺少 P1「短文起、承、轉、合」題庫單元。');
+else {
+  if (p1StoryUnit.interaction !== 'story-structure') errors.push('P1 短文起、承、轉、合必須使用 story-structure 互動。');
+  if (!p1StoryUnit.story?.title || !Array.isArray(p1StoryUnit.story?.paragraphs) || p1StoryUnit.story.paragraphs.length !== 4) errors.push('P1 短文起、承、轉、合必須包含一篇四段短文。');
+  if (p1StoryUnit.questions.length < 6) errors.push('P1 短文起、承、轉、合至少需要六條問題。');
+  const paragraphIds = p1StoryUnit.story?.paragraphs?.map((paragraph) => paragraph.id) || [];
+  for (const paragraph of p1StoryUnit.story?.paragraphs || []) if (!paragraph.id || !paragraph.text) errors.push('P1 短文段落缺少編號或文字。');
+  for (const question of p1StoryUnit.questions) {
+    if (!question.prompt || !question.stage || !question.answer || !question.explanation) errors.push(`${question.id} 缺少短文題必要資料。`);
+    if (!paragraphIds.includes(question.answer)) errors.push(`${question.id} 的答案必須對應短文中的段落。`);
+  }
+}
+
 if (errors.length) {
   console.error(JSON.stringify({ status: 'invalid', errors }, null, 2));
   process.exit(1);
 }
 
-console.log(JSON.stringify({ status: 'valid', mode: database.mode, topics: database.topics.length, grades, subjects, questionsPerTopic: 1, p1WordMatchQuestions: p1WordUnit.questions.length, p1RadicalQuestions: p1RadicalUnit.questions.length, p1PunctuationQuestions: p1PunctuationUnit.questions.length }, null, 2));
+console.log(JSON.stringify({ status: 'valid', mode: database.mode, topics: database.topics.length, grades, subjects, questionsPerTopic: 1, p1WordMatchQuestions: p1WordUnit.questions.length, p1RadicalQuestions: p1RadicalUnit.questions.length, p1PunctuationQuestions: p1PunctuationUnit.questions.length, p1StoryStructureQuestions: p1StoryUnit.questions.length }, null, 2));
