@@ -24,10 +24,11 @@ for (const topic of database.topics) {
 const p1WordUnit = p1Bank.units.find((unit) => unit.id === 'P1-CN-R01');
 const p1RadicalUnit = p1Bank.units.find((unit) => unit.id === 'P1-CN-R02');
 const p1StoryUnit = p1Bank.units.find((unit) => unit.id === 'P1-CN-R04');
+const p1SentenceUnit = p1Bank.units.find((unit) => unit.id === 'P1-CN-W01');
 if (!p1WordUnit) errors.push('缺少 P1「認讀基礎字詞」題庫單元。');
 else {
   if (p1WordUnit.interaction !== 'word-match') errors.push('P1 認讀基礎字詞必須使用 word-match 互動。');
-  if (p1WordUnit.questions.length < 5) errors.push('P1 認讀基礎字詞至少需要 5 組配對題。');
+  if (p1WordUnit.questions.length < 10) errors.push('P1 認讀基礎字詞至少需要 10 組配對題。');
   for (const question of p1WordUnit.questions) {
     if (!question.prompt || !question.explanation) errors.push(`${question.id} 缺少題幹或解析。`);
     if (!Array.isArray(question.matches) || question.matches.length !== 3) errors.push(`${question.id} 必須包含 3 張字詞配對卡。`);
@@ -54,7 +55,7 @@ const p1PunctuationUnit = p1Bank.units.find((unit) => unit.id === 'P1-CN-R03');
 if (!p1PunctuationUnit) errors.push('缺少 P1「基本標點符號」題庫單元。');
 else {
   if (p1PunctuationUnit.interaction !== 'punctuation-drop') errors.push('P1 基本標點符號必須使用 punctuation-drop 互動。');
-  if (p1PunctuationUnit.questions.length < 6) errors.push('P1 基本標點符號至少需要 6 題。');
+  if (p1PunctuationUnit.questions.length < 10) errors.push('P1 基本標點符號至少需要 10 題。');
   for (const question of p1PunctuationUnit.questions) {
     if (!question.prompt || !question.before || !question.answer || !question.explanation) errors.push(`${question.id} 缺少標點題必要資料。`);
     if (!Array.isArray(question.choices) || question.choices.length !== 3) errors.push(`${question.id} 必須有三個候選標點。`);
@@ -66,12 +67,12 @@ if (!p1StoryUnit) errors.push('缺少 P1「短文起、承、轉、合」題庫�
 else {
   if (p1StoryUnit.interaction !== 'story-structure') errors.push('P1 短文起、承、轉、合必須使用 story-structure 互動。');
   if (!Array.isArray(p1StoryUnit.stories) || p1StoryUnit.stories.length < 3) errors.push('P1 短文起、承、轉、合至少需要三篇短文。');
-  if (p1StoryUnit.questions.length < 14) errors.push('P1 短文起、承、轉、合至少需要十四條問題。');
+  if (p1StoryUnit.questions.length < 12) errors.push('P1 短文起、承、轉、合至少需要十二條問題。');
   const storyQuestionIds = [];
   for (const [index, story] of (p1StoryUnit.stories || []).entries()) {
     if (!story.id || !story.title || !Array.isArray(story.paragraphs) || story.paragraphs.length !== 4) errors.push('每篇 P1 短文必須有名稱及四段內容。');
     if (!Array.isArray(story.questions) || story.questions.length < 4) errors.push(`短文「${story.title || '未命名'}」至少需要四條問題。`);
-    if (index > 0 && story.questions?.length !== 4) errors.push(`新增短文「${story.title || '未命名'}」必須剛好有四條問題。`);
+    if (story.questions?.length !== 4) errors.push(`短文「${story.title || '未命名'}」必須剛好有四條問題。`);
     const paragraphIds = story.paragraphs?.map((paragraph) => paragraph.id) || [];
     for (const paragraph of story.paragraphs || []) if (!paragraph.id || !paragraph.text) errors.push('P1 短文段落缺少編號或文字。');
     for (const question of story.questions || []) {
@@ -84,9 +85,24 @@ else {
   if (p1StoryUnit.questions.length !== storyQuestionIds.length) errors.push('短文單元的總題數必須等於各篇短文問題數之和。');
 }
 
+if (!p1SentenceUnit) errors.push('缺少 P1「句子擴寫」題庫單元。');
+else {
+  if (p1SentenceUnit.interaction !== 'sentence-expand') errors.push('P1 句子擴寫必須使用 sentence-expand 互動。');
+  if (p1SentenceUnit.questions.length < 10) errors.push('P1 句子擴寫至少需要十題。');
+  for (const question of p1SentenceUnit.questions) {
+    const parts = question.parts || {};
+    for (const key of ['time', 'person', 'place', 'action']) {
+      const part = parts[key];
+      if (!part?.label || !part.answer || !Array.isArray(part.choices) || part.choices.length !== 3) errors.push(`${question.id} 的「${key}」資料不完整。`);
+      if (part && !part.choices.includes(part.answer)) errors.push(`${question.id} 的「${key}」正確答案必須包含在候選中。`);
+    }
+    if (!question.prompt || !question.explanation) errors.push(`${question.id} 缺少句子擴寫題幹或解析。`);
+  }
+}
+
 if (errors.length) {
   console.error(JSON.stringify({ status: 'invalid', errors }, null, 2));
   process.exit(1);
 }
 
-console.log(JSON.stringify({ status: 'valid', mode: database.mode, topics: database.topics.length, grades, subjects, questionsPerTopic: 1, p1WordMatchQuestions: p1WordUnit.questions.length, p1RadicalQuestions: p1RadicalUnit.questions.length, p1PunctuationQuestions: p1PunctuationUnit.questions.length, p1StoryStructureQuestions: p1StoryUnit.questions.length }, null, 2));
+console.log(JSON.stringify({ status: 'valid', mode: database.mode, topics: database.topics.length, grades, subjects, questionsPerTopic: 1, p1WordMatchQuestions: p1WordUnit.questions.length, p1RadicalQuestions: p1RadicalUnit.questions.length, p1PunctuationQuestions: p1PunctuationUnit.questions.length, p1StoryStructureQuestions: p1StoryUnit.questions.length, p1SentenceExpandQuestions: p1SentenceUnit.questions.length }, null, 2));

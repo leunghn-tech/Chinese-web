@@ -1,7 +1,7 @@
 /* P1 中文題庫：日後只在此檔案加入小一題目，不影響其他年級。 */
 const storyStructureStories = [
   {
-    id: 'P1-CN-R04-S01', title: '雨天遠足', intro: '先讀完整短文，再按問題找出最合適的段落。這一篇短文共有六條練習問題。',
+    id: 'P1-CN-R04-S01', title: '雨天遠足', intro: '先讀完整短文，再按問題找出最合適的段落。這一篇短文共有四條練習問題。',
     paragraphs: [
       { id: 'S1-P1', text: '星期五早上，小琪和同學到郊外遠足。天氣晴朗，大家都很期待。' },
       { id: 'S1-P2', text: '他們沿著小路走，看見小鳥在樹上唱歌，也看見蝴蝶在花間飛舞。' },
@@ -13,8 +13,6 @@ const storyStructureStories = [
       { id: 'P1-CN-R04-Q02', stage: '承', prompt: '哪一段承接開始，寫他們沿路看見的景物？', answer: 'S1-P2', explanation: '第二段寫小鳥、蝴蝶和花，讓故事順著遠足活動發展。' },
       { id: 'P1-CN-R04-Q03', stage: '轉', prompt: '哪一段令故事出現明顯變化？', answer: 'S1-P3', explanation: '第三段由晴天忽然變成下大雨，故事出現轉變。' },
       { id: 'P1-CN-R04-Q04', stage: '合', prompt: '哪一段交代雨後結果和小琪的感受？', answer: 'S1-P4', explanation: '第四段寫雨停、看見彩虹和難忘感受，收束整個故事。' },
-      { id: 'P1-CN-R04-Q05', stage: '轉', prompt: '哪一段最適合放「忽然」這個表示變化的詞？', answer: 'S1-P3', explanation: '「忽然」用來提示事情突然改變；短文中正是第三段突然下起大雨。' },
-      { id: 'P1-CN-R04-Q06', stage: '合', prompt: '哪一段最能讓讀者知道故事已經結束？', answer: 'S1-P4', explanation: '第四段寫出事件結果和人物感受，令文章有完整的結尾。' },
     ],
   },
   {
@@ -100,6 +98,11 @@ export default {
           ],
           explanation: '巴士載客；紅綠燈指示過路；公園可散步遊玩。',
         },
+        { id: 'P1-CN-R01-Q06', prompt: '把農場字詞和圖意配對。', matches: [{ id: 'bird', word: '小鳥', symbol: '🐦', meaning: '有翅膀、會在天空飛' }, { id: 'farmer', word: '農夫', symbol: '🧑‍🌾', meaning: '在田地種植農作物的人' }, { id: 'grass', word: '青草', symbol: '🌱', meaning: '長在地上的綠色植物' }], explanation: '小鳥會飛；農夫在田地工作；青草是綠色植物。' },
+        { id: 'P1-CN-R01-Q07', prompt: '把水果和正確圖意配對。', matches: [{ id: 'banana', word: '香蕉', symbol: '🍌', meaning: '彎彎的黃色水果' }, { id: 'grape', word: '葡萄', symbol: '🍇', meaning: '一粒粒串在一起的水果' }, { id: 'watermelon', word: '西瓜', symbol: '🍉', meaning: '有紅色果肉的大水果' }], explanation: '香蕉彎彎；葡萄成串；西瓜有紅色果肉。' },
+        { id: 'P1-CN-R01-Q08', prompt: '把身體字詞和正確用途配對。', matches: [{ id: 'eye', word: '眼睛', symbol: '👁️', meaning: '用來看見東西' }, { id: 'hand', word: '手掌', symbol: '🖐️', meaning: '用來拿東西和拍手' }, { id: 'mouth', word: '嘴巴', symbol: '👄', meaning: '用來說話和吃東西' }], explanation: '眼睛看、手掌拿、嘴巴說話和吃東西。' },
+        { id: 'P1-CN-R01-Q09', prompt: '把天氣字詞和圖意配對。', matches: [{ id: 'rain', word: '雨點', symbol: '🌧️', meaning: '從天空落下的水珠' }, { id: 'cloud', word: '白雲', symbol: '☁️', meaning: '飄在天空的白色雲團' }, { id: 'rainbow', word: '彩虹', symbol: '🌈', meaning: '雨後天空出現的七彩弧形' }], explanation: '雨點落下；白雲飄在天上；彩虹常在雨後出現。' },
+        { id: 'P1-CN-R01-Q10', prompt: '把課室用品和正確用途配對。', matches: [{ id: 'pencil', word: '鉛筆', symbol: '✏️', meaning: '用來寫字和畫畫' }, { id: 'ruler', word: '尺子', symbol: '📏', meaning: '用來量長短和畫直線' }, { id: 'book', word: '課本', symbol: '📘', meaning: '上課時用來閱讀和學習' }], explanation: '鉛筆寫畫；尺子量和畫線；課本用來學習。' },
       ],
     },
     {
@@ -126,9 +129,27 @@ export default {
         { id: 'P1-CN-R03-Q04', prompt: '把正確標點拖到句子空格。', before: '花兒真美', after: '', answer: '！', choices: ['？', '。', '！'], explanation: '這是在讚美花兒，帶有強烈感受，句末用感嘆號。' },
         { id: 'P1-CN-R03-Q05', prompt: '把正確標點拖到句子空格。', before: '星期日你會去公園嗎', after: '', answer: '？', choices: ['。', '？', '！'], explanation: '這是在詢問別人，句末用問號。' },
         { id: 'P1-CN-R03-Q06', prompt: '把正確標點拖到句子空格。', before: '請把書放在桌上', after: '', answer: '。', choices: ['！', '。', '？'], explanation: '這是一句平靜的請求，句末用句號。' },
+        { id: 'P1-CN-R03-Q07', prompt: '把正確標點拖到句子空格。', before: '誰和你一起上學', after: '', answer: '？', choices: ['！', '。', '？'], explanation: '這是在詢問「誰」，句末用問號。' },
+        { id: 'P1-CN-R03-Q08', prompt: '把正確標點拖到句子空格。', before: '爸爸今天煮了湯', after: '', answer: '。', choices: ['？', '。', '！'], explanation: '這是在平靜地說一件事，句末用句號。' },
+        { id: 'P1-CN-R03-Q09', prompt: '把正確標點拖到句子空格。', before: '太好了我們贏了', after: '', answer: '！', choices: ['。', '？', '！'], explanation: '這是在表達高興和興奮，句末用感嘆號。' },
+        { id: 'P1-CN-R03-Q10', prompt: '把正確標點拖到句子空格。', before: '你喜歡這本圖畫書嗎', after: '', answer: '？', choices: ['！', '？', '。'], explanation: '這是一句問句，句末用問號。' },
       ],
     },
     { id: 'P1-CN-R04', area: '閱讀', title: '短文起、承、轉、合', interaction: 'story-structure', stories: storyStructureStories, questions: storyStructureStories.flatMap((story) => story.questions) },
-    { id: 'P1-CN-W01', area: '寫作', title: '句子擴寫', questions: [] },
+    {
+      id: 'P1-CN-W01', area: '寫作', title: '句子擴寫', interaction: 'sentence-expand',
+      questions: [
+        { id: 'P1-CN-W01-Q01', prompt: '依照小安上體育課的情境，選詞完成句子。', parts: { time: { label: '時間', answer: '今天早上', choices: ['今天早上', '昨天晚上', '下星期'] }, person: { label: '人物', answer: '小安', choices: ['小安', '媽媽', '小狗'] }, place: { label: '地點', answer: '學校操場', choices: ['學校操場', '圖書館', '廚房'] }, action: { label: '動作', answer: '跑步', choices: ['跑步', '看書', '煮飯'] } }, explanation: '完整句子是「今天早上，小安在學校操場跑步。」' },
+        { id: 'P1-CN-W01-Q02', prompt: '依照小琪借書的情境，選詞完成句子。', parts: { time: { label: '時間', answer: '星期日下午', choices: ['星期日下午', '清晨', '晚上睡前'] }, person: { label: '人物', answer: '小琪', choices: ['小琪', '弟弟', '老師'] }, place: { label: '地點', answer: '圖書館', choices: ['圖書館', '公園', '巴士站'] }, action: { label: '動作', answer: '看圖畫書', choices: ['看圖畫書', '踢足球', '洗碗'] } }, explanation: '完整句子是「星期日下午，小琪在圖書館看圖畫書。」' },
+        { id: 'P1-CN-W01-Q03', prompt: '依照小明幫忙的情境，選詞完成句子。', parts: { time: { label: '時間', answer: '昨天傍晚', choices: ['昨天傍晚', '明年', '午飯後'] }, person: { label: '人物', answer: '小明', choices: ['小明', '奶奶', '小鳥'] }, place: { label: '地點', answer: '家裏', choices: ['家裏', '泳池', '花園'] }, action: { label: '動作', answer: '收拾玩具', choices: ['收拾玩具', '種花', '游泳'] } }, explanation: '完整句子是「昨天傍晚，小明在家裏收拾玩具。」' },
+        { id: 'P1-CN-W01-Q04', prompt: '依照同學觀察植物的情境，選詞完成句子。', parts: { time: { label: '時間', answer: '今天中午', choices: ['今天中午', '冬天', '明天晚上'] }, person: { label: '人物', answer: '同學們', choices: ['同學們', '小貓', '爸爸'] }, place: { label: '地點', answer: '學校花園', choices: ['學校花園', '商店', '課室'] }, action: { label: '動作', answer: '看花朵', choices: ['看花朵', '做功課', '吃早餐'] } }, explanation: '完整句子是「今天中午，同學們在學校花園看花朵。」' },
+        { id: 'P1-CN-W01-Q05', prompt: '依照小樂畫畫的情境，選詞完成句子。', parts: { time: { label: '時間', answer: '星期六早上', choices: ['星期六早上', '昨天深夜', '下個月'] }, person: { label: '人物', answer: '小樂', choices: ['小樂', '校長', '小魚'] }, place: { label: '地點', answer: '美術室', choices: ['美術室', '操場', '飯堂'] }, action: { label: '動作', answer: '畫彩虹', choices: ['畫彩虹', '讀故事', '掃地'] } }, explanation: '完整句子是「星期六早上，小樂在美術室畫彩虹。」' },
+        { id: 'P1-CN-W01-Q06', prompt: '依照爸爸運動的情境，選詞完成句子。', parts: { time: { label: '時間', answer: '清晨', choices: ['清晨', '昨天午夜', '下學期'] }, person: { label: '人物', answer: '爸爸', choices: ['爸爸', '小鳥', '同學'] }, place: { label: '地點', answer: '海旁', choices: ['海旁', '課室', '書房'] }, action: { label: '動作', answer: '散步', choices: ['散步', '上課', '畫畫'] } }, explanation: '完整句子是「清晨，爸爸在海旁散步。」' },
+        { id: 'P1-CN-W01-Q07', prompt: '依照小玲照顧動物的情境，選詞完成句子。', parts: { time: { label: '時間', answer: '放學後', choices: ['放學後', '明年夏天', '午夜'] }, person: { label: '人物', answer: '小玲', choices: ['小玲', '老師', '哥哥'] }, place: { label: '地點', answer: '家中', choices: ['家中', '圖書館', '球場'] }, action: { label: '動作', answer: '餵小狗', choices: ['餵小狗', '寫毛筆字', '踢球'] } }, explanation: '完整句子是「放學後，小玲在家中餵小狗。」' },
+        { id: 'P1-CN-W01-Q08', prompt: '依照弟弟準備上課的情境，選詞完成句子。', parts: { time: { label: '時間', answer: '星期一早上', choices: ['星期一早上', '昨天晚上', '明天深夜'] }, person: { label: '人物', answer: '弟弟', choices: ['弟弟', '媽媽', '小貓'] }, place: { label: '地點', answer: '課室', choices: ['課室', '廚房', '車站'] }, action: { label: '動作', answer: '讀課本', choices: ['讀課本', '吃西瓜', '種樹'] } }, explanation: '完整句子是「星期一早上，弟弟在課室讀課本。」' },
+        { id: 'P1-CN-W01-Q09', prompt: '依照媽媽買水果的情境，選詞完成句子。', parts: { time: { label: '時間', answer: '今天下午', choices: ['今天下午', '凌晨', '下星期日'] }, person: { label: '人物', answer: '媽媽', choices: ['媽媽', '小安', '農夫'] }, place: { label: '地點', answer: '市場', choices: ['市場', '操場', '禮堂'] }, action: { label: '動作', answer: '買蘋果', choices: ['買蘋果', '游泳', '唱歌'] } }, explanation: '完整句子是「今天下午，媽媽在市場買蘋果。」' },
+        { id: 'P1-CN-W01-Q10', prompt: '依照小偉觀察天空的情境，選詞完成句子。', parts: { time: { label: '時間', answer: '雨後', choices: ['雨後', '睡覺時', '考試前'] }, person: { label: '人物', answer: '小偉', choices: ['小偉', '醫生', '姐姐'] }, place: { label: '地點', answer: '窗前', choices: ['窗前', '飯堂', '泳池'] }, action: { label: '動作', answer: '看彩虹', choices: ['看彩虹', '做早操', '洗衣服'] } }, explanation: '完整句子是「雨後，小偉在窗前看彩虹。」' },
+      ],
+    },
   ],
 };
