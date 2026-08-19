@@ -29,6 +29,8 @@ const p2Bank = (await import('../client/src/data/questionBanks/chinese/p2.js')).
 const p2ContextUnit = p2Bank.units.find((unit) => unit.id === 'P2-CN-R01');
 const p2ConnectorUnit = p2Bank.units.find((unit) => unit.id === 'P2-CN-R02');
 const p2TaleUnit = p2Bank.units.find((unit) => unit.id === 'P2-CN-R03');
+const p2PortraitUnit = p2Bank.units.find((unit) => unit.id === 'P2-CN-W01');
+const p2PracticalUnit = p2Bank.units.find((unit) => unit.id === 'P2-CN-W02');
 if (!p1WordUnit) errors.push('缺少 P1「認讀基礎字詞」題庫單元。');
 else {
   if (p1WordUnit.interaction !== 'word-match') errors.push('P1 認讀基礎字詞必須使用 word-match 互動。');
@@ -129,9 +131,23 @@ else {
   }
 }
 
+if (!p2PortraitUnit) errors.push('缺少 P2「基礎人物描寫：外貌特徵」題庫單元。');
+else {
+  if (p2PortraitUnit.interaction !== 'writing-choice' || p2PortraitUnit.writingType !== 'portrait') errors.push('P2 基礎人物描寫必須使用 portrait writing-choice 互動。');
+  if (p2PortraitUnit.questions.length < 10) errors.push('P2 基礎人物描寫至少需要十題。');
+  for (const question of p2PortraitUnit.questions) if (!question.profile || !question.prompt || !question.answer || !question.explanation || question.choices?.length !== 4 || !question.choices.includes(question.answer)) errors.push(`${question.id} 缺少完整的人物描寫資料。`);
+}
+
+if (!p2PracticalUnit) errors.push('缺少 P2「簡單日記與書信」題庫單元。');
+else {
+  if (p2PracticalUnit.interaction !== 'writing-choice' || p2PracticalUnit.writingType !== 'practical') errors.push('P2 簡單日記與書信必須使用 practical writing-choice 互動。');
+  if (p2PracticalUnit.questions.length < 10) errors.push('P2 簡單日記與書信至少需要十題。');
+  for (const question of p2PracticalUnit.questions) if (!question.document || !question.prompt || !question.answer || !question.explanation || question.choices?.length !== 4 || !question.choices.includes(question.answer)) errors.push(`${question.id} 缺少完整的日記或書信資料。`);
+}
+
 if (errors.length) {
   console.error(JSON.stringify({ status: 'invalid', errors }, null, 2));
   process.exit(1);
 }
 
-console.log(JSON.stringify({ status: 'valid', mode: database.mode, topics: database.topics.length, grades, subjects, questionsPerTopic: 1, p1WordMatchQuestions: p1WordUnit.questions.length, p1RadicalQuestions: p1RadicalUnit.questions.length, p1PunctuationQuestions: p1PunctuationUnit.questions.length, p1StoryStructureQuestions: p1StoryUnit.questions.length, p1SentenceExpandQuestions: p1SentenceUnit.questions.length, p2ContextQuestions: p2ContextUnit.questions.length, p2ConnectorQuestions: p2ConnectorUnit.questions.length, p2TaleQuestions: p2TaleUnit.questions.length }, null, 2));
+console.log(JSON.stringify({ status: 'valid', mode: database.mode, topics: database.topics.length, grades, subjects, questionsPerTopic: 1, p1WordMatchQuestions: p1WordUnit.questions.length, p1RadicalQuestions: p1RadicalUnit.questions.length, p1PunctuationQuestions: p1PunctuationUnit.questions.length, p1StoryStructureQuestions: p1StoryUnit.questions.length, p1SentenceExpandQuestions: p1SentenceUnit.questions.length, p2ContextQuestions: p2ContextUnit.questions.length, p2ConnectorQuestions: p2ConnectorUnit.questions.length, p2TaleQuestions: p2TaleUnit.questions.length, p2PortraitQuestions: p2PortraitUnit.questions.length, p2PracticalQuestions: p2PracticalUnit.questions.length }, null, 2));
