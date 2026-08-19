@@ -39,6 +39,10 @@ const p3ParagraphMarkUnit = p3Bank.units.find((unit) => unit.id === 'P3-CN-R03')
 const p3MetaphorUnit = p3Bank.units.find((unit) => unit.id === 'P3-CN-R04');
 const p3PersonificationUnit = p3Bank.units.find((unit) => unit.id === 'P3-CN-R05');
 const p3ParallelismUnit = p3Bank.units.find((unit) => unit.id === 'P3-CN-R06');
+const p3ParagraphStructureUnit = p3Bank.units.find((unit) => unit.id === 'P3-CN-W01');
+const p3SensoryUnit = p3Bank.units.find((unit) => unit.id === 'P3-CN-W02');
+const p3NarrativeUnit = p3Bank.units.find((unit) => unit.id === 'P3-CN-W03');
+const p4Bank = (await import('../client/src/data/questionBanks/chinese/p4.js')).default;
 if (!p1WordUnit) errors.push('缺少 P1「認讀基礎字詞」題庫單元。');
 else {
   if (p1WordUnit.interaction !== 'word-match') errors.push('P1 認讀基礎字詞必須使用 word-match 互動。');
@@ -191,6 +195,25 @@ for (const [name, unit] of [['比喻', p3MetaphorUnit], ['擬人', p3Personifica
     if (unit.interaction !== 'p3-figure') errors.push(`P3 ${name}手法必須使用 p3-figure 互動。`);
     if (unit.questions.length < 10) errors.push(`P3 ${name}手法至少需要十題。`);
     for (const question of unit.questions) if (!question.hint || !question.prompt || !question.answer || !question.explanation || question.choices?.length !== 4 || !question.choices.includes(question.answer)) errors.push(`${question.id} 缺少完整的${name}資料。`);
+  }
+}
+
+for (const [name, unit] of [['總—分—總段落結構', p3ParagraphStructureUnit], ['五感描寫', p3SensoryUnit], ['記敘文六要素', p3NarrativeUnit]]) {
+  if (!unit) errors.push(`缺少 P3「${name}」題庫單元。`);
+  else {
+    if (unit.interaction !== 'p3-figure' || unit.area !== '寫作') errors.push(`P3 ${name}必須使用寫作互動。`);
+    if (unit.questions.length < 10) errors.push(`P3 ${name}至少需要十題。`);
+    for (const question of unit.questions) if (!question.hint || !question.prompt || !question.answer || !question.explanation || question.choices?.length !== 4 || !question.choices.includes(question.answer)) errors.push(`${question.id} 缺少完整的${name}資料。`);
+  }
+}
+
+for (const [id, name] of [['P4-CN-R01', '文章結構與寫作順序'], ['P4-CN-R02', '表面意思與深層情感'], ['P4-CN-R03', '進階記敘、科普與抒情文'], ['P4-CN-W01', '動態與靜態描寫'], ['P4-CN-W02', '詳寫與略寫'], ['P4-CN-W03', '便條、啟事與演講稿']]) {
+  const unit = p4Bank.units.find((item) => item.id === id);
+  if (!unit) errors.push(`缺少 P4「${name}」題庫單元。`);
+  else {
+    if (unit.interaction !== 'p3-figure') errors.push(`P4 ${name}必須使用互動閱讀／寫作工作紙。`);
+    if (unit.questions.length < 10) errors.push(`P4 ${name}至少需要十題。`);
+    for (const question of unit.questions) if (!question.hint || !question.prompt || !question.answer || !question.explanation || question.choices?.length !== 4 || !question.choices.includes(question.answer)) errors.push(`${question.id} 缺少完整的 P4 ${name}資料。`);
   }
 }
 
