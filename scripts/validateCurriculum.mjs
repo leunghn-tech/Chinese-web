@@ -53,6 +53,11 @@ const p5RequiredUnits = [
   ['進階重組句子', 'P5-CN-R01'], ['修辭手法與作用', 'P5-CN-R02'], ['篇章理解與推論', 'P5-CN-R03'],
   ['記敘文應試', 'P5-CN-W01'], ['說明文應試', 'P5-CN-W02'], ['進階實用文', 'P5-CN-W03'], ['審題與文體', 'P5-CN-W04'],
 ];
+const p6Bank = (await import('../client/src/data/questionBanks/chinese/p6.js')).default;
+const p6RequiredUnits = [
+  ['文言虛詞與句式', 'P6-CN-R01'], ['深層主旨', 'P6-CN-R02'], ['夾敘夾議', 'P6-CN-W01'], ['抒情描寫', 'P6-CN-W02'],
+  ['全套實用文', 'P6-CN-W03'], ['高分字詞與修辭', 'P6-CN-W04'], ['模擬改錯', 'P6-CN-W05'],
+];
 if (!p1WordUnit) errors.push('缺少 P1「認讀基礎字詞」題庫單元。');
 else {
   if (p1WordUnit.interaction !== 'word-match') errors.push('P1 認讀基礎字詞必須使用 word-match 互動。');
@@ -244,9 +249,21 @@ for (const [name, id] of p5RequiredUnits) {
   }
 }
 
+for (const [name, id] of p6RequiredUnits) {
+  const unit = p6Bank.units.find((item) => item.id === id);
+  if (!unit) errors.push(`缺少 P6「${name}」題庫單元。`);
+  else {
+    if (unit.interaction !== 'p3-figure') errors.push(`P6 ${name}必須使用呈分試工作紙互動。`);
+    if (unit.questions.length !== 10) errors.push(`P6 ${name}必須剛好有十題。`);
+    const ids = unit.questions.map((question) => question.id);
+    if (new Set(ids).size !== ids.length) errors.push(`P6 ${name}的問題編號不可重複。`);
+    for (const question of unit.questions) if (!question.hint || !question.prompt || !question.answer || !question.explanation || question.choices?.length !== 4 || !question.choices.includes(question.answer) || new Set(question.choices).size !== 4) errors.push(`${question.id} 缺少完整且唯一的小六呈分試資料。`);
+  }
+}
+
 if (errors.length) {
   console.error(JSON.stringify({ status: 'invalid', errors }, null, 2));
   process.exit(1);
 }
 
-console.log(JSON.stringify({ status: 'valid', mode: database.mode, topics: database.topics.length, grades, subjects, questionsPerTopic: 1, p1WordMatchQuestions: p1WordUnit.questions.length, p1RadicalQuestions: p1RadicalUnit.questions.length, p1PunctuationQuestions: p1PunctuationUnit.questions.length, p1StoryStructureQuestions: p1StoryUnit.questions.length, p1SentenceExpandQuestions: p1SentenceUnit.questions.length, p2ContextQuestions: p2ContextUnit.questions.length, p2ConnectorQuestions: p2ConnectorUnit.questions.length, p2TaleQuestions: p2TaleUnit.questions.length, p2PortraitQuestions: p2PortraitUnit.questions.length, p2PracticalQuestions: p2PracticalUnit.questions.length, p2FormatQuestions: p2FormatUnit.questions.length, p3InfoQuestions: p3InfoUnit.questions.length, p3IdiomQuestions: p3IdiomUnit.questions.length, p3ParagraphMarkQuestions: p3ParagraphMarkUnit.questions.length, p3MetaphorQuestions: p3MetaphorUnit.questions.length, p3PersonificationQuestions: p3PersonificationUnit.questions.length, p3ParallelismQuestions: p3ParallelismUnit.questions.length }, null, 2));
+console.log(JSON.stringify({ status: 'valid', mode: database.mode, topics: database.topics.length, grades, subjects, questionsPerTopic: 1, p1WordMatchQuestions: p1WordUnit.questions.length, p1RadicalQuestions: p1RadicalUnit.questions.length, p1PunctuationQuestions: p1PunctuationUnit.questions.length, p1StoryStructureQuestions: p1StoryUnit.questions.length, p1SentenceExpandQuestions: p1SentenceUnit.questions.length, p2ContextQuestions: p2ContextUnit.questions.length, p2ConnectorQuestions: p2ConnectorUnit.questions.length, p2TaleQuestions: p2TaleUnit.questions.length, p2PortraitQuestions: p2PortraitUnit.questions.length, p2PracticalQuestions: p2PracticalUnit.questions.length, p2FormatQuestions: p2FormatUnit.questions.length, p3InfoQuestions: p3InfoUnit.questions.length, p3IdiomQuestions: p3IdiomUnit.questions.length, p3ParagraphMarkQuestions: p3ParagraphMarkUnit.questions.length, p3MetaphorQuestions: p3MetaphorUnit.questions.length, p3PersonificationQuestions: p3PersonificationUnit.questions.length, p3ParallelismQuestions: p3ParallelismUnit.questions.length, p6ExamUnits: p6Bank.units.length, p6ExamQuestions: p6Bank.units.reduce((total, unit) => total + unit.questions.length, 0) }, null, 2));
