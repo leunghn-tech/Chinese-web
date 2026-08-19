@@ -29,7 +29,8 @@ function CourseCard({ topic, onOpen, onCatalog }) {
   const subject = SUBJECTS[topic.subject];
   const Icon = subject.icon;
   const isChinese = topic.subject === '中文';
-  return <article className={`course-card ${subject.color}`}><div className="course-card-icon"><Icon size={27} /></div><div className="course-card-main"><span>{topic.subject}・{subject.english}</span><h3>{isChinese ? `${topic.grade} 中文課程目錄` : topic.title}</h3><p>{isChinese ? '閱讀與寫作分級重點，日後可從此開啟試題' : topic.description}</p></div><div className="course-card-action"><small>{isChinese ? '閱讀・寫作' : '示範題 01'}</small><button onClick={() => isChinese ? onCatalog(topic.grade) : onOpen(topic)}>{isChinese ? '查看目錄' : '開啟示範'} <ChevronRight size={17} /></button></div></article>;
+  const openCard = () => isChinese ? onCatalog(topic.grade) : onOpen(topic);
+  return <article className={`course-card ${subject.color} clickable-card`} role="link" tabIndex={0} onClick={openCard} onKeyDown={(event) => { if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); openCard(); } }} aria-label={isChinese ? `開啟 ${topic.grade} 中文課程目錄` : `開啟 ${topic.title} 示範題`}><div className="course-card-icon"><Icon size={27} /></div><div className="course-card-main"><span>{topic.subject}・{subject.english}</span><h3>{isChinese ? `${topic.grade} 中文課程目錄` : topic.title}</h3><p>{isChinese ? '閱讀與寫作分級重點，已可從此開啟題庫與互動練習。' : topic.description}</p>{isChinese && <span className="course-card-hint">點擊整張卡即可開始</span>}</div><div className="course-card-action"><small>{isChinese ? '閱讀・寫作' : '示範題 01'}</small><button className="course-card-cta" onClick={(event) => { event.stopPropagation(); openCard(); }}>{isChinese ? '查看目錄' : '開啟示範'} <ChevronRight size={17} /></button></div></article>;
 }
 
 function Courses({ onBack, onOpen, onCatalog }) {
