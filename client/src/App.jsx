@@ -9,6 +9,8 @@ import RadicalSortActivity from './components/RadicalSortActivity';
 import PunctuationDropActivity from './components/PunctuationDropActivity';
 import StoryStructureActivity from './components/StoryStructureActivity';
 import SentenceExpandActivity from './components/SentenceExpandActivity';
+import ChoiceWorksheetActivity from './components/ChoiceWorksheetActivity';
+import TaleReadingActivity from './components/TaleReadingActivity';
 
 const SUBJECTS = {
   中文: { icon: BookOpen, color: 'chinese', english: 'Chinese', copy: '語文示範' },
@@ -76,8 +78,8 @@ function Demo({ topic, onBack }) {
 export default function App() {
   const params = new URLSearchParams(window.location.search);
   const previewTopic = params.get('demo') ? curriculumDB.topics.find((item) => item.id === params.get('demo')) || curriculumDB.topics[0] : null;
-  const previewUnitId = params.get('activity') === 'p1-sentence-expand' ? 'P1-CN-W01' : params.get('activity') === 'p1-story-structure' ? 'P1-CN-R04' : params.get('activity') === 'p1-punctuation-drop' ? 'P1-CN-R03' : params.get('activity') === 'p1-radical-sort' ? 'P1-CN-R02' : params.get('activity') === 'p1-word-match' ? 'P1-CN-R01' : null;
-  const previewUnit = previewUnitId ? getChineseQuestionBank('P1').units.find((unit) => unit.id === previewUnitId) : null;
+  const previewConfig = params.get('activity') === 'p2-tale-reading' ? { grade: 'P2', id: 'P2-CN-R03' } : params.get('activity') === 'p2-connector-cloze' ? { grade: 'P2', id: 'P2-CN-R02' } : params.get('activity') === 'p2-context-choice' ? { grade: 'P2', id: 'P2-CN-R01' } : params.get('activity') === 'p1-sentence-expand' ? { grade: 'P1', id: 'P1-CN-W01' } : params.get('activity') === 'p1-story-structure' ? { grade: 'P1', id: 'P1-CN-R04' } : params.get('activity') === 'p1-punctuation-drop' ? { grade: 'P1', id: 'P1-CN-R03' } : params.get('activity') === 'p1-radical-sort' ? { grade: 'P1', id: 'P1-CN-R02' } : params.get('activity') === 'p1-word-match' ? { grade: 'P1', id: 'P1-CN-R01' } : null;
+  const previewUnit = previewConfig ? getChineseQuestionBank(previewConfig.grade).units.find((unit) => unit.id === previewConfig.id) : null;
   const previewView = params.get('view');
   const [screen, setScreen] = useState(previewUnit ? 'activity' : previewTopic ? 'demo' : previewView === 'catalog' ? 'catalog' : previewView === 'courses' ? 'courses' : 'home');
   const [topic, setTopic] = useState(previewTopic);
@@ -87,7 +89,7 @@ export default function App() {
   const openDemo = (selectedTopic) => { setTopic(selectedTopic); setScreen('demo'); };
   const openCatalog = (grade = 'P1') => { setCatalogGrade(grade); setScreen('catalog'); };
   const markUnitCompleted = (unit, questionIds = unit.questions.map((question) => question.id)) => setCompletedUnits((current) => { const previous = Array.isArray(current[unit.id]) ? current[unit.id] : current[unit.id] >= unit.questions.length ? unit.questions.map((question) => question.id) : []; const next = { ...current, [unit.id]: [...new Set([...previous, ...questionIds])] }; window.localStorage.setItem('eduquest-unit-progress', JSON.stringify(next)); return next; });
-  if (screen === 'activity' && activeUnit) return activeUnit.interaction === 'sentence-expand' ? <SentenceExpandActivity unit={activeUnit} onBack={() => setScreen('catalog')} onComplete={markUnitCompleted} /> : activeUnit.interaction === 'story-structure' ? <StoryStructureActivity unit={activeUnit} onBack={() => setScreen('catalog')} onComplete={markUnitCompleted} /> : activeUnit.interaction === 'punctuation-drop' ? <PunctuationDropActivity unit={activeUnit} onBack={() => setScreen('catalog')} onComplete={markUnitCompleted} /> : activeUnit.interaction === 'radical-sort' ? <RadicalSortActivity unit={activeUnit} onBack={() => setScreen('catalog')} onComplete={markUnitCompleted} /> : <WordMatchActivity unit={activeUnit} onBack={() => setScreen('catalog')} onComplete={markUnitCompleted} />;
+  if (screen === 'activity' && activeUnit) return activeUnit.interaction === 'tale-reading' ? <TaleReadingActivity unit={activeUnit} onBack={() => setScreen('catalog')} onComplete={markUnitCompleted} /> : activeUnit.interaction === 'context-choice' || activeUnit.interaction === 'connector-cloze' ? <ChoiceWorksheetActivity unit={activeUnit} onBack={() => setScreen('catalog')} onComplete={markUnitCompleted} /> : activeUnit.interaction === 'sentence-expand' ? <SentenceExpandActivity unit={activeUnit} onBack={() => setScreen('catalog')} onComplete={markUnitCompleted} /> : activeUnit.interaction === 'story-structure' ? <StoryStructureActivity unit={activeUnit} onBack={() => setScreen('catalog')} onComplete={markUnitCompleted} /> : activeUnit.interaction === 'punctuation-drop' ? <PunctuationDropActivity unit={activeUnit} onBack={() => setScreen('catalog')} onComplete={markUnitCompleted} /> : activeUnit.interaction === 'radical-sort' ? <RadicalSortActivity unit={activeUnit} onBack={() => setScreen('catalog')} onComplete={markUnitCompleted} /> : <WordMatchActivity unit={activeUnit} onBack={() => setScreen('catalog')} onComplete={markUnitCompleted} />;
   if (screen === 'catalog') return <ChineseCatalog initialGrade={catalogGrade} onBack={() => setScreen('courses')} onHome={() => setScreen('home')} completedUnits={completedUnits} onStartUnit={(unit) => { setActiveUnit(unit); setScreen('activity'); }} />;
   if (screen === 'courses') return <Courses onBack={() => setScreen('home')} onOpen={openDemo} onCatalog={openCatalog} />;
   if (screen === 'demo' && topic) return <Demo topic={topic} onBack={() => setScreen('courses')} />;

@@ -25,6 +25,10 @@ const p1WordUnit = p1Bank.units.find((unit) => unit.id === 'P1-CN-R01');
 const p1RadicalUnit = p1Bank.units.find((unit) => unit.id === 'P1-CN-R02');
 const p1StoryUnit = p1Bank.units.find((unit) => unit.id === 'P1-CN-R04');
 const p1SentenceUnit = p1Bank.units.find((unit) => unit.id === 'P1-CN-W01');
+const p2Bank = (await import('../client/src/data/questionBanks/chinese/p2.js')).default;
+const p2ContextUnit = p2Bank.units.find((unit) => unit.id === 'P2-CN-R01');
+const p2ConnectorUnit = p2Bank.units.find((unit) => unit.id === 'P2-CN-R02');
+const p2TaleUnit = p2Bank.units.find((unit) => unit.id === 'P2-CN-R03');
 if (!p1WordUnit) errors.push('缺少 P1「認讀基礎字詞」題庫單元。');
 else {
   if (p1WordUnit.interaction !== 'word-match') errors.push('P1 認讀基礎字詞必須使用 word-match 互動。');
@@ -100,9 +104,34 @@ else {
   }
 }
 
+if (!p2ContextUnit) errors.push('缺少 P2「利用上下文推測字詞意思」題庫單元。');
+else {
+  if (p2ContextUnit.interaction !== 'context-choice') errors.push('P2 上下文推測字詞意思必須使用 context-choice 互動。');
+  if (p2ContextUnit.questions.length < 10) errors.push('P2 上下文推測字詞意思至少需要十題。');
+  for (const question of p2ContextUnit.questions) if (!question.target || !question.context || !question.prompt || !question.answer || !question.explanation || question.choices?.length !== 4 || !question.choices.includes(question.answer)) errors.push(`${question.id} 缺少完整的上下文推測資料。`);
+}
+
+if (!p2ConnectorUnit) errors.push('缺少 P2「常見關聯詞」題庫單元。');
+else {
+  if (p2ConnectorUnit.interaction !== 'connector-cloze') errors.push('P2 常見關聯詞必須使用 connector-cloze 互動。');
+  if (p2ConnectorUnit.questions.length < 10) errors.push('P2 常見關聯詞至少需要十題。');
+  for (const question of p2ConnectorUnit.questions) if (!question.context || !question.sentence || !question.prompt || !question.answer || !question.explanation || question.choices?.length !== 4 || !question.choices.includes(question.answer)) errors.push(`${question.id} 缺少完整的關聯詞資料。`);
+}
+
+if (!p2TaleUnit) errors.push('缺少 P2「寓言故事與童話大意」題庫單元。');
+else {
+  if (p2TaleUnit.interaction !== 'tale-reading') errors.push('P2 寓言故事與童話大意必須使用 tale-reading 互動。');
+  if (!Array.isArray(p2TaleUnit.stories) || p2TaleUnit.stories.length !== 3) errors.push('P2 寓言故事與童話必須包含三篇故事。');
+  if (p2TaleUnit.questions.length !== 9) errors.push('P2 寓言故事與童話必須共九題。');
+  for (const story of p2TaleUnit.stories || []) {
+    if (!story.id || !story.title || !story.type || !story.text || !Array.isArray(story.questions) || story.questions.length !== 3) errors.push(`P2 故事「${story.title || '未命名'}」資料不完整或不是三題。`);
+    for (const question of story.questions || []) if (!question.prompt || !question.answer || !question.explanation || question.choices?.length !== 4 || !question.choices.includes(question.answer)) errors.push(`${question.id} 缺少完整的故事閱讀資料。`);
+  }
+}
+
 if (errors.length) {
   console.error(JSON.stringify({ status: 'invalid', errors }, null, 2));
   process.exit(1);
 }
 
-console.log(JSON.stringify({ status: 'valid', mode: database.mode, topics: database.topics.length, grades, subjects, questionsPerTopic: 1, p1WordMatchQuestions: p1WordUnit.questions.length, p1RadicalQuestions: p1RadicalUnit.questions.length, p1PunctuationQuestions: p1PunctuationUnit.questions.length, p1StoryStructureQuestions: p1StoryUnit.questions.length, p1SentenceExpandQuestions: p1SentenceUnit.questions.length }, null, 2));
+console.log(JSON.stringify({ status: 'valid', mode: database.mode, topics: database.topics.length, grades, subjects, questionsPerTopic: 1, p1WordMatchQuestions: p1WordUnit.questions.length, p1RadicalQuestions: p1RadicalUnit.questions.length, p1PunctuationQuestions: p1PunctuationUnit.questions.length, p1StoryStructureQuestions: p1StoryUnit.questions.length, p1SentenceExpandQuestions: p1SentenceUnit.questions.length, p2ContextQuestions: p2ContextUnit.questions.length, p2ConnectorQuestions: p2ConnectorUnit.questions.length, p2TaleQuestions: p2TaleUnit.questions.length }, null, 2));
