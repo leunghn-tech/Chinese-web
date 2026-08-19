@@ -48,6 +48,11 @@ const p4RequiredUnits = [
   ['字詞辨析', 'P4-CN-R01'], ['段意歸納', 'P4-CN-R02'], ['重組句子', 'P4-CN-R03'], ['進階標點', 'P4-CN-R04'], ['句子改寫', 'P4-CN-R05'],
   ['順敘與倒敘', 'P4-CN-W01'], ['人物與步移描寫', 'P4-CN-W02'], ['說明方法', 'P4-CN-W03'], ['實用文格式', 'P4-CN-W04'],
 ];
+const p5Bank = (await import('../client/src/data/questionBanks/chinese/p5.js')).default;
+const p5RequiredUnits = [
+  ['進階重組句子', 'P5-CN-R01'], ['修辭手法與作用', 'P5-CN-R02'], ['篇章理解與推論', 'P5-CN-R03'],
+  ['記敘文應試', 'P5-CN-W01'], ['說明文應試', 'P5-CN-W02'], ['進階實用文', 'P5-CN-W03'], ['審題與文體', 'P5-CN-W04'],
+];
 if (!p1WordUnit) errors.push('缺少 P1「認讀基礎字詞」題庫單元。');
 else {
   if (p1WordUnit.interaction !== 'word-match') errors.push('P1 認讀基礎字詞必須使用 word-match 互動。');
@@ -226,6 +231,16 @@ for (const [name, id] of p4RequiredUnits) {
     if (unit.interaction !== 'p3-figure') errors.push(`P4 ${name}必須使用呈分試工作紙互動。`);
     if (unit.questions.length !== 10) errors.push(`P4 ${name}必須剛好有十題。`);
     for (const question of unit.questions) if (!question.hint || !question.prompt || !question.answer || !question.explanation || question.choices?.length !== 4 || !question.choices.includes(question.answer) || new Set(question.choices).size !== 4) errors.push(`${question.id} 缺少完整且唯一的小四呈分試資料。`);
+  }
+}
+
+for (const [name, id] of p5RequiredUnits) {
+  const unit = p5Bank.units.find((item) => item.id === id);
+  if (!unit) errors.push(`缺少 P5「${name}」題庫單元。`);
+  else {
+    if (unit.interaction !== 'p3-figure') errors.push(`P5 ${name}必須使用呈分試工作紙互動。`);
+    if (unit.questions.length !== 10) errors.push(`P5 ${name}必須剛好有十題。`);
+    for (const question of unit.questions) if (!question.hint || !question.prompt || !question.answer || !question.explanation || question.choices?.length !== 4 || !question.choices.includes(question.answer) || new Set(question.choices).size !== 4) errors.push(`${question.id} 缺少完整且唯一的小五呈分試資料。`);
   }
 }
 
