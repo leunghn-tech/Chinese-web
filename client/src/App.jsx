@@ -7,6 +7,7 @@ import { getEnglishQuestionBank } from './data/questionBanks/english';
 import EnglishCatalog from './components/EnglishCatalog';
 import UnifiedChineseCatalog from './components/UnifiedChineseCatalog';
 import EnglishChoiceActivity from './components/EnglishChoiceActivity';
+import EnglishReadingActivity from './components/EnglishReadingActivity';
 import EnglishSentenceActivity from './components/EnglishSentenceActivity';
 import EnglishSentenceRewriteActivity from './components/EnglishSentenceRewriteActivity';
 import EnglishVerbMemoryActivity from './components/EnglishVerbMemoryActivity';
@@ -135,6 +136,7 @@ export default function App() {
       setScreen('catalog');
     };
     if (activeUnit.interaction === 'english-sentence-read' || activeUnit.interaction === 'english-sentence-build') return <EnglishSentenceActivity unit={activeUnit} onBack={backToCatalog} onComplete={markUnitCompleted} />;
+    if (activeUnit.interaction === 'english-reading-comprehension') return <EnglishReadingActivity unit={activeUnit} onBack={backToCatalog} onComplete={markUnitCompleted} />;
     if (activeUnit.interaction === 'english-sentence-rewrite-conditional' || activeUnit.interaction === 'english-sentence-rewrite-reported') return <EnglishSentenceRewriteActivity unit={activeUnit} onBack={backToCatalog} onComplete={markUnitCompleted} />;
     if (activeUnit.interaction === 'english-verb-memory') return <EnglishVerbMemoryActivity unit={activeUnit} onBack={backToCatalog} onComplete={markUnitCompleted} />;
     if (activeUnit.id.includes('-EN-')) return <EnglishChoiceActivity unit={activeUnit} onBack={backToCatalog} onComplete={markUnitCompleted} />;

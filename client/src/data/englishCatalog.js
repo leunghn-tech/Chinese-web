@@ -45,6 +45,7 @@ const englishCatalog = {
       { title: 'Modal Verbs 進階情態動詞', detail: 'must／mustn’t、should／shouldn’t、have to。', goal: '分辨強制、禁止、建議與必要性。' },
       { title: 'Reflexive Pronouns 反身代名詞', detail: 'myself, himself, herself, ourselves, themselves。', goal: '在需要反指主語時正確使用反身代名詞。' },
       { title: 'Connectors 進階連接詞', detail: 'when, if, although。', goal: '用時間、條件及讓步關係連結句子。' },
+      { title: 'Reading Comprehension 閱讀理解', detail: '閱讀短篇材料，找出事實、詞義、推論與主旨，並以文中線索支持答案。', goal: '在短篇材料中選取明確資料並作合理推論。' },
     ],
   },
   P5: {

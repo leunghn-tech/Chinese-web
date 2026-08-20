@@ -1,0 +1,30 @@
+/* 彩色課程工作檯：英文閱讀以可投影的藍色雙欄工作紙呈現共用材料、題組進度與答案區。 */
+.english-reading-page .teacher-result-summary .back-to-catalog{border-color:#9bc8ef;color:#236cae;background:#fff}
+.english-reading-stage{position:relative;z-index:1;max-width:1180px;margin:clamp(1.6rem,4vw,3.3rem) auto 0}
+.english-reading-heading{max-width:810px;margin:0 auto 1.25rem;text-align:center}
+.english-reading-heading>span{display:inline-flex;align-items:center;gap:.35rem;padding:.42rem .66rem;border-radius:.24rem;color:#287dcb;background:#eaf5ff;font:900 .69rem var(--display);letter-spacing:.06em}
+.english-reading-heading h1{max-width:30ch;margin:.68rem auto .45rem;color:#244565;font:800 clamp(1.7rem,3.2vw,3.1rem)/1.26 var(--display);letter-spacing:-.045em}
+.english-reading-heading p{margin:0;color:#5f748c;font-size:.91rem;line-height:1.75}
+.english-reading-workbench{display:grid;grid-template-columns:minmax(0,1.22fr) minmax(300px,.78fr);gap:1rem;align-items:start}
+.english-passage-sheet{position:relative;overflow:hidden;border:1px solid #bcdcf4;border-left:7px solid var(--english);border-radius:.22rem 1.05rem 1.05rem .22rem;background:repeating-linear-gradient(0deg,rgba(64,131,239,.045) 0 1px,transparent 1px 31px),#fff;box-shadow:5px 5px 0 rgba(64,131,239,.08)}
+.english-passage-sheet:after{content:"READ & TRACE";position:absolute;right:-25px;top:22px;padding:.3rem 1.7rem;transform:rotate(35deg);color:rgba(45,125,201,.52);background:rgba(64,131,239,.08);font:900 .55rem var(--display);letter-spacing:.11em}
+.english-passage-head{display:grid;gap:.28rem;padding:1.1rem 1.25rem .95rem;border-bottom:1px dashed #c5def1}
+.english-passage-head span{color:#2578bd;font:900 .65rem var(--display);letter-spacing:.1em}
+.english-passage-head b{color:#214868;font:900 clamp(1.2rem,2vw,1.7rem) var(--display);letter-spacing:-.035em}
+.english-passage-head small{width:max-content;padding:.28rem .48rem;border:1px solid #c8e0f2;border-radius:.18rem;color:#5f7e9b;background:#f4fbff;font-size:.66rem;font-weight:800}
+.english-passage-copy{padding:1.2rem 1.25rem 1.35rem}
+.english-passage-copy p{margin:0;color:#304e6c;font:600 clamp(.95rem,1.35vw,1.08rem)/2.03 var(--sans);letter-spacing:.01em}
+.english-passage-sheet footer{display:flex;justify-content:space-between;gap:1rem;padding:.78rem 1.25rem;border-top:1px dashed #c5def1;color:#5f7891;font-size:.72rem;font-weight:800;background:#f8fcff}
+.english-passage-sheet footer b{color:#2778bc}
+.english-reading-answer{position:sticky;top:1rem;padding:1rem;border:1px solid #c5e0f5;border-radius:.22rem .96rem .96rem .22rem;background:repeating-linear-gradient(0deg,rgba(64,131,239,.03) 0 1px,transparent 1px 31px),#fff;box-shadow:4px 4px 0 rgba(64,131,239,.07)}
+.english-reading-answer .bank-title{border-bottom-color:#c8e1f4}
+.english-reading-answer .bank-title>span{color:#2a5d87}
+.english-reading-answer .bank-title small{color:#5c7d9b}
+.english-reading-answer .english-option-grid{display:grid;gap:.65rem;margin-top:1rem}
+.english-reading-answer .english-option-grid button{display:grid;grid-template-columns:30px 1fr;align-items:center;gap:.58rem;min-height:62px;padding:.72rem;border:1px solid #c8e1f3;border-left:5px solid #86bff0;border-radius:.2rem .72rem .72rem .2rem;color:#294b6b;text-align:left;background:#fff;font-weight:800;transition:transform .16s var(--ease),border-color .16s var(--ease),background .16s var(--ease)}
+.english-reading-answer .english-option-grid button:not(:disabled):hover{transform:translateY(-2px);border-color:var(--english);background:#f1f8ff}
+.english-reading-answer .english-option-grid button>span{display:grid;place-items:center;width:27px;height:27px;border-radius:5px;color:#2878bd;background:#eaf5ff;font:900 .68rem var(--display)}
+.english-reading-answer .english-option-grid button.selected-correct{border-color:var(--math);border-left-color:var(--math);color:#216d4f;background:#effbf4}
+.english-reading-answer .english-option-grid button.selected-wrong{border-color:var(--chinese);border-left-color:var(--chinese);color:#a84b39;background:#fff0ec}
+.english-reading-page .english-feedback{max-width:980px;margin:1rem auto 0}
+@media(max-width:850px){.english-reading-topbar{margin-top:.4rem}.english-reading-workbench{grid-template-columns:1fr}.english-reading-answer{position:static}.english-passage-copy{padding:1rem}.english-passage-copy p{font-size:.95rem;line-height:1.9}.english-passage-head,.english-passage-sheet footer{padding-left:1rem;padding-right:1rem}.english-reading-heading h1{font-size:1.8rem}.english-passage-sheet:after{display:none}}

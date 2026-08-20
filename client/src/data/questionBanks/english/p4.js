@@ -4,6 +4,35 @@ const makeQuestions = (unitId, rows) => rows.map(([symbol, sentence, answer, cho
   prompt: '選出最合適的英文答案。', symbol, sentence, answer, choices: choices.split('|'), explanation,
 }));
 
+const readingPassageSets = [
+  {
+    id: 'P4-EN-R01-P01',
+    title: 'The School Garden Project',
+    type: 'informational narrative',
+    text: 'Last month, Class 4B started a school garden behind the library. At first, the ground was hard and full of small stones. The students worked carefully to remove the stones. Then they planted tomatoes, beans and sunflowers. Each group had to water its plants twice a week. After six weeks, one sunflower was taller than all the other plants. The class decided to give some vegetables to the school kitchen.',
+    questions: [
+      { id: 'P4-EN-R01-Q01', passageId: 'P4-EN-R01-P01', skill: 'detail', prompt: 'Where did Class 4B start the garden?', answer: 'Behind the library', choices: ['Behind the library', 'Next to the school kitchen', 'Inside the classroom', 'Near the playground gate'], explanation: 'The first sentence states that the garden was behind the library.' },
+      { id: 'P4-EN-R01-Q02', passageId: 'P4-EN-R01-P01', skill: 'detail', prompt: 'What did the students do before they planted the seeds?', answer: 'They removed small stones from the ground.', choices: ['They removed small stones from the ground.', 'They painted the library wall.', 'They picked vegetables for lunch.', 'They built a new classroom.'], explanation: 'The passage says the ground was full of small stones, so the students removed them first.' },
+      { id: 'P4-EN-R01-Q03', passageId: 'P4-EN-R01-P01', skill: 'detail', prompt: 'How often did each group water its plants?', answer: 'Twice a week', choices: ['Twice a week', 'Every morning', 'Once a month', 'Only on Sundays'], explanation: 'Each group had to water its plants twice a week.' },
+      { id: 'P4-EN-R01-Q04', passageId: 'P4-EN-R01-P01', skill: 'vocabulary', prompt: 'What does “carefully” most nearly mean in the passage?', answer: 'With attention and care', choices: ['With attention and care', 'Very quickly', 'Without any help', 'In a noisy way'], explanation: 'The students needed to pay attention while removing the stones, so carefully means with attention and care.' },
+      { id: 'P4-EN-R01-Q05', passageId: 'P4-EN-R01-P01', skill: 'main idea', prompt: 'Which is the best summary of the passage?', answer: 'Class 4B worked together to grow a garden and share food.', choices: ['Class 4B worked together to grow a garden and share food.', 'Class 4B wanted to make the library taller.', 'The students learned to cook every vegetable.', 'The school kitchen closed for six weeks.'], explanation: 'The passage describes the class preparing, caring for and sharing food from its school garden.' },
+    ],
+  },
+  {
+    id: 'P4-EN-R01-P02',
+    title: 'A Day Without Plastic',
+    type: 'school report',
+    text: 'Last Friday, Greenfield Primary held a “Day Without Plastic”. Before school, teachers asked students to bring a reusable water bottle and a lunch box from home. At lunchtime, most pupils used the same containers instead of taking new plastic cups and forks. Some students found it difficult at first because they often bought drinks in plastic bottles. However, the playground was much cleaner after lunch. On Monday, the Eco Club counted only 25 plastic cups in the rubbish bins. Usually, there were about 180. Sophie suggested keeping the activity once a week.',
+    questions: [
+      { id: 'P4-EN-R01-Q06', passageId: 'P4-EN-R01-P02', skill: 'detail', prompt: 'What were students asked to bring from home?', answer: 'A reusable water bottle and a lunch box', choices: ['A reusable water bottle and a lunch box', 'A new plastic cup and fork', 'A bag of sweets and a toy', 'A school uniform and an umbrella'], explanation: 'Teachers asked students to bring a reusable water bottle and a lunch box.' },
+      { id: 'P4-EN-R01-Q07', passageId: 'P4-EN-R01-P02', skill: 'inference', prompt: 'Why did some students find the activity difficult at first?', answer: 'They often bought drinks in plastic bottles.', choices: ['They often bought drinks in plastic bottles.', 'They could not find the school gate.', 'They did not have lunch that day.', 'They wanted more rubbish bins.'], explanation: 'The passage directly explains that some students were used to buying drinks in plastic bottles.' },
+      { id: 'P4-EN-R01-Q08', passageId: 'P4-EN-R01-P02', skill: 'calculation', prompt: 'About how many fewer plastic cups were counted after the activity?', answer: '155', choices: ['155', '25', '180', '205'], explanation: 'Usually there were about 180 cups, but there were only 25: 180 − 25 = 155 fewer cups.' },
+      { id: 'P4-EN-R01-Q09', passageId: 'P4-EN-R01-P02', skill: 'vocabulary', prompt: 'What does “reusable” most nearly mean?', answer: 'Able to be used again', choices: ['Able to be used again', 'Made only of plastic', 'Very expensive to buy', 'Used for one meal only'], explanation: 'A reusable bottle or lunch box can be used again instead of thrown away after one use.' },
+      { id: 'P4-EN-R01-Q10', passageId: 'P4-EN-R01-P02', skill: 'inference', prompt: 'Why did Sophie suggest having the activity once a week?', answer: 'It could reduce rubbish and keep the playground cleaner.', choices: ['It could reduce rubbish and keep the playground cleaner.', 'It would give students more plastic cups.', 'It would stop students from eating lunch.', 'It would make the school day shorter.'], explanation: 'The playground was cleaner and the number of plastic cups fell, so a weekly activity could continue those benefits.' },
+    ],
+  },
+];
+
 const p4EnglishBank = {
   grade: 'P4', subject: '英文',
   units: [
@@ -67,6 +96,7 @@ const p4EnglishBank = {
       ['🎉', '___ the bell rang, the students left the class.', 'When', 'When|If|Although|Because', '鐘響是離開課室的時間點，用 When。'],
       ['🌂', '___ it was raining, we went for a walk.', 'Although', 'Although|If|When|Because', '雖然下雨仍散步，表示讓步。'],
     ]) },
+    { id: 'P4-EN-R01', area: '閱讀理解', title: '短篇閱讀偵探', objective: '閱讀短篇材料後找出事實、詞義、推論及主旨，並以文中線索支持答案。', interaction: 'english-reading-comprehension', passageSets: readingPassageSets, questions: readingPassageSets.flatMap((passage) => passage.questions) },
   ],
 };
 

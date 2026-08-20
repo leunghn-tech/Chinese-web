@@ -13,7 +13,7 @@ function TopicCard({ unit, grade, completedUnits, onStart }) {
   const progress = completedUnits[unit.id];
   const completed = Math.min(Array.isArray(progress) ? progress.length : progress || 0, unit.questions.length);
   const link = getEnglishPracticeLink(grade, unit.id);
-  return <button className={`subject-topic-card english-topic-card-direct ${link?.kind || 'foundation'}`} onClick={() => onStart(unit)}><div className="subject-topic-meta"><span>{link?.kind === 'consolidation' ? '句式整合' : link?.kind === 'foundation' ? '預備能力' : '核心課題'}</span><b>{unit.questions.length} 題</b></div><h3>{link?.topic || unit.area}</h3><p>{unit.title}・{unit.objective}</p><small>{completed ? `${completed} 題已完成` : '開始練習'} <ChevronRight size={15} /></small></button>;
+  return <button className={`subject-topic-card english-topic-card-direct ${link?.kind || 'foundation'}`} onClick={() => onStart(unit)}><div className="subject-topic-meta"><span>{link?.kind === 'reading' ? '閱讀題組' : link?.kind === 'consolidation' ? '句式整合' : link?.kind === 'foundation' ? '預備能力' : '核心課題'}</span><b>{unit.questions.length} 題</b></div><h3>{link?.topic || unit.area}</h3><p>{unit.title}・{unit.objective}</p><small>{completed ? `${completed} 題已完成` : '開始練習'} <ChevronRight size={15} /></small></button>;
 }
 
 export default function EnglishCatalog({ initialGrade = 'P1', onBack, onHome, completedUnits, onStartUnit }) {

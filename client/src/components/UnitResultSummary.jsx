@@ -5,7 +5,7 @@ import { getExamTimerSnapshot } from '../lib/examTimerStore';
 
 const formatTime = (seconds) => `${String(Math.floor(seconds / 60)).padStart(2, '0')}:${String(seconds % 60).padStart(2, '0')}`;
 
-export default function UnitResultSummary({ unit, total, correct, attempts, onBack, onReplay, title = '任務完成', description, noun = '題' }) {
+export default function UnitResultSummary({ unit, total, correct, attempts, onBack, onReplay, title = '任務完成', description, noun = '題', backLabel = '返回中文目錄' }) {
   const [timer] = useState(() => getExamTimerSnapshot());
   const accuracy = attempts ? Math.round((correct / attempts) * 100) : 0;
   return <section className="activity-summary teacher-result-summary">
@@ -20,6 +20,6 @@ export default function UnitResultSummary({ unit, total, correct, attempts, onBa
         <div className={timer.hasStarted ? 'timed' : 'untimed'}><Clock3 size={18} /><strong>{timer.hasStarted ? formatTime(timer.seconds) : '未計時'}</strong><span>{timer.hasStarted ? '本次作答時間' : '教師未啟動計時'}</span></div>
       </div>
     </section>
-    <div className="summary-actions"><button onClick={onBack} className="back-to-catalog">返回中文目錄</button><button onClick={onReplay}><RotateCcw size={17} /> 隨機重玩</button></div>
+    <div className="summary-actions"><button onClick={onBack} className="back-to-catalog">{backLabel}</button><button onClick={onReplay}><RotateCcw size={17} /> 隨機重玩</button></div>
   </section>;
 }

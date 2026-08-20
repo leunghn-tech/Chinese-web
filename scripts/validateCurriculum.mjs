@@ -143,6 +143,24 @@ for (const [name, id, interaction] of p4EnglishRequiredUnits) {
   }
 }
 
+const p4EnglishReadingUnit = p4EnglishBank.units.find((unit) => unit.id === 'P4-EN-R01');
+if (!p4EnglishReadingUnit) errors.push('缺少 P4 英文「短篇閱讀偵探」題庫單元。');
+else {
+  if (p4EnglishReadingUnit.interaction !== 'english-reading-comprehension') errors.push('P4 英文短篇閱讀必須使用 english-reading-comprehension 互動。');
+  if (!Array.isArray(p4EnglishReadingUnit.passageSets) || p4EnglishReadingUnit.passageSets.length !== 2) errors.push('P4 英文短篇閱讀必須包含兩篇閱讀材料。');
+  if (p4EnglishReadingUnit.questions.length !== 10) errors.push('P4 英文短篇閱讀必須共十題。');
+  const passageQuestionIds = [];
+  for (const passage of p4EnglishReadingUnit.passageSets || []) {
+    if (!passage.id || !passage.title || !passage.type || !passage.text || !Array.isArray(passage.questions) || passage.questions.length !== 5) errors.push('P4 英文每篇閱讀材料必須有完整資料及五題。');
+    for (const question of passage.questions || []) {
+      passageQuestionIds.push(question.id);
+      if (question.passageId !== passage.id || !question.skill || !question.prompt || !question.answer || !question.explanation || !Array.isArray(question.choices) || question.choices.length !== 4 || !question.choices.includes(question.answer) || new Set(question.choices).size !== 4) errors.push(`${question.id || '未命名題目'} 缺少完整且唯一的英文閱讀理解資料。`);
+    }
+  }
+  const unitQuestionIds = p4EnglishReadingUnit.questions.map((question) => question.id);
+  if (new Set(passageQuestionIds).size !== passageQuestionIds.length || passageQuestionIds.length !== 10 || passageQuestionIds.length !== unitQuestionIds.length || passageQuestionIds.some((questionId) => !unitQuestionIds.includes(questionId))) errors.push('P4 英文短篇閱讀的題組與單元題目清單必須一致。');
+}
+
 const p5EnglishRequiredUnits = [
   ['已完成的經驗', 'P5-EN-G01', 'english-perfect-choice'],
   ['完成式的時間線索', 'P5-EN-G02', 'english-perfect-time-choice'],

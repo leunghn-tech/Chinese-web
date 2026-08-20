@@ -20,6 +20,10 @@ function collectQuestions(value, collected = new Map()) {
     value.stories.forEach((story) => story.questions.forEach((question) => collected.set(question.id, { ...question, __auditContext: `${story.title}｜${story.text || story.intro || ''}` })));
     return collected;
   }
+  if (Array.isArray(value.passageSets)) {
+    value.passageSets.forEach((passage) => passage.questions.forEach((question) => collected.set(question.id, { ...question, __auditContext: `${passage.title}｜${passage.text || ''}` })));
+    return collected;
+  }
   if (value.id && (value.prompt || value.sentence || value.context || value.source || value.target || value.answer || value.baseWord || value.blocks || value.parts || value.matches || value.character)) collected.set(value.id, value);
   Object.entries(value).forEach(([key, child]) => { if (key !== 'choices') collectQuestions(child, collected); });
   return collected;
@@ -93,6 +97,7 @@ for (let leftIndex = 0; leftIndex < allQuestions.length; leftIndex += 1) {
     const left = allQuestions[leftIndex];
     const right = allQuestions[rightIndex];
     if (!left.text || !right.text || left.text.length < 14 || right.text.length < 14) continue;
+    if (left.question.__auditContext && left.question.__auditContext === right.question.__auditContext) continue;
     const score = similarity(left.text, right.text);
     if (score >= 0.72) audit.highSimilarityPairs.push({ score: Number(score.toFixed(2)), left: { subject: left.subject, grade: left.grade, unitId: left.unitId, id: left.id }, right: { subject: right.subject, grade: right.grade, unitId: right.unitId, id: right.id } });
   }
