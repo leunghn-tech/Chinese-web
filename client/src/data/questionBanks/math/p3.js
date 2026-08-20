@@ -2,6 +2,8 @@
 const numericChoices = (answer) => [answer, answer + 1, Math.max(0, answer - 1), answer + 2];
 const makeLine = (unitId, rows) => rows.map(([prompt, answer, start, end, step, explanation], index) => ({ id: `${unitId}-Q${String(index + 1).padStart(2, '0')}`, prompt, answer, line: { start, end, step }, explanation }));
 const makeChoice = (unitId, rows) => rows.map(([prompt, answer, choices, explanation], index) => ({ id: `${unitId}-Q${String(index + 1).padStart(2, '0')}`, prompt, answer, choices: choices || numericChoices(answer), explanation }));
+const withShareVisuals = (questions, groups) => questions.map((question, index) => ({ ...question, visual: { type: 'share', ...groups[index] } }));
+const withFractionVisuals = (questions, fractions) => questions.map((question, index) => fractions[index] ? ({ ...question, visual: { type: 'fraction', ...fractions[index] } }) : question);
 
 const p3MathBank = {
   grade: 'P3', subject: '數學',
@@ -12,15 +14,15 @@ const p3MathBank = {
     { id: 'P3-MATH-A02', area: '數與代數', title: '乘法進階', objective: '運用乘法表及拆分策略完成兩位數乘一位數和生活情境題。', interaction: 'math-choice', questions: makeChoice('P3-MATH-A02', [
       ['24 × 3 = ?', 72, null, '20 × 3 = 60，4 × 3 = 12，共 72。'], ['15 × 4 = ?', 60, null, '10 × 4 = 40，5 × 4 = 20，共 60。'], ['32 × 2 = ?', 64, null, '32 的兩倍是 64。'], ['18 × 5 = ?', 90, null, '10 × 5 = 50，8 × 5 = 40，共 90。'], ['27 × 3 = ?', 81, null, '20 × 3 = 60，7 × 3 = 21，共 81。'], ['14 × 6 = ?', 84, null, '10 × 6 = 60，4 × 6 = 24，共 84。'], ['25 × 4 = ?', 100, null, '25 的 4 倍是 100。'], ['36 × 2 = ?', 72, null, '36 加 36 等於 72。'], ['19 × 5 = ?', 95, null, '20 × 5 = 100，再減 5 是 95。'], ['42 × 2 = ?', 84, null, '42 的兩倍是 84。'],
     ]) },
-    { id: 'P3-MATH-A03', area: '數與代數', title: '平均分與除法', objective: '把平均分組及包含除情境寫成除法算式，理解商與餘數。', interaction: 'math-choice', questions: makeChoice('P3-MATH-A03', [
+    { id: 'P3-MATH-A03', area: '數與代數', title: '平均分與除法', objective: '把平均分組及包含除情境寫成除法算式，理解商與餘數。', interaction: 'math-choice', questions: withShareVisuals(makeChoice('P3-MATH-A03', [
       ['24 顆糖平均分給 6 人，每人有多少顆？', 4, null, '24 ÷ 6 = 4。'], ['35 本書每 5 本放一疊，可放多少疊？', 7, null, '35 ÷ 5 = 7。'], ['42 個球平均放入 7 個袋，每袋有多少個？', 6, null, '42 ÷ 7 = 6。'], ['32 張貼紙每人分 4 張，可分給多少人？', 8, null, '32 ÷ 4 = 8。'], ['45 支鉛筆平均分給 9 人，每人有多少支？', 5, null, '45 ÷ 9 = 5。'], ['50 個蘋果每袋放 10 個，共要多少袋？', 5, null, '50 ÷ 10 = 5。'], ['29 粒珠平均分給 4 人，每人 7 粒後，餘下多少粒？', 1, null, '4 × 7 = 28，29 − 28 = 1。'], ['38 支旗每 6 支一組，可組成 6 組後，餘下多少支？', 2, null, '6 × 6 = 36，38 − 36 = 2。'], ['56 ÷ 8 = ?', 7, null, '因為 8 × 7 = 56。'], ['63 ÷ 9 = ?', 7, null, '因為 9 × 7 = 63。'],
-    ]) },
+    ]), [{ groups: 6, each: 4, kind: 'sweet' }, { groups: 5, each: 7, kind: 'book' }, { groups: 7, each: 6, kind: 'ball' }, { groups: 8, each: 4, kind: 'sticker' }, { groups: 9, each: 5, kind: 'pencil' }, { groups: 5, each: 10, kind: 'apple' }, { groups: 4, each: 7, remainder: 1, kind: 'bead' }, { groups: 6, each: 6, remainder: 2, kind: 'flag' }, { groups: 8, each: 7, kind: 'dot' }, { groups: 9, each: 7, kind: 'dot' }]) },
     { id: 'P3-MATH-A04', area: '數與代數', title: '四則運算次序', objective: '在沒有括號的算式中，先完成乘除，再進行加減。', interaction: 'math-choice', questions: makeChoice('P3-MATH-A04', [
       ['3 + 4 × 2 = ?', 11, null, '先算 4 × 2 = 8，再加 3，得 11。'], ['20 − 3 × 4 = ?', 8, null, '先算 3 × 4 = 12，20 − 12 = 8。'], ['18 ÷ 3 + 5 = ?', 11, null, '先算 18 ÷ 3 = 6，再加 5。'], ['6 × 5 − 7 = ?', 23, null, '先算 6 × 5 = 30，再減 7。'], ['24 ÷ 6 + 9 = ?', 13, null, '先算 24 ÷ 6 = 4，再加 9。'], ['8 + 12 ÷ 3 = ?', 12, null, '先算 12 ÷ 3 = 4，再加 8。'], ['5 × 4 + 6 = ?', 26, null, '先算 5 × 4 = 20，再加 6。'], ['30 − 16 ÷ 4 = ?', 26, null, '先算 16 ÷ 4 = 4，再用 30 − 4。'], ['7 + 3 × 5 = ?', 22, null, '先算 3 × 5 = 15，再加 7。'], ['48 ÷ 8 + 14 = ?', 20, null, '先算 48 ÷ 8 = 6，再加 14。'],
     ]) },
-    { id: 'P3-MATH-A05', area: '數與代數', title: '分數初步', objective: '認識分子、分母及同分母分數的大小，連結平均分的生活情境。', interaction: 'math-choice', questions: makeChoice('P3-MATH-A05', [
+    { id: 'P3-MATH-A05', area: '數與代數', title: '分數初步', objective: '認識分子、分母及同分母分數的大小，連結平均分的生活情境。', interaction: 'math-choice', questions: withFractionVisuals(makeChoice('P3-MATH-A05', [
       ['把一個蛋糕平均分成 4 份，吃了 1 份，是全個蛋糕的幾分之幾？', '1/4', ['1/4', '1/3', '2/4', '4/1'], '平均分成 4 份，取其中 1 份，是 1/4。'], ['把 8 個橙平均分成 4 組，每組有幾個？', 2, null, '8 ÷ 4 = 2。'], ['哪一個分數較大？', '3/5', ['2/5', '3/5', '1/5', '0/5'], '分母相同時，分子較大的分數較大。'], ['哪一個分數表示一半？', '1/2', ['1/2', '1/3', '2/3', '1/4'], '一個整體平均分成 2 份，取 1 份就是一半。'], ['把一條紙帶平均分成 6 份，塗了 4 份，是多少？', '4/6', ['4/6', '6/4', '2/6', '1/6'], '總共 6 份，塗了 4 份，是 4/6。'], ['在 1/8、5/8、3/8 中，哪一個最大？', '5/8', ['1/8', '5/8', '3/8', '0/8'], '分母相同，5 個八分之一最多。'], ['2/7 表示甚麼？', '把整體平均分成 7 份，取其中 2 份。', ['把整體平均分成 7 份，取其中 2 份。', '把整體分成 2 份，取 7 份。', '有 2 個整體和 7 份。', '把整體平均分成 2 份，取 7 份。'], '分母 7 表示平均分成 7 份；分子 2 表示取 2 份。'], ['哪一個與 2/4 有相同分母？', '3/4', ['3/4', '2/3', '4/2', '1/2'], '2/4 和 3/4 的分母都是 4。'], ['一個西瓜平均切成 10 片，吃了 7 片，是幾分之幾？', '7/10', ['7/10', '10/7', '3/10', '1/10'], '總共 10 片，吃了 7 片，是 7/10。'], ['哪一個分數最小？', '1/6', ['1/6', '2/6', '4/6', '5/6'], '分母相同時，分子最小的分數最小。'],
-    ]) },
+    ]), [{ total: 4, filled: 1, label: '1/4' }, null, { total: 5, filled: 3, label: '3/5' }, { total: 2, filled: 1, label: '1/2' }, { total: 6, filled: 4, label: '4/6' }, { total: 8, filled: 5, label: '5/8' }, { total: 7, filled: 2, label: '2/7' }, { total: 4, filled: 2, label: '2/4' }, { total: 10, filled: 7, label: '7/10' }, { total: 6, filled: 1, label: '1/6' }]) },
   ],
 };
 

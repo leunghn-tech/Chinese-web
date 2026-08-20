@@ -6,6 +6,7 @@ const numericChoices = (answer) => {
 const makeLine = (unitId, rows) => rows.map(([prompt, answer, start, end, step, explanation], index) => ({ id: `${unitId}-Q${String(index + 1).padStart(2, '0')}`, prompt, answer, line: { start, end, step }, explanation }));
 const makeFrame = (unitId, rows) => rows.map(([prompt, answer, initial, removed, explanation], index) => ({ id: `${unitId}-Q${String(index + 1).padStart(2, '0')}`, prompt, answer, frame: { initial, removed }, choices: numericChoices(answer), explanation }));
 const makeChoice = (unitId, rows) => rows.map(([prompt, answer, choices, explanation], index) => ({ id: `${unitId}-Q${String(index + 1).padStart(2, '0')}`, prompt, answer, choices, explanation }));
+const withCoinVisuals = (questions, combinations) => questions.map((question, index) => ({ ...question, visual: { type: 'coins', coins: combinations[index] } }));
 
 const p1MathBank = {
   grade: 'P1', subject: '數學',
@@ -22,9 +23,9 @@ const p1MathBank = {
     { id: 'P1-MATH-A04', area: '數與代數', title: '單數還是雙數？', objective: '以兩個兩個配對的概念辨認 20 以內單數和雙數。', interaction: 'math-choice', questions: makeChoice('P1-MATH-A04', [
       ['哪一個是雙數？', 4, [4, 3, 5, 7], '4 可以兩個兩個配對，沒有剩下。'], ['哪一個是單數？', 9, [8, 9, 10, 12], '9 兩個兩個配對後會剩下 1 個。'], ['哪一個是雙數？', 16, [15, 16, 17, 19], '16 可平均分成兩組，每組 8 個。'], ['哪一個是單數？', 13, [12, 14, 13, 18], '13 配對後會有 1 個剩下。'], ['哪一個是雙數？', 20, [19, 17, 20, 15], '20 可以完整地兩個兩個配對。'], ['哪一個是單數？', 1, [2, 4, 1, 6], '1 不能配成一對，所以是單數。'], ['哪一個是雙數？', 10, [9, 10, 11, 13], '10 是 5 對。'], ['哪一個是單數？', 7, [6, 8, 7, 14], '7 兩個兩個數會剩下 1。'], ['哪一個是雙數？', 18, [17, 18, 19, 15], '18 可以分成 9 對。'], ['哪一個是單數？', 11, [10, 12, 14, 11], '11 配對後有 1 個剩下。'],
     ]) },
-    { id: 'P1-MATH-A05', area: '數與代數', title: '香港硬幣小幫手', objective: '認識 1、2、5、10 元硬幣，計算簡單硬幣組合。', interaction: 'math-choice', questions: makeChoice('P1-MATH-A05', [
+    { id: 'P1-MATH-A05', area: '數與代數', title: '香港硬幣小幫手', objective: '認識 1、2、5、10 元硬幣，計算簡單硬幣組合。', interaction: 'math-choice', questions: withCoinVisuals(makeChoice('P1-MATH-A05', [
       ['1 枚 $5 硬幣和 2 枚 $1 硬幣，共有多少元？', 7, [7, 6, 8, 5], '$5 + $1 + $1 = $7。'], ['2 枚 $2 硬幣，共有多少元？', 4, [2, 3, 4, 5], '$2 + $2 = $4。'], ['1 枚 $10 硬幣和 1 枚 $5 硬幣，共有多少元？', 15, [10, 12, 15, 16], '$10 + $5 = $15。'], ['3 枚 $1 硬幣和 1 枚 $2 硬幣，共有多少元？', 5, [4, 5, 6, 7], '$1 + $1 + $1 + $2 = $5。'], ['2 枚 $5 硬幣，共有多少元？', 10, [5, 8, 10, 12], '$5 + $5 = $10。'], ['1 枚 $10 硬幣、1 枚 $2 硬幣和 1 枚 $1 硬幣，共有多少元？', 13, [11, 12, 13, 14], '$10 + $2 + $1 = $13。'], ['4 枚 $1 硬幣，共有多少元？', 4, [1, 3, 4, 5], '$1 + $1 + $1 + $1 = $4。'], ['1 枚 $5 硬幣、1 枚 $2 硬幣和 2 枚 $1 硬幣，共有多少元？', 9, [8, 9, 10, 11], '$5 + $2 + $1 + $1 = $9。'], ['哪一組硬幣剛好是 $10？', '$5 + $5', ['$5 + $5', '$5 + $2', '$2 + $2 + $2', '$1 + $1 + $1 + $1'], '$5 + $5 剛好是 $10。'], ['哪一組硬幣剛好是 $6？', '$5 + $1', ['$2 + $2', '$5 + $1', '$1 + $1 + $1 + $1', '$5 + $2'], '$5 加 $1 是 $6。'],
-    ]) },
+    ]), [[5, 1, 1], [2, 2], [10, 5], [1, 1, 1, 2], [5, 5], [10, 2, 1], [1, 1, 1, 1], [5, 2, 1, 1], [5, 5], [5, 1]]) },
   ],
 };
 
