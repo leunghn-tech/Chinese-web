@@ -11,6 +11,7 @@ import UnifiedChineseCatalog from './components/UnifiedChineseCatalog';
 import EnglishChoiceActivity from './components/EnglishChoiceActivity';
 import MathActivity from './components/MathActivity';
 import MathInteractiveActivity from './components/MathInteractiveActivity';
+import TeamMonsterMathActivity from './components/TeamMonsterMathActivity';
 import EnglishReadingActivity from './components/EnglishReadingActivity';
 import EnglishSentenceActivity from './components/EnglishSentenceActivity';
 import EnglishSentenceRewriteActivity from './components/EnglishSentenceRewriteActivity';
@@ -147,6 +148,7 @@ export default function App() {
     if (activeUnit.interaction === 'english-sentence-rewrite-conditional' || activeUnit.interaction === 'english-sentence-rewrite-reported') return <EnglishSentenceRewriteActivity unit={activeUnit} onBack={backToCatalog} onComplete={markUnitCompleted} />;
     if (activeUnit.interaction === 'english-verb-memory') return <EnglishVerbMemoryActivity unit={activeUnit} onBack={backToCatalog} onComplete={markUnitCompleted} />;
     if (activeUnit.id.includes('-EN-')) return <EnglishChoiceActivity unit={activeUnit} onBack={backToCatalog} onComplete={markUnitCompleted} />;
+    if (activeUnit.activityMode === 'team-battle' && activeUnit.id.includes('-MATH-')) return <TeamMonsterMathActivity unit={activeUnit} onBack={backToCatalog} onComplete={markUnitCompleted} />;
     if (['math-shopping', 'math-fraction-pie', 'math-fraction-compare'].includes(activeUnit.interaction)) return <MathInteractiveActivity unit={activeUnit} onBack={backToCatalog} onComplete={markUnitCompleted} />;
     if (activeUnit.id.includes('-MATH-')) return <MathActivity unit={activeUnit} onBack={backToCatalog} onComplete={markUnitCompleted} />;
     if (activeUnit.interaction === 'paragraph-mark') return <ParagraphMarkActivity unit={activeUnit} onBack={backToCatalog} onComplete={markUnitCompleted} />;
@@ -161,7 +163,7 @@ export default function App() {
     if (activeUnit.interaction === 'radical-sort') return <RadicalSortActivity unit={activeUnit} onBack={backToCatalog} onComplete={markUnitCompleted} />;
     return <WordMatchActivity unit={activeUnit} onBack={backToCatalog} onComplete={markUnitCompleted} />;
   }
-  if (screen === 'catalog') return catalogSubject === '英文' ? <EnglishCatalog initialGrade={catalogGrade} onBack={() => setScreen('courses')} onHome={() => setScreen('home')} completedUnits={completedUnits} onStartUnit={(unit) => { setActiveUnit(unit); setScreen('activity'); }} /> : catalogSubject === '數學' ? <MathCatalog initialGrade={catalogGrade} onBack={() => setScreen('courses')} onHome={() => setScreen('home')} completedUnits={completedUnits} onStartUnit={(unit) => { setActiveUnit(unit); setScreen('activity'); }} /> : <UnifiedChineseCatalog initialGrade={catalogGrade} onBack={() => setScreen('courses')} onHome={() => setScreen('home')} completedUnits={completedUnits} onStartUnit={(unit) => { setActiveUnit(unit); setScreen('activity'); }} />;
+  if (screen === 'catalog') return catalogSubject === '英文' ? <EnglishCatalog initialGrade={catalogGrade} onBack={() => setScreen('courses')} onHome={() => setScreen('home')} completedUnits={completedUnits} onStartUnit={(unit) => { setActiveUnit(unit); setScreen('activity'); }} /> : catalogSubject === '數學' ? <MathCatalog initialGrade={catalogGrade} onBack={() => setScreen('courses')} onHome={() => setScreen('home')} completedUnits={completedUnits} onStartUnit={(unit, activityMode = 'worksheet') => { setActiveUnit({ ...unit, activityMode }); setScreen('activity'); }} /> : <UnifiedChineseCatalog initialGrade={catalogGrade} onBack={() => setScreen('courses')} onHome={() => setScreen('home')} completedUnits={completedUnits} onStartUnit={(unit) => { setActiveUnit(unit); setScreen('activity'); }} />;
   if (screen === 'courses') return <Courses onBack={() => setScreen('home')} onOpen={openDemo} onCatalog={openCatalog} />;
   if (screen === 'demo' && topic) return <Demo topic={topic} onBack={() => setScreen('courses')} />;
   return <Home onStart={() => setScreen('courses')} />;
