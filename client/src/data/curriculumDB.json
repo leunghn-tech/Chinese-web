@@ -1,6 +1,6 @@
 {
   "edition": "EduQuest Primary Demo",
-  "mode": "demo-only",
+  "mode": "catalog-in-progress",
   "topics": [
     {"id":"P1-中文","grade":"P1","gradeLabel":"小一","subject":"中文","title":"詞語與句子","description":"看圖聯想與基本句子","prompt":"媽媽送我一＿＿蘋果。最合適填甚麼量詞？","options":["個","本","張","條"],"answerIndex":0,"explanation":"蘋果通常用量詞「個」。"},
     {"id":"P1-English","grade":"P1","gradeLabel":"小一","subject":"英文","title":"Hello Words","description":"日常問候語","prompt":"Which word means「你好」?","options":["Hello","Book","Blue","Run"],"answerIndex":0,"explanation":"Hello 是最常用的英文問候語。"},

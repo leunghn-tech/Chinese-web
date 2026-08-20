@@ -1,0 +1,69 @@
+/* P2 英文題庫：以現在進行式、一般現在式、Wh 問句與 can／can't 建立生活句型。 */
+const p2EnglishBank = {
+  grade: 'P2',
+  subject: '英文',
+  units: [
+    {
+      id: 'P2-EN-G01', area: '核心文法', title: '正在做甚麼？', objective: '辨認 be + V-ing 的現在進行式與 now、look、listen 等提示。', interaction: 'english-continuous-choice',
+      questions: [
+        { id: 'P2-EN-G01-Q01', prompt: '選出最合適的英文答案。', symbol: '⏱️', sentence: 'Look! Tom ___ a book.', choices: ['is reading', 'reads', 'read', 'are reading'], answer: 'is reading', explanation: 'Look! 表示現在正在發生；Tom 用 is reading。' },
+        { id: 'P2-EN-G01-Q02', prompt: '選出最合適的英文答案。', symbol: '⏱️', sentence: 'The girls ___ in the playground now.', choices: ['are playing', 'is playing', 'play', 'played'], answer: 'are playing', explanation: 'girls 是複數，現在進行式用 are playing。' },
+        { id: 'P2-EN-G01-Q03', prompt: '選出最合適的英文答案。', symbol: '👂', sentence: 'Listen! The baby ___.', choices: ['is crying', 'are crying', 'cries', 'cry'], answer: 'is crying', explanation: 'Listen! 表示現在正在聽見；baby 用 is crying。' },
+        { id: 'P2-EN-G01-Q04', prompt: '選出最合適的英文答案。', symbol: '🖍️', sentence: 'I ___ a picture now.', choices: ['am drawing', 'is drawing', 'draw', 'are drawing'], answer: 'am drawing', explanation: '主語 I 的現在進行式用 am drawing。' },
+        { id: 'P2-EN-G01-Q05', prompt: '選出最合適的英文答案。', symbol: '🍽️', sentence: 'Dad ___ dinner at the moment.', choices: ['is cooking', 'are cooking', 'cook', 'cooks'], answer: 'is cooking', explanation: 'Dad 是單數，at the moment 用 is cooking。' },
+        { id: 'P2-EN-G01-Q06', prompt: '選出最合適的英文答案。', symbol: '☔', sentence: 'It ___ outside now.', choices: ['is raining', 'are raining', 'rains', 'rain'], answer: 'is raining', explanation: 'It 是單數，現在正在下雨用 is raining。' },
+        { id: 'P2-EN-G01-Q07', prompt: '選出最合適的英文答案。', symbol: '🎵', sentence: 'We ___ a song now.', choices: ['are singing', 'is singing', 'sing', 'sings'], answer: 'are singing', explanation: 'We 是複數，現在進行式用 are singing。' },
+        { id: 'P2-EN-G01-Q08', prompt: '選出最合適的英文答案。', symbol: '🧹', sentence: 'Mum ___ the floor now.', choices: ['is cleaning', 'are cleaning', 'cleans', 'clean'], answer: 'is cleaning', explanation: 'Mum 是單數，now 用 is cleaning。' },
+        { id: 'P2-EN-G01-Q09', prompt: '選出最合適的英文答案。', symbol: '🏃', sentence: 'The boys ___ fast.', choices: ['are running', 'is running', 'run', 'runs'], answer: 'are running', explanation: 'boys 是複數，正在跑用 are running。' },
+        { id: 'P2-EN-G01-Q10', prompt: '選出最合適的英文答案。', symbol: '📺', sentence: 'She ___ TV at the moment.', choices: ['is watching', 'are watching', 'watches', 'watch'], answer: 'is watching', explanation: 'She 是單數，at the moment 用 is watching。' },
+      ],
+    },
+    {
+      id: 'P2-EN-G02', area: '核心文法', title: '每天做甚麼？', objective: '用一般現在式描述事實與習慣，辨認 always、usually、every day。', interaction: 'english-present-choice',
+      questions: [
+        { id: 'P2-EN-G02-Q01', prompt: '選出最合適的英文答案。', symbol: '📅', sentence: 'I ___ to school every day.', choices: ['walk', 'walks', 'am walking', 'walked'], answer: 'walk', explanation: 'I 配普通動詞原形；every day 表示習慣。' },
+        { id: 'P2-EN-G02-Q02', prompt: '選出最合適的英文答案。', symbol: '🥛', sentence: 'Amy ___ milk every morning.', choices: ['drinks', 'drink', 'is drinking', 'drank'], answer: 'drinks', explanation: 'Amy 是第三人稱單數，習慣動作用 drinks。' },
+        { id: 'P2-EN-G02-Q03', prompt: '選出最合適的英文答案。', symbol: '⚽', sentence: 'They ___ football on Sundays.', choices: ['play', 'plays', 'are playing', 'played'], answer: 'play', explanation: 'They 是複數，on Sundays 表示習慣，用 play。' },
+        { id: 'P2-EN-G02-Q04', prompt: '選出最合適的英文答案。', symbol: '📚', sentence: 'Ben ___ books after school.', choices: ['reads', 'read', 'is reading', 'reading'], answer: 'reads', explanation: 'Ben 是第三人稱單數，日常習慣用 reads。' },
+        { id: 'P2-EN-G02-Q05', prompt: '選出最合適的英文答案。', symbol: '🪥', sentence: 'We ___ our teeth every day.', choices: ['brush', 'brushes', 'are brushing', 'brushed'], answer: 'brush', explanation: 'We 配動詞原形；every day 表示習慣。' },
+        { id: 'P2-EN-G02-Q06', prompt: '選出最合適的英文答案。', symbol: '☀️', sentence: 'The sun ___ in the east.', choices: ['rises', 'rise', 'is rising', 'rose'], answer: 'rises', explanation: '這是事實；sun 是第三人稱單數，用 rises。' },
+        { id: 'P2-EN-G02-Q07', prompt: '選出最合適的英文答案。', symbol: '🎹', sentence: 'My sister usually ___ the piano.', choices: ['plays', 'play', 'is playing', 'played'], answer: 'plays', explanation: 'usually 表示習慣；My sister 用 plays。' },
+        { id: 'P2-EN-G02-Q08', prompt: '選出最合適的英文答案。', symbol: '🍎', sentence: 'Cats ___ fish.', choices: ['like', 'likes', 'are liking', 'liked'], answer: 'like', explanation: 'Cats 是複數，表達一般事實用 like。' },
+        { id: 'P2-EN-G02-Q09', prompt: '選出最合適的英文答案。', symbol: '🛏️', sentence: 'He always ___ at nine o’clock.', choices: ['sleeps', 'sleep', 'is sleeping', 'slept'], answer: 'sleeps', explanation: 'always 表示習慣；He 用 sleeps。' },
+        { id: 'P2-EN-G02-Q10', prompt: '選出最合適的英文答案。', symbol: '🚌', sentence: 'My friends ___ the bus to school.', choices: ['take', 'takes', 'are taking', 'took'], answer: 'take', explanation: 'friends 是複數，習慣動作用 take。' },
+      ],
+    },
+    {
+      id: 'P2-EN-G03', area: '提問與回答', title: '問一問', objective: '選用 Who、What、Where、When、What time、How many 提問。', interaction: 'english-question-choice',
+      questions: [
+        { id: 'P2-EN-G03-Q01', prompt: '選出最合適的英文答案。', symbol: '❓', sentence: '___ is your best friend? — Tom.', choices: ['Who', 'What', 'Where', 'When'], answer: 'Who', explanation: '答案是人名 Tom，所以問人用 Who。' },
+        { id: 'P2-EN-G03-Q02', prompt: '選出最合適的英文答案。', symbol: '❓', sentence: '___ do you live? — In Hong Kong.', choices: ['Where', 'Who', 'What time', 'How many'], answer: 'Where', explanation: '答案是地點，所以用 Where。' },
+        { id: 'P2-EN-G03-Q03', prompt: '選出最合適的英文答案。', symbol: '❓', sentence: '___ is your birthday? — In May.', choices: ['When', 'Who', 'What', 'Where'], answer: 'When', explanation: '答案是時間 In May，所以用 When。' },
+        { id: 'P2-EN-G03-Q04', prompt: '選出最合適的英文答案。', symbol: '❓', sentence: '___ pencils do you have? — Three.', choices: ['How many', 'What time', 'Where', 'Who'], answer: 'How many', explanation: '答案是數量 Three，所以用 How many。' },
+        { id: 'P2-EN-G03-Q05', prompt: '選出最合適的英文答案。', symbol: '❓', sentence: '___ do you get up? — At seven o’clock.', choices: ['What time', 'Where', 'Who', 'How many'], answer: 'What time', explanation: '答案是具體鐘點，所以用 What time。' },
+        { id: 'P2-EN-G03-Q06', prompt: '選出最合適的英文答案。', symbol: '❓', sentence: '___ is this? — It is a ruler.', choices: ['What', 'Who', 'Where', 'When'], answer: 'What', explanation: '答案是物件名稱，所以用 What。' },
+        { id: 'P2-EN-G03-Q07', prompt: '選出最合適的英文答案。', symbol: '❓', sentence: '___ is your teacher? — Mr Chan.', choices: ['Who', 'What time', 'Where', 'How many'], answer: 'Who', explanation: '答案是人名 Mr Chan，所以問人用 Who。' },
+        { id: 'P2-EN-G03-Q08', prompt: '選出最合適的英文答案。', symbol: '❓', sentence: '___ do you go to the park? — On Sunday.', choices: ['When', 'Who', 'What', 'Where'], answer: 'When', explanation: '答案是日期或日子，所以用 When。' },
+        { id: 'P2-EN-G03-Q09', prompt: '選出最合適的英文答案。', symbol: '❓', sentence: '___ are my shoes? — Under the bed.', choices: ['Where', 'Who', 'What time', 'How many'], answer: 'Where', explanation: '答案是位置 Under the bed，所以用 Where。' },
+        { id: 'P2-EN-G03-Q10', prompt: '選出最合適的英文答案。', symbol: '❓', sentence: '___ is in the box? — A toy car.', choices: ['What', 'Who', 'When', 'How many'], answer: 'What', explanation: '答案是一件物品，所以用 What。' },
+      ],
+    },
+    {
+      id: 'P2-EN-G04', area: '提問與回答', title: '我做得到！', objective: '用 can／can’t 表達能力和不能做到的事。', interaction: 'english-modal-choice',
+      questions: [
+        { id: 'P2-EN-G04-Q01', prompt: '選出最合適的英文答案。', symbol: '🐦', sentence: 'A bird ___ fly.', choices: ['can', 'can’t', 'is', 'are'], answer: 'can', explanation: '小鳥有飛行能力，所以用 can。' },
+        { id: 'P2-EN-G04-Q02', prompt: '選出最合適的英文答案。', symbol: '🐟', sentence: 'Fish ___ walk.', choices: ['can’t', 'can', 'isn’t', 'aren’t'], answer: 'can’t', explanation: '魚不能走路，所以用 can’t。' },
+        { id: 'P2-EN-G04-Q03', prompt: '選出最合適的英文答案。', symbol: '🚲', sentence: 'I ___ ride a bike.', choices: ['can', 'can’t', 'am', 'do'], answer: 'can', explanation: '表達能力用 can + 動詞原形。' },
+        { id: 'P2-EN-G04-Q04', prompt: '選出最合適的英文答案。', symbol: '🍼', sentence: 'A baby ___ drive a car.', choices: ['can’t', 'can', 'is', 'has'], answer: 'can’t', explanation: '嬰兒不能駕駛汽車，所以用 can’t。' },
+        { id: 'P2-EN-G04-Q05', prompt: '選出最合適的英文答案。', symbol: '🎹', sentence: 'My sister ___ play the piano.', choices: ['can', 'can’t', 'are', 'has'], answer: 'can', explanation: '表達姐姐有彈琴能力，用 can。' },
+        { id: 'P2-EN-G04-Q06', prompt: '選出最合適的英文答案。', symbol: '🚗', sentence: 'We ___ fly a car.', choices: ['can’t', 'can', 'do', 'have'], answer: 'can’t', explanation: '汽車不能飛，所以用 can’t。' },
+        { id: 'P2-EN-G04-Q07', prompt: '選出最合適的英文答案。', symbol: '💬', sentence: 'Tom ___ speak English.', choices: ['can', 'can’t', 'is', 'was'], answer: 'can', explanation: 'can 後面接動詞原形 speak。' },
+        { id: 'P2-EN-G04-Q08', prompt: '選出最合適的英文答案。', symbol: '🐕', sentence: 'Dogs ___ read books.', choices: ['can’t', 'can', 'are', 'do'], answer: 'can’t', explanation: '小狗不能閱讀書本，所以用 can’t。' },
+        { id: 'P2-EN-G04-Q09', prompt: '選出最合適的英文答案。', symbol: '🏊', sentence: 'She ___ swim very well.', choices: ['can', 'can’t', 'is', 'has'], answer: 'can', explanation: '表達游泳能力，用 can。' },
+        { id: 'P2-EN-G04-Q10', prompt: '選出最合適的英文答案。', symbol: '🌙', sentence: 'I ___ see in the dark.', choices: ['can’t', 'can', 'am', 'do'], answer: 'can’t', explanation: '在黑暗中不能看見，所以用 can’t。' },
+      ],
+    },
+  ],
+};
+
+export default p2EnglishBank;

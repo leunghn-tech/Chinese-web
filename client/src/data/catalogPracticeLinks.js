@@ -1,0 +1,25 @@
+/* 課題—練習映射：目錄課題是練習卡的唯一導航來源，供介面和驗證程式共同使用。 */
+export const englishPracticeLinks = {
+  P1: {
+    'P1-EN-A01': { topic: '字母與拼讀預備', kind: 'foundation' }, 'P1-EN-V01': { topic: '生活詞彙預備', kind: 'foundation' }, 'P1-EN-G01': { topic: 'Articles 冠詞', kind: 'core' },
+    'P1-EN-G02': { topic: 'Prepositions 地方介詞', kind: 'core' }, 'P1-EN-G03': { topic: 'Nouns 名詞', kind: 'core' }, 'P1-EN-G04': { topic: 'Pronouns 代名詞', kind: 'core' },
+    'P1-EN-G05': { topic: 'Verb to be & to have', kind: 'core' }, 'P1-EN-L01': { topic: '例句聽讀', kind: 'consolidation' }, 'P1-EN-S01': { topic: '句子拼砌', kind: 'consolidation' },
+  },
+  P2: { 'P2-EN-G01': { topic: 'Present Continuous Tense', kind: 'core' }, 'P2-EN-G02': { topic: 'Simple Present Tense', kind: 'core' }, 'P2-EN-G03': { topic: 'Wh-Questions 疑問詞', kind: 'core' }, 'P2-EN-G04': { topic: 'Modal Verb 情態動詞', kind: 'core' } },
+  P3: { 'P3-EN-G01': { topic: 'Simple Past Tense', kind: 'core' }, 'P3-EN-G02': { topic: 'Irregular Verbs 不規則動詞', kind: 'core' }, 'P3-EN-G03': { topic: 'Pronouns 代名詞全集', kind: 'core' }, 'P3-EN-G04': { topic: 'Connectors 基礎連接詞', kind: 'core' }, 'P3-EN-G05': { topic: 'Quantifiers 數量詞', kind: 'core' }, 'P3-EN-L01': { topic: 'Simple Past Tense', kind: 'consolidation' }, 'P3-EN-S01': { topic: 'Simple Past Tense', kind: 'consolidation' }, 'P3-EN-M01': { topic: 'Irregular Verbs 不規則動詞', kind: 'consolidation' } },
+  P4: { 'P4-EN-G01': { topic: 'Adjectives & Adverbs', kind: 'core' }, 'P4-EN-G02': { topic: 'Comparatives & Superlatives', kind: 'core' }, 'P4-EN-G03': { topic: 'Modal Verbs 進階情態動詞', kind: 'core' }, 'P4-EN-G04': { topic: 'Reflexive Pronouns 反身代名詞', kind: 'core' }, 'P4-EN-G05': { topic: 'Connectors 進階連接詞', kind: 'core' } },
+  P5: { 'P5-EN-G01': { topic: 'Present Perfect Tense', kind: 'core' }, 'P5-EN-G02': { topic: 'Since, For & Time Markers', kind: 'core' }, 'P5-EN-G03': { topic: 'Passive Voice 被動語態', kind: 'core' }, 'P5-EN-G04': { topic: 'Relative Clauses 關係從句', kind: 'core' }, 'P5-EN-G05': { topic: 'Correlative Conjunctions', kind: 'core' }, 'P5-EN-S01': { topic: 'Present Perfect Tense', kind: 'consolidation' }, 'P5-EN-S02': { topic: 'Passive Voice 被動語態', kind: 'consolidation' } },
+  P6: { 'P6-EN-G01': { topic: 'Conditional Sentences', kind: 'core' }, 'P6-EN-G02': { topic: 'Reported Speech 間接引語', kind: 'core' }, 'P6-EN-G03': { topic: 'Gerunds & Infinitives', kind: 'core' }, 'P6-EN-G04': { topic: 'Phrasal Verbs 短語動詞', kind: 'core' }, 'P6-EN-RW01': { topic: 'Conditional Sentences', kind: 'consolidation' }, 'P6-EN-RW02': { topic: 'Reported Speech 間接引語', kind: 'consolidation' } },
+};
+
+export const chinesePracticeLinks = {
+  P1: { 'P1-CN-R01': ['reading', 0], 'P1-CN-R02': ['reading', 1], 'P1-CN-R03': ['reading', 2], 'P1-CN-R04': ['reading', 3], 'P1-CN-W01': ['writing', 0] },
+  P2: { 'P2-CN-R01': ['reading', 0], 'P2-CN-R02': ['reading', 1], 'P2-CN-R03': ['reading', 2], 'P2-CN-W01': ['writing', 0], 'P2-CN-W02': ['writing', 1], 'P2-CN-W03': ['writing', 1] },
+  P3: { 'P3-CN-R01': ['reading', 0], 'P3-CN-R02': ['reading', 2], 'P3-CN-R03': ['reading', 1], 'P3-CN-R04': ['reading', 3], 'P3-CN-R05': ['reading', 3], 'P3-CN-R06': ['reading', 3], 'P3-CN-R07': ['reading', 4], 'P3-CN-W01': ['writing', 0], 'P3-CN-W02': ['writing', 1], 'P3-CN-W03': ['writing', 2] },
+  P4: { 'P4-CN-R01': ['reading', 0], 'P4-CN-R02': ['reading', 1], 'P4-CN-R03': ['reading', 2], 'P4-CN-R04': ['reading', 3], 'P4-CN-R05': ['reading', 4], 'P4-CN-W01': ['writing', 0], 'P4-CN-W02': ['writing', 1], 'P4-CN-W03': ['writing', 2], 'P4-CN-W04': ['writing', 3] },
+  P5: { 'P5-CN-R01': ['reading', 0], 'P5-CN-R02': ['reading', 1], 'P5-CN-R03': ['reading', 2], 'P5-CN-W01': ['writing', 0], 'P5-CN-W02': ['writing', 1], 'P5-CN-W03': ['writing', 2], 'P5-CN-W04': ['writing', 3] },
+  P6: { 'P6-CN-R01': ['reading', 0], 'P6-CN-R02': ['reading', 1], 'P6-CN-W01': ['writing', 0], 'P6-CN-W02': ['writing', 1], 'P6-CN-W03': ['writing', 2], 'P6-CN-W04': ['writing', 3], 'P6-CN-W05': ['writing', 4] },
+};
+
+export const getEnglishPracticeLink = (grade, unitId) => englishPracticeLinks[grade]?.[unitId];
+export const getChinesePracticeLink = (grade, unitId) => chinesePracticeLinks[grade]?.[unitId];

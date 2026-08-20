@@ -24,4 +24,5 @@ const playSequence = (notes, startDelay = 0) => {
 };
 
 export const playCorrectSound = () => playSequence([{ frequency: 659, offset: 0 }, { frequency: 784, offset: 0.1 }]);
+export const playDragSound = () => playSequence([{ frequency: 587, offset: 0, duration: 0.08, gain: 0.028 }, { frequency: 659, offset: 0.055, duration: 0.09, gain: 0.032 }]);
 export const playCompletionSound = () => playSequence([{ frequency: 523, offset: 0 }, { frequency: 659, offset: 0.09 }, { frequency: 784, offset: 0.18 }, { frequency: 1047, offset: 0.29, duration: 0.18, gain: 0.06 }]);
