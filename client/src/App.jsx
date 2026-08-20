@@ -126,7 +126,14 @@ export default function App() {
   const openCatalog = (grade = 'P1', subject = '中文') => { setCatalogGrade(grade); setCatalogSubject(subject); setScreen('catalog'); };
   const markUnitCompleted = (unit, questionIds = unit.questions.map((question) => question.id)) => setCompletedUnits((current) => { const previous = Array.isArray(current[unit.id]) ? current[unit.id] : current[unit.id] >= unit.questions.length ? unit.questions.map((question) => question.id) : []; const next = { ...current, [unit.id]: [...new Set([...previous, ...questionIds])] }; window.localStorage.setItem('eduquest-unit-progress', JSON.stringify(next)); return next; });
   if (screen === 'activity' && activeUnit) {
-    const backToCatalog = () => { setCatalogGrade(activeUnit.grade); setCatalogSubject(activeUnit.id.includes('-EN-') ? '英文' : '中文'); setScreen('catalog'); };
+    const backToCatalog = () => {
+      const [unitGrade, unitSubjectCode] = activeUnit.id?.split('-') || [];
+      const destinationGrade = GRADES.includes(activeUnit.grade) ? activeUnit.grade : GRADES.includes(unitGrade) ? unitGrade : catalogGrade;
+      const destinationSubject = activeUnit.subject || (unitSubjectCode === 'EN' ? '英文' : unitSubjectCode === 'CN' ? '中文' : catalogSubject);
+      setCatalogGrade(destinationGrade);
+      setCatalogSubject(destinationSubject);
+      setScreen('catalog');
+    };
     if (activeUnit.interaction === 'english-sentence-read' || activeUnit.interaction === 'english-sentence-build') return <EnglishSentenceActivity unit={activeUnit} onBack={backToCatalog} onComplete={markUnitCompleted} />;
     if (activeUnit.interaction === 'english-sentence-rewrite-conditional' || activeUnit.interaction === 'english-sentence-rewrite-reported') return <EnglishSentenceRewriteActivity unit={activeUnit} onBack={backToCatalog} onComplete={markUnitCompleted} />;
     if (activeUnit.interaction === 'english-verb-memory') return <EnglishVerbMemoryActivity unit={activeUnit} onBack={backToCatalog} onComplete={markUnitCompleted} />;
