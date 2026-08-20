@@ -10,6 +10,7 @@ import MathCatalog from './components/MathCatalog';
 import UnifiedChineseCatalog from './components/UnifiedChineseCatalog';
 import EnglishChoiceActivity from './components/EnglishChoiceActivity';
 import MathActivity from './components/MathActivity';
+import MathInteractiveActivity from './components/MathInteractiveActivity';
 import EnglishReadingActivity from './components/EnglishReadingActivity';
 import EnglishSentenceActivity from './components/EnglishSentenceActivity';
 import EnglishSentenceRewriteActivity from './components/EnglishSentenceRewriteActivity';
@@ -146,6 +147,7 @@ export default function App() {
     if (activeUnit.interaction === 'english-sentence-rewrite-conditional' || activeUnit.interaction === 'english-sentence-rewrite-reported') return <EnglishSentenceRewriteActivity unit={activeUnit} onBack={backToCatalog} onComplete={markUnitCompleted} />;
     if (activeUnit.interaction === 'english-verb-memory') return <EnglishVerbMemoryActivity unit={activeUnit} onBack={backToCatalog} onComplete={markUnitCompleted} />;
     if (activeUnit.id.includes('-EN-')) return <EnglishChoiceActivity unit={activeUnit} onBack={backToCatalog} onComplete={markUnitCompleted} />;
+    if (['math-shopping', 'math-fraction-pie', 'math-fraction-compare'].includes(activeUnit.interaction)) return <MathInteractiveActivity unit={activeUnit} onBack={backToCatalog} onComplete={markUnitCompleted} />;
     if (activeUnit.id.includes('-MATH-')) return <MathActivity unit={activeUnit} onBack={backToCatalog} onComplete={markUnitCompleted} />;
     if (activeUnit.interaction === 'paragraph-mark') return <ParagraphMarkActivity unit={activeUnit} onBack={backToCatalog} onComplete={markUnitCompleted} />;
     if (activeUnit.interaction === 'p3-reading' || activeUnit.interaction === 'p3-idiom' || activeUnit.interaction === 'p3-figure') return <P3StudyActivity unit={activeUnit} onBack={backToCatalog} onComplete={markUnitCompleted} />;

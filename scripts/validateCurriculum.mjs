@@ -254,9 +254,9 @@ validateEnglishReadingUnit(p5EnglishBank, 'P5', 'P5-EN-R01', '閱讀推論工作
 validateEnglishReadingUnit(p6EnglishBank, 'P6', 'P6-EN-R01', '證據式閱讀挑戰');
 
 const mathRequiredUnitIds = {
-  P1: ['P1-MATH-A01', 'P1-MATH-A02', 'P1-MATH-A03', 'P1-MATH-A04', 'P1-MATH-A05'],
-  P2: ['P2-MATH-A01', 'P2-MATH-A02', 'P2-MATH-A03', 'P2-MATH-A04'],
-  P3: ['P3-MATH-A01', 'P3-MATH-A02', 'P3-MATH-A03', 'P3-MATH-A04', 'P3-MATH-A05'],
+  P1: ['P1-MATH-A01', 'P1-MATH-A02', 'P1-MATH-A03', 'P1-MATH-A04', 'P1-MATH-A05', 'P1-MATH-A06'],
+  P2: ['P2-MATH-A01', 'P2-MATH-A02', 'P2-MATH-A03', 'P2-MATH-A04', 'P2-MATH-A05'],
+  P3: ['P3-MATH-A01', 'P3-MATH-A02', 'P3-MATH-A03', 'P3-MATH-A04', 'P3-MATH-A05', 'P3-MATH-A06', 'P3-MATH-A07', 'P3-MATH-A08'],
 };
 for (const [grade, unitIds] of Object.entries(mathRequiredUnitIds)) {
   const bank = mathQuestionBanks[grade];
@@ -264,7 +264,7 @@ for (const [grade, unitIds] of Object.entries(mathRequiredUnitIds)) {
   for (const unitId of unitIds) {
     const unit = bank.units.find((item) => item.id === unitId);
     if (!unit) { errors.push(`缺少 ${unitId} 數學單元。`); continue; }
-    if (!['math-number-line', 'math-ten-frame', 'math-choice'].includes(unit.interaction) || !unit.objective || unit.questions.length !== 10) errors.push(`${unitId} 必須有互動類型、學習目標及十題。`);
+    if (!['math-number-line', 'math-ten-frame', 'math-choice', 'math-shopping', 'math-measurement', 'math-fraction-pie', 'math-fraction-compare'].includes(unit.interaction) || !unit.objective || unit.questions.length !== 10) errors.push(`${unitId} 必須有互動類型、學習目標及十題。`);
     for (const question of unit.questions) {
       if (!question.id || !question.prompt || question.answer === undefined || !question.explanation) errors.push(`${question.id || unitId} 缺少題幹、答案或解析。`);
       if (unit.interaction === 'math-number-line') {
@@ -273,6 +273,14 @@ for (const [grade, unitIds] of Object.entries(mathRequiredUnitIds)) {
       } else if (unit.interaction === 'math-ten-frame') {
         const frame = question.frame;
         if (!frame || !Number.isInteger(frame.initial) || frame.initial < 0 || frame.initial > 10 || !Number.isInteger(frame.removed) || frame.removed < 0 || frame.removed > frame.initial || !Array.isArray(question.choices) || question.choices.length !== 4 || !question.choices.includes(question.answer) || new Set(question.choices).size !== 4) errors.push(`${question.id} 的十格框資料或選項不正確。`);
+      } else if (unit.interaction === 'math-shopping') {
+        if (!question.item || !Number.isFinite(question.price) || !Array.isArray(question.paidCoins) || !question.paidCoins.length || !Array.isArray(question.choices) || question.choices.length !== 4 || !question.choices.includes(question.answer)) errors.push(`${question.id} 缺少完整找續購物籃資料。`);
+      } else if (unit.interaction === 'math-measurement') {
+        if (!question.visual || !['ruler', 'cup', 'clock'].includes(question.visual.type) || !Array.isArray(question.choices) || question.choices.length !== 4 || !question.choices.includes(question.answer)) errors.push(`${question.id} 缺少完整量度圖解資料。`);
+      } else if (unit.interaction === 'math-fraction-pie') {
+        if (!Number.isInteger(question.total) || !Number.isInteger(question.target) || question.target < 1 || question.target > question.total || !Array.isArray(question.choices) || question.choices.length !== 4 || !question.choices.includes(question.answer)) errors.push(`${question.id} 缺少完整切餅分數資料。`);
+      } else if (unit.interaction === 'math-fraction-compare') {
+        if (!question.left || !question.right || !Number.isInteger(question.left.total) || question.left.total !== question.right.total || !Array.isArray(question.choices) || question.choices.length !== 2 || !question.choices.includes(question.answer) || new Set(question.choices).size !== 2) errors.push(`${question.id} 缺少完整分數比較資料。`);
       } else if (!Array.isArray(question.choices) || question.choices.length !== 4 || !question.choices.includes(question.answer) || new Set(question.choices).size !== 4) errors.push(`${question.id} 必須有四個不重複選項，且包含正確答案。`);
     }
   }

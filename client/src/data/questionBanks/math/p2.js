@@ -19,6 +19,18 @@ const p2MathBank = {
     { id: 'P2-MATH-A04', area: '數與代數', title: '九九表快手', objective: '熟練 2 至 9 的乘法表，並用乘法解決簡單生活題。', interaction: 'math-choice', questions: makeChoice('P2-MATH-A04', [
       ['2 × 7 = ?', 14, null, '2 × 7 = 14。'], ['3 × 8 = ?', 24, null, '3 × 8 = 24。'], ['4 × 6 = ?', 24, null, '4 × 6 = 24。'], ['5 × 9 = ?', 45, null, '5 × 9 = 45。'], ['6 × 7 = ?', 42, null, '6 × 7 = 42。'], ['8 × 8 = ?', 64, null, '8 × 8 = 64。'], ['9 × 4 = ?', 36, null, '9 × 4 = 36。'], ['7 × 3 = ?', 21, null, '7 × 3 = 21。'], ['6 × 5 = ?', 30, null, '6 × 5 = 30。'], ['9 × 9 = ?', 81, null, '9 × 9 = 81。'],
     ]) },
+    { id: 'P2-MATH-A05', area: '量度', title: '量度看圖', objective: '閱讀尺、量杯和時鐘圖解，選出合適量度單位、刻度及時間。', interaction: 'math-measurement', questions: [
+      { id: 'P2-MATH-A05-Q01', prompt: '這枝鉛筆長多少厘米？', visual: { type: 'ruler', value: 12, max: 20 }, answer: '12 cm', choices: ['10 cm', '12 cm', '14 cm', '20 cm'], explanation: '鉛筆右端對準 12 cm 刻度。' },
+      { id: 'P2-MATH-A05-Q02', prompt: '這條緞帶長多少厘米？', visual: { type: 'ruler', value: 18, max: 20 }, answer: '18 cm', choices: ['16 cm', '17 cm', '18 cm', '20 cm'], explanation: '緞帶由 0 cm 開始，到 18 cm 結束。' },
+      { id: 'P2-MATH-A05-Q03', prompt: '量杯中的果汁約有多少毫升？', visual: { type: 'cup', value: 300, max: 500 }, answer: '300 mL', choices: ['100 mL', '200 mL', '300 mL', '500 mL'], explanation: '液面對準 300 mL 刻度。' },
+      { id: 'P2-MATH-A05-Q04', prompt: '這瓶水較適合用哪個單位量度？', visual: { type: 'cup', value: 500, max: 500 }, answer: 'mL', choices: ['cm', 'mL', 'kg', 'h'], explanation: '飲品容量通常用毫升 mL 表示。' },
+      { id: 'P2-MATH-A05-Q05', prompt: '時鐘顯示甚麼時間？', visual: { type: 'clock', hour: 3, minute: 0 }, answer: '3:00', choices: ['2:00', '3:00', '3:30', '4:00'], explanation: '短針指向 3，長針指向 12。' },
+      { id: 'P2-MATH-A05-Q06', prompt: '時鐘顯示甚麼時間？', visual: { type: 'clock', hour: 7, minute: 30 }, answer: '7:30', choices: ['7:00', '7:30', '8:00', '8:30'], explanation: '長針指向 6，表示半小時；短針在 7 和 8 中間。' },
+      { id: 'P2-MATH-A05-Q07', prompt: '課堂由 9:00 開始，10:00 結束，共多少小時？', visual: { type: 'clock', hour: 9, minute: 0, endHour: 10, endMinute: 0 }, answer: '1 小時', choices: ['30 分鐘', '1 小時', '2 小時', '3 小時'], explanation: '由 9:00 到 10:00 是 1 小時。' },
+      { id: 'P2-MATH-A05-Q08', prompt: '哪一個物品較適合用 cm 量度？', visual: { type: 'ruler', value: 15, max: 20 }, answer: '課本的闊度', choices: ['果汁容量', '課本的闊度', '上課時間', '水缸容量'], explanation: '課本的長或闊可用厘米 cm 量度。' },
+      { id: 'P2-MATH-A05-Q09', prompt: '量杯中的水由 200 mL 加至 400 mL，增加了多少？', visual: { type: 'cup', value: 400, startValue: 200, max: 500 }, answer: '200 mL', choices: ['100 mL', '200 mL', '300 mL', '400 mL'], explanation: '400 mL − 200 mL = 200 mL。' },
+      { id: 'P2-MATH-A05-Q10', prompt: '由 4:00 到 4:30，經過多久？', visual: { type: 'clock', hour: 4, minute: 0, endHour: 4, endMinute: 30 }, answer: '30 分鐘', choices: ['15 分鐘', '30 分鐘', '45 分鐘', '1 小時'], explanation: '長針由 12 走到 6，經過 30 分鐘。' },
+    ] },
   ],
 };
 
