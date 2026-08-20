@@ -4,6 +4,31 @@ const makeQuestions = (unitId, rows) => rows.map(([symbol, sentence, answer, cho
   prompt: '選出最合適的英文答案。', symbol, sentence, answer, choices: choices.split('|'), explanation,
 }));
 
+const readingPassageSets = [
+  {
+    id: 'P5-EN-R01-P01', title: 'The Library Seed Swap', type: 'community news report',
+    text: 'In March, the students at Harbour Primary started a seed swap in the school library. They had noticed that many families threw away seeds after planting only a few. The Green Club collected small paper envelopes, which were labelled with the names of herbs and flowers. Pupils could take one envelope home, grow the seeds, and return new seeds later. Since the project began, more than 180 envelopes have been shared. Parents have also donated pots and soil. The librarian said that the swap was not only about gardening; it was a way for neighbours to share ideas and care for the environment together.',
+    questions: [
+      { id: 'P5-EN-R01-Q01', passageId: 'P5-EN-R01-P01', skill: 'detail', prompt: 'Why did the students start the seed swap?', answer: 'Many families threw away unused seeds.', choices: ['Many families threw away unused seeds.', 'The library had too many pots.', 'Pupils wanted to sell flowers.', 'The school garden had closed.'], explanation: 'The passage says pupils noticed that many families threw away seeds after using only a few.' },
+      { id: 'P5-EN-R01-Q02', passageId: 'P5-EN-R01-P01', skill: 'grammar in context', prompt: 'What does “which were labelled” describe?', answer: 'The small paper envelopes', choices: ['The small paper envelopes', 'The pupils who grew seeds', 'The pots and soil', 'The families at home'], explanation: 'The relative clause comes directly after “small paper envelopes”, so it describes the envelopes.' },
+      { id: 'P5-EN-R01-Q03', passageId: 'P5-EN-R01-P01', skill: 'vocabulary', prompt: 'What does “donated” most nearly mean?', answer: 'Gave something to help', choices: ['Gave something to help', 'Borrowed something for a day', 'Bought something at a low price', 'Threw something away'], explanation: 'Parents donated pots and soil, meaning that they gave them to support the project.' },
+      { id: 'P5-EN-R01-Q04', passageId: 'P5-EN-R01-P01', skill: 'inference', prompt: 'What must pupils do after growing seeds from an envelope?', answer: 'Return new seeds later.', choices: ['Return new seeds later.', 'Pay the librarian.', 'Keep the envelope forever.', 'Plant only herbs.'], explanation: 'The passage explains that pupils take an envelope, grow the seeds and return new seeds later.' },
+      { id: 'P5-EN-R01-Q05', passageId: 'P5-EN-R01-P01', skill: 'main idea', prompt: 'Which is the best description of the seed swap?', answer: 'A project that shares seeds and encourages community care.', choices: ['A project that shares seeds and encourages community care.', 'A competition to grow the tallest flower.', 'A new shop inside the library.', 'A class that teaches pupils to cook.'], explanation: 'The librarian explains that the project shares seeds, ideas and environmental care.' },
+    ],
+  },
+  {
+    id: 'P5-EN-R01-P02', title: 'The Broken Footbridge', type: 'local information article',
+    text: 'During the summer holiday, a small footbridge near Hillview Primary was damaged by heavy rain. It was closed immediately because the wooden boards were unsafe. The bridge, which connects two parts of the park, is used by many children on their way to the sports centre. A team of workers repaired it over three weeks. New metal supports were added, and the old boards were replaced with stronger ones. The bridge has now reopened. To celebrate, the school’s Hiking Club organised a short walk and asked pupils to check that they had brought water, hats and rubbish bags before setting off.',
+    questions: [
+      { id: 'P5-EN-R01-Q06', passageId: 'P5-EN-R01-P02', skill: 'detail', prompt: 'Why was the footbridge closed?', answer: 'The wooden boards were unsafe.', choices: ['The wooden boards were unsafe.', 'The sports centre was full.', 'Children had lost their hats.', 'The park was being painted.'], explanation: 'The bridge was closed immediately because the wooden boards were unsafe.' },
+      { id: 'P5-EN-R01-Q07', passageId: 'P5-EN-R01-P02', skill: 'grammar in context', prompt: 'What does the clause “which connects two parts of the park” describe?', answer: 'The bridge', choices: ['The bridge', 'The heavy rain', 'The sports centre', 'The Hiking Club'], explanation: 'The relative clause follows “The bridge”, so it gives extra information about the bridge.' },
+      { id: 'P5-EN-R01-Q08', passageId: 'P5-EN-R01-P02', skill: 'sequence', prompt: 'Which happened last?', answer: 'The Hiking Club organised a short walk.', choices: ['The Hiking Club organised a short walk.', 'Heavy rain damaged the bridge.', 'Workers added metal supports.', 'The bridge was closed.'], explanation: 'The walk was organised after the bridge had been repaired and reopened.' },
+      { id: 'P5-EN-R01-Q09', passageId: 'P5-EN-R01-P02', skill: 'vocabulary', prompt: 'What does “setting off” mean in the passage?', answer: 'Beginning the walk', choices: ['Beginning the walk', 'Cleaning the bridge', 'Replacing the boards', 'Returning to school'], explanation: 'Before setting off, pupils checked their supplies; setting off means starting a journey or walk.' },
+      { id: 'P5-EN-R01-Q10', passageId: 'P5-EN-R01-P02', skill: 'inference', prompt: 'Why did the club ask pupils to bring rubbish bags?', answer: 'They wanted pupils to keep the park clean.', choices: ['They wanted pupils to keep the park clean.', 'They planned to remove the bridge.', 'They needed bags for new boards.', 'They were collecting homework.'], explanation: 'Rubbish bags are useful for taking litter away, so the club wanted a clean park.' },
+    ],
+  },
+];
+
 const p5EnglishBank = {
   grade: 'P5', subject: '英文',
   units: [
@@ -91,6 +116,7 @@ const p5EnglishBank = {
       { id: 'P5-EN-S02-Q09', sentence: 'The toy was broken by the baby.', translation: '玩具被嬰兒弄壞了。' },
       { id: 'P5-EN-S02-Q10', sentence: 'The story was written by Mr Wong.', translation: '這個故事是黃先生寫的。' },
     ] },
+    { id: 'P5-EN-R01', area: '進階閱讀理解', title: '閱讀推論工作紙', objective: '閱讀較長材料，辨識細節、關係從句、詞義、事件次序、推論與主旨。', interaction: 'english-reading-comprehension', passageSets: readingPassageSets, questions: readingPassageSets.flatMap((passage) => passage.questions) },
   ],
 };
 

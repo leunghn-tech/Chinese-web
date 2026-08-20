@@ -1,0 +1,73 @@
+/* 彩色課程工作檯：數學以綠色檔案標籤、數線與十格框具象材料、教師計時和總結面板支援課堂投影。 */
+import { ArrowLeft, Check, ChevronRight, RotateCcw, Sparkles, X } from 'lucide-react';
+import { useMemo, useState } from 'react';
+import { pauseExamTimer } from '../lib/examTimerStore';
+import ExamTimer from './ExamTimer';
+import HintSatchel from './HintSatchel';
+import UnitResultSummary from './UnitResultSummary';
+import '../mathLearning.css';
+
+const shuffle = (items) => {
+  const shuffled = [...items];
+  for (let index = shuffled.length - 1; index > 0; index -= 1) {
+    const swapIndex = Math.floor(Math.random() * (index + 1));
+    [shuffled[index], shuffled[swapIndex]] = [shuffled[swapIndex], shuffled[index]];
+  }
+  return shuffled;
+};
+
+const gradeLabel = (grade) => ({ P1: '小一', P2: '小二', P3: '小三' }[grade] || grade);
+const tips = { 'math-number-line': '先看每一格代表多少，再由起點向右數到目標數字。', 'math-ten-frame': '先逐格數清楚；湊十時，空格數量就是還需要的數量。', 'math-choice': '圈出題目中的數字與運算詞，再用算式或心算檢查答案。' };
+
+function MathFrame({ unit, taskLabel }) {
+  const grade = unit.id.split('-')[0];
+  return <><header className="activity-workbench-frame math-activity-frame"><span className="activity-file-tab">{grade}<br />MATH</span><div className="activity-brand-lockup"><span className="activity-brand-mark"><i></i><i></i><i></i><Sparkles size={18} /></span><div><b>Edu<span>Quest</span></b><small>小學課堂展示版</small></div></div><div className="activity-course-file"><span>{gradeLabel(grade)}・數學</span><b>{unit.area}・{unit.title}</b></div>{taskLabel !== '結算' && <ExamTimer />}<div className="activity-task-stamp"><span>教師工作紙</span><b>{taskLabel}</b></div></header>{taskLabel !== '結算' && <HintSatchel title="數學解題錦囊" hint={tips[unit.interaction] || '先讀清楚題目，再以圖像、算式或估算檢查答案。'} />}</>;
+}
+
+function NumberLine({ line, selected, onSelect, disabled }) {
+  const values = [];
+  for (let value = line.start; value <= line.end; value += line.step) values.push(value);
+  const compact = values.length > 11;
+  const mobileInterval = Math.max(1, Math.ceil((values.length - 1) / 4));
+  return <section className="math-visual-card number-line-card"><div className="math-visual-head"><span>數線</span><small>每格代表 {line.step}</small></div><div className="number-line-track" aria-label={`${line.start} 至 ${line.end} 的數線`}>{values.map((value, index) => { const mobileLabel = index === 0 || index === values.length - 1 || index % mobileInterval === 0; return <button type="button" key={value} disabled={disabled} className={`${selected === value ? 'selected' : ''} ${mobileLabel ? 'mobile-label' : ''} ${index % (compact ? 2 : 1) === 0 ? 'labelled' : ''}`} onClick={() => onSelect(value)}><i></i><b>{index % (compact ? 2 : 1) === 0 ? value.toLocaleString() : ''}</b></button>; })}</div><p>點選你認為正確的數線刻度。</p></section>;
+}
+
+function TenFrame({ frame, selectedFill, onToggle, disabled }) {
+  const emptyCount = Math.max(0, 10 - frame.initial);
+  return <section className="math-visual-card ten-frame-card"><div className="math-visual-head"><span>十格框</span><small>{frame.removed ? `已劃走 ${frame.removed} 個` : `可加入 ${emptyCount} 個`}</small></div><div className="ten-frame-grid" aria-label="十格框">{Array.from({ length: 10 }, (_, index) => {
+    const isFilled = index < frame.initial;
+    const isRemoved = frame.removed && index < frame.removed;
+    const isAdded = !frame.removed && selectedFill.has(index);
+    const selectable = !isFilled && !frame.removed;
+    return <button type="button" key={index} disabled={disabled || !selectable} onClick={() => selectable && onToggle(index)} className={`${isFilled ? 'filled' : ''} ${isRemoved ? 'removed' : ''} ${isAdded ? 'added' : ''}`} aria-label={`第 ${index + 1} 格${isFilled ? '已有點' : isAdded ? '已加入點' : '空格'}`}>{(isFilled && !isRemoved) || isAdded ? <i>●</i> : isRemoved ? <i>×</i> : null}</button>;
+  })}</div>{!frame.removed && <p>點選空格加入點，再按「以十格框作答」。</p>}{frame.removed ? <p>紅色格表示已劃走，數一數餘下的綠色點。</p> : null}</section>;
+}
+
+export default function MathActivity({ unit, onBack, onComplete }) {
+  const [questions, setQuestions] = useState(() => shuffle(unit.questions));
+  const [questionIndex, setQuestionIndex] = useState(0);
+  const [selected, setSelected] = useState(null);
+  const [feedback, setFeedback] = useState(null);
+  const [shuffleRound, setShuffleRound] = useState(0);
+  const [frameFill, setFrameFill] = useState(new Set());
+  const [showSummary, setShowSummary] = useState(false);
+  const [attempts, setAttempts] = useState(0);
+  const [correctCount, setCorrectCount] = useState(0);
+  const question = questions[questionIndex];
+  const choices = useMemo(() => question.choices ? shuffle(question.choices) : [], [question, shuffleRound]);
+
+  const retry = () => { setSelected(null); setFeedback(null); setShuffleRound((round) => round + 1); setFrameFill(new Set()); };
+  const answer = (choice) => { if (feedback) return; const correct = choice === question.answer; setSelected(choice); setAttempts((count) => count + 1); if (correct) setCorrectCount((count) => count + 1); setFeedback({ correct }); };
+  const toggleFrame = (index) => setFrameFill((current) => { const next = new Set(current); if (next.has(index)) next.delete(index); else next.add(index); return next; });
+  const answerFrame = () => answer(frameFill.size);
+  const next = () => {
+    if (questionIndex >= questions.length - 1) { pauseExamTimer(); onComplete?.(unit, questions.map((item) => item.id)); setShowSummary(true); return; }
+    setQuestionIndex((index) => index + 1); retry();
+  };
+  const replay = () => { setQuestions(shuffle(unit.questions)); setQuestionIndex(0); setSelected(null); setFeedback(null); setShuffleRound(0); setFrameFill(new Set()); setShowSummary(false); setAttempts(0); setCorrectCount(0); };
+
+  if (showSummary) return <main className="site-shell math-activity-page"><MathFrame unit={unit} taskLabel="結算" /><UnitResultSummary unit={unit} total={questions.length} correct={correctCount} attempts={attempts} onBack={onBack} onReplay={replay} title="數學任務完成" description="本單元已完成。教師可利用答對題數、正確率和已計時間，安排重溫或下一個數與代數任務。" noun="題" backLabel="返回數學目錄" /></main>;
+
+  const isFrameAdd = unit.interaction === 'math-ten-frame' && !question.frame.removed;
+  return <main className="site-shell math-activity-page"><MathFrame unit={unit} taskLabel={`任務 ${questionIndex + 1} / ${questions.length}`} /><header className="match-topbar math-match-topbar"><button onClick={onBack} className="match-back">返回數學目錄</button><div><span>{unit.area}・{unit.title}</span><b>第 {questionIndex + 1} / {questions.length} 題</b></div><div className="match-progress" aria-label={`進度 ${questionIndex + 1} / ${questions.length}`}><i style={{ width: `${((questionIndex + 1) / questions.length) * 100}%` }} /></div></header><section className="math-activity-stage"><div className="math-heading"><span><Sparkles size={16} /> {unit.interaction === 'math-number-line' ? '數線互動' : unit.interaction === 'math-ten-frame' ? '十格框互動' : '數學練習'}</span><h1>{question.prompt}</h1><p>老師提示：{tips[unit.interaction]}</p></div><section className="math-worksheet">{unit.interaction === 'math-number-line' ? <NumberLine line={question.line} selected={selected} disabled={Boolean(feedback)} onSelect={answer} /> : unit.interaction === 'math-ten-frame' ? <TenFrame frame={question.frame} selectedFill={frameFill} onToggle={toggleFrame} disabled={Boolean(feedback)} /> : <section className="math-problem-card"><span>問題</span><b>{question.prompt}</b><small>請從下方選出最合適的答案。</small></section>}{isFrameAdd && !feedback ? <button className="math-frame-submit" onClick={answerFrame}>以十格框作答 <ChevronRight size={17} /></button> : null}{(!isFrameAdd || feedback) && unit.interaction !== 'math-number-line' && choices.length ? <section className="math-answer-zone"><div className="bank-title"><span>選擇答案</span><small>每次開始會重新排列</small></div><div className="math-option-grid">{choices.map((choice, index) => <button key={String(choice)} disabled={Boolean(feedback)} onClick={() => answer(choice)} className={selected === choice ? feedback?.correct ? 'selected-correct' : 'selected-wrong' : ''}><span>{String.fromCharCode(65 + index)}</span><b>{choice}</b></button>)}</div></section> : null}</section>{feedback && <section className={`math-feedback ${feedback.correct ? 'correct' : 'incorrect'}`} role="status"><div>{feedback.correct ? <Check size={22} /> : <X size={22} />}</div><section><b>{feedback.correct ? '答對了！' : '這次還未選中正確答案。'}</b><p>{feedback.correct ? question.explanation : <>正確答案是 <strong>{question.answer}</strong>。{question.explanation}</>}</p><div className="complete-actions">{feedback.correct ? <button onClick={next}>{questionIndex === questions.length - 1 ? '查看結算' : '下一題'} <ChevronRight size={17} /></button> : <button onClick={retry}><RotateCcw size={16} /> 依提示再試</button>}<button onClick={onBack}><ArrowLeft size={16} /> 返回數學目錄</button></div></section></section>}</section></main>;
+}

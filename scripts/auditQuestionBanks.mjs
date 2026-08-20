@@ -46,10 +46,10 @@ function similarity(left, right) {
 }
 
 const banks = [];
-for (const subject of ['chinese', 'english']) {
-  for (const grade of grades) {
-    const module = await import(`../client/src/data/questionBanks/${subject}/${grade.toLowerCase()}.${subject === 'chinese' ? 'js' : 'js'}`);
-    banks.push({ subject: subject === 'chinese' ? '中文' : '英文', grade, bank: module.default });
+for (const [subject, label, availableGrades] of [['chinese', '中文', grades], ['english', '英文', grades], ['math', '數學', ['P1', 'P2', 'P3']]]) {
+  for (const grade of availableGrades) {
+    const module = await import(`../client/src/data/questionBanks/${subject}/${grade.toLowerCase()}.js`);
+    banks.push({ subject: label, grade, bank: module.default });
   }
 }
 

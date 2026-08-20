@@ -19,7 +19,8 @@ const buildSession = (unit) => shuffle(unit.passageSets).flatMap((passage, passa
 
 function ReadingFrame({ unit, taskLabel }) {
   const grade = unit.id.split('-')[0];
-  return <><header className="activity-workbench-frame english-activity-frame"><span className="activity-file-tab">{grade}<br />ENGLISH</span><div className="activity-brand-lockup"><span className="activity-brand-mark"><i></i><i></i><i></i><Sparkles size={18} /></span><div><b>Edu<span>Quest</span></b><small>小學課堂展示版</small></div></div><div className="activity-course-file"><span>小四・英文</span><b>{unit.area}・{unit.title}</b></div><div className="activity-task-stamp"><span>課堂工作紙</span><b>{taskLabel}</b></div></header>{taskLabel !== '結算' && <HintSatchel title="英文閱讀錦囊" hint="先讀完整篇材料，再圈出題目關鍵詞；回答推論題時，要用文中線索支持你的選擇。" />}</>;
+  const label = { P4: '小四', P5: '小五', P6: '小六' }[grade] || grade;
+  return <><header className="activity-workbench-frame english-activity-frame"><span className="activity-file-tab">{grade}<br />ENGLISH</span><div className="activity-brand-lockup"><span className="activity-brand-mark"><i></i><i></i><i></i><Sparkles size={18} /></span><div><b>Edu<span>Quest</span></b><small>小學課堂展示版</small></div></div><div className="activity-course-file"><span>{label}・英文</span><b>{unit.area}・{unit.title}</b></div><div className="activity-task-stamp"><span>課堂工作紙</span><b>{taskLabel}</b></div></header>{taskLabel !== '結算' && <HintSatchel title="英文閱讀錦囊" hint="先讀完整篇材料，再圈出題目關鍵詞；回答推論題時，要用文中線索支持你的選擇。" />}</>;
 }
 
 export default function EnglishReadingActivity({ unit, onBack, onComplete }) {

@@ -4,6 +4,31 @@ const makeQuestions = (unitId, rows) => rows.map(([symbol, sentence, answer, cho
   prompt: '選出最合適的英文答案。', symbol, sentence, answer, choices: choices.split('|'), explanation,
 }));
 
+const readingPassageSets = [
+  {
+    id: 'P6-EN-R01-P01', title: 'The Stream Clean-up Plan', type: 'project report',
+    text: 'Last term, the P6 Eco Team planned a weekend clean-up beside Maple Stream. The team had hoped to remove litter before the rainy season, but a storm warning was issued two days before the event. The teacher in charge told the volunteers, “We will put off the clean-up until it is safe.” Later, she explained that the group would set off at eight o’clock on the new date and would work in pairs. If the water level rose again, the event would be called off. On the clean-up day, students collected 28 bags of rubbish and separated recyclable bottles from other waste. They also made signs asking visitors not to leave plastic near the stream.',
+    questions: [
+      { id: 'P6-EN-R01-Q01', passageId: 'P6-EN-R01-P01', skill: 'detail', prompt: 'Why was the original clean-up date changed?', answer: 'A storm warning had been issued.', choices: ['A storm warning had been issued.', 'The stream had no rubbish.', 'Students had an exam.', 'The signs were not ready.'], explanation: 'The passage says that a storm warning was issued two days before the event.' },
+      { id: 'P6-EN-R01-Q02', passageId: 'P6-EN-R01-P01', skill: 'phrasal verb', prompt: 'What does “put off” mean in the teacher’s message?', answer: 'Delay until later', choices: ['Delay until later', 'Start earlier', 'Look after carefully', 'Search in a dictionary'], explanation: 'The clean-up was moved to a new date, so put off means delay.' },
+      { id: 'P6-EN-R01-Q03', passageId: 'P6-EN-R01-P01', skill: 'reported speech', prompt: 'Which correctly reports the teacher’s message?', answer: 'She said that they would put off the clean-up until it was safe.', choices: ['She said that they would put off the clean-up until it was safe.', 'She said that they will put off the clean-up until it is safe.', 'She said that they put off the clean-up yesterday.', 'She said that they would call off the stream.'], explanation: 'In reported speech, “will” changes to “would” and “it is” changes to “it was”.' },
+      { id: 'P6-EN-R01-Q04', passageId: 'P6-EN-R01-P01', skill: 'conditional inference', prompt: 'What would happen if the water level rose again?', answer: 'The event would be called off.', choices: ['The event would be called off.', 'Students would collect more bags.', 'The team would start at eight.', 'Visitors would make new signs.'], explanation: 'The teacher explained this exact safety condition in the passage.' },
+      { id: 'P6-EN-R01-Q05', passageId: 'P6-EN-R01-P01', skill: 'main idea', prompt: 'What is the main purpose of the P6 Eco Team’s project?', answer: 'To clean the stream safely and reduce litter.', choices: ['To clean the stream safely and reduce litter.', 'To build a new bridge.', 'To teach visitors how to swim.', 'To collect rainwater for school.'], explanation: 'The team delayed for safety, removed litter and made signs to prevent more plastic waste.' },
+    ],
+  },
+  {
+    id: 'P6-EN-R01-P02', title: 'A Fairer Lunch Queue', type: 'student proposal',
+    text: 'At Lakeside Primary, some pupils complained that they spent too long waiting for lunch. The Student Council observed the queue for five days and found that the longest wait was 18 minutes on Wednesdays. They noticed that many children decided what to buy only when they reached the counter. The council proposed a two-part solution. First, menus would be displayed outside the canteen so pupils could choose earlier. Second, students who brought lunch from home would use a separate line. The principal said that the plan might work if everyone followed the new signs. After a two-week trial, the council will compare the waiting times and report the results to all classes.',
+    questions: [
+      { id: 'P6-EN-R01-Q06', passageId: 'P6-EN-R01-P02', skill: 'detail', prompt: 'On which day was the lunch wait the longest?', answer: 'Wednesday', choices: ['Wednesday', 'Monday', 'Friday', 'Every day'], explanation: 'The council found that the longest wait, 18 minutes, was on Wednesdays.' },
+      { id: 'P6-EN-R01-Q07', passageId: 'P6-EN-R01-P02', skill: 'inference', prompt: 'Why will menus be displayed outside the canteen?', answer: 'Pupils can decide what to buy before reaching the counter.', choices: ['Pupils can decide what to buy before reaching the counter.', 'The canteen will sell fewer meals.', 'Teachers will choose lunch for pupils.', 'The queue will become longer.'], explanation: 'The observation showed that deciding at the counter caused delays.' },
+      { id: 'P6-EN-R01-Q08', passageId: 'P6-EN-R01-P02', skill: 'vocabulary', prompt: 'What does “trial” most nearly mean in the passage?', answer: 'A test for a short period', choices: ['A test for a short period', 'A final school rule', 'A long holiday', 'A student competition'], explanation: 'The plan will be tried for two weeks before the council compares results.' },
+      { id: 'P6-EN-R01-Q09', passageId: 'P6-EN-R01-P02', skill: 'conditional meaning', prompt: 'What does the principal mean by “if everyone followed the new signs”?', answer: 'The plan depends on people following the system.', choices: ['The plan depends on people following the system.', 'The signs are only for teachers.', 'The canteen will close immediately.', 'Everyone must bring lunch from home.'], explanation: 'The principal states a condition: the system can work only when people follow the signs.' },
+      { id: 'P6-EN-R01-Q10', passageId: 'P6-EN-R01-P02', skill: 'evaluation', prompt: 'Which evidence would best show that the plan was successful?', answer: 'Average waiting times became shorter after two weeks.', choices: ['Average waiting times became shorter after two weeks.', 'More pupils complained about the queue.', 'Menus were removed from outside the canteen.', 'The Student Council stopped observing lunch.'], explanation: 'The purpose is to reduce waiting, so shorter average waiting times would be the strongest evidence.' },
+    ],
+  },
+];
+
 const p6EnglishBank = {
   grade: 'P6', subject: '英文',
   units: [
@@ -79,6 +104,7 @@ const p6EnglishBank = {
       { id: 'P6-EN-RW02-Q09', prompt: '把直接說話改寫成間接引語。', instruction: '使用 Sam said that... 開始，留意 now 的變化。', source: 'Sam said, “I am doing my project now.”', focus: 'I → he；am doing → was doing；now → then', placeholder: 'Sam said that ...', target: 'Sam said that he was doing his project then.', hint: 'now 通常改為 then。', explanation: '現在進行式後退為 was doing，now 轉為 then。' },
       { id: 'P6-EN-RW02-Q10', prompt: '把直接說話改寫成間接引語。', instruction: '使用 Mum said that... 開始，留意 is 的變化。', source: 'Mum said, “Dinner is ready.”', focus: 'is → was', placeholder: 'Mum said that ...', target: 'Mum said that dinner was ready.', hint: 'is 後退為 was。', explanation: '一般現在式 is 在轉述時通常後退為 was。' },
     ] },
+    { id: 'P6-EN-R01', area: '進階閱讀理解', title: '證據式閱讀挑戰', objective: '閱讀較長材料後結合事實、詞義、轉述、條件句、推論及評估證據作答。', interaction: 'english-reading-comprehension', passageSets: readingPassageSets, questions: readingPassageSets.flatMap((passage) => passage.questions) },
   ],
 };
 

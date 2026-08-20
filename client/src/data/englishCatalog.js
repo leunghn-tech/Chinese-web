@@ -58,6 +58,7 @@ const englishCatalog = {
       { title: 'Passive Voice 被動語態', detail: 'Object + am／is／are／was／were + P.P. 的初階用法。', goal: '把焦點放在動作承受者，完成主動與被動轉換。' },
       { title: 'Relative Clauses 關係從句', detail: 'who 修飾人、which 修飾物、whose 表示所屬。', goal: '以關係代名詞合併有關連的句子。' },
       { title: 'Correlative Conjunctions', detail: 'both...and..., either...or..., neither...nor...。', goal: '用成對連接詞清楚表達並列和選擇關係。' },
+      { title: 'Advanced Reading 閱讀理解', detail: '閱讀較長材料，結合細節、詞義、事件次序、推論及主旨作答。', goal: '以文中資料和合理推論回答多題組合。' },
     ],
   },
   P6: {
@@ -69,6 +70,7 @@ const englishCatalog = {
       { title: 'Reported Speech 間接引語', detail: '直接對話轉述；時態後退、代名詞及時間詞變換。', goal: '把直接說話準確改寫成第三人稱轉述。' },
       { title: 'Gerunds & Infinitives', detail: 'enjoy, dislike, look forward to 後接 V-ing；decide, want, hope, agree 後接 to V。', goal: '按動詞搭配選用 V-ing 或 to + verb。' },
       { title: 'Phrasal Verbs 短語動詞', detail: 'look up, look after, put off, call off, set off。', goal: '在語境中理解並運用常用短語動詞。' },
+      { title: 'Advanced Reading 閱讀理解', detail: '閱讀較長材料，結合細節、詞義、轉述、條件句、推論及評估證據作答。', goal: '以文本證據支持高階理解及評估答案。' },
     ],
   },
 };

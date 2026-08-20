@@ -13,6 +13,7 @@ const p3EnglishBank = (await import('../client/src/data/questionBanks/english/p3
 const p4EnglishBank = (await import('../client/src/data/questionBanks/english/p4.js')).default;
 const p5EnglishBank = (await import('../client/src/data/questionBanks/english/p5.js')).default;
 const p6EnglishBank = (await import('../client/src/data/questionBanks/english/p6.js')).default;
+const { mathQuestionBanks } = await import('../client/src/data/questionBanks/math/index.js');
 const englishCatalog = (await import('../client/src/data/englishCatalog.js')).default;
 const chineseCatalog = (await import('../client/src/data/chineseCatalog.js')).default;
 const { englishPracticeLinks, chinesePracticeLinks } = await import('../client/src/data/catalogPracticeLinks.js');
@@ -228,6 +229,51 @@ for (const [name, id, interaction] of p6EnglishRewriteUnits) {
     if (unit.questions.length !== 10) errors.push(`P6 英文句子改寫「${name}」必須剛好有十題。`);
     for (const question of unit.questions) {
       if (!question.id || !question.prompt || !question.instruction || !question.source || !question.focus || !question.target || !question.hint || !question.explanation) errors.push(`${question.id || name} 缺少句子改寫必要資料。`);
+    }
+  }
+}
+
+function validateEnglishReadingUnit(bank, grade, unitId, title) {
+  const unit = bank.units.find((item) => item.id === unitId);
+  if (!unit) { errors.push(`缺少 ${grade} 英文「${title}」閱讀題組。`); return; }
+  if (unit.interaction !== 'english-reading-comprehension') errors.push(`${unitId} 必須使用 english-reading-comprehension 互動。`);
+  if (!Array.isArray(unit.passageSets) || unit.passageSets.length !== 2 || unit.questions.length !== 10) errors.push(`${unitId} 必須包含兩篇材料及共十題。`);
+  const passageQuestionIds = [];
+  for (const passage of unit.passageSets || []) {
+    if (!passage.id || !passage.title || !passage.type || !passage.text || !Array.isArray(passage.questions) || passage.questions.length !== 5) errors.push(`${unitId} 的每篇閱讀材料必須有完整資料及五題。`);
+    for (const question of passage.questions || []) {
+      passageQuestionIds.push(question.id);
+      if (question.passageId !== passage.id || !question.skill || !question.prompt || !question.answer || !question.explanation || !Array.isArray(question.choices) || question.choices.length !== 4 || !question.choices.includes(question.answer) || new Set(question.choices).size !== 4) errors.push(`${question.id || unitId} 缺少完整且唯一的英文閱讀理解資料。`);
+    }
+  }
+  const unitQuestionIds = unit.questions.map((question) => question.id);
+  if (new Set(passageQuestionIds).size !== passageQuestionIds.length || passageQuestionIds.length !== 10 || passageQuestionIds.length !== unitQuestionIds.length || passageQuestionIds.some((questionId) => !unitQuestionIds.includes(questionId))) errors.push(`${unitId} 的題組與單元題目清單必須一致。`);
+}
+
+validateEnglishReadingUnit(p5EnglishBank, 'P5', 'P5-EN-R01', '閱讀推論工作紙');
+validateEnglishReadingUnit(p6EnglishBank, 'P6', 'P6-EN-R01', '證據式閱讀挑戰');
+
+const mathRequiredUnitIds = {
+  P1: ['P1-MATH-A01', 'P1-MATH-A02', 'P1-MATH-A03', 'P1-MATH-A04', 'P1-MATH-A05'],
+  P2: ['P2-MATH-A01', 'P2-MATH-A02', 'P2-MATH-A03', 'P2-MATH-A04'],
+  P3: ['P3-MATH-A01', 'P3-MATH-A02', 'P3-MATH-A03', 'P3-MATH-A04', 'P3-MATH-A05'],
+};
+for (const [grade, unitIds] of Object.entries(mathRequiredUnitIds)) {
+  const bank = mathQuestionBanks[grade];
+  if (!bank || bank.grade !== grade || bank.subject !== '數學') { errors.push(`${grade} 數學題庫的年級或學科資料不正確。`); continue; }
+  for (const unitId of unitIds) {
+    const unit = bank.units.find((item) => item.id === unitId);
+    if (!unit) { errors.push(`缺少 ${unitId} 數學單元。`); continue; }
+    if (!['math-number-line', 'math-ten-frame', 'math-choice'].includes(unit.interaction) || !unit.objective || unit.questions.length !== 10) errors.push(`${unitId} 必須有互動類型、學習目標及十題。`);
+    for (const question of unit.questions) {
+      if (!question.id || !question.prompt || question.answer === undefined || !question.explanation) errors.push(`${question.id || unitId} 缺少題幹、答案或解析。`);
+      if (unit.interaction === 'math-number-line') {
+        const line = question.line;
+        if (!line || !Number.isFinite(line.start) || !Number.isFinite(line.end) || !Number.isFinite(line.step) || line.start >= line.end || line.step <= 0 || !Number.isFinite(question.answer) || question.answer < line.start || question.answer > line.end || (question.answer - line.start) % line.step !== 0) errors.push(`${question.id} 的數線範圍、刻度或答案不正確。`);
+      } else if (unit.interaction === 'math-ten-frame') {
+        const frame = question.frame;
+        if (!frame || !Number.isInteger(frame.initial) || frame.initial < 0 || frame.initial > 10 || !Number.isInteger(frame.removed) || frame.removed < 0 || frame.removed > frame.initial || !Array.isArray(question.choices) || question.choices.length !== 4 || !question.choices.includes(question.answer) || new Set(question.choices).size !== 4) errors.push(`${question.id} 的十格框資料或選項不正確。`);
+      } else if (!Array.isArray(question.choices) || question.choices.length !== 4 || !question.choices.includes(question.answer) || new Set(question.choices).size !== 4) errors.push(`${question.id} 必須有四個不重複選項，且包含正確答案。`);
     }
   }
 }
