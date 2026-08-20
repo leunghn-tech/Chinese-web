@@ -7,7 +7,11 @@ const makeLine = (unitId, rows) => rows.map(([prompt, answer, start, end, step, 
 const makeFrame = (unitId, rows) => rows.map(([prompt, answer, initial, removed, explanation], index) => ({ id: `${unitId}-Q${String(index + 1).padStart(2, '0')}`, prompt, answer, frame: { initial, removed }, choices: numericChoices(answer), explanation }));
 const makeChoice = (unitId, rows) => rows.map(([prompt, answer, choices, explanation], index) => ({ id: `${unitId}-Q${String(index + 1).padStart(2, '0')}`, prompt, answer, choices, explanation }));
 const withCoinVisuals = (questions, combinations) => questions.map((question, index) => ({ ...question, visual: { type: 'coins', coins: combinations[index] } }));
-const withShoppingPrompts = (questions) => questions.map((question) => ({ ...question, prompt: `${question.item} 售 $${question.price}。請把商品加入購物籃，再計算可找回多少元？` }));
+const withShoppingPrompts = (questions) => questions.map((question) => {
+  const items = question.items || [{ item: question.item, price: question.price }];
+  const names = items.map(({ item }) => item).join('、');
+  return { ...question, prompt: `購物籃限額是 $${question.limit}。請把${names}加入購物籃，計算合計後可找回多少元？` };
+});
 
 const p1MathBank = {
   grade: 'P1', subject: '數學',
@@ -27,17 +31,17 @@ const p1MathBank = {
     { id: 'P1-MATH-A05', area: '數與代數', title: '香港硬幣小幫手', objective: '認識 1、2、5、10 元硬幣，計算簡單硬幣組合。', interaction: 'math-choice', questions: withCoinVisuals(makeChoice('P1-MATH-A05', [
       ['1 枚 $5 硬幣和 2 枚 $1 硬幣，共有多少元？', 7, [7, 6, 8, 5], '$5 + $1 + $1 = $7。'], ['2 枚 $2 硬幣，共有多少元？', 4, [2, 3, 4, 5], '$2 + $2 = $4。'], ['1 枚 $10 硬幣和 1 枚 $5 硬幣，共有多少元？', 15, [10, 12, 15, 16], '$10 + $5 = $15。'], ['3 枚 $1 硬幣和 1 枚 $2 硬幣，共有多少元？', 5, [4, 5, 6, 7], '$1 + $1 + $1 + $2 = $5。'], ['2 枚 $5 硬幣，共有多少元？', 10, [5, 8, 10, 12], '$5 + $5 = $10。'], ['1 枚 $10 硬幣、1 枚 $2 硬幣和 1 枚 $1 硬幣，共有多少元？', 13, [11, 12, 13, 14], '$10 + $2 + $1 = $13。'], ['4 枚 $1 硬幣，共有多少元？', 4, [1, 3, 4, 5], '$1 + $1 + $1 + $1 = $4。'], ['1 枚 $5 硬幣、1 枚 $2 硬幣和 2 枚 $1 硬幣，共有多少元？', 9, [8, 9, 10, 11], '$5 + $2 + $1 + $1 = $9。'], ['哪一組硬幣剛好是 $10？', '$5 + $5', ['$5 + $5', '$5 + $2', '$2 + $2 + $2', '$1 + $1 + $1 + $1'], '$5 + $5 剛好是 $10。'], ['哪一組硬幣剛好是 $6？', '$5 + $1', ['$2 + $2', '$5 + $1', '$1 + $1 + $1 + $1', '$5 + $2'], '$5 加 $1 是 $6。'],
     ]), [[5, 1, 1], [2, 2], [10, 5], [1, 1, 1, 2], [5, 5], [10, 2, 1], [1, 1, 1, 1], [5, 2, 1, 1], [5, 5], [5, 1]]) },
-    { id: 'P1-MATH-A06', area: '數與代數', title: '港幣找續購物籃', objective: '把物品加入購物籃，按硬幣付款並計算 20 元以內的找續。', interaction: 'math-shopping', questions: withShoppingPrompts([
-      { id: 'P1-MATH-A06-Q01', item: '鉛筆', icon: '✏️', price: 3, paidCoins: [5], answer: 2, choices: [1, 2, 3, 5], explanation: '付 $5，物品售 $3，所以找續 $2。' },
-      { id: 'P1-MATH-A06-Q02', item: '橡皮擦', icon: '◼', price: 4, paidCoins: [5], answer: 1, choices: [1, 2, 3, 4], explanation: '付 $5，物品售 $4，所以找續 $1。' },
-      { id: 'P1-MATH-A06-Q03', item: '貼紙包', icon: '★', price: 6, paidCoins: [5, 2], answer: 1, choices: [1, 2, 3, 6], explanation: '$5 + $2 = $7；$7 − $6 = $1。' },
-      { id: 'P1-MATH-A06-Q04', item: '小筆記簿', icon: '▤', price: 7, paidCoins: [10], answer: 3, choices: [2, 3, 4, 5], explanation: '付 $10，物品售 $7，所以找續 $3。' },
-      { id: 'P1-MATH-A06-Q05', item: '尺', icon: '━', price: 8, paidCoins: [5, 5], answer: 2, choices: [1, 2, 3, 5], explanation: '$5 + $5 = $10；$10 − $8 = $2。' },
-      { id: 'P1-MATH-A06-Q06', item: '顏色筆', icon: '✦', price: 9, paidCoins: [10, 1], answer: 2, choices: [1, 2, 3, 4], explanation: '$10 + $1 = $11；$11 − $9 = $2。' },
-      { id: 'P1-MATH-A06-Q07', item: '文件夾', icon: '▣', price: 11, paidCoins: [10, 5], answer: 4, choices: [2, 3, 4, 5], explanation: '$10 + $5 = $15；$15 − $11 = $4。' },
-      { id: 'P1-MATH-A06-Q08', item: '水樽', icon: '♢', price: 12, paidCoins: [10, 5], answer: 3, choices: [1, 2, 3, 5], explanation: '$15 − $12 = $3。' },
-      { id: 'P1-MATH-A06-Q09', item: '故事書', icon: '▰', price: 14, paidCoins: [10, 5, 1], answer: 2, choices: [1, 2, 4, 5], explanation: '$10 + $5 + $1 = $16；$16 − $14 = $2。' },
-      { id: 'P1-MATH-A06-Q10', item: '美術材料包', icon: '✿', price: 17, paidCoins: [10, 5, 5], answer: 3, choices: [1, 2, 3, 5], explanation: '$20 − $17 = $3。' },
+    { id: 'P1-MATH-A06', area: '數與代數', title: '港幣找續購物籃', objective: '把多件物品加入購物籃，在限額內計算總價及找續。', interaction: 'math-shopping', questions: withShoppingPrompts([
+      { id: 'P1-MATH-A06-Q01', limit: 10, items: [{ item: '鉛筆', icon: '✏️', price: 3 }, { item: '橡皮擦', icon: '◼', price: 4 }], paidCoins: [10], answer: 3, choices: [1, 2, 3, 4], explanation: '$3 + $4 = $7；$10 − $7 = $3。' },
+      { id: 'P1-MATH-A06-Q02', limit: 20, items: [{ item: '尺', icon: '━', price: 5 }, { item: '小筆記簿', icon: '▤', price: 8 }], paidCoins: [10, 10], answer: 7, choices: [5, 6, 7, 8], explanation: '$5 + $8 = $13；$20 − $13 = $7。' },
+      { id: 'P1-MATH-A06-Q03', limit: 15, items: [{ item: '貼紙包', icon: '★', price: 6 }, { item: '鉛筆', icon: '✏️', price: 3 }, { item: '橡皮擦', icon: '◼', price: 4 }], paidCoins: [10, 5], answer: 2, choices: [1, 2, 3, 4], explanation: '$6 + $3 + $4 = $13；$15 − $13 = $2。' },
+      { id: 'P1-MATH-A06-Q04', limit: 20, items: [{ item: '故事書', icon: '▰', price: 10 }, { item: '尺', icon: '━', price: 6 }], paidCoins: [10, 10], answer: 4, choices: [2, 3, 4, 5], explanation: '$10 + $6 = $16；$20 − $16 = $4。' },
+      { id: 'P1-MATH-A06-Q05', limit: 20, items: [{ item: '水樽', icon: '♢', price: 12 }, { item: '鉛筆', icon: '✏️', price: 3 }, { item: '橡皮擦', icon: '◼', price: 4 }], paidCoins: [10, 10], answer: 1, choices: [1, 2, 3, 5], explanation: '$12 + $3 + $4 = $19；$20 − $19 = $1。' },
+      { id: 'P1-MATH-A06-Q06', limit: 25, items: [{ item: '小筆記簿', icon: '▤', price: 8 }, { item: '顏色筆', icon: '✦', price: 9 }, { item: '橡皮擦', icon: '◼', price: 2 }], paidCoins: [10, 10, 5], answer: 6, choices: [4, 5, 6, 7], explanation: '$8 + $9 + $2 = $19；$25 − $19 = $6。' },
+      { id: 'P1-MATH-A06-Q07', limit: 30, items: [{ item: '美術材料包', icon: '✿', price: 17 }, { item: '尺', icon: '━', price: 5 }, { item: '貼紙包', icon: '★', price: 2 }], paidCoins: [10, 10, 10], answer: 6, choices: [4, 5, 6, 7], explanation: '$17 + $5 + $2 = $24；$30 − $24 = $6。' },
+      { id: 'P1-MATH-A06-Q08', limit: 20, items: [{ item: '文件夾', icon: '▣', price: 11 }, { item: '鉛筆', icon: '✏️', price: 3 }, { item: '橡皮擦', icon: '◼', price: 4 }], paidCoins: [10, 10], answer: 2, choices: [1, 2, 3, 4], explanation: '$11 + $3 + $4 = $18；$20 − $18 = $2。' },
+      { id: 'P1-MATH-A06-Q09', limit: 25, items: [{ item: '故事書', icon: '▰', price: 14 }, { item: '水樽', icon: '♢', price: 8 }], paidCoins: [10, 10, 5], answer: 3, choices: [1, 2, 3, 4], explanation: '$14 + $8 = $22；$25 − $22 = $3。' },
+      { id: 'P1-MATH-A06-Q10', limit: 30, items: [{ item: '顏色筆', icon: '✦', price: 9 }, { item: '小筆記簿', icon: '▤', price: 8 }, { item: '故事書', icon: '▰', price: 10 }], paidCoins: [10, 10, 10], answer: 3, choices: [1, 2, 3, 5], explanation: '$9 + $8 + $10 = $27；$30 − $27 = $3。' },
     ]) },
   ],
 };

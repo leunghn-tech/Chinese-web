@@ -257,6 +257,9 @@ const mathRequiredUnitIds = {
   P1: ['P1-MATH-A01', 'P1-MATH-A02', 'P1-MATH-A03', 'P1-MATH-A04', 'P1-MATH-A05', 'P1-MATH-A06'],
   P2: ['P2-MATH-A01', 'P2-MATH-A02', 'P2-MATH-A03', 'P2-MATH-A04', 'P2-MATH-A05'],
   P3: ['P3-MATH-A01', 'P3-MATH-A02', 'P3-MATH-A03', 'P3-MATH-A04', 'P3-MATH-A05', 'P3-MATH-A06', 'P3-MATH-A07', 'P3-MATH-A08'],
+  P4: ['P4-MATH-F01', 'P4-MATH-D01', 'P4-MATH-P01'],
+  P5: ['P5-MATH-F01', 'P5-MATH-D01', 'P5-MATH-P01'],
+  P6: ['P6-MATH-F01', 'P6-MATH-D01', 'P6-MATH-P01'],
 };
 for (const [grade, unitIds] of Object.entries(mathRequiredUnitIds)) {
   const bank = mathQuestionBanks[grade];
@@ -274,7 +277,10 @@ for (const [grade, unitIds] of Object.entries(mathRequiredUnitIds)) {
         const frame = question.frame;
         if (!frame || !Number.isInteger(frame.initial) || frame.initial < 0 || frame.initial > 10 || !Number.isInteger(frame.removed) || frame.removed < 0 || frame.removed > frame.initial || !Array.isArray(question.choices) || question.choices.length !== 4 || !question.choices.includes(question.answer) || new Set(question.choices).size !== 4) errors.push(`${question.id} 的十格框資料或選項不正確。`);
       } else if (unit.interaction === 'math-shopping') {
-        if (!question.item || !Number.isFinite(question.price) || !Array.isArray(question.paidCoins) || !question.paidCoins.length || !Array.isArray(question.choices) || question.choices.length !== 4 || !question.choices.includes(question.answer)) errors.push(`${question.id} 缺少完整找續購物籃資料。`);
+        const items = question.items || [{ item: question.item, price: question.price }];
+        const total = items.reduce((sum, item) => sum + item.price, 0);
+        const paid = Array.isArray(question.paidCoins) ? question.paidCoins.reduce((sum, value) => sum + value, 0) : NaN;
+        if (!Array.isArray(items) || items.length < 1 || items.some((item) => !item.item || !Number.isFinite(item.price) || item.price < 0) || !Number.isFinite(question.limit) || question.limit < total || !Array.isArray(question.paidCoins) || !question.paidCoins.length || paid < total || question.answer !== paid - total || !Array.isArray(question.choices) || question.choices.length !== 4 || !question.choices.includes(question.answer) || new Set(question.choices).size !== 4) errors.push(`${question.id} 缺少完整找續購物籃資料，或商品合計、限額及找續答案不一致。`);
       } else if (unit.interaction === 'math-measurement') {
         if (!question.visual || !['ruler', 'cup', 'clock'].includes(question.visual.type) || !Array.isArray(question.choices) || question.choices.length !== 4 || !question.choices.includes(question.answer)) errors.push(`${question.id} 缺少完整量度圖解資料。`);
       } else if (unit.interaction === 'math-fraction-pie') {

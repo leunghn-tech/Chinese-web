@@ -61,10 +61,10 @@ function CourseCard({ topic, onOpen, onCatalog }) {
   const Icon = subject.icon;
   const isChinese = topic.subject === '中文';
   const isEnglish = topic.subject === '英文';
-  const isMathCatalog = topic.subject === '數學' && ['P1', 'P2', 'P3'].includes(topic.grade);
+  const isMathCatalog = topic.subject === '數學' && ['P1', 'P2', 'P3', 'P4', 'P5', 'P6'].includes(topic.grade);
   const isCatalog = isChinese || isEnglish || isMathCatalog;
   const openCard = () => isCatalog ? onCatalog(topic.grade, topic.subject) : onOpen(topic);
-  const description = isChinese ? '閱讀、寫作與分級練習' : isEnglish ? '核心文法與互動題庫' : isMathCatalog ? '數與代數・互動題庫' : topic.description;
+  const description = isChinese ? '閱讀、寫作與分級練習' : isEnglish ? '核心文法與互動題庫' : isMathCatalog ? ['P4', 'P5', 'P6'].includes(topic.grade) ? '分數・小數・百分比呈分試' : '數與代數・互動題庫' : topic.description;
   return <button type="button" className={`course-card ${subject.color} clickable-card`} onClick={openCard} aria-label={isCatalog ? `開啟 ${topic.grade} ${topic.subject}課程目錄` : `開啟 ${topic.title} 示範題`}><div className="course-card-icon"><Icon size={27} /></div><div className="course-card-main"><span>{topic.grade}・{topic.subject}</span><h3>{topic.subject}</h3><p>{description}</p></div><div className="course-card-action"><strong className="course-card-cta">{isCatalog ? '開啟課程' : '開啟示範'} <ChevronRight size={17} /></strong></div></button>;
 }
 

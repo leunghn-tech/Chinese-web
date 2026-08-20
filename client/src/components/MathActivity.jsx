@@ -9,7 +9,7 @@ import '../mathLearning.css';
 
 const objectLabels = { apple: '蘋果', pencil: '筆', book: '書本', biscuit: '餅乾', orange: '橙', flower: '花朵', chair: '椅子', sticker: '貼紙', pupil: '學生', ball: '球', sweet: '糖果', bead: '珠', flag: '旗', dot: '物件' };
 const shuffle = (items) => { const shuffled = [...items]; for (let index = shuffled.length - 1; index > 0; index -= 1) { const swapIndex = Math.floor(Math.random() * (index + 1)); [shuffled[index], shuffled[swapIndex]] = [shuffled[swapIndex], shuffled[index]]; } return shuffled; };
-const gradeLabel = (grade) => ({ P1: '小一', P2: '小二', P3: '小三' }[grade] || grade);
+const gradeLabel = (grade) => ({ P1: '小一', P2: '小二', P3: '小三', P4: '小四', P5: '小五', P6: '小六' }[grade] || grade);
 const tips = { 'math-number-line': '先看每一格代表多少，再由起點向右數到目標數字。', 'math-ten-frame': '先逐格數清楚；湊十時，空格數量就是還需要的數量。', 'math-choice': '先看圖中的數量或分組，再用算式或心算檢查答案。', 'math-measurement': '先看清楚刻度和指針，再決定要量度的數值或時間。' };
 
 function MathFrame({ unit, taskLabel }) {
