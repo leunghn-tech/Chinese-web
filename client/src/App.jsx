@@ -12,6 +12,7 @@ import EnglishChoiceActivity from './components/EnglishChoiceActivity';
 import MathActivity from './components/MathActivity';
 import MathInteractiveActivity from './components/MathInteractiveActivity';
 import TeamMonsterMathActivity from './components/TeamMonsterMathActivity';
+import TeamMonsterActivity from './components/TeamMonsterActivity';
 import EnglishReadingActivity from './components/EnglishReadingActivity';
 import EnglishSentenceActivity from './components/EnglishSentenceActivity';
 import EnglishSentenceRewriteActivity from './components/EnglishSentenceRewriteActivity';
@@ -51,6 +52,10 @@ function Brand() {
 
 function Header({ onHome, action }) {
   return <header className="topbar"><Brand /><div className="topbar-right"><span className="demo-pill">課堂試玩・可儲存進度</span><ExamTimer /><TeacherFeedbackSettings />{action}{onHome && <button className="icon-button" onClick={onHome} aria-label="返回首頁"><LayoutDashboard size={20} /></button>}</div></header>;
+}
+
+function TeacherSettingsDock() {
+  return <div className="teacher-settings-access"><TeacherFeedbackSettings /></div>;
 }
 
 function Home({ onStart }) {
@@ -135,20 +140,21 @@ export default function App() {
   const openCatalog = (grade = 'P1', subject = '中文') => { setCatalogGrade(grade); setCatalogSubject(subject); setScreen('catalog'); };
   const markUnitCompleted = (unit, questionIds = unit.questions.map((question) => question.id)) => setCompletedUnits((current) => { const previous = Array.isArray(current[unit.id]) ? current[unit.id] : current[unit.id] >= unit.questions.length ? unit.questions.map((question) => question.id) : []; const next = { ...current, [unit.id]: [...new Set([...previous, ...questionIds])] }; window.localStorage.setItem('eduquest-unit-progress', JSON.stringify(next)); return next; });
   if (screen === 'activity' && activeUnit) {
+    const [unitGrade, unitSubjectCode] = activeUnit.id?.split('-') || [];
     const backToCatalog = () => {
-      const [unitGrade, unitSubjectCode] = activeUnit.id?.split('-') || [];
       const destinationGrade = GRADES.includes(activeUnit.grade) ? activeUnit.grade : GRADES.includes(unitGrade) ? unitGrade : catalogGrade;
       const destinationSubject = activeUnit.subject || (unitSubjectCode === 'EN' ? '英文' : unitSubjectCode === 'CN' ? '中文' : unitSubjectCode === 'MATH' ? '數學' : catalogSubject);
       setCatalogGrade(destinationGrade);
       setCatalogSubject(destinationSubject);
       setScreen('catalog');
     };
+    if (activeUnit.activityMode === 'team-battle' && ['P1', 'P2', 'P3'].includes(unitGrade) && (unitSubjectCode === 'CN' || unitSubjectCode === 'EN')) return <><TeamMonsterActivity unit={activeUnit} subject={unitSubjectCode === 'CN' ? '中文' : '英文'} onBack={backToCatalog} onComplete={markUnitCompleted} /><TeacherSettingsDock /></>;
     if (activeUnit.interaction === 'english-sentence-read' || activeUnit.interaction === 'english-sentence-build') return <EnglishSentenceActivity unit={activeUnit} onBack={backToCatalog} onComplete={markUnitCompleted} />;
     if (activeUnit.interaction === 'english-reading-comprehension') return <EnglishReadingActivity unit={activeUnit} onBack={backToCatalog} onComplete={markUnitCompleted} />;
     if (activeUnit.interaction === 'english-sentence-rewrite-conditional' || activeUnit.interaction === 'english-sentence-rewrite-reported') return <EnglishSentenceRewriteActivity unit={activeUnit} onBack={backToCatalog} onComplete={markUnitCompleted} />;
     if (activeUnit.interaction === 'english-verb-memory') return <EnglishVerbMemoryActivity unit={activeUnit} onBack={backToCatalog} onComplete={markUnitCompleted} />;
     if (activeUnit.id.includes('-EN-')) return <EnglishChoiceActivity unit={activeUnit} onBack={backToCatalog} onComplete={markUnitCompleted} />;
-    if (activeUnit.activityMode === 'team-battle' && activeUnit.id.includes('-MATH-')) return <TeamMonsterMathActivity unit={activeUnit} onBack={backToCatalog} onComplete={markUnitCompleted} />;
+    if (activeUnit.activityMode === 'team-battle' && activeUnit.id.includes('-MATH-')) return <><TeamMonsterMathActivity unit={activeUnit} onBack={backToCatalog} onComplete={markUnitCompleted} /><TeacherSettingsDock /></>;
     if (['math-shopping', 'math-fraction-pie', 'math-fraction-compare'].includes(activeUnit.interaction)) return <MathInteractiveActivity unit={activeUnit} onBack={backToCatalog} onComplete={markUnitCompleted} />;
     if (activeUnit.id.includes('-MATH-')) return <MathActivity unit={activeUnit} onBack={backToCatalog} onComplete={markUnitCompleted} />;
     if (activeUnit.interaction === 'paragraph-mark') return <ParagraphMarkActivity unit={activeUnit} onBack={backToCatalog} onComplete={markUnitCompleted} />;
@@ -163,7 +169,7 @@ export default function App() {
     if (activeUnit.interaction === 'radical-sort') return <RadicalSortActivity unit={activeUnit} onBack={backToCatalog} onComplete={markUnitCompleted} />;
     return <WordMatchActivity unit={activeUnit} onBack={backToCatalog} onComplete={markUnitCompleted} />;
   }
-  if (screen === 'catalog') return catalogSubject === '英文' ? <EnglishCatalog initialGrade={catalogGrade} onBack={() => setScreen('courses')} onHome={() => setScreen('home')} completedUnits={completedUnits} onStartUnit={(unit) => { setActiveUnit(unit); setScreen('activity'); }} /> : catalogSubject === '數學' ? <MathCatalog initialGrade={catalogGrade} onBack={() => setScreen('courses')} onHome={() => setScreen('home')} completedUnits={completedUnits} onStartUnit={(unit, activityMode = 'worksheet') => { setActiveUnit({ ...unit, activityMode }); setScreen('activity'); }} /> : <UnifiedChineseCatalog initialGrade={catalogGrade} onBack={() => setScreen('courses')} onHome={() => setScreen('home')} completedUnits={completedUnits} onStartUnit={(unit) => { setActiveUnit(unit); setScreen('activity'); }} />;
+  if (screen === 'catalog') return <>{catalogSubject === '英文' ? <EnglishCatalog initialGrade={catalogGrade} onBack={() => setScreen('courses')} onHome={() => setScreen('home')} completedUnits={completedUnits} onStartUnit={(unit, activityMode = 'worksheet') => { setActiveUnit({ ...unit, activityMode }); setScreen('activity'); }} /> : catalogSubject === '數學' ? <MathCatalog initialGrade={catalogGrade} onBack={() => setScreen('courses')} onHome={() => setScreen('home')} completedUnits={completedUnits} onStartUnit={(unit, activityMode = 'worksheet') => { setActiveUnit({ ...unit, activityMode }); setScreen('activity'); }} /> : <UnifiedChineseCatalog initialGrade={catalogGrade} onBack={() => setScreen('courses')} onHome={() => setScreen('home')} completedUnits={completedUnits} onStartUnit={(unit, activityMode = 'worksheet') => { setActiveUnit({ ...unit, activityMode }); setScreen('activity'); }} />}<TeacherSettingsDock /></>;
   if (screen === 'courses') return <Courses onBack={() => setScreen('home')} onOpen={openDemo} onCatalog={openCatalog} />;
   if (screen === 'demo' && topic) return <Demo topic={topic} onBack={() => setScreen('courses')} />;
   return <Home onStart={() => setScreen('courses')} />;
